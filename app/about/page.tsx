@@ -49,7 +49,7 @@ export default function AboutPage() {
               degree in Human Centered Design &amp; Engineering. I love designing
               thoughtful digital experiences that feel intuitive, accessible,
               and a little delightful. Outside of design, you&apos;ll usually
-              find me exploring new cafes, collecting perfumes, or spending time
+              find me exploring new cafés, collecting perfumes, or spending time
               with my dogs.
             </p>
           </div>
