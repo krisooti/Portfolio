@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HighlightText } from "../../HighlightText";
 import { CaseStudyNav } from "./CaseStudyNav";
+import { HavenCaseStudy } from "./HavenCaseStudy";
 import { getProject, projects } from "../../projects";
 
 type ProjectPageProps = {
@@ -118,6 +119,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProject(slug);
 
+  if (slug === "northline") {
+    return {
+      title: "Haven - Kristi Kim",
+      description:
+        "An AI-powered interior designer matching platform case study.",
+    };
+  }
+
   return {
     title: project ? `${project.title} - Kristi Kim` : "Case Study - Kristi Kim",
     description: project?.summary,
@@ -201,6 +210,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <HighlightText>Back to work</HighlightText>
           </Link>
         </section>
+      </main>
+    );
+  }
+
+  if (slug === "northline") {
+    return (
+      <main className="site-shell">
+        <HavenCaseStudy />
       </main>
     );
   }

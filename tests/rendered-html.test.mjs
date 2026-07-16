@@ -89,3 +89,20 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /Transparent AI recommendations with matching rationale/);
   assert.match(html, /transparency over automation/i);
 });
+
+test("server-renders the Haven case study", async () => {
+  const response = await render("/work/northline");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Haven - Kristi Kim<\/title>/i);
+  assert.match(html, /AI-Powered Interior Designer Matching Platform/);
+  assert.match(html, /project-detail-sidebar/);
+  assert.match(html, /01<\/span><span class="marker-highlight">Overview/);
+  assert.match(html, /haven-desktop-mockup\.png/);
+  assert.match(html, /Haven interior designer matching homepage displayed on a desktop monitor/);
+  assert.match(html, /Style-Based Matching/);
+  assert.match(html, /AI Room Visualization/);
+  assert.match(html, /Designer Matching/);
+  assert.match(html, /AI should support decisions, not make them for users/);
+});
