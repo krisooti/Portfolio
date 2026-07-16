@@ -28,11 +28,11 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Kristi Portfolio<\/title>/i);
-  assert.match(html, /Thoughtful digital work/);
-  assert.match(html, /Selected work/);
-  assert.match(html, /Launch Studio/);
-  assert.match(html, /Client Portal/);
-  assert.match(html, /Editorial System/);
+  assert.match(html, /<title>Kristi - UX Portfolio<\/title>/i);
+  assert.match(html, /Designing quiet, useful interfaces/);
+  assert.match(html, /Featured work/);
+  assert.match(html, /Atlas/);
+  assert.match(html, /Northline/);
+  assert.match(html, /Fieldnotes/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
