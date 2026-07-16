@@ -60,11 +60,15 @@ export default function Home() {
               aria-label={`Open ${project.title} case study`}
             >
               <div className={`project-image ${project.imageClass}`}>
-                <div className="image-system" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
+                {project.cardImage ? (
+                  <img src={project.cardImage.src} alt={project.cardImage.alt} />
+                ) : (
+                  <div className="image-system" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                )}
               </div>
               <div className="project-meta">
                 <p>{project.category}</p>

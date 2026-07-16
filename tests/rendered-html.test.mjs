@@ -48,6 +48,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /MindBridge/);
   assert.match(html, /AI-powered platform that helps therapists-in-training/);
   assert.match(html, /Northline/);
+  assert.match(html, /northline-card\.png/);
+  assert.match(html, /Desktop mockup of the Haven designer discovery interface/);
   assert.match(html, /Fieldnotes/);
   assert.match(html, /UX Research/);
   assert.match(html, /Product Design/);

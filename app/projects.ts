@@ -5,6 +5,10 @@ export type Project = {
   summary: string;
   year: string;
   imageClass: string;
+  cardImage?: {
+    src: string;
+    alt: string;
+  };
   intro: string;
   challenge: string;
   approach: string;
@@ -84,6 +88,10 @@ export const projects: Project[] = [
     summary: "A premium travel planning flow built around calm decisions.",
     year: "2025",
     imageClass: "visual-northline",
+    cardImage: {
+      src: "/images/northline-card.png",
+      alt: "Desktop mockup of the Haven designer discovery interface",
+    },
     intro:
       "Northline explores how a travel app can feel refined and useful without overwhelming people with endless comparison states.",
     challenge:
