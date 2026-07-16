@@ -16,9 +16,7 @@ export default function Home() {
           Kristi Kim
         </Link>
         <nav className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#resume">Resume</a>
+          <a href="mailto:krisooti08@gmail.com">krisooti08@gmail.com</a>
         </nav>
       </header>
 
@@ -26,7 +24,9 @@ export default function Home() {
         <div className="intro-block">
           <p className="eyebrow">UX portfolio</p>
           <h1 id="intro-title">
-            Design is more than just aesthetics. I focus on what users want.
+            Hi there, I&apos;m Kristi, I design minimal, readable experiences
+            that help people move through digital products with clarity and
+            confidence.
           </h1>
         </div>
 
@@ -53,19 +53,6 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
-
-      <section id="about" className="about-section">
-        <p className="eyebrow">About</p>
-        <p>
-          I design minimal, readable experiences that help people move through
-          digital products with clarity and confidence.
-        </p>
-      </section>
-
-      <section id="resume" className="resume-section">
-        <p className="eyebrow">Resume</p>
-        <a href="mailto:hello@example.com">hello@example.com</a>
       </section>
     </main>
   );
