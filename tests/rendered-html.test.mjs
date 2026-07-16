@@ -31,6 +31,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /<title>Kristi - UX Portfolio<\/title>/i);
   assert.match(html, /Kristi/);
   assert.match(html, /Hi there, I&#x27;m Kristi/);
+  assert.doesNotMatch(html, /class="eyebrow">UX portfolio/);
   assert.match(html, /krisooti08@gmail\.com/);
   assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
   assert.doesNotMatch(html, /hello@example\.com/);

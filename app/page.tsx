@@ -26,7 +26,6 @@ export default function Home() {
       <section className="home-center" id="work" aria-labelledby="intro-title">
         <div className="intro-row">
           <div className="intro-block">
-            <p className="eyebrow">UX portfolio</p>
             <h1 id="intro-title">
               Hi there, I&apos;m Kristi, I design minimal, readable experiences
               that help people move through digital products with clarity and
