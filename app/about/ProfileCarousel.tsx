@@ -23,6 +23,29 @@ type ProfileSlide = {
   };
 };
 
+function PixelFlower({
+  placement,
+  bloomCycle,
+}: {
+  placement: "image" | "text";
+  bloomCycle: number;
+}) {
+  return (
+    <span
+      className={`pixel-flower pixel-flower--${placement}`}
+      key={`${placement}-${bloomCycle}`}
+      aria-hidden="true"
+    >
+      <span className="pixel-flower__stem" />
+      <span className="pixel-flower__leaf pixel-flower__leaf--left" />
+      <span className="pixel-flower__leaf pixel-flower__leaf--right" />
+      <span className="pixel-flower__bud" />
+      <span className="pixel-flower__petals" />
+      <span className="pixel-flower__center" />
+    </span>
+  );
+}
+
 const profileSlides: ProfileSlide[] = [
   {
     headline: "Hi there! I'm Kristi",
@@ -60,6 +83,9 @@ export default function ProfileCarousel() {
     "next",
   );
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [bloomCycle, setBloomCycle] = useState(0);
+  const [hasEnteredView, setHasEnteredView] = useState(false);
+  const carouselRef = useRef<HTMLElement | null>(null);
   const touchStartX = useRef<number | null>(null);
   const transitionTimeout = useRef<number | null>(null);
   const wheelDelta = useRef(0);
@@ -77,6 +103,7 @@ export default function ProfileCarousel() {
     setIsTransitioning(true);
     setSlideDirection(direction);
     setActiveIndex((index + profileSlides.length) % profileSlides.length);
+    setBloomCycle((currentCycle) => currentCycle + 1);
     transitionTimeout.current = window.setTimeout(() => {
       setIsTransitioning(false);
       transitionTimeout.current = null;
@@ -111,6 +138,28 @@ export default function ProfileCarousel() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (!carouselRef.current || hasEnteredView) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) {
+          return;
+        }
+
+        setHasEnteredView(true);
+        setBloomCycle((currentCycle) => currentCycle + 1);
+        observer.disconnect();
+      },
+      { threshold: 0.38 },
+    );
+
+    observer.observe(carouselRef.current);
+    return () => observer.disconnect();
+  }, [hasEnteredView]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -183,6 +232,7 @@ export default function ProfileCarousel() {
 
   return (
     <section
+      ref={carouselRef}
       className={`about-hero-redesign profile-carousel is-${slideDirection}${
         isTransitioning ? " is-transitioning" : ""
       }`}
@@ -218,6 +268,9 @@ export default function ProfileCarousel() {
                 )}
                 <span className="profile-photo-caption">{slide.caption}</span>
               </div>
+              {hasEnteredView ? (
+                <PixelFlower placement="image" bloomCycle={bloomCycle} />
+              ) : null}
               <span className="profile-hover-zone profile-hover-zone--previous">
                 <button
                   className="profile-arrow-button"
@@ -260,6 +313,9 @@ export default function ProfileCarousel() {
                 {slide.headline}
               </h1>
               <p>{slide.body}</p>
+              {hasEnteredView ? (
+                <PixelFlower placement="text" bloomCycle={bloomCycle} />
+              ) : null}
             </div>
           </div>
         ))}

@@ -212,6 +212,80 @@ html {
   }
 }
 
+@keyframes pixel-stem-bloom {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  18%,
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pixel-leaf-bloom {
+  0%,
+  18% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  36%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pixel-bud-bloom {
+  0%,
+  34% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  54%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pixel-petal-bloom {
+  0%,
+  52% {
+    opacity: 0;
+    transform: scale(0.42);
+  }
+
+  78% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pixel-flower-settle {
+  0%,
+  80% {
+    transform: translateY(0);
+  }
+
+  90% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -587,6 +661,89 @@ html {
   margin: 0 auto;
 }
 
+.pixel-flower {
+  --pixel-size: 5px;
+  --pixel-petal: #f5cbd6;
+  --pixel-stem: #9faf94;
+  --pixel-center: #f3df9a;
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: calc(var(--pixel-size) * 7);
+  height: calc(var(--pixel-size) * 9);
+  image-rendering: pixelated;
+  opacity: 0.92;
+  pointer-events: none;
+  animation: pixel-flower-settle 780ms steps(5, end) 160ms both;
+}
+
+.pixel-flower--image {
+  right: 42px;
+  bottom: 54px;
+}
+
+.pixel-flower--text {
+  --pixel-size: 4px;
+  right: min(22%, 120px);
+  bottom: -32px;
+  opacity: 0.84;
+}
+
+.pixel-flower span {
+  position: absolute;
+  display: block;
+  width: var(--pixel-size);
+  height: var(--pixel-size);
+}
+
+.pixel-flower__stem {
+  bottom: 0;
+  left: calc(var(--pixel-size) * 3);
+  height: calc(var(--pixel-size) * 5);
+  background: var(--pixel-stem);
+  transform-origin: bottom center;
+  animation: pixel-stem-bloom 680ms steps(1, end) both;
+}
+
+.pixel-flower__leaf {
+  bottom: calc(var(--pixel-size) * 2);
+  background: var(--pixel-stem);
+  animation: pixel-leaf-bloom 680ms steps(1, end) both;
+}
+
+.pixel-flower__leaf--left {
+  left: calc(var(--pixel-size) * 2);
+  transform-origin: right bottom;
+}
+
+.pixel-flower__leaf--right {
+  left: calc(var(--pixel-size) * 4);
+  transform-origin: left bottom;
+}
+
+.pixel-flower__bud,
+.pixel-flower__center {
+  top: calc(var(--pixel-size) * 2);
+  left: calc(var(--pixel-size) * 3);
+  background: var(--pixel-center);
+  animation: pixel-bud-bloom 680ms steps(1, end) 80ms both;
+}
+
+.pixel-flower__petals {
+  top: calc(var(--pixel-size) * 1);
+  left: calc(var(--pixel-size) * 3);
+  background: var(--pixel-petal);
+  box-shadow:
+    calc(var(--pixel-size) * -1) var(--pixel-size) 0 var(--pixel-petal),
+    var(--pixel-size) var(--pixel-size) 0 var(--pixel-petal),
+    0 calc(var(--pixel-size) * 2) 0 var(--pixel-petal),
+    calc(var(--pixel-size) * -1) calc(var(--pixel-size) * 2) 0
+      var(--pixel-petal),
+    var(--pixel-size) calc(var(--pixel-size) * 2) 0 var(--pixel-petal);
+  transform-origin: center;
+  animation: pixel-petal-bloom 680ms steps(2, end) 140ms both;
+}
+
 .about-photo-wrap {
   display: grid;
   justify-self: center;
@@ -811,6 +968,7 @@ html {
 }
 
 .about-intro-copy {
+  position: relative;
   display: grid;
   gap: 24px;
 }
@@ -1652,6 +1810,8 @@ html {
   .profile-carousel-progress span,
   .profile-carousel-dots button,
   .profile-carousel-controls button,
+  .pixel-flower,
+  .pixel-flower span,
   .about-intro-copy h1,
   .about-intro-copy p,
   .dog-card,
@@ -1661,5 +1821,11 @@ html {
   .reflection-card {
     transition: none;
     animation: none;
+  }
+
+  .pixel-flower,
+  .pixel-flower span {
+    opacity: 1;
+    transform: none;
   }
 }
