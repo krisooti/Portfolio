@@ -462,12 +462,15 @@ html {
   padding-top: 4px;
 }
 
-.project-tags span {
+.category-tag {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
   border: 1px solid #eee3e6;
   background: #fffafb;
   color: #746b6e;
   font-size: 11px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1;
   padding: 7px 9px;
   transition:
@@ -1079,17 +1082,7 @@ html {
   align-items: center;
   min-width: 0;
   height: auto;
-  gap: 10px;
   margin: 0 0 8px;
-  color: #8a8583;
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.case-section-label span {
-  color: #d8849a;
 }
 
 .case-hero h1,
@@ -1150,9 +1143,6 @@ html {
 
 .case-section .case-section-label {
   margin: 0 0 8px;
-  color: #8a8583;
-  font-size: 11px;
-  line-height: 1.5;
 }
 
 .case-hero .case-subtitle {

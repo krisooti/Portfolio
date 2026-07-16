@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CategoryTag } from "./CategoryTag";
 import { HighlightText } from "./HighlightText";
 import { projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
@@ -78,7 +79,7 @@ export default function Home() {
                 <p>{project.summary}</p>
                 <div className="project-tags" aria-label={`${project.title} keywords`}>
                   {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
+                    <CategoryTag key={tag}>{tag}</CategoryTag>
                   ))}
                 </div>
               </div>

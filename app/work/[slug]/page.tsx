@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CategoryTag } from "../../CategoryTag";
 import { HighlightText } from "../../HighlightText";
 import { CaseStudyNav } from "./CaseStudyNav";
 import { getProject, projects } from "../../projects";
@@ -156,16 +157,13 @@ function VisualPlaceholder({
 
 function SectionLabel({
   label,
-  number,
 }: {
   label: string;
-  number: string;
 }) {
   return (
-    <p className="case-section-label">
-      <span>{number}</span>
-      <HighlightText>{label}</HighlightText>
-    </p>
+    <div className="case-section-label">
+      <CategoryTag>{label}</CategoryTag>
+    </div>
   );
 }
 
@@ -232,7 +230,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <Link href="/#work" className="back-link">
               <HighlightText>Back to work</HighlightText>
             </Link>
-            <SectionLabel label="Overview" number="01" />
+            <SectionLabel label="Mobile UX" />
             <h1>
               <HighlightText>{project.title}</HighlightText>
             </h1>
@@ -274,7 +272,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-section" id="problem">
-            <SectionLabel label="Problem" number="02" />
+            <SectionLabel label="UX Research" />
             <div className="case-content-block">
               <h2>
                 <HighlightText>
@@ -295,7 +293,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-section" id="research">
-            <SectionLabel label="Research" number="03" />
+            <SectionLabel label="User Testing" />
             <div className="case-content-block">
               <h2>
                 <HighlightText>
@@ -334,7 +332,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-section" id="design-process">
-            <SectionLabel label="Design Process" number="04" />
+            <SectionLabel label="Design Process" />
             <h2>
               <HighlightText>
                 From research signals to a more trustworthy matching flow.
@@ -364,7 +362,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-section" id="final-solution">
-            <SectionLabel label="Final Solution" number="05" />
+            <SectionLabel label="Design System" />
             <h2>
               <HighlightText>
                 A visual system for confident supervisor discovery.
@@ -398,7 +396,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-section" id="results-learnings">
-            <SectionLabel label="Results & Learnings" number="06" />
+            <SectionLabel label="Key Learnings" />
             <div className="results-grid">
               <div>
                 <h2>
