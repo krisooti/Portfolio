@@ -16,18 +16,25 @@ export default function Home() {
           Kristi Kim
         </Link>
         <nav className="nav-links">
-          <a href="mailto:krisooti08@gmail.com">krisooti08@gmail.com</a>
+          <a href="#work">Work</a>
+          <a href="#resume">Resume</a>
+          <a href="#about">About</a>
         </nav>
       </header>
 
       <section className="home-center" id="work" aria-labelledby="intro-title">
-        <div className="intro-block">
-          <p className="eyebrow">UX portfolio</p>
-          <h1 id="intro-title">
-            Hi there, I&apos;m Kristi, I design minimal, readable experiences
-            that help people move through digital products with clarity and
-            confidence.
-          </h1>
+        <div className="intro-row">
+          <div className="intro-block">
+            <p className="eyebrow">UX portfolio</p>
+            <h1 id="intro-title">
+              Hi there, I&apos;m Kristi, I design minimal, readable experiences
+              that help people move through digital products with clarity and
+              confidence.
+            </h1>
+          </div>
+          <a className="intro-email" href="mailto:krisooti08@gmail.com">
+            krisooti08@gmail.com
+          </a>
         </div>
 
         <div className="project-grid" aria-label="Featured projects">
