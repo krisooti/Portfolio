@@ -15,21 +15,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "atlas",
-    title: "Atlas",
-    category: "Product Strategy",
-    summary: "A research workspace redesigned for faster sensemaking.",
+    slug: "tmind-ai",
+    title: "Tmind AI",
+    category: "AI Product Design",
+    summary: "A minimal AI chat experience designed for clearer thinking.",
     year: "2026",
-    imageClass: "visual-atlas",
+    imageClass: "visual-tmind",
     intro:
-      "Atlas is a concept case study for a research product that helps teams gather notes, identify patterns, and move from raw insight to confident product decisions.",
+      "Tmind AI is a concept case study for an AI chat product that helps people turn scattered questions, notes, and ideas into clearer next steps.",
     challenge:
-      "The original experience asked users to jump between documents, tags, and dashboards before they could understand the story inside their research.",
+      "AI conversations can quickly become long, hard to scan, and disconnected from the user's original goal.",
     approach:
-      "I reorganized the workflow around reading, clustering, and synthesis, then reduced the interface to a few durable surfaces that support deep focus.",
+      "I focused the experience around a calm chat surface, lightweight prompts, readable response structure, and simple ways to revisit important ideas.",
     outcome:
-      "The final direction feels quieter, faster, and more legible, with a clearer path from observation to recommendation.",
-    details: ["Research systems", "Information architecture", "UX writing"],
+      "The final direction makes AI feel more approachable and organized, supporting thoughtful conversations without adding visual noise.",
+    details: ["AI chat experience", "Conversation design", "UX writing"],
     tags: ["UX Research", "Product Design", "AI"],
   },
   {

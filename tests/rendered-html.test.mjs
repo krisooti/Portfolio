@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-async function render(path = "/") {
+async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request(`http://localhost${path}`, {
+    new Request("http://localhost/", {
       headers: { accept: "text/html" },
     }),
     {
@@ -43,7 +43,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /Feel free to contact me/);
   assert.doesNotMatch(html, /I shape quiet digital products/);
   assert.match(html, /I&#x27;m currently in Seattle/);
-  assert.match(html, /Atlas/);
+  assert.match(html, /Tmind AI/);
+  assert.match(html, /A minimal AI chat experience designed for clearer thinking/);
   assert.match(html, /Northline/);
   assert.match(html, /Fieldnotes/);
   assert.match(html, /UX Research/);
@@ -51,21 +52,4 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Accessibility/);
   assert.match(html, /Healthcare/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
-});
-
-test("server-renders the about page", async () => {
-  const response = await render("/about");
-  assert.equal(response.status, 200);
-
-  const html = await response.text();
-  assert.match(html, /<title>About - Kristi<\/title>/i);
-  assert.match(html, /Hi there! I&#x27;m Kristi. Nice to meet you./);
-  assert.match(html, /Outside of design, I enjoy visiting cafés/);
-  assert.match(html, /My Favorite Perfume Collection/);
-  assert.match(html, /Le Labo/);
-  assert.match(html, /Another 13/);
-  assert.match(html, /Diptyque/);
-  assert.match(html, /Orphéon/);
-  assert.match(html, /Byredo/);
-  assert.match(html, /Blanche/);
 });

@@ -19,8 +19,8 @@ export default function Home() {
         </Link>
         <nav className="nav-links">
           <a href="#work">Work</a>
-          <Link href="/about">About</Link>
-          <a href="mailto:krisooti08@gmail.com">Contact</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
