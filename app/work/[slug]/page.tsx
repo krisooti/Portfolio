@@ -378,14 +378,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <article
                   className={`solution-row ${
                     index % 2 === 1 ? "solution-row--reverse" : ""
-                  }`}
+                  }${screen.image ? "" : " solution-row--text-only"}`}
                   key={screen.title}
                 >
-                  <VisualPlaceholder
-                    label={`${screen.title} screen`}
-                    variant={screen.image ? "screen" : "phone"}
-                    image={screen.image}
-                  />
+                  {screen.image ? (
+                    <VisualPlaceholder
+                      label={`${screen.title} screen`}
+                      variant="screen"
+                      image={screen.image}
+                    />
+                  ) : null}
                   <div>
                     <h3>
                       <HighlightText>{screen.title}</HighlightText>

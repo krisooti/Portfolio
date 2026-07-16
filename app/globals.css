@@ -961,9 +961,9 @@ html {
 
 .case-study-shell {
   display: grid;
-  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
-  gap: clamp(42px, 7vw, 110px);
-  width: min(100%, 1220px);
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  width: min(100%, 1280px);
   margin: 0 auto;
   padding: 136px clamp(20px, 5vw, 64px) 0;
 }
@@ -972,8 +972,8 @@ html {
   position: sticky;
   top: 96px;
   align-self: start;
-  border-right: 1px solid var(--line);
-  padding: 4px 28px 4px 0;
+  border-right: 0;
+  padding: 4px 0;
 }
 
 .case-sidebar-nav {
@@ -1011,7 +1011,7 @@ html {
 }
 
 .case-study-main {
-  width: min(100%, 820px);
+  width: min(100%, 940px);
 }
 
 .case-section,
@@ -1441,6 +1441,12 @@ html {
 .solution-row > div:last-child {
   display: grid;
   gap: 16px;
+}
+
+.solution-row--text-only {
+  border: 1px solid var(--line);
+  background: #fffdfb;
+  padding: 24px;
 }
 
 .next-section {
