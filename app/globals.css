@@ -689,6 +689,16 @@ html {
   box-shadow: 0 14px 34px rgba(17, 17, 17, 0.045);
 }
 
+.dog-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 0.78;
+  border: 1px solid var(--line);
+  background: #f4f2f0;
+  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.045);
+  object-fit: cover;
+}
+
 .dog-card figcaption {
   color: #6b6664;
   font-size: 20px;

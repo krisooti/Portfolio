@@ -7,17 +7,6 @@ export const metadata: Metadata = {
     "A personal introduction to Kristi Kim, her design background, and her dogs.",
 };
 
-const dogs = [
-  {
-    name: "Dog photo 01",
-    label: "best friend no. 1",
-  },
-  {
-    name: "Dog photo 02",
-    label: "best friend no. 2",
-  },
-];
-
 export default function AboutPage() {
   return (
     <main className="site-shell">
@@ -67,14 +56,26 @@ export default function AboutPage() {
           </div>
 
           <div className="dog-photo-grid">
-            {dogs.map((dog) => (
-              <figure className="dog-card" key={dog.name}>
-                <div className="dog-photo-placeholder">
-                  <span>{dog.name}</span>
-                </div>
-                <figcaption>{dog.label}</figcaption>
-              </figure>
-            ))}
+            <figure className="dog-card">
+              <img
+                className="dog-media"
+                src="/images/hodoo.jpg"
+                alt="Hodoo, Kristi's dog"
+              />
+              <figcaption>Hodoo in photo mode</figcaption>
+            </figure>
+
+            <figure className="dog-card">
+              <video
+                className="dog-media"
+                src="/videos/hodoo.mov"
+                aria-label="Video of Hodoo"
+                controls
+                playsInline
+                preload="metadata"
+              />
+              <figcaption>Hodoo in motion</figcaption>
+            </figure>
           </div>
         </section>
       </article>
