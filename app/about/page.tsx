@@ -94,10 +94,13 @@ export default function AboutPage() {
         <section className="about-story-section about-process-tools-section">
           <div className="about-process-tools-row">
             <div className="thought-process-column">
-              <CategoryTag>DESIGN VALUES</CategoryTag>
+              <CategoryTag>MY DESIGN DESK</CategoryTag>
               <h2>
-                <HighlightText>Thought Process</HighlightText>
+                <HighlightText>My Design Desk</HighlightText>
               </h2>
+              <p className="design-desk-subtitle">
+                Little reminders I keep while designing.
+              </p>
               <StickyNoteStack />
             </div>
 

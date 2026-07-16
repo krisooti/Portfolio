@@ -6,33 +6,45 @@ const FLIP_DURATION_MS = 680;
 
 const stickyNotes = [
   {
-    title: "Understand",
-    body: "Research first. Design later.",
+    title: "People",
+    body: "Start with people, not screens.",
     doodle: "*",
     tone: "pink",
   },
   {
-    title: "Explore",
-    body: "Prototype often. Stay curious.",
-    doodle: "->",
+    title: "Interviews",
+    body: "Every interview teaches something unexpected.",
+    doodle: "o",
     tone: "cream",
   },
   {
-    title: "Refine",
-    body: "Small details create memorable experiences.",
+    title: "Details",
+    body: "Small interactions create memorable experiences.",
     doodle: "+",
     tone: "yellow",
   },
   {
-    title: "Collaborate",
-    body: "Design grows through feedback.",
-    doodle: "<3",
+    title: "Iterate",
+    body: "Iterate before polishing.",
+    doodle: "->",
     tone: "beige",
   },
   {
-    title: "Empathy",
-    body: "Always design for people.",
+    title: "Access",
+    body: "Accessibility is part of good design.",
+    doodle: "<3",
+    tone: "cream",
+  },
+  {
+    title: "Why",
+    body: 'Ask "Why?" before designing.',
     doodle: ":)",
+    tone: "beige",
+  },
+  {
+    title: "Curiosity",
+    body: "Curiosity leads better solutions.",
+    doodle: "*",
     tone: "pink",
   },
 ];
@@ -79,7 +91,7 @@ export function StickyNoteStack() {
   return (
     <div
       className="sticky-note-stack"
-      aria-label="Interactive thought process sticky notes"
+      aria-label="Interactive design desk sticky notes"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
