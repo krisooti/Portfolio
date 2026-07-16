@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 // Replace this file path with your own legally hosted local audio file.
 const MUSIC_SRC = "/audio/placeholder-tone.wav";
 // Replace these labels with your song or playlist title and artist.
-const MUSIC_TITLE = "Quiet Focus";
-const MUSIC_ARTIST = "Placeholder Audio";
+const MUSIC_TITLE = "Warm On A Cold Night";
+const MUSIC_ARTIST = "HONNE";
 
 const formatTime = (seconds: number) => {
   if (!Number.isFinite(seconds)) {

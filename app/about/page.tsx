@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 // Replace these details with your featured song or playlist.
 const MUSIC_FEATURE = {
-  title: "Music I Design To",
-  artist: "Kristi's focus playlist",
-  link: "https://open.spotify.com/",
+  title: "Warm On A Cold Night",
+  artist: "HONNE",
+  link: "https://open.spotify.com/search/HONNE%20Warm%20On%20A%20Cold%20Night",
 };
 
 export default function AboutPage() {
