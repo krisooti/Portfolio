@@ -185,7 +185,6 @@ html {
   width: min(100%, 860px);
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
-  align-self: flex-start;
   gap: clamp(22px, 4vw, 56px);
 }
 
@@ -245,6 +244,7 @@ html {
 }
 
 .intro-email {
+  justify-self: end;
   color: #6b6664;
   font-size: 13px;
   font-weight: 300;
