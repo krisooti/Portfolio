@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { CategoryTag } from "../../CategoryTag";
 import { HighlightText } from "../../HighlightText";
@@ -9,6 +10,11 @@ type ProjectPageProps = {
   params: Promise<{
     slug: string;
   }>;
+};
+
+type CaseVisualImage = {
+  src: string;
+  alt: string;
 };
 
 const caseSections = [
@@ -118,34 +124,32 @@ const solutionScreens = [
   },
 ];
 
-const mindbridgeRightGallery = [
-  {
-    title: "Research synthesis board",
+const mindbridgeVisuals = {
+  researchBoard: {
     src: "/images/mindbridge-research-board.png",
     alt: "MindBridge research synthesis board with supervisor and supervisee interview notes",
-    wide: true,
   },
-  {
-    title: "AI trust note",
+  trustNote: {
     src: "/images/mindbridge-ai-trust-note.png",
     alt: "MindBridge AI trust note before starting supervisor matching",
   },
-  {
-    title: "Advanced filters",
+  matching: {
+    src: "/images/mindbridge-matching-screen.png",
+    alt: "MindBridge clinical supervisor matching recommendations screen",
+  },
+  filters: {
     src: "/images/mindbridge-filter.png",
     alt: "MindBridge advanced filters modal",
   },
-  {
-    title: "Message flow",
+  message: {
     src: "/images/mindbridge-message-typed.png",
     alt: "MindBridge message modal with a typed supervision request",
   },
-  {
-    title: "Supervisor profile",
+  profile: {
     src: "/images/mindbridge-supervisor-profile.png",
     alt: "MindBridge supervisor profile page",
   },
-];
+};
 
 const reflectionCards = [
   "Transparency over automation.",
@@ -196,6 +200,73 @@ function VisualPlaceholder({
         )}
       </div>
       <p>{label}</p>
+    </div>
+  );
+}
+
+function EditorialImage({
+  caption,
+  image,
+  variant = "screen",
+}: {
+  caption: string;
+  image?: CaseVisualImage;
+  variant?: "screen" | "research" | "map" | "phone";
+}) {
+  return (
+    <figure className="editorial-image">
+      <VisualPlaceholder label={caption} variant={variant} image={image} />
+    </figure>
+  );
+}
+
+function ChipList({
+  items = [],
+  label,
+}: {
+  items?: string[];
+  label: string;
+}) {
+  return (
+    <div className="case-chip-group" aria-label={label}>
+      {items.map((item) => (
+        <span className="case-chip" key={item}>
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function InsightPanel({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) {
+  return (
+    <div className="case-insight-panel">
+      <h3>
+        <HighlightText>{title}</HighlightText>
+      </h3>
+      <ol>
+        {items.map((item, index) => (
+          <li key={item}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{item}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+function KeyTakeaway({ children }: { children: ReactNode }) {
+  return (
+    <div className="case-key-takeaway">
+      <span>Key takeaway</span>
+      <p>{children}</p>
     </div>
   );
 }
@@ -300,103 +371,73 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <dd>Tmind AI</dd>
               </div>
             </dl>
-            <VisualPlaceholder label="Large hero mockup" />
-
-            <div className="case-content-block">
-              <h2>
-                <HighlightText>
-                  Building transparent AI matching for supervision.
-                </HighlightText>
-              </h2>
-              <VisualPlaceholder label="Product overview screen" variant="phone" />
-              <p>
-                {project.intro} I contributed across research, product design,
-                usability testing, interaction flows, and storytelling for the
-                final case study.
-              </p>
-            </div>
+            <p>
+              {project.intro} I contributed across research, product design,
+              usability testing, interaction flows, and storytelling for the
+              final case study.
+            </p>
+            <EditorialImage
+              caption="Large hero mockup"
+              image={isMindbridge ? mindbridgeVisuals.matching : undefined}
+            />
+            <KeyTakeaway>
+              The experience prioritizes clear rationale and user control so AI
+              feels like a guide, not a hidden decision-maker.
+            </KeyTakeaway>
           </section>
 
           <section className="case-section" id="problem">
             <SectionLabel label="UX Research" />
-            <div className="case-content-block">
-              <h2>
-                <HighlightText>
-                  {project.problem ?? project.challenge}
-                </HighlightText>
-              </h2>
-              <VisualPlaceholder label="Fragmented discovery journey" variant="map" />
-              <p>{project.question}</p>
-            </div>
-            <div className="pain-card-grid" aria-label="Pain points">
-              {painPoints.map((painPoint, index) => (
-                <article className="mini-card" key={painPoint}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <p>{painPoint}</p>
-                </article>
-              ))}
-            </div>
+            <h2>
+              <HighlightText>{project.problem ?? project.challenge}</HighlightText>
+            </h2>
+            <p>{project.question}</p>
+            <EditorialImage
+              caption="Fragmented discovery journey"
+              image={isMindbridge ? mindbridgeVisuals.trustNote : undefined}
+              variant="map"
+            />
+            <InsightPanel title="Pain points" items={painPoints} />
           </section>
 
           <section className="case-section" id="research">
             <SectionLabel label="User Testing" />
-            <div className={isMindbridge ? "case-right-layout" : "case-content-block"}>
-              <div className="case-right-copy">
-                <div className="case-content-block">
-                  <h2>
-                    <HighlightText>
-                      Research clarified what users needed before trusting AI.
-                    </HighlightText>
-                  </h2>
-                  <div className="method-card-grid">
-                    {project.researchMethods?.map((method) => (
-                      <article className="mini-card" key={method}>
-                        <p>{method}</p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-
-                {!isMindbridge ? (
-                  <div className="research-visual-grid">
-                    <VisualPlaceholder label="Affinity map" variant="map" />
-                    <VisualPlaceholder label="Sticky notes" variant="research" />
-                    <VisualPlaceholder label="Research synthesis" variant="map" />
-                  </div>
-                ) : null}
-
-                <div className="insight-card-grid">
-                  {[
-                    ["User Control", project.keyInsights?.[0]],
-                    ["Transparency", project.keyInsights?.[1]],
-                    ["Low-pressure Exploration", project.keyInsights?.[2]],
-                  ].map(([title, body]) => (
-                    <article className="insight-card" key={title}>
-                      <h3>
-                        <HighlightText>{title}</HighlightText>
-                      </h3>
-                      <p>{body}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
-
-              {isMindbridge ? (
-                <aside className="case-right-gallery" aria-label="MindBridge project visuals">
-                  {mindbridgeRightGallery.map((visual) => (
-                    <figure
-                      className={`case-gallery-figure${
-                        visual.wide ? " case-gallery-figure--wide" : ""
-                      }`}
-                      key={visual.src}
-                    >
-                      <img src={visual.src} alt={visual.alt} />
-                      <figcaption>{visual.title}</figcaption>
-                    </figure>
-                  ))}
-                </aside>
-              ) : null}
+            <h2>
+              <HighlightText>
+                Research clarified what users needed before trusting AI.
+              </HighlightText>
+            </h2>
+            <p>
+              We used interviews, affinity mapping, synthesis, and usability
+              testing to understand what therapists-in-training need before they
+              feel comfortable acting on an AI recommendation.
+            </p>
+            <ChipList items={project.researchMethods} label="Research methods" />
+            <EditorialImage
+              caption="Affinity map and interview synthesis"
+              image={isMindbridge ? mindbridgeVisuals.researchBoard : undefined}
+              variant="map"
+            />
+            <div className="supporting-visual-grid">
+              <EditorialImage
+                caption="AI transparency checkpoint"
+                image={isMindbridge ? mindbridgeVisuals.trustNote : undefined}
+              />
+              <EditorialImage
+                caption="Filtering constraints"
+                image={isMindbridge ? mindbridgeVisuals.filters : undefined}
+              />
             </div>
+            <InsightPanel
+              title="Key insights"
+              items={[
+                project.keyInsights?.[0] ?? "Users wanted control over AI decisions.",
+                project.keyInsights?.[1] ??
+                  "Users needed clear explanations behind recommendations.",
+                project.keyInsights?.[2] ??
+                  "Users preferred to browse, compare, and save supervisors before committing.",
+              ]}
+            />
           </section>
 
           <section className="case-section" id="design-process">
@@ -406,27 +447,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 From research signals to a more trustworthy matching flow.
               </HighlightText>
             </h2>
-            <div className="method-card-grid" aria-label="Key design decisions">
-              {project.designDecisions?.map((decision) => (
-                <article className="mini-card" key={decision}>
-                  <p>{decision}</p>
-                </article>
-              ))}
-            </div>
+            <p>
+              The design moved from broad research signals into a focused flow
+              that makes preference-setting, recommendation rationale, and
+              outreach feel connected.
+            </p>
+            <ChipList items={project.designDecisions} label="Key design decisions" />
+            <EditorialImage
+              caption="Recommendation model exploration"
+              image={isMindbridge ? mindbridgeVisuals.matching : undefined}
+              variant="map"
+            />
             <div className="process-timeline">
               {processStages.map((stage, index) => (
                 <article className="process-step" key={stage.title}>
-                  <VisualPlaceholder
-                    label={`${String(index + 1).padStart(2, "0")} ${stage.caption}`}
-                    variant="map"
-                  />
+                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>
                     <HighlightText>{stage.title}</HighlightText>
                   </h3>
                   <p>{stage.body}</p>
+                  <small>{stage.caption}</small>
                 </article>
               ))}
             </div>
+            <KeyTakeaway>
+              The most important shift was moving from “AI score” language to
+              plain explanations that users could evaluate on their own terms.
+            </KeyTakeaway>
           </section>
 
           <section className="case-section" id="final-solution">
@@ -436,22 +483,36 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 A visual system for confident supervisor discovery.
               </HighlightText>
             </h2>
-            <div className="solution-stack">
+            <p>
+              The final solution supports a calm path from onboarding to match
+              review, profile evaluation, saving, and messaging.
+            </p>
+            <EditorialImage
+              caption="AI-powered supervisor recommendations"
+              image={isMindbridge ? mindbridgeVisuals.matching : undefined}
+            />
+            <div className="supporting-visual-grid supporting-visual-grid--three">
+              <EditorialImage
+                caption="Supervisor profile"
+                image={isMindbridge ? mindbridgeVisuals.profile : undefined}
+              />
+              <EditorialImage
+                caption="Advanced filters"
+                image={isMindbridge ? mindbridgeVisuals.filters : undefined}
+              />
+              <EditorialImage
+                caption="Messaging request"
+                image={isMindbridge ? mindbridgeVisuals.message : undefined}
+              />
+            </div>
+            <div className="solution-stack" aria-label="Final solution details">
               {solutionScreens.map((screen, index) => (
                 <article
-                  className={`solution-row ${
-                    index % 2 === 1 ? "solution-row--reverse" : ""
-                  }${screen.image && isMindbridge ? "" : " solution-row--text-only"}`}
+                  className="solution-row"
                   key={screen.title}
                 >
-                  {screen.image && isMindbridge ? (
-                    <VisualPlaceholder
-                      label={`${screen.title} screen`}
-                      variant="screen"
-                      image={screen.image}
-                    />
-                  ) : null}
-                  <div>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div className="solution-row-copy">
                     <h3>
                       <HighlightText>{screen.title}</HighlightText>
                     </h3>
@@ -461,43 +522,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </article>
               ))}
             </div>
+            <KeyTakeaway>
+              The interface helps users compare and act without rushing the
+              decision, keeping the matching process transparent and human.
+            </KeyTakeaway>
           </section>
 
           <section className="case-section" id="results-learnings">
             <SectionLabel label="Key Learnings" />
-            <div className="results-grid">
-              <div>
-                <h2>
-                  <HighlightText>Results</HighlightText>
-                </h2>
-                <ul className="result-list bullet-list">
-                  {project.impact?.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                  <li>Better exploration through saved supervisors and comparison.</li>
-                </ul>
-              </div>
-              <div>
-                <h2>
-                  <HighlightText>Learnings</HighlightText>
-                </h2>
-                <ul className="reflection-grid bullet-list">
-                  {reflectionCards.map((reflection) => (
-                    <li key={reflection}>
-                      <strong>{reflection}</strong>
-                      <span>
-                        {reflection === "Transparency over automation."
-                          ? "AI should provide meaningful guidance while keeping people in control of the final decision."
-                          : reflection === "Designing AI requires trust."
-                            ? "AI should explain and guide instead of quietly making decisions for people."
-                            : reflection === "Iteration is more valuable than first ideas."
-                              ? "Testing helped sharpen the matching rationale, comparison model, and overall flow."
-                              : "The strongest design decisions came directly from user needs and stakeholder feedback."}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <h2>
+              <HighlightText>What changed through the work.</HighlightText>
+            </h2>
+            <p>
+              The final direction made the AI logic easier to understand and
+              reduced uncertainty by supporting comparison before commitment.
+            </p>
+            <InsightPanel
+              title="Results"
+              items={[
+                ...(project.impact ?? []),
+                "Better exploration through saved supervisors and comparison.",
+              ]}
+            />
+            <EditorialImage
+              caption="Detailed supervisor profile"
+              image={isMindbridge ? mindbridgeVisuals.profile : undefined}
+            />
+            <div className="learning-stack">
+              {reflectionCards.map((reflection) => (
+                <article className="learning-note" key={reflection}>
+                  <h3>
+                    <HighlightText>{reflection}</HighlightText>
+                  </h3>
+                  <p>
+                    {reflection === "Transparency over automation."
+                      ? "AI should provide meaningful guidance while keeping people in control of the final decision."
+                      : reflection === "Designing AI requires trust."
+                        ? "AI should explain and guide instead of quietly making decisions for people."
+                        : reflection === "Iteration is more valuable than first ideas."
+                          ? "Testing helped sharpen the matching rationale, comparison model, and overall flow."
+                          : "The strongest design decisions came directly from user needs and stakeholder feedback."}
+                  </p>
+                </article>
+              ))}
             </div>
           </section>
 
