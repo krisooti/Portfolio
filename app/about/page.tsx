@@ -4,30 +4,13 @@ import Link from "next/link";
 import { CategoryTag } from "../CategoryTag";
 import { HighlightText } from "../HighlightText";
 import ProfileCarousel from "./ProfileCarousel";
+import { StickyNoteStack } from "./StickyNoteStack";
 
 export const metadata: Metadata = {
   title: "About - Kristi Kim",
   description:
     "A personal introduction to Kristi Kim and her design background.",
 };
-
-const designValues = [
-  {
-    number: "01",
-    title: "Understand",
-    body: "Learn about people, context, and the real problem before designing.",
-  },
-  {
-    number: "02",
-    title: "Explore",
-    body: "Generate ideas, test assumptions, and compare possible directions.",
-  },
-  {
-    number: "03",
-    title: "Refine",
-    body: "Improve the details through feedback, iteration, and careful craft.",
-  },
-];
 
 const toolkitGroups = [
   {
@@ -115,20 +98,7 @@ export default function AboutPage() {
               <h2>
                 <HighlightText>Thought Process</HighlightText>
               </h2>
-              <div className="thought-process-card">
-                <h3>Thought Process</h3>
-                <div className="thought-process-flow">
-                  {designValues.map((value) => (
-                    <article className="thought-process-step" key={value.title}>
-                      <span>{value.number}</span>
-                      <div>
-                        <h4>{value.title}</h4>
-                        <p>{value.body}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </div>
+              <StickyNoteStack />
             </div>
 
             <div className="toolkit-column">
