@@ -10,6 +10,7 @@ export type Project = {
   approach: string;
   outcome: string;
   details: string[];
+  tags: string[];
 };
 
 export const projects: Project[] = [
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     outcome:
       "The final direction feels quieter, faster, and more legible, with a clearer path from observation to recommendation.",
     details: ["Research systems", "Information architecture", "UX writing"],
+    tags: ["UX Research", "Product Design", "AI"],
   },
   {
     slug: "northline",
@@ -46,6 +48,7 @@ export const projects: Project[] = [
     outcome:
       "The concept turns a scattered planning process into a calm sequence of choices with visual rhythm and strong hierarchy.",
     details: ["Mobile flows", "Interaction design", "Prototype"],
+    tags: ["Mobile App", "Product Design", "Accessibility"],
   },
   {
     slug: "fieldnotes",
@@ -63,6 +66,7 @@ export const projects: Project[] = [
     outcome:
       "The result creates a calmer operating rhythm for both the client and the delivery team.",
     details: ["Service blueprint", "Portal UX", "Design system"],
+    tags: ["Healthcare", "Service Design", "UX Research"],
   },
 ];
 

@@ -122,9 +122,9 @@ a {
   margin: 0;
   max-width: 560px;
   color: #2b2928;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .intro-email {
@@ -150,17 +150,20 @@ a {
 .project-card {
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 0;
   background: #ffffff;
+  box-shadow: 0 10px 34px rgba(17, 17, 17, 0.04);
   transition:
     border-color 240ms ease,
     background-color 240ms ease,
+    box-shadow 240ms ease,
     transform 240ms ease;
 }
 
 .project-card:hover {
   border-color: var(--pink);
   background: var(--pink-soft);
+  box-shadow: 0 16px 42px rgba(17, 17, 17, 0.07);
   transform: translateY(-5px);
 }
 
@@ -169,6 +172,7 @@ a {
   overflow: hidden;
   aspect-ratio: 1.18 / 1;
   background: #eeeeee;
+  transition: transform 520ms ease;
 }
 
 .project-image::before {
@@ -177,10 +181,6 @@ a {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(17, 17, 17, 0.08));
   content: "";
   z-index: 1;
-}
-
-.project-card:hover .project-image {
-  transform: none;
 }
 
 .image-system {
@@ -197,6 +197,10 @@ a {
   transform: scale(1.035);
 }
 
+.project-card:hover .project-image {
+  transform: scale(1.015);
+}
+
 .image-system span {
   border: 1px solid rgba(255, 255, 255, 0.58);
   border-radius: 16px;
@@ -208,25 +212,20 @@ a {
 }
 
 .visual-atlas {
-  background:
-    linear-gradient(135deg, #f7f7f7 0%, #d9d9d9 48%, #2f2f2f 49%, #111111 100%);
+  background: #ededeb;
 }
 
 .visual-northline {
-  background:
-    radial-gradient(circle at 72% 24%, #ffffff 0 9%, transparent 10%),
-    linear-gradient(145deg, #fcfcfc 0%, #dbdbdb 48%, #9a9a9a 49%, #222222 100%);
+  background: #f5f3f2;
 }
 
 .visual-fieldnotes {
-  background:
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 58px),
-    linear-gradient(145deg, #ffffff 0%, #cfcfcf 44%, #323232 45%, #0f0f0f 100%);
+  background: #e8e5e3;
 }
 
 .project-meta {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   padding: 24px;
 }
 
@@ -257,6 +256,33 @@ a {
   font-weight: 300;
   letter-spacing: 0;
   line-height: 1.05;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding-top: 4px;
+}
+
+.project-tags span {
+  border: 1px solid #eee3e6;
+  background: #fffafb;
+  color: #746b6e;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1;
+  padding: 7px 9px;
+  transition:
+    border-color 240ms ease,
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+.project-card:hover .project-tags span {
+  border-color: var(--pink);
+  background: #ffffff;
+  color: #4a4245;
 }
 
 .about-section,

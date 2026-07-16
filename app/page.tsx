@@ -56,6 +56,11 @@ export default function Home() {
                 <p>{project.category}</p>
                 <h2>{project.title}</h2>
                 <p>{project.summary}</p>
+                <div className="project-tags" aria-label={`${project.title} keywords`}>
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </div>
             </Link>
           ))}

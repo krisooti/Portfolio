@@ -40,5 +40,9 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Atlas/);
   assert.match(html, /Northline/);
   assert.match(html, /Fieldnotes/);
+  assert.match(html, /UX Research/);
+  assert.match(html, /Product Design/);
+  assert.match(html, /Accessibility/);
+  assert.match(html, /Healthcare/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
