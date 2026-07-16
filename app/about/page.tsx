@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HighlightText } from "../HighlightText";
 import ProfileCarousel from "./ProfileCarousel";
 
 export const metadata: Metadata = {
@@ -13,13 +14,19 @@ export default function AboutPage() {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi
+          <HighlightText>Kristi</HighlightText>
           <span className="flower-mark" aria-hidden="true" />
         </Link>
         <nav className="nav-links">
-          <Link href="/#work">Work</Link>
-          <Link href="/about">About</Link>
-          <a href="mailto:krisooti08@gmail.com">Contact</a>
+          <Link href="/#work">
+            <HighlightText>Work</HighlightText>
+          </Link>
+          <Link href="/about">
+            <HighlightText>About</HighlightText>
+          </Link>
+          <a href="mailto:krisooti08@gmail.com">
+            <HighlightText>Contact</HighlightText>
+          </a>
         </nav>
       </header>
 
@@ -29,8 +36,10 @@ export default function AboutPage() {
         <section className="dogs-section" aria-labelledby="dogs-title">
           <div className="dogs-heading">
             <h2 id="dogs-title">
-              meet my dog, Hodoo (ho-doo) which means &apos;walnut&apos; in
-              Korean!
+              <HighlightText>
+                meet my dog, Hodoo (ho-doo) which means &apos;walnut&apos; in
+                Korean!
+              </HighlightText>
             </h2>
             <span aria-hidden="true">♡</span>
           </div>

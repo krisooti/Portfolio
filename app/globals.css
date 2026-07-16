@@ -115,25 +115,70 @@ html {
   content: "";
 }
 
-.intro-highlight {
+.marker-highlight {
   position: relative;
-  display: inline-block;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   isolation: isolate;
 }
 
-.intro-highlight::before {
+.marker-highlight::before {
   position: absolute;
   right: -5px;
   bottom: 0;
   left: -5px;
   z-index: -1;
   height: 0.62em;
-  background: var(--pink);
+  background:
+    linear-gradient(
+      92deg,
+      rgba(245, 203, 214, 0.32),
+      rgba(245, 203, 214, 0.62) 48%,
+      rgba(245, 203, 214, 0.38)
+    );
+  clip-path: polygon(0 28%, 18% 14%, 48% 24%, 78% 8%, 100% 20%, 96% 86%, 70% 78%, 42% 96%, 14% 84%, 2% 100%);
   content: "";
+  opacity: 0;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: opacity 220ms ease-out;
+}
+
+:is(
+  a,
+  button,
+  h1,
+  h2,
+  h3,
+  .case-section-label,
+  .project-card,
+  .dog-card
+):hover .marker-highlight::before,
+:is(a, button):focus-visible .marker-highlight::before {
+  animation: marker-hover-swipe 450ms ease-out both;
+}
+
+.marker-highlight--persistent::before {
   opacity: 0.5;
   transform: scaleX(0);
-  transform-origin: left;
   animation: marker-swipe 4.4s ease-in-out infinite;
+}
+
+@keyframes marker-hover-swipe {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  35% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes marker-swipe {
@@ -144,6 +189,7 @@ html {
 
   42%,
   78% {
+    opacity: 0.5;
     transform: scaleX(1);
   }
 
@@ -1559,6 +1605,7 @@ html {
 
   .case-section,
   .case-sidebar-nav a,
+  .marker-highlight::before,
   .profile-carousel-frame,
   .profile-hover-zone,
   .profile-carousel-dots button,
@@ -1572,6 +1619,22 @@ html {
   .reflection-card {
     transition: none;
     animation: none;
+  }
+
+  .marker-highlight--persistent::before,
+  :is(
+    a,
+    button,
+    h1,
+    h2,
+    h3,
+    .case-section-label,
+    .project-card,
+    .dog-card
+  ):hover .marker-highlight::before,
+  :is(a, button):focus-visible .marker-highlight::before {
+    opacity: 0.5;
+    transform: scaleX(1);
   }
 
   .profile-carousel-slide,

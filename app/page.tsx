@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HighlightText } from "./HighlightText";
 import { projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
 
@@ -14,13 +15,19 @@ export default function Home() {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi
+          <HighlightText>Kristi</HighlightText>
           <span className="flower-mark" aria-hidden="true" />
         </Link>
         <nav className="nav-links">
-          <a href="#work">Work</a>
-          <Link href="/about">About</Link>
-          <a href="#contact">Contact</a>
+          <a href="#work">
+            <HighlightText>Work</HighlightText>
+          </a>
+          <Link href="/about">
+            <HighlightText>About</HighlightText>
+          </Link>
+          <a href="#contact">
+            <HighlightText>Contact</HighlightText>
+          </a>
         </nav>
       </header>
 
@@ -28,9 +35,10 @@ export default function Home() {
         <div className="intro-row">
           <div className="intro-block">
             <h1 id="intro-title">
-              Hi there, I&apos;m <span className="intro-highlight">Kristi</span>,
-              I design minimal, readable experiences that help people move
-              through digital products with clarity and confidence.
+              Hi there, I&apos;m{" "}
+              <HighlightText persistent>Kristi</HighlightText>, I design
+              minimal, readable experiences that help people move through
+              digital products with clarity and confidence.
             </h1>
             <p className="intro-status">
               <span aria-hidden="true" />
@@ -39,7 +47,7 @@ export default function Home() {
             </p>
           </div>
           <a className="intro-email" href="mailto:krisooti08@gmail.com">
-            krisooti08@gmail.com
+            <HighlightText>krisooti08@gmail.com</HighlightText>
           </a>
         </div>
 
@@ -60,7 +68,9 @@ export default function Home() {
               </div>
               <div className="project-meta">
                 <p>{project.category}</p>
-                <h2>{project.title}</h2>
+                <h2>
+                  <HighlightText>{project.title}</HighlightText>
+                </h2>
                 <p>{project.summary}</p>
                 <div className="project-tags" aria-label={`${project.title} keywords`}>
                   {project.tags.map((tag) => (

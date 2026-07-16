@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { HighlightText } from "../../HighlightText";
 
 type CaseStudyNavProps = {
   sections: {
@@ -72,7 +73,7 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
             onClick={() => setActiveSection(section.id)}
           >
             <span>{section.number}</span>
-            {section.label}
+            <HighlightText>{section.label}</HighlightText>
           </a>
         ))}
       </nav>

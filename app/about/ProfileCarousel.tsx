@@ -7,6 +7,7 @@ import {
   type TouchEvent,
   type WheelEvent,
 } from "react";
+import { HighlightText } from "../HighlightText";
 
 const TRANSITION_DURATION_MS = 520;
 const WHEEL_THRESHOLD = 58;
@@ -252,7 +253,7 @@ export default function ProfileCarousel() {
 
             <div className="about-intro-copy">
               <h1 id={index === activeIndex ? "about-title" : undefined}>
-                {slide.headline}
+                <HighlightText>{slide.headline}</HighlightText>
               </h1>
               <p>{slide.body}</p>
             </div>

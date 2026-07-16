@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HighlightText } from "../../HighlightText";
 import { CaseStudyNav } from "./CaseStudyNav";
 import { getProject, projects } from "../../projects";
 
@@ -148,7 +149,7 @@ function SectionLabel({
   return (
     <p className="case-section-label">
       <span>{number}</span>
-      {label}
+      <HighlightText>{label}</HighlightText>
     </p>
   );
 }
@@ -162,19 +163,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <main className="site-shell">
         <header className="site-nav" aria-label="Primary navigation">
           <Link href="/" className="brand-link">
-            Kristi Kim
+            <HighlightText>Kristi Kim</HighlightText>
           </Link>
           <nav className="nav-links">
-            <Link href="/#work">Work</Link>
-            <Link href="/about">About</Link>
-            <Link href="mailto:krisooti08@gmail.com">Contact</Link>
+            <Link href="/#work">
+              <HighlightText>Work</HighlightText>
+            </Link>
+            <Link href="/about">
+              <HighlightText>About</HighlightText>
+            </Link>
+            <Link href="mailto:krisooti08@gmail.com">
+              <HighlightText>Contact</HighlightText>
+            </Link>
           </nav>
         </header>
         <section className="case-hero">
           <p className="eyebrow">Case study</p>
-          <h1>Project not found.</h1>
+          <h1>
+            <HighlightText>Project not found.</HighlightText>
+          </h1>
           <Link href="/#work" className="text-link">
-            Back to work
+            <HighlightText>Back to work</HighlightText>
           </Link>
         </section>
       </main>
@@ -185,12 +194,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi Kim
+          <HighlightText>Kristi Kim</HighlightText>
         </Link>
         <nav className="nav-links">
-          <Link href="/#work">Work</Link>
-          <Link href="/about">About</Link>
-          <Link href="mailto:krisooti08@gmail.com">Contact</Link>
+          <Link href="/#work">
+            <HighlightText>Work</HighlightText>
+          </Link>
+          <Link href="/about">
+            <HighlightText>About</HighlightText>
+          </Link>
+          <Link href="mailto:krisooti08@gmail.com">
+            <HighlightText>Contact</HighlightText>
+          </Link>
         </nav>
       </header>
 
@@ -200,10 +215,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="case-study-main">
           <section className="case-hero case-section is-visible" id="overview">
             <Link href="/#work" className="back-link">
-              Back to work
+              <HighlightText>Back to work</HighlightText>
             </Link>
             <SectionLabel label="Overview" number="01" />
-            <h1>{project.title}</h1>
+            <h1>
+              <HighlightText>{project.title}</HighlightText>
+            </h1>
             <p className="case-subtitle">{project.category}</p>
             <p className="case-summary">{project.summary}</p>
             <dl className="case-meta-row">
@@ -228,7 +245,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="case-section-grid">
               <div>
-                <h2>Building transparent AI matching for supervision.</h2>
+                <h2>
+                  <HighlightText>
+                    Building transparent AI matching for supervision.
+                  </HighlightText>
+                </h2>
                 <p>
                   {project.intro} I contributed across research, product design,
                   usability testing, interaction flows, and storytelling for the
@@ -243,7 +264,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <SectionLabel label="Problem" number="02" />
             <div className="case-section-grid">
               <div>
-                <h2>{project.problem ?? project.challenge}</h2>
+                <h2>
+                  <HighlightText>
+                    {project.problem ?? project.challenge}
+                  </HighlightText>
+                </h2>
                 <p>{project.question}</p>
               </div>
               <VisualPlaceholder label="Fragmented discovery journey" variant="map" />
@@ -262,7 +287,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <SectionLabel label="Research" number="03" />
             <div className="case-section-grid">
               <div>
-                <h2>Research clarified what users needed before trusting AI.</h2>
+                <h2>
+                  <HighlightText>
+                    Research clarified what users needed before trusting AI.
+                  </HighlightText>
+                </h2>
                 <div className="method-card-grid">
                   {project.researchMethods?.map((method) => (
                     <article className="mini-card" key={method}>
@@ -286,7 +315,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ["Low-pressure Exploration", project.keyInsights?.[2]],
               ].map(([title, body]) => (
                 <article className="insight-card" key={title}>
-                  <h3>{title}</h3>
+                  <h3>
+                    <HighlightText>{title}</HighlightText>
+                  </h3>
                   <p>{body}</p>
                 </article>
               ))}
@@ -295,7 +326,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-section" id="design-process">
             <SectionLabel label="Design Process" number="04" />
-            <h2>From research signals to a more trustworthy matching flow.</h2>
+            <h2>
+              <HighlightText>
+                From research signals to a more trustworthy matching flow.
+              </HighlightText>
+            </h2>
             <div className="method-card-grid" aria-label="Key design decisions">
               {project.designDecisions?.map((decision) => (
                 <article className="mini-card" key={decision}>
@@ -310,7 +345,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span>{String(index + 1).padStart(2, "0")}</span>
                   </div>
                   <div>
-                    <h3>{stage.title}</h3>
+                    <h3>
+                      <HighlightText>{stage.title}</HighlightText>
+                    </h3>
                     <p>{stage.body}</p>
                     <VisualPlaceholder label={stage.caption} variant="map" />
                     <small>{stage.caption}</small>
@@ -322,7 +359,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-section" id="final-solution">
             <SectionLabel label="Final Solution" number="05" />
-            <h2>A visual system for confident supervisor discovery.</h2>
+            <h2>
+              <HighlightText>
+                A visual system for confident supervisor discovery.
+              </HighlightText>
+            </h2>
             <div className="solution-stack">
               {solutionScreens.map((screen, index) => (
                 <article
@@ -333,7 +374,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 >
                   <VisualPlaceholder label={`${screen.title} screen`} variant="phone" />
                   <div>
-                    <h3>{screen.title}</h3>
+                    <h3>
+                      <HighlightText>{screen.title}</HighlightText>
+                    </h3>
                     <p>{screen.body}</p>
                     <p>{screen.rationale}</p>
                   </div>
@@ -346,7 +389,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <SectionLabel label="Results & Learnings" number="06" />
             <div className="results-grid">
               <div>
-                <h2>Results</h2>
+                <h2>
+                  <HighlightText>Results</HighlightText>
+                </h2>
                 <ul className="result-list bullet-list">
                   {project.impact?.map((item) => (
                     <li key={item}>{item}</li>
@@ -355,7 +400,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </ul>
               </div>
               <div>
-                <h2>Learnings</h2>
+                <h2>
+                  <HighlightText>Learnings</HighlightText>
+                </h2>
                 <ul className="reflection-grid bullet-list">
                   {reflectionCards.map((reflection) => (
                     <li key={reflection}>
@@ -378,7 +425,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="next-section">
             <p className="eyebrow">Next</p>
-            <Link href="/#work">Return to selected work</Link>
+            <Link href="/#work">
+              <HighlightText>Return to selected work</HighlightText>
+            </Link>
           </section>
         </div>
       </article>
