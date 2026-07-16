@@ -48,18 +48,6 @@ const toolkitGroups = [
   },
 ];
 
-const funFacts = [
-  { icon: "coffee", label: "Coffee over tea" },
-  { icon: "perfume", label: "Floral perfumes" },
-  { icon: "korea", label: "Korean" },
-  { icon: "pin", label: "Based in Seattle" },
-  { icon: "plane", label: "Loves traveling" },
-  { icon: "sun", label: "Golden hour" },
-  { icon: "paw", label: "Dog person" },
-  { icon: "cursor", label: "Building side projects" },
-  { icon: "camera", label: "Enjoys photography" },
-];
-
 function AboutSection({
   tag,
   title,
@@ -133,30 +121,22 @@ export default function AboutPage() {
         </AboutSection>
 
         <AboutSection tag="TOOLS" title="How I shape ideas into products.">
-          <div className="toolkit-grid">
+          <div className="toolkit-notebook">
+            <div className="toolkit-doodle toolkit-doodle--sparkle" aria-hidden="true" />
+            <div className="toolkit-doodle toolkit-doodle--flower" aria-hidden="true" />
+            <div className="toolkit-doodle toolkit-doodle--pencil" aria-hidden="true" />
+            <h3>Design Toolbox</h3>
             {toolkitGroups.map((group) => (
-              <article className="toolkit-card" key={group.title}>
-                <h3>{group.title}</h3>
+              <section className="toolkit-note-section" key={group.title}>
+                <h4>{group.title}</h4>
                 <ul>
                   {group.tools.map((tool) => (
-                    <li key={tool}>{tool}</li>
+                    <li key={tool}>
+                      <HighlightText>{tool}</HighlightText>
+                    </li>
                   ))}
                 </ul>
-              </article>
-            ))}
-          </div>
-        </AboutSection>
-
-        <AboutSection tag="FUN FACTS" title="A few things about me.">
-          <div className="fun-fact-tags" aria-label="Fun facts">
-            {funFacts.map((fact) => (
-              <span className="fun-fact-tag" key={fact.label}>
-                <span
-                  className={`mono-icon mono-icon--${fact.icon}`}
-                  aria-hidden="true"
-                />
-                <HighlightText>{fact.label}</HighlightText>
-              </span>
+              </section>
             ))}
           </div>
         </AboutSection>
