@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "./projects";
+import { SeattleStatus } from "./SeattleStatus";
 
 export const metadata: Metadata = {
-  title: "Kristi Kim - UX Portfolio",
+  title: "Kristi - UX Portfolio",
   description:
     "A simple, minimal UX portfolio with centered project cards and a clean modern aesthetic.",
 };
@@ -13,12 +14,12 @@ export default function Home() {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi Kim
+          Kristi
         </Link>
         <nav className="nav-links">
           <a href="#work">Work</a>
-          <a href="#resume">Resume</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -66,6 +67,24 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <section id="about" className="about-section">
+        <p className="eyebrow">About</p>
+        <p>
+          I shape quiet digital products around research, clarity, and careful
+          interaction details.
+        </p>
+      </section>
+
+      <section id="contact" className="contact-section">
+        <p>Feel free to contact me.</p>
+        <a href="mailto:krisooti08@gmail.com">krisooti08@gmail.com</a>
+      </section>
+
+      <footer className="site-footer">
+        <p>I&apos;m currently in Seattle.</p>
+        <SeattleStatus />
+      </footer>
     </main>
   );
 }

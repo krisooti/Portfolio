@@ -71,6 +71,43 @@ a {
   line-height: 1;
 }
 
+.brand-link {
+  position: relative;
+  isolation: isolate;
+}
+
+.brand-link::before {
+  position: absolute;
+  right: -4px;
+  bottom: -2px;
+  left: -4px;
+  z-index: -1;
+  height: 0.62em;
+  background: var(--pink);
+  content: "";
+  opacity: 0.54;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: marker-swipe 3.8s ease-in-out infinite;
+}
+
+@keyframes marker-swipe {
+  0%,
+  18% {
+    transform: scaleX(0);
+  }
+
+  42%,
+  78% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -178,7 +215,6 @@ a {
 .project-image::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(17, 17, 17, 0.08));
   content: "";
   z-index: 1;
 }
@@ -203,7 +239,7 @@ a {
 
 .image-system span {
   border: 1px solid rgba(255, 255, 255, 0.58);
-  border-radius: 16px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.28);
 }
 
@@ -286,7 +322,7 @@ a {
 }
 
 .about-section,
-.resume-section,
+.contact-section,
 .case-hero,
 .case-content,
 .next-section {
@@ -295,7 +331,7 @@ a {
 }
 
 .about-section,
-.resume-section {
+.contact-section {
   width: min(100%, 920px);
   margin: 0 auto;
   border-top: 1px solid var(--line);
@@ -304,18 +340,69 @@ a {
   text-align: center;
 }
 
-.resume-section a {
-  display: inline-flex;
-  border-bottom: 1px solid currentColor;
-  color: #111111;
-  transition: color 180ms ease;
+.contact-section {
+  display: grid;
+  gap: 12px;
 }
 
-.resume-section a:hover,
+.contact-section p {
+  margin: 0;
+  color: #171717;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.contact-section a {
+  display: inline-flex;
+  justify-self: center;
+  border-bottom: 1px solid currentColor;
+  color: #6b6664;
+  font-size: 13px;
+  font-weight: 300;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.contact-section a:hover,
 .text-link:hover,
 .back-link:hover,
 .next-section a:hover {
   color: #d8849a;
+  background: var(--pink-soft);
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  padding: 28px clamp(20px, 5vw, 64px);
+  color: #6b6664;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.seattle-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6b6664;
+}
+
+.seattle-status span + span {
+  position: relative;
+}
+
+.seattle-status span + span::before {
+  margin-right: 10px;
+  color: #c8bfbc;
+  content: "/";
 }
 
 .case-hero {
@@ -460,6 +547,12 @@ a {
 
   .intro-row {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 
   .project-meta {
