@@ -57,6 +57,21 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 
+test("server-renders the redesigned about page", async () => {
+  const response = await render("/about");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>About - Kristi Kim<\/title>/i);
+  assert.match(html, /Hi there! I&#x27;m Kristi/);
+  assert.match(html, /Human Centered Design &amp; Engineering/);
+  assert.match(html, /This is me :\)/);
+  assert.match(html, /Meet my best friends/);
+  assert.match(html, /Profile photo/);
+  assert.match(html, /Dog photo 01/);
+  assert.doesNotMatch(html, /Music I Design To|Music player|HONNE/);
+});
+
 test("server-renders the MindBridge case study", async () => {
   const response = await render("/work/tmind-ai");
   assert.equal(response.status, 200);

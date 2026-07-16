@@ -166,7 +166,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Link>
           <nav className="nav-links">
             <Link href="/#work">Work</Link>
-            <Link href="/#about">About</Link>
+            <Link href="/about">About</Link>
             <Link href="mailto:krisooti08@gmail.com">Contact</Link>
           </nav>
         </header>
@@ -189,7 +189,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </Link>
         <nav className="nav-links">
           <Link href="/#work">Work</Link>
-          <Link href="/#about">About</Link>
+          <Link href="/about">About</Link>
           <Link href="mailto:krisooti08@gmail.com">Contact</Link>
         </nav>
       </header>

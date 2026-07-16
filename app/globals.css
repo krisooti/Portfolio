@@ -165,6 +165,29 @@ html {
   }
 }
 
+@keyframes about-typewriter {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes about-cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes paw-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(8deg);
+  }
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -484,6 +507,170 @@ html {
   margin-right: 10px;
   color: #c8bfbc;
   content: "/";
+}
+
+.about-page {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 140px clamp(20px, 5vw, 64px) 120px;
+}
+
+.about-hero-redesign {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(42px, 8vw, 96px);
+  min-height: 58vh;
+}
+
+.about-photo-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.profile-photo-placeholder,
+.dog-photo-placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(245, 203, 214, 0.24), transparent 45%),
+    #f4f2f0;
+}
+
+.profile-photo-placeholder {
+  aspect-ratio: 0.82 / 1;
+  min-height: clamp(360px, 46vw, 560px);
+  box-shadow: 18px 18px 0 rgba(17, 17, 17, 0.035);
+}
+
+.profile-photo-placeholder::before,
+.dog-photo-placeholder::before {
+  position: absolute;
+  inset: 14%;
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  content: "";
+}
+
+.profile-photo-placeholder span,
+.dog-photo-placeholder span {
+  z-index: 1;
+  color: #8a8583;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-photo-wrap p,
+.dog-card figcaption,
+.handwritten-font {
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+}
+
+.about-photo-wrap p {
+  margin: 0;
+  color: #6b6664;
+  font-size: 22px;
+  font-weight: 300;
+  transform: rotate(-2deg);
+}
+
+.about-intro-copy {
+  display: grid;
+  gap: 24px;
+}
+
+.about-intro-copy h1 {
+  overflow: hidden;
+  width: 22ch;
+  max-width: 100%;
+  margin: 0;
+  border-right: 1px solid #171717;
+  color: #171717;
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+  animation:
+    about-typewriter 2.8s steps(22, end) both,
+    about-cursor 850ms step-end infinite;
+}
+
+.about-intro-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: #4f4a48;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.dogs-section {
+  display: grid;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  margin-top: clamp(76px, 10vw, 128px);
+  padding-top: clamp(56px, 8vw, 86px);
+}
+
+.dogs-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dogs-heading h2 {
+  margin: 0;
+  color: #171717;
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: clamp(38px, 6vw, 66px);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.dogs-heading span {
+  color: #d8849a;
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 30px;
+  transform: rotate(-8deg);
+}
+
+.dog-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 4vw, 42px);
+}
+
+.dog-card {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  transition: transform 220ms ease;
+}
+
+.dog-card:hover {
+  transform: translateY(-5px);
+}
+
+.dogs-section:has(.dog-card:hover) .dogs-heading span {
+  animation: paw-bounce 720ms ease-in-out infinite;
+}
+
+.dog-photo-placeholder {
+  aspect-ratio: 1 / 0.78;
+  min-height: 260px;
+  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.045);
+}
+
+.dog-card figcaption {
+  color: #6b6664;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .case-study-shell {
@@ -1003,6 +1190,7 @@ html {
   }
 
   .case-meta-row,
+  .about-hero-redesign,
   .case-section-grid,
   .results-grid,
   .solution-row,
@@ -1045,6 +1233,26 @@ html {
 
   .intro-status {
     align-items: flex-start;
+  }
+
+  .about-page {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .about-hero-redesign,
+  .dog-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo-placeholder {
+    min-height: 360px;
+  }
+
+  .about-intro-copy h1 {
+    width: 100%;
+    white-space: normal;
+    animation: about-cursor 850ms step-end infinite;
   }
 
   .site-footer {
@@ -1092,6 +1300,9 @@ html {
 
   .case-section,
   .case-sidebar-nav a,
+  .about-intro-copy h1,
+  .dog-card,
+  .dogs-heading span,
   .mini-card,
   .insight-card,
   .reflection-card {

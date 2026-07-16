@@ -19,7 +19,7 @@ export default function Home() {
         </Link>
         <nav className="nav-links">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
+          <Link href="/about">About</Link>
           <a href="#contact">Contact</a>
         </nav>
       </header>
