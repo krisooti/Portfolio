@@ -38,7 +38,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Work/);
   assert.match(html, /About/);
   assert.match(html, /Contact/);
-  assert.match(html, /Feel free to contact me/);
+  assert.doesNotMatch(html, /Feel free to contact me/);
+  assert.doesNotMatch(html, /I shape quiet digital products/);
   assert.match(html, /I&#x27;m currently in Seattle/);
   assert.match(html, /Atlas/);
   assert.match(html, /Northline/);

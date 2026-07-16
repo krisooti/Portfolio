@@ -67,19 +67,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="about-section">
-        <p className="eyebrow">About</p>
-        <p>
-          I shape quiet digital products around research, clarity, and careful
-          interaction details.
-        </p>
-      </section>
-
-      <section id="contact" className="contact-section">
-        <p>Feel free to contact me.</p>
-        <a href="mailto:krisooti08@gmail.com">krisooti08@gmail.com</a>
-      </section>
-
       <footer className="site-footer">
         <p>I&apos;m currently in Seattle.</p>
         <SeattleStatus />
