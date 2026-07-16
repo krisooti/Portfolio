@@ -217,31 +217,31 @@ export default function ProfileCarousel() {
                   </span>
                 )}
                 <span className="profile-photo-caption">{slide.caption}</span>
-                <span className="profile-hover-zone profile-hover-zone--previous">
-                  <button
-                    className="profile-arrow-button"
-                    type="button"
-                    onClick={goPrevious}
-                    disabled={isTransitioning}
-                    aria-label="Previous profile slide"
-                    tabIndex={index === activeIndex ? 0 : -1}
-                  >
-                    ←
-                  </button>
-                </span>
-                <span className="profile-hover-zone profile-hover-zone--next">
-                  <button
-                    className="profile-arrow-button"
-                    type="button"
-                    onClick={goNext}
-                    disabled={isTransitioning}
-                    aria-label="Next profile slide"
-                    tabIndex={index === activeIndex ? 0 : -1}
-                  >
-                    →
-                  </button>
-                </span>
               </div>
+              <span className="profile-hover-zone profile-hover-zone--previous">
+                <button
+                  className="profile-arrow-button"
+                  type="button"
+                  onClick={goPrevious}
+                  disabled={isTransitioning}
+                  aria-label="Previous profile slide"
+                  tabIndex={index === activeIndex ? 0 : -1}
+                >
+                  ←
+                </button>
+              </span>
+              <span className="profile-hover-zone profile-hover-zone--next">
+                <button
+                  className="profile-arrow-button"
+                  type="button"
+                  onClick={goNext}
+                  disabled={isTransitioning}
+                  aria-label="Next profile slide"
+                  tabIndex={index === activeIndex ? 0 : -1}
+                >
+                  →
+                </button>
+              </span>
               <div className="profile-image-preload" aria-hidden="true">
                 {profileSlides
                   .filter((preloadSlide) => preloadSlide.image)
