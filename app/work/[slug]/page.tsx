@@ -347,35 +347,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="results-grid">
               <div>
                 <h2>Results</h2>
-                <div className="result-list">
+                <ul className="result-list bullet-list">
                   {project.impact?.map((item) => (
-                    <article className="mini-card" key={item}>
-                      <p>{item}</p>
-                    </article>
+                    <li key={item}>{item}</li>
                   ))}
-                  <article className="mini-card">
-                    <p>Better exploration through saved supervisors and comparison.</p>
-                  </article>
-                </div>
+                  <li>Better exploration through saved supervisors and comparison.</li>
+                </ul>
               </div>
               <div>
                 <h2>Learnings</h2>
-                <div className="reflection-grid">
+                <ul className="reflection-grid bullet-list">
                   {reflectionCards.map((reflection) => (
-                    <article className="reflection-card" key={reflection}>
-                      <h3>{reflection}</h3>
-                      <p>
+                    <li key={reflection}>
+                      <strong>{reflection}</strong>
+                      <span>
                         {reflection === "Transparency over automation."
                           ? "AI should provide meaningful guidance while keeping people in control of the final decision."
                           : reflection === "Designing AI requires trust."
-                          ? "AI should explain and guide instead of quietly making decisions for people."
-                          : reflection === "Iteration is more valuable than first ideas."
-                            ? "Testing helped sharpen the matching rationale, comparison model, and overall flow."
-                            : "The strongest design decisions came directly from user needs and stakeholder feedback."}
-                      </p>
-                    </article>
+                            ? "AI should explain and guide instead of quietly making decisions for people."
+                            : reflection === "Iteration is more valuable than first ideas."
+                              ? "Testing helped sharpen the matching rationale, comparison model, and overall flow."
+                              : "The strongest design decisions came directly from user needs and stakeholder feedback."}
+                      </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </section>

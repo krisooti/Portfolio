@@ -69,6 +69,7 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
             href={`#${section.id}`}
             className={activeSection === section.id ? "is-active" : undefined}
             aria-current={activeSection === section.id ? "true" : undefined}
+            onClick={() => setActiveSection(section.id)}
           >
             <span>{section.number}</span>
             {section.label}
