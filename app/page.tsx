@@ -5,7 +5,7 @@ import { projects } from "./projects";
 export const metadata: Metadata = {
   title: "Kristi Kim - UX Portfolio",
   description:
-    "A modern, minimal UX portfolio with selected case studies and an editorial design sensibility.",
+    "A simple, minimal UX portfolio with centered project cards and a clean modern aesthetic.",
 };
 
 export default function Home() {
@@ -22,21 +22,16 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="hero-section">
-        <p className="eyebrow">UX portfolio</p>
-        <h1>
-          Design is more than just aesthetics. I focus on what users want.
-        </h1>
-      </section>
-
-      <section id="work" className="work-section" aria-labelledby="work-title">
-        <div className="section-heading">
-          <p className="eyebrow">Featured work</p>
-          <h2 id="work-title">Three case studies.</h2>
+      <section className="home-center" id="work" aria-labelledby="intro-title">
+        <div className="intro-block">
+          <p className="eyebrow">UX portfolio</p>
+          <h1 id="intro-title">
+            Design is more than just aesthetics. I focus on what users want.
+          </h1>
         </div>
 
-        <div className="project-stack">
-          {projects.map((project, index) => (
+        <div className="project-grid" aria-label="Featured projects">
+          {projects.map((project) => (
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
@@ -48,16 +43,12 @@ export default function Home() {
                   <span />
                   <span />
                   <span />
-                  <span />
                 </div>
               </div>
               <div className="project-meta">
-                <div>
-                  <p>{project.category}</p>
-                  <h3>{project.title}</h3>
-                </div>
+                <p>{project.category}</p>
+                <h2>{project.title}</h2>
                 <p>{project.summary}</p>
-                <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
             </Link>
           ))}
@@ -66,20 +57,14 @@ export default function Home() {
 
       <section id="about" className="about-section">
         <p className="eyebrow">About</p>
-        <div className="about-grid">
-          <h2>Minimal structure. Sharp rationale. Human outcomes.</h2>
-          <p>
-            I use research, systems thinking, and visual restraint to make
-            digital products easier to understand. This portfolio is set up for
-            concise storytelling: problem, process, and impact without excess
-            decoration.
-          </p>
-        </div>
+        <p>
+          I design minimal, readable experiences that help people move through
+          digital products with clarity and confidence.
+        </p>
       </section>
 
       <section id="resume" className="resume-section">
         <p className="eyebrow">Resume</p>
-        <h2>Available for UX, product design, and creative systems work.</h2>
         <a href="mailto:hello@example.com">hello@example.com</a>
       </section>
     </main>

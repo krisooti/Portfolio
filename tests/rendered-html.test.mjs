@@ -32,7 +32,6 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Kristi Kim/);
   assert.match(html, /Design is more than just aesthetics/);
   assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
-  assert.match(html, /Featured work/);
   assert.match(html, /Atlas/);
   assert.match(html, /Northline/);
   assert.match(html, /Fieldnotes/);
