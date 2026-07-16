@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, type TouchEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type TouchEvent,
+  type WheelEvent,
+} from "react";
 
-const TRANSITION_DURATION_MS = 450;
+const TRANSITION_DURATION_MS = 680;
+const WHEEL_THRESHOLD = 58;
 
 type ProfileSlide = {
   headline: string;
@@ -48,11 +56,16 @@ const profileSlides: ProfileSlide[] = [
 
 export default function ProfileCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"next" | "previous">(
+    "next",
+  );
   const [isTransitioning, setIsTransitioning] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const transitionTimeout = useRef<number | null>(null);
+  const wheelDelta = useRef(0);
+  const wheelFrame = useRef<number | null>(null);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index: number, direction: "next" | "previous") => {
     if (isTransitioning || index === activeIndex) {
       return;
     }
@@ -62,6 +75,7 @@ export default function ProfileCarousel() {
     }
 
     setIsTransitioning(true);
+    setSlideDirection(direction);
     setActiveIndex((index + profileSlides.length) % profileSlides.length);
     transitionTimeout.current = window.setTimeout(() => {
       setIsTransitioning(false);
@@ -69,11 +83,12 @@ export default function ProfileCarousel() {
     }, TRANSITION_DURATION_MS);
   };
 
-  const goNext = () => goToSlide(activeIndex + 1);
-  const goPrevious = () => goToSlide(activeIndex - 1);
+  const goNext = () => goToSlide(activeIndex + 1, "next");
+  const goPrevious = () => goToSlide(activeIndex - 1, "previous");
 
   const jumpToSlide = (index: number) => {
-    goToSlide(index);
+    const direction = index > activeIndex ? "next" : "previous";
+    goToSlide(index, direction);
   };
 
   useEffect(() => {
@@ -89,6 +104,10 @@ export default function ProfileCarousel() {
     return () => {
       if (transitionTimeout.current !== null) {
         window.clearTimeout(transitionTimeout.current);
+      }
+
+      if (wheelFrame.current !== null) {
+        window.cancelAnimationFrame(wheelFrame.current);
       }
     };
   }, []);
@@ -131,15 +150,48 @@ export default function ProfileCarousel() {
     touchStartX.current = null;
   };
 
+  const handleWheel = (event: WheelEvent<HTMLElement>) => {
+    if (isTransitioning) {
+      return;
+    }
+
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+      return;
+    }
+
+    wheelDelta.current += event.deltaX;
+
+    if (wheelFrame.current !== null) {
+      return;
+    }
+
+    wheelFrame.current = window.requestAnimationFrame(() => {
+      if (Math.abs(wheelDelta.current) > WHEEL_THRESHOLD) {
+        if (wheelDelta.current > 0) {
+          goNext();
+        } else {
+          goPrevious();
+        }
+      }
+
+      wheelDelta.current = 0;
+      wheelFrame.current = null;
+    });
+  };
+
+  const progress = String((activeIndex + 1) / profileSlides.length);
+
   return (
     <section
-      className={`about-hero-redesign profile-carousel${
+      className={`about-hero-redesign profile-carousel is-${slideDirection}${
         isTransitioning ? " is-transitioning" : ""
       }`}
       aria-labelledby="about-title"
       aria-roledescription="carousel"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onWheel={handleWheel}
+      style={{ "--profile-progress": progress } as CSSProperties}
     >
       <div className="profile-carousel-stage" aria-live="polite">
         {profileSlides.map((slide, index) => (
@@ -152,6 +204,7 @@ export default function ProfileCarousel() {
           >
             <div className="about-photo-area">
               <div className="about-photo-wrap profile-carousel-frame">
+                <span className="profile-image-accent" aria-hidden="true" />
                 {slide.image ? (
                   <img
                     className="profile-photo-image"
@@ -225,6 +278,9 @@ export default function ProfileCarousel() {
               aria-current={index === activeIndex ? "true" : undefined}
             />
           ))}
+        </div>
+        <div className="profile-carousel-progress" aria-hidden="true">
+          <span />
         </div>
       </div>
     </section>
