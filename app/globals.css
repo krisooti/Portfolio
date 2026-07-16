@@ -1043,6 +1043,14 @@ html {
   padding-top: calc(var(--space-2xl) / 2);
 }
 
+#research {
+  padding-bottom: var(--space-md);
+}
+
+#research + #design-process {
+  padding-top: var(--space-md);
+}
+
 .case-section.is-visible {
   opacity: 1;
   transform: translateY(0);
