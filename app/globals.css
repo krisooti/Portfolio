@@ -520,6 +520,8 @@ html {
   grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(42px, 8vw, 96px);
+  width: min(100%, 960px);
+  margin: 0 auto;
   min-height: 58vh;
 }
 
@@ -585,19 +587,19 @@ html {
 
 .about-intro-copy h1 {
   overflow: hidden;
-  width: 22ch;
+  width: 18ch;
   max-width: 100%;
   margin: 0;
   border-right: 1px solid #171717;
   color: #171717;
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: clamp(42px, 7vw, 76px);
+  font-size: 26px;
   font-weight: 300;
   letter-spacing: 0;
-  line-height: 1;
+  line-height: 1.15;
   white-space: nowrap;
   animation:
-    about-typewriter 2.8s steps(22, end) both,
+    about-typewriter 2.6s steps(18, end) both,
     about-cursor 850ms step-end infinite;
 }
 
@@ -613,8 +615,9 @@ html {
 .dogs-section {
   display: grid;
   gap: 30px;
+  width: min(100%, 960px);
   border-top: 1px solid var(--line);
-  margin-top: clamp(76px, 10vw, 128px);
+  margin: clamp(76px, 10vw, 128px) auto 0;
   padding-top: clamp(56px, 8vw, 86px);
 }
 

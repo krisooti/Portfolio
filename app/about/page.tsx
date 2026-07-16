@@ -43,7 +43,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-intro-copy">
-            <h1 id="about-title">Hi there! I&apos;m Kristi ☺</h1>
+            <h1 id="about-title">Hi there! I&apos;m Kristi</h1>
             <p>
               I&apos;m a recent graduate from the University of Washington with a
               degree in Human Centered Design &amp; Engineering. I love designing
