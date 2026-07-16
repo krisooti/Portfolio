@@ -538,24 +538,28 @@ html {
   gap: clamp(42px, 8vw, 96px);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(28px);
+  transform: translateX(24px);
   transition:
-    opacity 520ms ease-in-out,
-    transform 520ms ease-in-out;
+    opacity 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .profile-carousel.is-previous .profile-carousel-slide {
-  transform: translateX(-28px);
+  transform: translateX(-24px);
 }
 
 .profile-carousel.is-next .profile-carousel-slide {
-  transform: translateX(28px);
+  transform: translateX(24px);
 }
 
 .profile-carousel-slide.is-active {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+}
+
+.profile-carousel.is-transitioning .profile-carousel-slide {
+  will-change: transform, opacity;
 }
 
 .about-photo-area {
@@ -697,6 +701,39 @@ html {
 .profile-hover-zone:hover {
   opacity: 1;
   transform: translateX(0);
+}
+
+.profile-arrow-button {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(216, 132, 154, 0.22);
+  background: rgba(255, 253, 251, 0.78);
+  color: #d8849a;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  padding: 0;
+}
+
+.profile-arrow-button:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
+.profile-arrow-button:focus-visible {
+  outline: 1px solid #d8849a;
+  outline-offset: 4px;
+}
+
+.profile-image-preload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .about-intro-copy {

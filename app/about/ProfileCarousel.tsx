@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 
+const TRANSITION_DURATION_MS = 450;
+
 type ProfileSlide = {
   headline: string;
   body: string;
@@ -49,11 +51,26 @@ export default function ProfileCarousel() {
   const [slideDirection, setSlideDirection] = useState<"next" | "previous">(
     "next",
   );
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const transitionTimeout = useRef<number | null>(null);
 
   const goToSlide = (index: number, direction: "next" | "previous") => {
+    if (isTransitioning || index === activeIndex) {
+      return;
+    }
+
+    if (transitionTimeout.current !== null) {
+      window.clearTimeout(transitionTimeout.current);
+    }
+
+    setIsTransitioning(true);
     setSlideDirection(direction);
     setActiveIndex((index + profileSlides.length) % profileSlides.length);
+    transitionTimeout.current = window.setTimeout(() => {
+      setIsTransitioning(false);
+      transitionTimeout.current = null;
+    }, TRANSITION_DURATION_MS);
   };
 
   const goNext = () => goToSlide(activeIndex + 1, "next");
@@ -69,6 +86,23 @@ export default function ProfileCarousel() {
   };
 
   useEffect(() => {
+    profileSlides.forEach((slide) => {
+      if (!slide.image) {
+        return;
+      }
+
+      const image = new Image();
+      image.src = slide.image.src;
+    });
+
+    return () => {
+      if (transitionTimeout.current !== null) {
+        window.clearTimeout(transitionTimeout.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
         goNext();
@@ -81,7 +115,7 @@ export default function ProfileCarousel() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex]);
+  }, [activeIndex, isTransitioning]);
 
   const handleTouchStart = (event: TouchEvent<HTMLElement>) => {
     touchStartX.current = event.touches[0]?.clientX ?? null;
@@ -108,7 +142,9 @@ export default function ProfileCarousel() {
 
   return (
     <section
-      className={`about-hero-redesign profile-carousel is-${slideDirection}`}
+      className={`about-hero-redesign profile-carousel is-${slideDirection}${
+        isTransitioning ? " is-transitioning" : ""
+      }`}
       aria-labelledby="about-title"
       aria-roledescription="carousel"
       onTouchStart={handleTouchStart}
@@ -137,20 +173,41 @@ export default function ProfileCarousel() {
                   </span>
                 )}
                 <span className="profile-photo-caption">{slide.caption}</span>
-                <span
-                  className="profile-hover-zone profile-hover-zone--previous"
-                  onMouseEnter={goPrevious}
-                  aria-hidden="true"
-                >
-                  ←
+                <span className="profile-hover-zone profile-hover-zone--previous">
+                  <button
+                    className="profile-arrow-button"
+                    type="button"
+                    onClick={goPrevious}
+                    disabled={isTransitioning}
+                    aria-label="Previous profile slide"
+                    tabIndex={index === activeIndex ? 0 : -1}
+                  >
+                    ←
+                  </button>
                 </span>
-                <span
-                  className="profile-hover-zone profile-hover-zone--next"
-                  onMouseEnter={goNext}
-                  aria-hidden="true"
-                >
-                  →
+                <span className="profile-hover-zone profile-hover-zone--next">
+                  <button
+                    className="profile-arrow-button"
+                    type="button"
+                    onClick={goNext}
+                    disabled={isTransitioning}
+                    aria-label="Next profile slide"
+                    tabIndex={index === activeIndex ? 0 : -1}
+                  >
+                    →
+                  </button>
                 </span>
+              </div>
+              <div className="profile-image-preload" aria-hidden="true">
+                {profileSlides
+                  .filter((preloadSlide) => preloadSlide.image)
+                  .map((preloadSlide) => (
+                    <img
+                      src={preloadSlide.image?.src}
+                      alt=""
+                      key={preloadSlide.headline}
+                    />
+                  ))}
               </div>
             </div>
 
@@ -172,6 +229,7 @@ export default function ProfileCarousel() {
               type="button"
               key={slide.headline}
               onClick={() => jumpToSlide(index)}
+              disabled={isTransitioning}
               aria-label={`Show slide ${index + 1}: ${slide.headline}`}
               aria-current={index === activeIndex ? "true" : undefined}
             />
