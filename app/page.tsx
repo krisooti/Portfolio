@@ -3,7 +3,7 @@ import Link from "next/link";
 import { projects } from "./projects";
 
 export const metadata: Metadata = {
-  title: "Kristi - UX Portfolio",
+  title: "Kristi Kim - UX Portfolio",
   description:
     "A modern, minimal UX portfolio with selected case studies and an editorial design sensibility.",
 };
@@ -13,7 +13,7 @@ export default function Home() {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi
+          Kristi Kim
         </Link>
         <nav className="nav-links">
           <a href="#work">Work</a>

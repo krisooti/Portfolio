@@ -19,7 +19,7 @@ export async function generateMetadata({
   const project = getProject(slug);
 
   return {
-    title: project ? `${project.title} - Kristi` : "Case Study - Kristi",
+    title: project ? `${project.title} - Kristi Kim` : "Case Study - Kristi Kim",
     description: project?.summary,
   };
 }
@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <main className="site-shell">
         <header className="site-nav" aria-label="Primary navigation">
           <Link href="/" className="brand-link">
-            Kristi
+            Kristi Kim
           </Link>
           <nav className="nav-links">
             <Link href="/#work">Work</Link>
@@ -56,7 +56,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
-          Kristi
+          Kristi Kim
         </Link>
         <nav className="nav-links">
           <Link href="/#work">Work</Link>

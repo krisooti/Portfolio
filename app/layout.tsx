@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kristi - UX Portfolio",
+  title: "Kristi Kim - UX Portfolio",
   description:
     "A modern, minimal UX portfolio with selected case studies and an editorial design sensibility.",
   icons: {
