@@ -1602,6 +1602,66 @@ html {
   min-width: 0;
 }
 
+.case-right-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 56px);
+  min-width: 0;
+}
+
+.case-right-copy {
+  display: grid;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+
+.case-right-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.case-gallery-figure {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #fffdfb;
+  padding: 10px;
+  box-shadow: 0 12px 28px rgba(20, 20, 20, 0.05);
+}
+
+.case-gallery-figure--wide {
+  grid-column: 1 / -1;
+}
+
+.case-gallery-figure img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.case-gallery-figure--wide img {
+  max-height: 360px;
+}
+
+.case-gallery-figure figcaption {
+  min-width: 0;
+  margin: 0;
+  color: #8a8583;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
 .results-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1979,6 +2039,7 @@ html {
   .about-hero-redesign,
   .profile-carousel-slide,
   .case-section-grid,
+  .case-right-layout,
   .results-grid,
   .solution-row,
   .solution-row--reverse {
@@ -2118,6 +2179,7 @@ html {
   .pain-card-grid,
   .method-card-grid,
   .insight-card-grid,
+  .case-right-gallery,
   .research-visual-grid,
   .result-list {
     grid-template-columns: 1fr;

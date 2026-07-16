@@ -65,6 +65,10 @@ const solutionScreens = [
     body: "Personalized onboarding captures learning goals, supervision needs, preferred style, and constraints before recommendations appear.",
     rationale:
       "The flow gives users control from the beginning and helps AI matching feel grounded in their own priorities.",
+    image: {
+      src: "/images/mindbridge-ai-trust-note.png",
+      alt: "MindBridge AI trust note explaining how supervisor matching works",
+    },
   },
   {
     title: "AI Matching",
@@ -81,12 +85,20 @@ const solutionScreens = [
     body: "Profiles organize specialties, supervision style, availability, credentials, and match reasons in a scannable hierarchy.",
     rationale:
       "Users can evaluate fit without jumping between fragmented directories or relying only on referrals.",
+    image: {
+      src: "/images/mindbridge-supervisor-profile.png",
+      alt: "MindBridge supervisor profile screen for Dr. Sarah Jenkins",
+    },
   },
   {
     title: "Comparison",
     body: "A side-by-side comparison helps users review supervisors across priorities before deciding who to contact.",
     rationale:
       "Comparison reduces uncertainty and supports informed decision-making before commitment.",
+    image: {
+      src: "/images/mindbridge-filter.png",
+      alt: "MindBridge advanced filters for narrowing supervisor matches",
+    },
   },
   {
     title: "Saved Supervisors",
@@ -99,6 +111,39 @@ const solutionScreens = [
     body: "A focused messaging flow helps users request supervision with enough context to start the relationship clearly.",
     rationale:
       "The final step connects discovery to action while keeping the tone supportive and professional.",
+    image: {
+      src: "/images/mindbridge-message-typed.png",
+      alt: "MindBridge typed message modal for contacting a supervisor",
+    },
+  },
+];
+
+const mindbridgeRightGallery = [
+  {
+    title: "Research synthesis board",
+    src: "/images/mindbridge-research-board.png",
+    alt: "MindBridge research synthesis board with supervisor and supervisee interview notes",
+    wide: true,
+  },
+  {
+    title: "AI trust note",
+    src: "/images/mindbridge-ai-trust-note.png",
+    alt: "MindBridge AI trust note before starting supervisor matching",
+  },
+  {
+    title: "Advanced filters",
+    src: "/images/mindbridge-filter.png",
+    alt: "MindBridge advanced filters modal",
+  },
+  {
+    title: "Message flow",
+    src: "/images/mindbridge-message-typed.png",
+    alt: "MindBridge message modal with a typed supervision request",
+  },
+  {
+    title: "Supervisor profile",
+    src: "/images/mindbridge-supervisor-profile.png",
+    alt: "MindBridge supervisor profile page",
   },
 ];
 
@@ -203,6 +248,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     );
   }
 
+  const isMindbridge = project.slug === "tmind-ai";
+
   return (
     <main className="site-shell">
       <header className="site-nav" aria-label="Primary navigation">
@@ -242,7 +289,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
               <div>
                 <dt>Role</dt>
-                <dd>UX Research, Product Design, Usability Testing</dd>
+                <dd>UX Research, Product Design, AI System</dd>
               </div>
               <div>
                 <dt>Team</dt>
@@ -293,40 +340,62 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-section" id="research">
             <SectionLabel label="User Testing" />
-            <div className="case-content-block">
-              <h2>
-                <HighlightText>
-                  Research clarified what users needed before trusting AI.
-                </HighlightText>
-              </h2>
-              <div className="research-visual-grid">
-                <VisualPlaceholder label="Interview photos" variant="research" />
-                <VisualPlaceholder label="Affinity map" variant="map" />
-                <VisualPlaceholder label="Sticky notes" variant="research" />
-                <VisualPlaceholder label="Research synthesis" variant="map" />
-              </div>
-              <div className="method-card-grid">
-                {project.researchMethods?.map((method) => (
-                  <article className="mini-card" key={method}>
-                    <p>{method}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
+            <div className={isMindbridge ? "case-right-layout" : "case-content-block"}>
+              <div className="case-right-copy">
+                <div className="case-content-block">
+                  <h2>
+                    <HighlightText>
+                      Research clarified what users needed before trusting AI.
+                    </HighlightText>
+                  </h2>
+                  <div className="method-card-grid">
+                    {project.researchMethods?.map((method) => (
+                      <article className="mini-card" key={method}>
+                        <p>{method}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
 
-            <div className="insight-card-grid">
-              {[
-                ["User Control", project.keyInsights?.[0]],
-                ["Transparency", project.keyInsights?.[1]],
-                ["Low-pressure Exploration", project.keyInsights?.[2]],
-              ].map(([title, body]) => (
-                <article className="insight-card" key={title}>
-                  <h3>
-                    <HighlightText>{title}</HighlightText>
-                  </h3>
-                  <p>{body}</p>
-                </article>
-              ))}
+                {!isMindbridge ? (
+                  <div className="research-visual-grid">
+                    <VisualPlaceholder label="Affinity map" variant="map" />
+                    <VisualPlaceholder label="Sticky notes" variant="research" />
+                    <VisualPlaceholder label="Research synthesis" variant="map" />
+                  </div>
+                ) : null}
+
+                <div className="insight-card-grid">
+                  {[
+                    ["User Control", project.keyInsights?.[0]],
+                    ["Transparency", project.keyInsights?.[1]],
+                    ["Low-pressure Exploration", project.keyInsights?.[2]],
+                  ].map(([title, body]) => (
+                    <article className="insight-card" key={title}>
+                      <h3>
+                        <HighlightText>{title}</HighlightText>
+                      </h3>
+                      <p>{body}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              {isMindbridge ? (
+                <aside className="case-right-gallery" aria-label="MindBridge project visuals">
+                  {mindbridgeRightGallery.map((visual) => (
+                    <figure
+                      className={`case-gallery-figure${
+                        visual.wide ? " case-gallery-figure--wide" : ""
+                      }`}
+                      key={visual.src}
+                    >
+                      <img src={visual.src} alt={visual.alt} />
+                      <figcaption>{visual.title}</figcaption>
+                    </figure>
+                  ))}
+                </aside>
+              ) : null}
             </div>
           </section>
 
@@ -372,10 +441,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <article
                   className={`solution-row ${
                     index % 2 === 1 ? "solution-row--reverse" : ""
-                  }${screen.image ? "" : " solution-row--text-only"}`}
+                  }${screen.image && isMindbridge ? "" : " solution-row--text-only"}`}
                   key={screen.title}
                 >
-                  {screen.image ? (
+                  {screen.image && isMindbridge ? (
                     <VisualPlaceholder
                       label={`${screen.title} screen`}
                       variant="screen"

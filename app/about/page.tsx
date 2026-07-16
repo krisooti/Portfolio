@@ -94,7 +94,6 @@ export default function AboutPage() {
         <section className="about-story-section about-process-tools-section">
           <div className="about-process-tools-row">
             <div className="thought-process-column">
-              <CategoryTag>MY DESIGN DESK</CategoryTag>
               <h2>
                 <HighlightText>My Design Desk</HighlightText>
               </h2>
@@ -105,7 +104,6 @@ export default function AboutPage() {
             </div>
 
             <div className="toolkit-column">
-              <CategoryTag>TOOLS</CategoryTag>
               <h2>
                 <HighlightText>How I shape ideas into products.</HighlightText>
               </h2>
