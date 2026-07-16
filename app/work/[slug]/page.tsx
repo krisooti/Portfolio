@@ -350,17 +350,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="process-timeline">
               {processStages.map((stage, index) => (
                 <article className="process-step" key={stage.title}>
-                  <div className="process-marker">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div>
-                    <VisualPlaceholder label={stage.caption} variant="map" />
-                    <small>{stage.caption}</small>
-                    <h3>
-                      <HighlightText>{stage.title}</HighlightText>
-                    </h3>
-                    <p>{stage.body}</p>
-                  </div>
+                  <VisualPlaceholder
+                    label={`${String(index + 1).padStart(2, "0")} ${stage.caption}`}
+                    variant="map"
+                  />
+                  <h3>
+                    <HighlightText>{stage.title}</HighlightText>
+                  </h3>
+                  <p>{stage.body}</p>
                 </article>
               ))}
             </div>
