@@ -538,10 +538,18 @@ html {
   gap: clamp(42px, 8vw, 96px);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(18px);
+  transform: translateX(28px);
   transition:
-    opacity 420ms ease,
-    transform 420ms ease;
+    opacity 520ms ease-in-out,
+    transform 520ms ease-in-out;
+}
+
+.profile-carousel.is-previous .profile-carousel-slide {
+  transform: translateX(-28px);
+}
+
+.profile-carousel.is-next .profile-carousel-slide {
+  transform: translateX(28px);
 }
 
 .profile-carousel-slide.is-active {
@@ -570,17 +578,15 @@ html {
   transform: rotate(-1.4deg);
 }
 
-.profile-carousel-image-button {
-  cursor: pointer;
-  font: inherit;
-  text-align: inherit;
+.profile-carousel-frame {
+  position: relative;
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
 }
 
-.profile-carousel-image-button:hover {
+.profile-carousel-frame:hover {
   border-color: rgba(216, 132, 154, 0.34);
   box-shadow:
     0 20px 40px rgba(17, 17, 17, 0.09),
@@ -588,8 +594,6 @@ html {
   transform: rotate(-1.4deg) translateY(-2px);
 }
 
-.profile-carousel-image-button:focus-visible,
-.profile-carousel-controls button:focus-visible,
 .profile-carousel-dots button:focus-visible {
   outline: 1px solid #d8849a;
   outline-offset: 4px;
@@ -622,7 +626,7 @@ html {
   box-shadow: 18px 18px 0 rgba(17, 17, 17, 0.035);
 }
 
-.profile-carousel-image-button .profile-photo-placeholder {
+.profile-carousel-frame .profile-photo-placeholder {
   aspect-ratio: 3 / 4;
   min-height: 0;
   box-shadow: none;
@@ -661,16 +665,38 @@ html {
   transform: rotate(1.4deg);
 }
 
-.profile-click-note {
+.profile-hover-zone {
   position: absolute;
-  right: clamp(-24px, -2vw, -12px);
-  bottom: 42px;
-  margin: 0;
+  top: 12px;
+  bottom: 58px;
+  display: grid;
+  width: 25%;
+  place-items: center;
   color: #d8849a;
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 300;
-  transform: rotate(-8deg);
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.profile-hover-zone--previous {
+  left: 12px;
+  cursor: w-resize;
+  transform: translateX(4px);
+}
+
+.profile-hover-zone--next {
+  right: 12px;
+  cursor: e-resize;
+  transform: translateX(-4px);
+}
+
+.profile-hover-zone:hover {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about-intro-copy {
@@ -712,7 +738,7 @@ html {
   gap: 18px;
 }
 
-.profile-carousel-controls button {
+.profile-carousel-controls > button {
   border: 0;
   background: transparent;
   color: #746f6c;
@@ -728,7 +754,7 @@ html {
     transform 180ms ease;
 }
 
-.profile-carousel-controls button:hover {
+.profile-carousel-controls > button:hover {
   color: #d8849a;
   transform: translateY(-1px);
 }
@@ -1405,16 +1431,15 @@ html {
     gap: 34px;
   }
 
-  .profile-click-note {
-    right: 0;
-    bottom: 36px;
+  .profile-hover-zone {
+    bottom: 58px;
   }
 
   .profile-photo-placeholder {
     min-height: 360px;
   }
 
-  .profile-carousel-image-button .profile-photo-placeholder {
+  .profile-carousel-frame .profile-photo-placeholder {
     min-height: 0;
   }
 
@@ -1474,7 +1499,8 @@ html {
   .case-section,
   .case-sidebar-nav a,
   .profile-carousel-slide,
-  .profile-carousel-image-button,
+  .profile-carousel-frame,
+  .profile-hover-zone,
   .profile-carousel-controls button,
   .about-intro-copy h1,
   .dog-card,

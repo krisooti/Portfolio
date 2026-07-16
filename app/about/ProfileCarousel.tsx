@@ -15,7 +15,7 @@ type ProfileSlide = {
 
 const profileSlides: ProfileSlide[] = [
   {
-    headline: "Hi there! I'm Kristi",
+    headline: "Hi there! I'm Kristi 👋",
     body: "I'm a recent graduate from the University of Washington with a degree in Human Centered Design & Engineering. I love designing thoughtful digital experiences that feel intuitive, accessible, and a little delightful. Outside of design, you'll usually find me exploring new cafés, collecting perfumes, or spending time with my dogs.",
     imageLabel: "Kristi profile photo",
     caption: "This is me :)",
@@ -25,7 +25,7 @@ const profileSlides: ProfileSlide[] = [
     },
   },
   {
-    headline: "Coffee walks",
+    headline: "My café adventures ☕",
     body: "I love exploring cafés and trying different coffees around the city.",
     imageLabel: "Café photo",
     caption: "cafe day",
@@ -37,7 +37,7 @@ const profileSlides: ProfileSlide[] = [
     caption: "tiny rituals",
   },
   {
-    headline: "Soft moments",
+    headline: "My dogs 🐶",
     body: "Outside of design, I spend a lot of time with my dogs and the people I love.",
     imageLabel: "Photo with my dogs",
     caption: "home team",
@@ -46,14 +46,27 @@ const profileSlides: ProfileSlide[] = [
 
 export default function ProfileCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"next" | "previous">(
+    "next",
+  );
   const touchStartX = useRef<number | null>(null);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index: number, direction: "next" | "previous") => {
+    setSlideDirection(direction);
     setActiveIndex((index + profileSlides.length) % profileSlides.length);
   };
 
-  const goNext = () => goToSlide(activeIndex + 1);
-  const goPrevious = () => goToSlide(activeIndex - 1);
+  const goNext = () => goToSlide(activeIndex + 1, "next");
+  const goPrevious = () => goToSlide(activeIndex - 1, "previous");
+
+  const jumpToSlide = (index: number) => {
+    if (index === activeIndex) {
+      return;
+    }
+
+    const direction = index > activeIndex ? "next" : "previous";
+    goToSlide(index, direction);
+  };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -95,7 +108,7 @@ export default function ProfileCarousel() {
 
   return (
     <section
-      className="about-hero-redesign profile-carousel"
+      className={`about-hero-redesign profile-carousel is-${slideDirection}`}
       aria-labelledby="about-title"
       aria-roledescription="carousel"
       onTouchStart={handleTouchStart}
@@ -111,13 +124,7 @@ export default function ProfileCarousel() {
             aria-hidden={index !== activeIndex}
           >
             <div className="about-photo-area">
-              <button
-                className="about-photo-wrap profile-carousel-image-button"
-                type="button"
-                onClick={goNext}
-                aria-label="Show next profile slide"
-                tabIndex={index === activeIndex ? 0 : -1}
-              >
+              <div className="about-photo-wrap profile-carousel-frame">
                 {slide.image ? (
                   <img
                     className="profile-photo-image"
@@ -130,10 +137,21 @@ export default function ProfileCarousel() {
                   </span>
                 )}
                 <span className="profile-photo-caption">{slide.caption}</span>
-              </button>
-              <p className="profile-click-note" aria-hidden="true">
-                click me →
-              </p>
+                <span
+                  className="profile-hover-zone profile-hover-zone--previous"
+                  onMouseEnter={goPrevious}
+                  aria-hidden="true"
+                >
+                  ←
+                </span>
+                <span
+                  className="profile-hover-zone profile-hover-zone--next"
+                  onMouseEnter={goNext}
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </div>
             </div>
 
             <div className="about-intro-copy">
@@ -147,24 +165,18 @@ export default function ProfileCarousel() {
       </div>
 
       <div className="profile-carousel-controls" aria-label="Profile slides">
-        <button type="button" onClick={goPrevious} aria-label="Previous slide">
-          Prev
-        </button>
         <div className="profile-carousel-dots">
           {profileSlides.map((slide, index) => (
             <button
               className={index === activeIndex ? "is-active" : ""}
               type="button"
               key={slide.headline}
-              onClick={() => goToSlide(index)}
+              onClick={() => jumpToSlide(index)}
               aria-label={`Show slide ${index + 1}: ${slide.headline}`}
               aria-current={index === activeIndex ? "true" : undefined}
             />
           ))}
         </div>
-        <button type="button" onClick={goNext} aria-label="Next slide">
-          Next
-        </button>
       </div>
     </section>
   );
