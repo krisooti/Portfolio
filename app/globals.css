@@ -527,7 +527,19 @@ html {
 
 .about-photo-wrap {
   display: grid;
+  justify-self: center;
+  width: min(100%, 320px);
   gap: 14px;
+}
+
+.profile-photo-image {
+  display: block;
+  width: min(100%, 300px);
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line);
+  box-shadow: 14px 14px 0 rgba(17, 17, 17, 0.035);
+  object-fit: cover;
+  object-position: center;
 }
 
 .profile-photo-placeholder,
@@ -1250,6 +1262,10 @@ html {
 
   .profile-photo-placeholder {
     min-height: 360px;
+  }
+
+  .profile-photo-image {
+    width: min(100%, 280px);
   }
 
   .about-intro-copy h1 {

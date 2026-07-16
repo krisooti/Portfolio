@@ -67,7 +67,7 @@ test("server-renders the redesigned about page", async () => {
   assert.match(html, /Human Centered Design &amp; Engineering/);
   assert.match(html, /This is me :\)/);
   assert.match(html, /Meet my best friends/);
-  assert.match(html, /Profile photo/);
+  assert.match(html, /Kristi in Seattle/);
   assert.match(html, /Dog photo 01/);
   assert.doesNotMatch(html, /Music I Design To|Music player|HONNE/);
 });

@@ -36,9 +36,11 @@ export default function AboutPage() {
       <article className="about-page">
         <section className="about-hero-redesign" aria-labelledby="about-title">
           <div className="about-photo-wrap">
-            <div className="profile-photo-placeholder" aria-label="Profile photo placeholder">
-              <span>Profile photo</span>
-            </div>
+            <img
+              className="profile-photo-image"
+              src="/images/kristi-about.jpg"
+              alt="Kristi in Seattle"
+            />
             <p>This is me :)</p>
           </div>
 
