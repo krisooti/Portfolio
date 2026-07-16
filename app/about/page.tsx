@@ -14,18 +14,18 @@ export const metadata: Metadata = {
 const designValues = [
   {
     number: "01",
-    title: "Empathy",
-    body: "Understanding people before solving problems.",
+    title: "Understand",
+    body: "Learn about people, context, and the real problem before designing.",
   },
   {
     number: "02",
-    title: "Curiosity",
-    body: 'Always asking "Why?" before jumping into solutions.',
+    title: "Explore",
+    body: "Generate ideas, test assumptions, and compare possible directions.",
   },
   {
     number: "03",
-    title: "Craft",
-    body: "Sweating the small details that make experiences feel effortless.",
+    title: "Refine",
+    body: "Improve the details through feedback, iteration, and careful craft.",
   },
 ];
 
@@ -108,38 +108,55 @@ export default function AboutPage() {
           </div>
         </AboutSection>
 
-        <AboutSection tag="DESIGN VALUES" title="The principles I return to.">
-          <div className="design-values-grid">
-            {designValues.map((value) => (
-              <article className="design-value-card" key={value.title}>
-                <span>{value.number}</span>
-                <h3>{value.title}</h3>
-                <p>{value.body}</p>
-              </article>
-            ))}
-          </div>
-        </AboutSection>
-
-        <AboutSection tag="TOOLS" title="How I shape ideas into products.">
-          <div className="toolkit-notebook">
-            <div className="toolkit-doodle toolkit-doodle--sparkle" aria-hidden="true" />
-            <div className="toolkit-doodle toolkit-doodle--flower" aria-hidden="true" />
-            <div className="toolkit-doodle toolkit-doodle--pencil" aria-hidden="true" />
-            <h3>Design Toolbox</h3>
-            {toolkitGroups.map((group) => (
-              <section className="toolkit-note-section" key={group.title}>
-                <h4>{group.title}</h4>
-                <ul>
-                  {group.tools.map((tool) => (
-                    <li key={tool}>
-                      <HighlightText>{tool}</HighlightText>
-                    </li>
+        <section className="about-story-section about-process-tools-section">
+          <div className="about-process-tools-row">
+            <div className="thought-process-column">
+              <CategoryTag>DESIGN VALUES</CategoryTag>
+              <h2>
+                <HighlightText>Thought Process</HighlightText>
+              </h2>
+              <div className="thought-process-card">
+                <h3>Thought Process</h3>
+                <div className="thought-process-flow">
+                  {designValues.map((value) => (
+                    <article className="thought-process-step" key={value.title}>
+                      <span>{value.number}</span>
+                      <div>
+                        <h4>{value.title}</h4>
+                        <p>{value.body}</p>
+                      </div>
+                    </article>
                   ))}
-                </ul>
-              </section>
-            ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="toolkit-column">
+              <CategoryTag>TOOLS</CategoryTag>
+              <h2>
+                <HighlightText>How I shape ideas into products.</HighlightText>
+              </h2>
+              <div className="toolkit-notebook">
+                <div className="toolkit-doodle toolkit-doodle--sparkle" aria-hidden="true" />
+                <div className="toolkit-doodle toolkit-doodle--flower" aria-hidden="true" />
+                <div className="toolkit-doodle toolkit-doodle--pencil" aria-hidden="true" />
+                <h3>Design Toolbox</h3>
+                {toolkitGroups.map((group) => (
+                  <section className="toolkit-note-section" key={group.title}>
+                    <h4>{group.title}</h4>
+                    <ul>
+                      {group.tools.map((tool) => (
+                        <li key={tool}>
+                          <HighlightText>{tool}</HighlightText>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+              </div>
+            </div>
           </div>
-        </AboutSection>
+        </section>
       </article>
     </main>
   );
