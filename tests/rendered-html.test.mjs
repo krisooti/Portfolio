@@ -53,22 +53,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Product Design/);
   assert.match(html, /Accessibility/);
   assert.match(html, /Healthcare/);
-  assert.match(html, /Music player/);
-  assert.match(html, /Warm On A Cold Night/);
-  assert.match(html, /HONNE/);
+  assert.doesNotMatch(html, /Music player|Warm On A Cold Night|HONNE/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
-});
-
-test("server-renders the about music section", async () => {
-  const response = await render("/about");
-  assert.equal(response.status, 200);
-
-  const html = await response.text();
-  assert.match(html, /<title>About - Kristi Kim<\/title>/i);
-  assert.match(html, /Music I Design To/);
-  assert.match(html, /Warm On A Cold Night/);
-  assert.match(html, /HONNE/);
-  assert.match(html, /Music player/);
 });
 
 test("server-renders the MindBridge case study", async () => {
