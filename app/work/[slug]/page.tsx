@@ -70,6 +70,10 @@ const solutionScreens = [
     body: "Recommendations explain the reasons behind each supervisor match through clear rationale and preference alignment.",
     rationale:
       "Instead of leading with compatibility scores, the interface explains why each suggestion may be useful.",
+    image: {
+      src: "/images/mindbridge-matching-screen.png",
+      alt: "MindBridge clinical supervisor matching recommendations screen",
+    },
   },
   {
     title: "Supervisor Profile",
@@ -123,16 +127,27 @@ export async function generateMetadata({
 function VisualPlaceholder({
   label,
   variant = "screen",
+  image,
 }: {
   label: string;
   variant?: "screen" | "research" | "map" | "phone";
+  image?: {
+    src: string;
+    alt: string;
+  };
 }) {
   return (
     <div className={`case-visual case-visual--${variant}`}>
-      <div className="visual-frame" aria-hidden="true">
-        <span />
-        <span />
-        <span />
+      <div className={`visual-frame${image ? " visual-frame--image" : ""}`}>
+        {image ? (
+          <img src={image.src} alt={image.alt} />
+        ) : (
+          <>
+            <span />
+            <span />
+            <span />
+          </>
+        )}
       </div>
       <p>{label}</p>
     </div>
@@ -372,7 +387,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   }`}
                   key={screen.title}
                 >
-                  <VisualPlaceholder label={`${screen.title} screen`} variant="phone" />
+                  <VisualPlaceholder
+                    label={`${screen.title} screen`}
+                    variant={screen.image ? "screen" : "phone"}
+                    image={screen.image}
+                  />
                   <div>
                     <h3>
                       <HighlightText>{screen.title}</HighlightText>

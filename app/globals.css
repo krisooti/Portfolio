@@ -1215,6 +1215,18 @@ html {
   border-color: rgba(216, 132, 154, 0.24);
 }
 
+.visual-frame--image {
+  display: block;
+  min-height: 0;
+  background: #ffffff;
+}
+
+.visual-frame--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .case-visual p,
 .process-step small {
   margin: 0;
