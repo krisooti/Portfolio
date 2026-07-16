@@ -40,27 +40,27 @@ const processStages = [
   },
   {
     title: "Wireframes",
-    body: "Mapped the core journey from preference setting to supervisor discovery, comparison, and outreach.",
+    body: "Mapped the journey from onboarding to supervisor discovery.",
     caption: "Low-fidelity discovery and profile flows",
   },
   {
-    title: "Mid-fi",
-    body: "Explored recommendation layouts that made AI rationale visible without turning the experience into a scorecard.",
+    title: "Mid-Fidelity",
+    body: "Explored recommendation layouts that clearly explained AI reasoning.",
     caption: "Mid-fidelity recommendation states",
   },
   {
     title: "Usability Testing",
-    body: "Tested whether users understood why supervisors were recommended and whether they felt in control of next steps.",
+    body: "Validated whether users understood recommendations and felt in control.",
     caption: "Task-based validation sessions",
   },
   {
     title: "Iteration",
-    body: "Refined filters, saved supervisors, comparison details, and messaging based on user and stakeholder feedback.",
+    body: "Improved filtering, comparison, saved supervisors, and messaging based on feedback.",
     caption: "Revised matching and comparison model",
   },
   {
     title: "Final Design",
-    body: "Delivered a calm, transparent matching experience that supports exploration before commitment.",
+    body: "Created a transparent supervisor matching experience that encourages exploration before commitment.",
     caption: "Final recommendation and outreach experience",
   },
 ];
@@ -271,6 +271,24 @@ function KeyTakeaway({ children }: { children: ReactNode }) {
   );
 }
 
+function ProjectRoadmap() {
+  return (
+    <ol className="project-roadmap" aria-label="Project roadmap">
+      {processStages.map((stage, index) => (
+        <li className="project-roadmap-step" key={stage.title}>
+          <span className="project-roadmap-number">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3>
+            <HighlightText>{stage.title}</HighlightText>
+          </h3>
+          <p>{stage.body}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function SectionLabel({
   label,
 }: {
@@ -348,7 +366,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <Link href="/#work" className="back-link">
               <HighlightText>Back to work</HighlightText>
             </Link>
-            <SectionLabel label="Mobile UX" />
+            <SectionLabel label="User Research" />
+
             <h1>
               <HighlightText>{project.title}</HighlightText>
             </h1>
@@ -376,13 +395,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               usability testing, interaction flows, and storytelling for the
               final case study.
             </p>
-            <EditorialImage
-              caption="Large hero mockup"
-              image={isMindbridge ? mindbridgeVisuals.matching : undefined}
-            />
+            <ProjectRoadmap />
             <KeyTakeaway>
-              The experience prioritizes clear rationale and user control so AI
-              feels like a guide, not a hidden decision-maker.
+              The roadmap moved from research to final design with one constant
+              goal: make AI recommendations understandable, adjustable, and
+              trustworthy.
             </KeyTakeaway>
           </section>
 
@@ -392,11 +409,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <HighlightText>{project.problem ?? project.challenge}</HighlightText>
             </h2>
             <p>{project.question}</p>
-            <EditorialImage
-              caption="Fragmented discovery journey"
-              image={isMindbridge ? mindbridgeVisuals.trustNote : undefined}
-              variant="map"
-            />
             <InsightPanel title="Pain points" items={painPoints} />
           </section>
 
@@ -408,9 +420,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </HighlightText>
             </h2>
             <p>
-              We used interviews, affinity mapping, synthesis, and usability
-              testing to understand what therapists-in-training need before they
-              feel comfortable acting on an AI recommendation.
+              To better understand what therapists-in-training need before trusting
+              AI-generated recommendations, we conducted six 30-minute
+              semi-structured interviews with three supervisors and trainees.
+              We synthesized the findings using affinity mapping and thematic
+              analysis, which directly informed our design decisions and
+              usability testing.
             </p>
             <ChipList items={project.researchMethods} label="Research methods" />
             <EditorialImage
@@ -418,16 +433,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               image={isMindbridge ? mindbridgeVisuals.researchBoard : undefined}
               variant="map"
             />
-            <div className="supporting-visual-grid">
-              <EditorialImage
-                caption="AI transparency checkpoint"
-                image={isMindbridge ? mindbridgeVisuals.trustNote : undefined}
-              />
-              <EditorialImage
-                caption="Filtering constraints"
-                image={isMindbridge ? mindbridgeVisuals.filters : undefined}
-              />
-            </div>
             <InsightPanel
               title="Key insights"
               items={[
@@ -447,29 +452,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 From research signals to a more trustworthy matching flow.
               </HighlightText>
             </h2>
-            <p>
-              The design moved from broad research signals into a focused flow
-              that makes preference-setting, recommendation rationale, and
-              outreach feel connected.
-            </p>
+
             <ChipList items={project.designDecisions} label="Key design decisions" />
-            <EditorialImage
-              caption="Recommendation model exploration"
-              image={isMindbridge ? mindbridgeVisuals.matching : undefined}
-              variant="map"
-            />
-            <div className="process-timeline">
-              {processStages.map((stage, index) => (
-                <article className="process-step" key={stage.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>
-                    <HighlightText>{stage.title}</HighlightText>
-                  </h3>
-                  <p>{stage.body}</p>
-                  <small>{stage.caption}</small>
-                </article>
-              ))}
-            </div>
+
             <KeyTakeaway>
               The most important shift was moving from “AI score” language to
               plain explanations that users could evaluate on their own terms.

@@ -81,11 +81,11 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /MindBridge/);
   assert.match(html, /<dt>Sponsor<\/dt><dd>Tmind AI<\/dd>/);
   assert.match(html, /case-sidebar/);
-  assert.match(html, /Large hero mockup/);
+  assert.match(html, /project-roadmap/);
+  assert.match(html, /Mid-Fidelity/);
   assert.match(html, /mindbridge-matching-screen\.png/);
   assert.match(html, /MindBridge clinical supervisor matching recommendations screen/);
   assert.match(html, /mindbridge-research-board\.png/);
-  assert.match(html, /mindbridge-ai-trust-note\.png/);
   assert.match(html, /mindbridge-filter\.png/);
   assert.match(html, /mindbridge-message-typed\.png/);
   assert.match(html, /mindbridge-supervisor-profile\.png/);
