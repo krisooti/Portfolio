@@ -17,7 +17,7 @@ type ProfileSlide = {
 
 const profileSlides: ProfileSlide[] = [
   {
-    headline: "Hi there! I'm Kristi 👋",
+    headline: "Hi there! I'm Kristi",
     body: "I'm a recent graduate from the University of Washington with a degree in Human Centered Design & Engineering. I love designing thoughtful digital experiences that feel intuitive, accessible, and a little delightful. Outside of design, you'll usually find me exploring new cafés, collecting perfumes, or spending time with my dogs.",
     imageLabel: "Kristi profile photo",
     caption: "This is me :)",
@@ -48,14 +48,11 @@ const profileSlides: ProfileSlide[] = [
 
 export default function ProfileCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"next" | "previous">(
-    "next",
-  );
   const [isTransitioning, setIsTransitioning] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const transitionTimeout = useRef<number | null>(null);
 
-  const goToSlide = (index: number, direction: "next" | "previous") => {
+  const goToSlide = (index: number) => {
     if (isTransitioning || index === activeIndex) {
       return;
     }
@@ -65,7 +62,6 @@ export default function ProfileCarousel() {
     }
 
     setIsTransitioning(true);
-    setSlideDirection(direction);
     setActiveIndex((index + profileSlides.length) % profileSlides.length);
     transitionTimeout.current = window.setTimeout(() => {
       setIsTransitioning(false);
@@ -73,16 +69,11 @@ export default function ProfileCarousel() {
     }, TRANSITION_DURATION_MS);
   };
 
-  const goNext = () => goToSlide(activeIndex + 1, "next");
-  const goPrevious = () => goToSlide(activeIndex - 1, "previous");
+  const goNext = () => goToSlide(activeIndex + 1);
+  const goPrevious = () => goToSlide(activeIndex - 1);
 
   const jumpToSlide = (index: number) => {
-    if (index === activeIndex) {
-      return;
-    }
-
-    const direction = index > activeIndex ? "next" : "previous";
-    goToSlide(index, direction);
+    goToSlide(index);
   };
 
   useEffect(() => {
@@ -142,7 +133,7 @@ export default function ProfileCarousel() {
 
   return (
     <section
-      className={`about-hero-redesign profile-carousel is-${slideDirection}${
+      className={`about-hero-redesign profile-carousel${
         isTransitioning ? " is-transitioning" : ""
       }`}
       aria-labelledby="about-title"
