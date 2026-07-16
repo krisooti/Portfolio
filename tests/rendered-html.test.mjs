@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -43,8 +43,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /Feel free to contact me/);
   assert.doesNotMatch(html, /I shape quiet digital products/);
   assert.match(html, /I&#x27;m currently in Seattle/);
-  assert.match(html, /Tmind AI/);
-  assert.match(html, /A minimal AI chat experience designed for clearer thinking/);
+  assert.match(html, /MindBridge/);
+  assert.match(html, /AI-powered platform that helps therapists-in-training/);
   assert.match(html, /Northline/);
   assert.match(html, /Fieldnotes/);
   assert.match(html, /UX Research/);
@@ -52,4 +52,17 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Accessibility/);
   assert.match(html, /Healthcare/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
+});
+
+test("server-renders the MindBridge case study", async () => {
+  const response = await render("/work/tmind-ai");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /MindBridge/);
+  assert.match(html, /Sponsor: Tmind AI/);
+  assert.match(html, /How might we help users confidently find the right supervisor/);
+  assert.match(html, /User interviews/i);
+  assert.match(html, /Transparent AI recommendations with matching rationale/);
+  assert.match(html, /transparency over automation/i);
 });

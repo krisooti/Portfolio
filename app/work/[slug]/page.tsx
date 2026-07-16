@@ -38,7 +38,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <nav className="nav-links">
             <Link href="/#work">Work</Link>
             <Link href="/#about">About</Link>
-            <Link href="/#resume">Resume</Link>
+            <Link href="mailto:krisooti08@gmail.com">Contact</Link>
           </nav>
         </header>
         <section className="case-hero">
@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <nav className="nav-links">
           <Link href="/#work">Work</Link>
           <Link href="/#about">About</Link>
-          <Link href="/#resume">Resume</Link>
+          <Link href="mailto:krisooti08@gmail.com">Contact</Link>
         </nav>
       </header>
 
@@ -110,6 +110,104 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </section>
           </div>
         </section>
+
+        {project.problem ? (
+          <section className="case-study-detail">
+            <div>
+              <p className="eyebrow">Problem</p>
+              <h2>{project.problem}</h2>
+              {project.question ? <p>{project.question}</p> : null}
+            </div>
+          </section>
+        ) : null}
+
+        {project.researchMethods || project.keyInsights ? (
+          <section className="case-study-detail case-study-detail--split">
+            <div>
+              <p className="eyebrow">Research & Analysis</p>
+              <h2>Understanding what users need from AI recommendations.</h2>
+            </div>
+            <div className="case-copy">
+              {project.researchMethods ? (
+                <section>
+                  <h3>Methods</h3>
+                  <ul className="case-list">
+                    {project.researchMethods.map((method) => (
+                      <li key={method}>{method}</li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+              {project.keyInsights ? (
+                <section>
+                  <h3>Key Insights</h3>
+                  <ul className="case-list">
+                    {project.keyInsights.map((insight) => (
+                      <li key={insight}>{insight}</li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
+        {project.designDecisions ? (
+          <section className="case-study-detail case-study-detail--split">
+            <div>
+              <p className="eyebrow">Design Process</p>
+              <h2>Research insights guided four key design decisions.</h2>
+              <p>
+                Multiple iterations were validated through usability testing and
+                stakeholder feedback.
+              </p>
+            </div>
+            <ul className="case-list">
+              {project.designDecisions.map((decision) => (
+                <li key={decision}>{decision}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {project.finalSolution ? (
+          <section className="case-study-detail case-study-detail--split">
+            <div>
+              <p className="eyebrow">Final Solution</p>
+              <h2>Transparent matching that supports user control.</h2>
+              <p>
+                Instead of emphasizing compatibility scores, the interface
+                explains why supervisors are recommended, helping users build
+                confidence in their decisions.
+              </p>
+            </div>
+            <ul className="case-list">
+              {project.finalSolution.map((solution) => (
+                <li key={solution}>{solution}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {project.impact || project.learning ? (
+          <section className="case-study-detail case-study-detail--split">
+            <div>
+              <p className="eyebrow">Results & Learnings</p>
+              <h2>Transparency over automation.</h2>
+              {project.learning ? <p>{project.learning}</p> : null}
+            </div>
+            {project.impact ? (
+              <section>
+                <h3>Impact</h3>
+                <ul className="case-list">
+                  {project.impact.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
+          </section>
+        ) : null}
 
         <section className="next-section">
           <p className="eyebrow">Next</p>

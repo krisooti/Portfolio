@@ -11,26 +11,71 @@ export type Project = {
   outcome: string;
   details: string[];
   tags: string[];
+  problem?: string;
+  question?: string;
+  researchMethods?: string[];
+  keyInsights?: string[];
+  designDecisions?: string[];
+  finalSolution?: string[];
+  impact?: string[];
+  learning?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "tmind-ai",
-    title: "Tmind AI",
-    category: "AI Product Design",
-    summary: "A minimal AI chat experience designed for clearer thinking.",
+    title: "MindBridge",
+    category: "AI-Powered Supervisor Matching Platform",
+    summary:
+      "An AI-powered platform that helps therapists-in-training find supervisors aligned with their learning goals.",
     year: "2026",
     imageClass: "visual-tmind",
     intro:
-      "Tmind AI is a concept case study for an AI chat product that helps people turn scattered questions, notes, and ideas into clearer next steps.",
+      "MindBridge helps therapists-in-training discover supervisors aligned with their learning goals while maintaining transparency and user control throughout the matching process.",
     challenge:
-      "AI conversations can quickly become long, hard to scan, and disconnected from the user's original goal.",
+      "Therapists-in-training often rely on referrals and fragmented directories to find supervisors, making the process time-consuming and difficult to evaluate.",
     approach:
-      "I focused the experience around a calm chat surface, lightweight prompts, readable response structure, and simple ways to revisit important ideas.",
+      "Research insights guided personalized onboarding, transparent AI recommendations, comparison tools, and a messaging flow for requesting supervision.",
     outcome:
-      "The final direction makes AI feel more approachable and organized, supporting thoughtful conversations without adding visual noise.",
-    details: ["AI chat experience", "Conversation design", "UX writing"],
-    tags: ["UX Research", "Product Design", "AI"],
+      "The final experience helps users browse, compare, save, and contact supervisors with clearer rationale behind each recommendation.",
+    details: ["10 weeks", "3 designers", "Sponsor: Tmind AI"],
+    tags: ["UX Research", "Product Design", "AI", "Usability Testing"],
+    problem:
+      "Therapists-in-training often rely on referrals and fragmented directories to find supervisors, making the process time-consuming and difficult to evaluate.",
+    question:
+      "How might we help users confidently find the right supervisor while building trust in AI recommendations?",
+    researchMethods: [
+      "User interviews",
+      "Affinity mapping",
+      "Thematic analysis",
+      "Usability testing",
+    ],
+    keyInsights: [
+      "Users wanted control over AI decisions.",
+      "Users needed clear explanations behind recommendations.",
+      "Users preferred to browse, compare, and save supervisors before committing.",
+    ],
+    designDecisions: [
+      "Personalized onboarding to capture user preferences.",
+      "Transparent AI recommendations with matching rationale.",
+      "Comparison and filtering tools for informed decision-making.",
+      "Messaging flow to request supervision seamlessly.",
+    ],
+    finalSolution: [
+      "Personalized onboarding",
+      "AI-powered supervisor recommendations",
+      "Supervisor comparison and filtering",
+      "Saved supervisors",
+      "Detailed profiles",
+      "Messaging and supervision requests",
+    ],
+    impact: [
+      "Improved clarity and trust in AI recommendations.",
+      "Simplified supervisor discovery through personalized matching.",
+      "Reduced uncertainty by supporting comparison before commitment.",
+    ],
+    learning:
+      "This project reinforced that successful AI experiences prioritize transparency over automation. Rather than making decisions for users, AI should provide meaningful guidance while keeping people in control. Continuous user feedback was essential in shaping a more trustworthy and intuitive experience.",
   },
   {
     slug: "northline",
