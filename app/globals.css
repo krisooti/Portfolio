@@ -1031,7 +1031,7 @@ html {
   display: grid;
   gap: 0;
   border-bottom: 1px solid var(--line);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: calc(var(--space-2xl) / 2);
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -1040,7 +1040,7 @@ html {
 }
 
 .case-section + .case-section {
-  padding-top: var(--space-2xl);
+  padding-top: calc(var(--space-2xl) / 2);
 }
 
 .case-section.is-visible {
@@ -1324,6 +1324,13 @@ html {
   gap: var(--space-sm);
   min-width: 0;
   margin-bottom: var(--space-lg);
+}
+
+.case-section > :last-child,
+.case-content-block > :last-child,
+.solution-row > :last-child,
+.results-grid > :last-child {
+  margin-bottom: 0;
 }
 
 .pain-card-grid,
