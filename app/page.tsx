@@ -25,13 +25,8 @@ export default function Home() {
       <section className="hero-section">
         <p className="eyebrow">UX portfolio</p>
         <h1>
-          Designing quiet, useful interfaces with an editorial eye for story.
+          Design is more than just aesthetics. I focus on what users want.
         </h1>
-        <p className="hero-copy">
-          Selected product, mobile, and service design work shaped around
-          clarity, restraint, and the small details that make an experience feel
-          considered.
-        </p>
       </section>
 
       <section id="work" className="work-section" aria-labelledby="work-title">

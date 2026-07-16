@@ -30,7 +30,8 @@ test("server-renders the portfolio homepage", async () => {
   const html = await response.text();
   assert.match(html, /<title>Kristi Kim - UX Portfolio<\/title>/i);
   assert.match(html, /Kristi Kim/);
-  assert.match(html, /Designing quiet, useful interfaces/);
+  assert.match(html, /Design is more than just aesthetics/);
+  assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
   assert.match(html, /Featured work/);
   assert.match(html, /Atlas/);
   assert.match(html, /Northline/);
