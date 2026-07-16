@@ -6,8 +6,8 @@
   --muted: #76716f;
   --line: #e9e3e1;
   --soft: #f8f5f4;
-  --pink: #f5cbd6;
-  --pink-soft: #fff4f7;
+  --pink: #efa1b6;
+  --pink-soft: #fff0f4;
 }
 
 @theme inline {
@@ -133,9 +133,9 @@ html {
   background:
     linear-gradient(
       92deg,
-      rgba(245, 203, 214, 0.32),
-      rgba(245, 203, 214, 0.62) 48%,
-      rgba(245, 203, 214, 0.38)
+      rgba(239, 161, 182, 0.42),
+      rgba(239, 161, 182, 0.74) 48%,
+      rgba(239, 161, 182, 0.48)
     );
   clip-path: polygon(0 28%, 18% 14%, 48% 24%, 78% 8%, 100% 20%, 96% 86%, 70% 78%, 42% 96%, 14% 84%, 2% 100%);
   content: "";
@@ -160,7 +160,7 @@ html {
 }
 
 .marker-highlight--persistent::before {
-  opacity: 0.5;
+  opacity: 0.6;
   transform: scaleX(0);
   animation: marker-swipe 4.4s ease-in-out infinite;
 }
@@ -172,11 +172,11 @@ html {
   }
 
   35% {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   100% {
-    opacity: 0.5;
+    opacity: 0.6;
     transform: scaleX(1);
   }
 }
@@ -189,7 +189,7 @@ html {
 
   42%,
   78% {
-    opacity: 0.5;
+    opacity: 0.6;
     transform: scaleX(1);
   }
 
