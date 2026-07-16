@@ -258,35 +258,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </dl>
             <VisualPlaceholder label="Large hero mockup" />
 
-            <div className="case-section-grid">
-              <div>
-                <h2>
-                  <HighlightText>
-                    Building transparent AI matching for supervision.
-                  </HighlightText>
-                </h2>
-                <p>
-                  {project.intro} I contributed across research, product design,
-                  usability testing, interaction flows, and storytelling for the
-                  final case study.
-                </p>
-              </div>
+            <div className="case-content-block">
+              <h2>
+                <HighlightText>
+                  Building transparent AI matching for supervision.
+                </HighlightText>
+              </h2>
               <VisualPlaceholder label="Product overview screen" variant="phone" />
+              <p>
+                {project.intro} I contributed across research, product design,
+                usability testing, interaction flows, and storytelling for the
+                final case study.
+              </p>
             </div>
           </section>
 
           <section className="case-section" id="problem">
             <SectionLabel label="Problem" number="02" />
-            <div className="case-section-grid">
-              <div>
-                <h2>
-                  <HighlightText>
-                    {project.problem ?? project.challenge}
-                  </HighlightText>
-                </h2>
-                <p>{project.question}</p>
-              </div>
+            <div className="case-content-block">
+              <h2>
+                <HighlightText>
+                  {project.problem ?? project.challenge}
+                </HighlightText>
+              </h2>
               <VisualPlaceholder label="Fragmented discovery journey" variant="map" />
+              <p>{project.question}</p>
             </div>
             <div className="pain-card-grid" aria-label="Pain points">
               {painPoints.map((painPoint, index) => (
@@ -300,26 +296,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-section" id="research">
             <SectionLabel label="Research" number="03" />
-            <div className="case-section-grid">
-              <div>
-                <h2>
-                  <HighlightText>
-                    Research clarified what users needed before trusting AI.
-                  </HighlightText>
-                </h2>
-                <div className="method-card-grid">
-                  {project.researchMethods?.map((method) => (
-                    <article className="mini-card" key={method}>
-                      <p>{method}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
+            <div className="case-content-block">
+              <h2>
+                <HighlightText>
+                  Research clarified what users needed before trusting AI.
+                </HighlightText>
+              </h2>
               <div className="research-visual-grid">
                 <VisualPlaceholder label="Interview photos" variant="research" />
                 <VisualPlaceholder label="Affinity map" variant="map" />
                 <VisualPlaceholder label="Sticky notes" variant="research" />
                 <VisualPlaceholder label="Research synthesis" variant="map" />
+              </div>
+              <div className="method-card-grid">
+                {project.researchMethods?.map((method) => (
+                  <article className="mini-card" key={method}>
+                    <p>{method}</p>
+                  </article>
+                ))}
               </div>
             </div>
 
@@ -360,12 +354,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span>{String(index + 1).padStart(2, "0")}</span>
                   </div>
                   <div>
+                    <VisualPlaceholder label={stage.caption} variant="map" />
+                    <small>{stage.caption}</small>
                     <h3>
                       <HighlightText>{stage.title}</HighlightText>
                     </h3>
                     <p>{stage.body}</p>
-                    <VisualPlaceholder label={stage.caption} variant="map" />
-                    <small>{stage.caption}</small>
                   </div>
                 </article>
               ))}

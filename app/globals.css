@@ -1086,8 +1086,8 @@ html {
 
 .case-section h2 {
   max-width: 780px;
-  font-size: clamp(30px, 4.2vw, 56px);
-  line-height: 1.08;
+  font-size: 20px;
+  line-height: 1.35;
 }
 
 .case-subtitle {
@@ -1171,6 +1171,16 @@ html {
 .results-grid > div {
   display: grid;
   gap: 22px;
+}
+
+.case-content-block {
+  display: grid;
+  gap: 18px;
+}
+
+.case-content-block .case-visual,
+.case-content-block .research-visual-grid {
+  margin-top: 4px;
 }
 
 .case-visual {
@@ -1415,17 +1425,17 @@ html {
 
 .solution-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
-  align-items: center;
-  gap: clamp(28px, 5vw, 58px);
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 18px;
 }
 
 .solution-row--reverse {
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .solution-row--reverse .case-visual {
-  order: 2;
+  order: 0;
 }
 
 .solution-row > div:last-child {
@@ -1604,7 +1614,7 @@ html {
   }
 
   .case-visual--phone .visual-frame {
-    min-height: 300px;
+    min-height: 380px;
   }
 }
 
