@@ -182,7 +182,7 @@ html {
 
 .intro-row {
   display: grid;
-  width: min(100%, 720px);
+  width: min(100%, 860px);
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
   gap: clamp(22px, 4vw, 56px);
@@ -192,7 +192,7 @@ html {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: clamp(34px, 5vw, 58px);
   padding: 118px clamp(20px, 5vw, 64px) 74px;
@@ -258,7 +258,7 @@ html {
 
 .project-grid {
   display: grid;
-  width: min(100%, 1160px);
+  width: min(100%, 1320px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2.4vw, 30px);
 }
