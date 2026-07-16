@@ -32,6 +32,11 @@ export default function Home() {
               I design minimal, readable experiences that help people move
               through digital products with clarity and confidence.
             </h1>
+            <p className="intro-status">
+              <span aria-hidden="true" />
+              Recent graduate from the University of Washington · B.S. in Human
+              Centered Design &amp; Engineering
+            </p>
           </div>
           <a className="intro-email" href="mailto:krisooti08@gmail.com">
             krisooti08@gmail.com

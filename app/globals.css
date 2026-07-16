@@ -153,6 +153,18 @@ html {
   }
 }
 
+@keyframes status-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -207,6 +219,28 @@ html {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.7;
+}
+
+.intro-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 560px;
+  margin: 10px 0 0;
+  color: #8a8583;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0;
+  animation: status-fade-up 560ms ease 380ms forwards;
+}
+
+.intro-status span {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  background: #63a66f;
+  box-shadow: 0 0 0 3px rgba(99, 166, 111, 0.12);
 }
 
 .intro-email {
@@ -1005,6 +1039,10 @@ html {
 
   .intro-row {
     grid-template-columns: 1fr;
+  }
+
+  .intro-status {
+    align-items: flex-start;
   }
 
   .site-footer {
