@@ -15,6 +15,7 @@ export default function Home() {
       <header className="site-nav" aria-label="Primary navigation">
         <Link href="/" className="brand-link">
           Kristi
+          <span className="flower-mark" aria-hidden="true" />
         </Link>
         <nav className="nav-links">
           <a href="#work">Work</a>
@@ -27,9 +28,9 @@ export default function Home() {
         <div className="intro-row">
           <div className="intro-block">
             <h1 id="intro-title">
-              Hi there, I&apos;m Kristi, I design minimal, readable experiences
-              that help people move through digital products with clarity and
-              confidence.
+              Hi there, I&apos;m <span className="intro-highlight">Kristi</span>,
+              I design minimal, readable experiences that help people move
+              through digital products with clarity and confidence.
             </h1>
           </div>
           <a className="intro-email" href="mailto:krisooti08@gmail.com">

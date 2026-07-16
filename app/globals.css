@@ -72,23 +72,64 @@ a {
 }
 
 .brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.flower-mark {
   position: relative;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.flower-mark::before {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 3px;
+  height: 3px;
+  background: var(--pink);
+  content: "";
+  box-shadow:
+    0 -5px 0 var(--pink),
+    4px -2px 0 var(--pink),
+    4px 3px 0 var(--pink),
+    -4px 3px 0 var(--pink),
+    -4px -2px 0 var(--pink);
+}
+
+.flower-mark::after {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 3px;
+  height: 3px;
+  background: #9d8d91;
+  content: "";
+}
+
+.intro-highlight {
+  position: relative;
+  display: inline-block;
   isolation: isolate;
 }
 
-.brand-link::before {
+.intro-highlight::before {
   position: absolute;
-  right: -4px;
-  bottom: -2px;
-  left: -4px;
+  right: -5px;
+  bottom: 0;
+  left: -5px;
   z-index: -1;
   height: 0.62em;
   background: var(--pink);
   content: "";
-  opacity: 0.54;
+  opacity: 0.5;
   transform: scaleX(0);
   transform-origin: left;
-  animation: marker-swipe 3.8s ease-in-out infinite;
+  animation: marker-swipe 4.4s ease-in-out infinite;
 }
 
 @keyframes marker-swipe {
