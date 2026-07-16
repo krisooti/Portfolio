@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CategoryTag } from "../CategoryTag";
 import { HighlightText } from "../HighlightText";
-import { AboutSeattleTime } from "./AboutSeattleTime";
 import ProfileCarousel from "./ProfileCarousel";
 
 export const metadata: Metadata = {
@@ -11,24 +10,6 @@ export const metadata: Metadata = {
   description:
     "A personal introduction to Kristi Kim and her design background.",
 };
-
-const perfumeCollection = [
-  {
-    brand: "Diptyque",
-    name: "Do Son",
-    notes: ["Tuberose", "Orange Blossom", "Jasmine"],
-  },
-  {
-    brand: "Jo Malone",
-    name: "Peony & Blush Suede",
-    notes: ["Peony", "Red Apple", "Suede"],
-  },
-  {
-    brand: "Byredo",
-    name: "Blanche",
-    notes: ["Aldehyde", "Rose", "Musk"],
-  },
-];
 
 const designValues = [
   {
@@ -68,23 +49,15 @@ const toolkitGroups = [
 ];
 
 const funFacts = [
-  "☕ Coffee over tea",
-  "🌸 Floral perfumes",
-  "🇰🇷 Korean",
-  "📍 Seattle",
-  "✈️ Loves traveling",
-  "🌅 Golden hour",
-  "🐶 Dog person",
-  "💻 Loves building side projects",
-  "📷 Enjoys taking photos",
-];
-
-const currentlyItems = [
-  "📍 Seattle",
-  "🎓 Recent University of Washington HCDE Graduate",
-  "💻 Building new UX case studies",
-  "🌱 Looking for Product Design & UX opportunities",
-  "☕ Probably working from a café",
+  { icon: "coffee", label: "Coffee over tea" },
+  { icon: "perfume", label: "Floral perfumes" },
+  { icon: "korea", label: "Korean" },
+  { icon: "pin", label: "Based in Seattle" },
+  { icon: "plane", label: "Loves traveling" },
+  { icon: "sun", label: "Golden hour" },
+  { icon: "paw", label: "Dog person" },
+  { icon: "cursor", label: "Building side projects" },
+  { icon: "camera", label: "Enjoys photography" },
 ];
 
 function AboutSection({
@@ -147,62 +120,6 @@ export default function AboutPage() {
           </div>
         </AboutSection>
 
-        <AboutSection tag="OUTSIDE OF DESIGN" title="Small rituals that keep me curious.">
-          <div className="about-editorial-grid">
-            <article className="about-editorial-card">
-              <div className="about-card-media cafe-carousel" aria-label="Favorite café photos">
-                <span>Café window</span>
-                <span>Latte notes</span>
-                <span>Quiet corner</span>
-              </div>
-              <h3>☕ Cafés</h3>
-              <p>
-                I love exploring independent cafés and trying different coffees.
-                Many of my best ideas begin with a quiet corner, a notebook, and
-                a good latte.
-              </p>
-            </article>
-
-            <article className="about-editorial-card about-editorial-card--wide">
-              <div className="perfume-collection" aria-label="Favorite perfume collection">
-                {perfumeCollection.map((perfume) => (
-                  <div className="perfume-item" key={perfume.name}>
-                    <div className="perfume-bottle" aria-hidden="true">
-                      <span />
-                    </div>
-                    <div>
-                      <p>{perfume.brand}</p>
-                      <h4>{perfume.name}</h4>
-                      <ul>
-                        {perfume.notes.map((note) => (
-                          <li key={note}>{note}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <h3>🌸 Perfumes</h3>
-              <p>
-                Collecting fragrances has taught me that thoughtful details
-                create memorable experiences—just like great product design.
-              </p>
-            </article>
-
-            <article className="about-editorial-card">
-              <div className="about-card-media dog-memory" aria-label="Dog photo placeholder">
-                <span>Hodoo photo</span>
-              </div>
-              <h3>🐶 Dogs</h3>
-              <p>
-                My dogs are my favorite coworkers during late-night design
-                sessions. They remind me to take breaks, enjoy the little
-                moments, and keep things playful.
-              </p>
-            </article>
-          </div>
-        </AboutSection>
-
         <AboutSection tag="DESIGN VALUES" title="The principles I return to.">
           <div className="design-values-grid">
             {designValues.map((value) => (
@@ -233,22 +150,14 @@ export default function AboutPage() {
         <AboutSection tag="FUN FACTS" title="A few things about me.">
           <div className="fun-fact-tags" aria-label="Fun facts">
             {funFacts.map((fact) => (
-              <span key={fact}>{fact}</span>
+              <span className="fun-fact-tag" key={fact.label}>
+                <span
+                  className={`mono-icon mono-icon--${fact.icon}`}
+                  aria-hidden="true"
+                />
+                <HighlightText>{fact.label}</HighlightText>
+              </span>
             ))}
-          </div>
-        </AboutSection>
-
-        <AboutSection tag="CURRENTLY" title="What I'm up to right now.">
-          <div className="currently-card">
-            <ul>
-              {currentlyItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p>
-              <span>Seattle time</span>
-              <AboutSeattleTime />
-            </p>
           </div>
         </AboutSection>
       </article>

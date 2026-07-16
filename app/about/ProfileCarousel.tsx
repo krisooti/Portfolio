@@ -25,7 +25,7 @@ type ProfileSlide = {
 
 const profileSlides: ProfileSlide[] = [
   {
-    headline: "Hi there! I'm Kristi 👋",
+    headline: "Hi there! I'm Kristi",
     body: "I'm a recent graduate from the University of Washington with a degree in Human Centered Design & Engineering. I enjoy creating thoughtful digital experiences that are intuitive, accessible, and meaningful. I believe good design should make technology feel approachable while solving real problems.",
     imageLabel: "Kristi profile photo",
     caption: "This is me :)",
@@ -35,7 +35,7 @@ const profileSlides: ProfileSlide[] = [
     },
   },
   {
-    headline: "My café adventures ☕",
+    headline: "My café adventures",
     body: "I love exploring cafés and trying different coffees around the city.",
     imageLabel: "Café photo",
     caption: "cafe day",
@@ -47,7 +47,7 @@ const profileSlides: ProfileSlide[] = [
     caption: "tiny rituals",
   },
   {
-    headline: "My dogs 🐶",
+    headline: "My dogs",
     body: "Outside of design, I spend a lot of time with my dogs and the people I love.",
     imageLabel: "Photo with my dogs",
     caption: "home team",
