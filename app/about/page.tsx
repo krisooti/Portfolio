@@ -59,7 +59,10 @@ export default function AboutPage() {
 
         <section className="dogs-section" aria-labelledby="dogs-title">
           <div className="dogs-heading">
-            <h2 id="dogs-title">Meet my best friends 🐾</h2>
+            <h2 id="dogs-title">
+              meet my dog, Hodoo (ho-doo) which means &apos;walnut&apos; in
+              Korean!
+            </h2>
             <span aria-hidden="true">♡</span>
           </div>
 
