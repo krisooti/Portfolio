@@ -6,7 +6,7 @@ import ProfileCarousel from "./ProfileCarousel";
 export const metadata: Metadata = {
   title: "About - Kristi Kim",
   description:
-    "A personal introduction to Kristi Kim, her design background, and her dogs.",
+    "A personal introduction to Kristi Kim and her design background.",
 };
 
 export default function AboutPage() {
@@ -32,41 +32,6 @@ export default function AboutPage() {
 
       <article className="about-page">
         <ProfileCarousel />
-
-        <section className="dogs-section" aria-labelledby="dogs-title">
-          <div className="dogs-heading">
-            <h2 id="dogs-title">
-              <HighlightText>
-                meet my dog, Hodoo (ho-doo) which means &apos;walnut&apos; in
-                Korean!
-              </HighlightText>
-            </h2>
-            <span aria-hidden="true">♡</span>
-          </div>
-
-          <div className="dog-photo-grid">
-            <figure className="dog-card">
-              <img
-                className="dog-media"
-                src="/images/hodoo.jpg"
-                alt="Hodoo, Kristi's dog"
-              />
-              <figcaption>Hodoo in photo mode</figcaption>
-            </figure>
-
-            <figure className="dog-card">
-              <video
-                className="dog-media"
-                src="/videos/hodoo.mov"
-                aria-label="Video of Hodoo"
-                controls
-                playsInline
-                preload="metadata"
-              />
-              <figcaption>Hodoo in motion</figcaption>
-            </figure>
-          </div>
-        </section>
       </article>
     </main>
   );
