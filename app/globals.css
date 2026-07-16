@@ -516,13 +516,44 @@ html {
 }
 
 .about-hero-redesign {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(42px, 8vw, 96px);
   width: min(100%, 960px);
   margin: 0 auto;
   min-height: 58vh;
+}
+
+.profile-carousel {
+  display: grid;
+  gap: 28px;
+}
+
+.profile-carousel-stage {
+  display: grid;
+}
+
+.profile-carousel-slide {
+  display: grid;
+  grid-area: 1 / 1;
+  grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(42px, 8vw, 96px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.profile-carousel-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.about-photo-area {
+  position: relative;
+  display: grid;
+  justify-items: center;
 }
 
 .about-photo-wrap {
@@ -537,6 +568,31 @@ html {
     8px 8px 0 rgba(245, 203, 214, 0.24);
   padding: 12px 12px 28px;
   transform: rotate(-1.4deg);
+}
+
+.profile-carousel-image-button {
+  cursor: pointer;
+  font: inherit;
+  text-align: inherit;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.profile-carousel-image-button:hover {
+  border-color: rgba(216, 132, 154, 0.34);
+  box-shadow:
+    0 20px 40px rgba(17, 17, 17, 0.09),
+    8px 8px 0 rgba(245, 203, 214, 0.34);
+  transform: rotate(-1.4deg) translateY(-2px);
+}
+
+.profile-carousel-image-button:focus-visible,
+.profile-carousel-controls button:focus-visible,
+.profile-carousel-dots button:focus-visible {
+  outline: 1px solid #d8849a;
+  outline-offset: 4px;
 }
 
 .profile-photo-image {
@@ -566,6 +622,12 @@ html {
   box-shadow: 18px 18px 0 rgba(17, 17, 17, 0.035);
 }
 
+.profile-carousel-image-button .profile-photo-placeholder {
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  box-shadow: none;
+}
+
 .profile-photo-placeholder::before,
 .dog-photo-placeholder::before {
   position: absolute;
@@ -590,13 +652,25 @@ html {
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
 }
 
-.about-photo-wrap p {
+.profile-photo-caption {
   margin: 0;
   text-align: center;
   color: #6b6664;
   font-size: 20px;
   font-weight: 300;
   transform: rotate(1.4deg);
+}
+
+.profile-click-note {
+  position: absolute;
+  right: clamp(-24px, -2vw, -12px);
+  bottom: 42px;
+  margin: 0;
+  color: #d8849a;
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 18px;
+  font-weight: 300;
+  transform: rotate(-8deg);
 }
 
 .about-intro-copy {
@@ -629,6 +703,54 @@ html {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
+}
+
+.profile-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.profile-carousel-controls button {
+  border: 0;
+  background: transparent;
+  color: #746f6c;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  padding: 8px;
+  text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.profile-carousel-controls button:hover {
+  color: #d8849a;
+  transform: translateY(-1px);
+}
+
+.profile-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-carousel-dots button {
+  width: 7px;
+  height: 7px;
+  border: 1px solid #c8bfbc;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-carousel-dots button.is-active {
+  border-color: #d8849a;
+  background: #d8849a;
 }
 
 .dogs-section {
@@ -1223,6 +1345,7 @@ html {
 
   .case-meta-row,
   .about-hero-redesign,
+  .profile-carousel-slide,
   .case-section-grid,
   .results-grid,
   .solution-row,
@@ -1273,12 +1396,26 @@ html {
   }
 
   .about-hero-redesign,
+  .profile-carousel-slide,
   .dog-photo-grid {
     grid-template-columns: 1fr;
   }
 
+  .profile-carousel-slide {
+    gap: 34px;
+  }
+
+  .profile-click-note {
+    right: 0;
+    bottom: 36px;
+  }
+
   .profile-photo-placeholder {
     min-height: 360px;
+  }
+
+  .profile-carousel-image-button .profile-photo-placeholder {
+    min-height: 0;
   }
 
   .profile-photo-image {
@@ -1336,6 +1473,9 @@ html {
 
   .case-section,
   .case-sidebar-nav a,
+  .profile-carousel-slide,
+  .profile-carousel-image-button,
+  .profile-carousel-controls button,
   .about-intro-copy h1,
   .dog-card,
   .dogs-heading span,

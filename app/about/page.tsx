@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProfileCarousel from "./ProfileCarousel";
 
 export const metadata: Metadata = {
   title: "About - Kristi Kim",
@@ -23,28 +24,7 @@ export default function AboutPage() {
       </header>
 
       <article className="about-page">
-        <section className="about-hero-redesign" aria-labelledby="about-title">
-          <div className="about-photo-wrap">
-            <img
-              className="profile-photo-image"
-              src="/images/kristi-about.jpg"
-              alt="Kristi in Seattle"
-            />
-            <p>This is me :)</p>
-          </div>
-
-          <div className="about-intro-copy">
-            <h1 id="about-title">Hi there! I&apos;m Kristi</h1>
-            <p>
-              I&apos;m a recent graduate from the University of Washington with a
-              degree in Human Centered Design &amp; Engineering. I love designing
-              thoughtful digital experiences that feel intuitive, accessible,
-              and a little delightful. Outside of design, you&apos;ll usually
-              find me exploring new cafés, collecting perfumes, or spending time
-              with my dogs.
-            </p>
-          </div>
-        </section>
+        <ProfileCarousel />
 
         <section className="dogs-section" aria-labelledby="dogs-title">
           <div className="dogs-heading">

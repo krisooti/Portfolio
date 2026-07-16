@@ -1,0 +1,171 @@
+"use client";
+
+import { useEffect, useRef, useState, type TouchEvent } from "react";
+
+type ProfileSlide = {
+  headline: string;
+  body: string;
+  imageLabel: string;
+  caption: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+
+const profileSlides: ProfileSlide[] = [
+  {
+    headline: "Hi there! I'm Kristi",
+    body: "I'm a recent graduate from the University of Washington with a degree in Human Centered Design & Engineering. I love designing thoughtful digital experiences that feel intuitive, accessible, and a little delightful. Outside of design, you'll usually find me exploring new cafés, collecting perfumes, or spending time with my dogs.",
+    imageLabel: "Kristi profile photo",
+    caption: "This is me :)",
+    image: {
+      src: "/images/kristi-about.jpg",
+      alt: "Kristi in Seattle",
+    },
+  },
+  {
+    headline: "Coffee walks",
+    body: "I love exploring cafés and trying different coffees around the city.",
+    imageLabel: "Café photo",
+    caption: "cafe day",
+  },
+  {
+    headline: "Scent notes",
+    body: "I collect perfumes and enjoy discovering scents that feel personal and memorable.",
+    imageLabel: "Perfume collection photo",
+    caption: "tiny rituals",
+  },
+  {
+    headline: "Soft moments",
+    body: "Outside of design, I spend a lot of time with my dogs and the people I love.",
+    imageLabel: "Photo with my dogs",
+    caption: "home team",
+  },
+];
+
+export default function ProfileCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const goToSlide = (index: number) => {
+    setActiveIndex((index + profileSlides.length) % profileSlides.length);
+  };
+
+  const goNext = () => goToSlide(activeIndex + 1);
+  const goPrevious = () => goToSlide(activeIndex - 1);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        goNext();
+      }
+
+      if (event.key === "ArrowLeft") {
+        goPrevious();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeIndex]);
+
+  const handleTouchStart = (event: TouchEvent<HTMLElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLElement>) => {
+    if (touchStartX.current === null) {
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+    const distance = touchStartX.current - touchEndX;
+
+    if (Math.abs(distance) > 44) {
+      if (distance > 0) {
+        goNext();
+      } else {
+        goPrevious();
+      }
+    }
+
+    touchStartX.current = null;
+  };
+
+  return (
+    <section
+      className="about-hero-redesign profile-carousel"
+      aria-labelledby="about-title"
+      aria-roledescription="carousel"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className="profile-carousel-stage" aria-live="polite">
+        {profileSlides.map((slide, index) => (
+          <div
+            className={`profile-carousel-slide${
+              index === activeIndex ? " is-active" : ""
+            }`}
+            key={slide.headline}
+            aria-hidden={index !== activeIndex}
+          >
+            <div className="about-photo-area">
+              <button
+                className="about-photo-wrap profile-carousel-image-button"
+                type="button"
+                onClick={goNext}
+                aria-label="Show next profile slide"
+                tabIndex={index === activeIndex ? 0 : -1}
+              >
+                {slide.image ? (
+                  <img
+                    className="profile-photo-image"
+                    src={slide.image.src}
+                    alt={slide.image.alt}
+                  />
+                ) : (
+                  <span className="profile-photo-placeholder">
+                    <span>{slide.imageLabel}</span>
+                  </span>
+                )}
+                <span className="profile-photo-caption">{slide.caption}</span>
+              </button>
+              <p className="profile-click-note" aria-hidden="true">
+                click me →
+              </p>
+            </div>
+
+            <div className="about-intro-copy">
+              <h1 id={index === activeIndex ? "about-title" : undefined}>
+                {slide.headline}
+              </h1>
+              <p>{slide.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="profile-carousel-controls" aria-label="Profile slides">
+        <button type="button" onClick={goPrevious} aria-label="Previous slide">
+          Prev
+        </button>
+        <div className="profile-carousel-dots">
+          {profileSlides.map((slide, index) => (
+            <button
+              className={index === activeIndex ? "is-active" : ""}
+              type="button"
+              key={slide.headline}
+              onClick={() => goToSlide(index)}
+              aria-label={`Show slide ${index + 1}: ${slide.headline}`}
+              aria-current={index === activeIndex ? "true" : undefined}
+            />
+          ))}
+        </div>
+        <button type="button" onClick={goNext} aria-label="Next slide">
+          Next
+        </button>
+      </div>
+    </section>
+  );
+}
