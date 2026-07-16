@@ -234,7 +234,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1>
               <HighlightText>{project.title}</HighlightText>
             </h1>
-            <p className="case-subtitle">{project.category}</p>
             <p className="case-summary">{project.summary}</p>
             <dl className="case-meta-row">
               <div>
