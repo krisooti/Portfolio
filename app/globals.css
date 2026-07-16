@@ -261,6 +261,7 @@ html {
   width: min(100%, 1320px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2.4vw, 30px);
+  align-self: center;
 }
 
 .project-card {
