@@ -15,6 +15,10 @@ export type Project = {
   outcome: string;
   details: string[];
   tags: string[];
+  duration?: string;
+  role?: string;
+  team?: string;
+  sponsor?: string;
   problem?: string;
   question?: string;
   researchMethods?: string[];
@@ -84,24 +88,63 @@ export const projects: Project[] = [
   {
     slug: "Haven",
     title: "Haven",
-    category: "Web Design",
-    summary: "Protothon 2026 · 24-Hour UX Design Challenge",
-    year: "2025",
+    category: "Protothon 2026",
+    summary: "Helping homeowners confidently find the right interior designer.",
+    year: "2026",
     imageClass: "visual-northline",
     cardImage: {
       src: "/images/northline-card.png",
       alt: "Desktop mockup of the Haven designer discovery interface",
     },
     intro:
-      "Northline explores how a travel app can feel refined and useful without overwhelming people with endless comparison states.",
+      "During Protothon 2026, our team designed Haven, an AI-assisted platform that helps homeowners discover designers based on style preference, budget, and project compatibility instead of relying on scattered portfolios and referrals.",
     challenge:
-      "Travel planning often collapses under too many open tabs, unclear tradeoffs, and mismatched recommendations.",
+      "While inspiration platforms make discovering beautiful interiors easy, they fail to support the decision-making process.",
     approach:
-      "I designed a linear planning model with editorial recommendations, simple constraints, and compact itinerary views.",
+      "We translated visual taste into design language, introduced early budget estimation, and created transparent designer profiles that support comparison before first contact.",
     outcome:
-      "The concept turns a scattered planning process into a calm sequence of choices with visual rhythm and strong hierarchy.",
-    details: ["Mobile flows", "Interaction design", "Prototype"],
-    tags: ["Mobile App", "Product Design", "Accessibility"],
+      "Within 24 hours, we designed an end-to-end AI-assisted designer matching experience, built an interactive prototype, and presented a focused product strategy grounded in user needs.",
+    details: ["24 hours", "3 UX designers", "Protothon 2026"],
+    tags: ["UX Research", "Product Strategy", "Wireframing", "High-Fidelity UI"],
+    duration: "24 Hours",
+    role:
+      "UX Research, Product Strategy, User Flow, Wireframing, High-fidelity UI Design, Presentation",
+    team: "3 UX Designers",
+    sponsor: "Protothon 2026",
+    problem:
+      "Users know what they like visually, but struggle to understand which designer fits their style, what the work may cost, and whether they can trust a designer with their home.",
+    question:
+      "How might we help homeowners confidently evaluate and connect with the right interior designer before reaching out?",
+    researchMethods: [
+      "Secondary research",
+      "Competitive analysis",
+      "Persona development",
+      "Journey mapping",
+    ],
+    keyInsights: [
+      "Homeowners arrive prepared with inspiration, but lack tools to evaluate fit.",
+      "Budget uncertainty prevents many users from contacting designers.",
+      "Users need compatibility signals beyond beautiful portfolios.",
+    ],
+    designDecisions: [
+      "Image-based onboarding to translate visual taste into design language.",
+      "Early budget estimation using ZIP code, home type, and renovation scope.",
+      "AI designer matching based on style, budget, project experience, and compatibility.",
+      "Transparent designer profiles with reviews, specialties, budgets, and communication style.",
+    ],
+    finalSolution: [
+      "Preference discovery",
+      "Budget estimation",
+      "AI designer matching",
+      "Transparent designer profiles",
+    ],
+    impact: [
+      "Defined a focused product strategy within a 24-hour sprint.",
+      "Designed a complete user journey from inspiration to designer contact.",
+      "Produced a high-fidelity interactive prototype for presentation.",
+    ],
+    learning:
+      "This sprint reinforced that users rarely struggle to find inspiration. The real challenge begins when they need enough confidence to take action. AI should reduce uncertainty by explaining recommendations while still letting people compare and make the final decision.",
   },
   {
     slug: "Leafy",

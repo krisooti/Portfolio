@@ -54,7 +54,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Leafy/);
   assert.match(html, /UX Research/);
   assert.match(html, /Product Design/);
-  assert.match(html, /Accessibility/);
+  assert.match(html, /Product Strategy/);
+  assert.match(html, /High-Fidelity UI/);
   assert.match(html, /Healthcare/);
   assert.doesNotMatch(html, /Music player|Warm On A Cold Night|HONNE/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
@@ -95,4 +96,20 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /User interviews/i);
   assert.match(html, /Transparent AI recommendations with matching rationale/);
   assert.match(html, /transparency over automation/i);
+});
+
+test("server-renders the Haven case study", async () => {
+  const response = await render("/work/Haven");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Haven - Kristi Kim<\/title>/i);
+  assert.match(html, /Helping homeowners confidently find the right interior designer/);
+  assert.match(html, /Protothon 2026/);
+  assert.match(html, /24 Hours/);
+  assert.match(html, /How might we help homeowners confidently evaluate/);
+  assert.match(html, /Pinterest, Houzz, and Instagram/);
+  assert.match(html, /Secondary research/);
+  assert.match(html, /Budget estimation/);
+  assert.match(html, /Design for decision-making, not discovery/);
 });
