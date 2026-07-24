@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CategoryTag } from "./CategoryTag";
 import { HighlightText } from "./HighlightText";
 import { projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
@@ -72,16 +71,15 @@ export default function Home() {
                 )}
               </div>
               <div className="project-meta">
-                <p>{project.category}</p>
+                <p className="project-category">{project.category}</p>
                 <h2>
                   <HighlightText>{project.title}</HighlightText>
                 </h2>
                 <p>{project.summary}</p>
-                <div className="project-tags" aria-label={`${project.title} keywords`}>
-                  {project.tags.map((tag) => (
-                    <CategoryTag key={tag}>{tag}</CategoryTag>
-                  ))}
-                </div>
+                <p className="project-keywords">{project.tags.join(" · ")}</p>
+                <span className="project-link">
+                  View Project <span aria-hidden="true">-&gt;</span>
+                </span>
               </div>
             </Link>
           ))}
