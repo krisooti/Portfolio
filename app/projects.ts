@@ -149,20 +149,61 @@ export const projects: Project[] = [
   {
     slug: "Leafy",
     title: "Leafy",
-    category: "Mobile App Design",
-    summary: "A client portal with fewer interruptions and clearer handoffs.",
-    year: "2025",
+    category: "Smart Plant Care",
+    summary:
+      "A personalized plant management app that turns sensor data into clear care actions.",
+    year: "2026",
     imageClass: "visual-fieldnotes",
     intro:
-      "Fieldnotes is a service portal concept for creative teams managing approvals, updates, and shared project materials.",
+      "Leafy is an AI and sensor-based plant care service that helps users understand what their plants need and take the right action at the right time.",
     challenge:
-      "Clients needed clarity on what was ready, what needed attention, and what had already been approved without reading long status updates.",
+      "Plant owners often know basic care rules, but still struggle to remember when care is needed and interpret whether their plant's current environment is healthy.",
     approach:
-      "I shaped the portal around a strong activity timeline, focused approval cards, and lightweight documentation moments.",
+      "I structured the experience around a simple Monitor, Understand, Recommend, Act flow so plant data could become timely care guidance.",
     outcome:
-      "The result creates a calmer operating rhythm for both the client and the delivery team.",
-    details: ["Service blueprint", "Portal UX", "Design system"],
-    tags: ["Healthcare", "Service Design", "UX Research"],
+      "The final concept simplifies the path from plant status checking to personalized tasks, reminders, AI diagnosis, and community support.",
+    details: ["Smart plant care", "AI diagnosis", "Mobile UX"],
+    tags: ["Mobile UX", "AI", "IoT", "Product Design"],
+    duration: "UX Case Study",
+    role:
+      "UX Research, Information Architecture, User Flow, Wireframing, UI/UX Design, Prototyping",
+    team: "Solo Project",
+    sponsor: "Smart Plant Care",
+    problem:
+      "Knowing how to care for a plant is not enough. Users need to know when to act.",
+    question:
+      "How might we help plant owners understand what their plant needs and take the right action at the right time?",
+    researchMethods: [
+      "User research",
+      "Information architecture",
+      "User flow mapping",
+      "Wireframing",
+    ],
+    keyInsights: [
+      "Users forget when plant care is needed if it is not part of their daily routine.",
+      "Environmental and soil data needs to connect directly to recommended actions.",
+      "Plant care should be personalized by plant type, environment, and current status.",
+    ],
+    designDecisions: [
+      "Prioritized Today's Task as the clearest daily action surface.",
+      "Designed a widget reminder so users can see the next care task without opening the app.",
+      "Connected sensor data to current plant status and personalized recommendations.",
+      "Created an AI diagnosis flow for symptoms such as discoloration, wilting, or pests.",
+    ],
+    finalSolution: [
+      "Plant Profile",
+      "Today's Task",
+      "Smart Widget",
+      "AI Diagnosis",
+      "Community Support",
+    ],
+    impact: [
+      "Simplified the flow from sensor data to recommended care actions.",
+      "Reduced the burden of remembering watering, fertilizer, and follow-up tasks.",
+      "Created a connected care system from plant status to reminders and diagnosis.",
+    ],
+    learning:
+      "This project taught me that plant care UX should not simply show more data. Data should reduce decisions, not create more of them. The strongest value came from turning soil and environment signals into clear, timely actions users could trust.",
   },
 ];
 

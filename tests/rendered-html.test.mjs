@@ -56,7 +56,9 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Product Design/);
   assert.match(html, /Product Strategy/);
   assert.match(html, /High-Fidelity UI/);
-  assert.match(html, /Healthcare/);
+  assert.match(html, /Smart Plant Care/);
+  assert.match(html, /Mobile UX/);
+  assert.match(html, /IoT/);
   assert.doesNotMatch(html, /Music player|Warm On A Cold Night|HONNE/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
@@ -112,4 +114,19 @@ test("server-renders the Haven case study", async () => {
   assert.match(html, /Secondary research/);
   assert.match(html, /Budget estimation/);
   assert.match(html, /Design for decision-making, not discovery/);
+});
+
+test("server-renders the Leafy case study", async () => {
+  const response = await render("/work/Leafy");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Leafy - Kristi Kim<\/title>/i);
+  assert.match(html, /personalized plant management app/i);
+  assert.match(html, /Smart Plant Care/);
+  assert.match(html, /How might we help plant owners understand/);
+  assert.match(html, /What does my plant need today/);
+  assert.match(html, /Smart Widget/);
+  assert.match(html, /AI Diagnosis/);
+  assert.match(html, /Data should reduce decisions/);
 });

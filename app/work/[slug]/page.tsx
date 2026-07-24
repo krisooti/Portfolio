@@ -98,6 +98,39 @@ const havenProcessStages = [
   },
 ];
 
+const leafyProcessStages = [
+  {
+    title: "Research",
+    body: "Identified that users struggled less with basic plant-care knowledge and more with knowing when to act.",
+    caption: "Plant-care behavior and pain-point synthesis",
+  },
+  {
+    title: "IA",
+    body: "Explored My Plant, Diagnosis, Community, Data Insight, and Widget before reorganizing the product around care actions.",
+    caption: "Information architecture exploration",
+  },
+  {
+    title: "User Flow",
+    body: "Mapped a connected flow from widget reminders to plant status, recommendations, and completed care tasks.",
+    caption: "Monitor, understand, recommend, act",
+  },
+  {
+    title: "Wireframes",
+    body: "Structured the core screens around Today's Task, plant profiles, sensor data, and AI diagnosis.",
+    caption: "Low-fidelity app structure",
+  },
+  {
+    title: "Prototype",
+    body: "Created a personalized care experience that turns plant data into clear reminders and recommendations.",
+    caption: "Interactive plant-care prototype",
+  },
+  {
+    title: "Iteration",
+    body: "Refined the experience so data always leads to a next step rather than asking users to interpret raw numbers.",
+    caption: "Recommendation-led care model",
+  },
+];
+
 const solutionScreens = [
   {
     title: "Onboarding",
@@ -184,6 +217,39 @@ const havenSolutionScreens = [
   },
 ];
 
+const leafySolutionScreens = [
+  {
+    title: "Plant Profile",
+    body: "A central plant hub shows environmental information, soil data, current plant status, and recommended care.",
+    rationale:
+      "Users can understand their plant's condition without searching across disconnected screens.",
+  },
+  {
+    title: "Today's Task",
+    body: "The app surfaces the most important care action for the day, such as watering a Monstera when soil moisture is low.",
+    rationale:
+      "Pairing each task with a reason helps users understand why the action matters.",
+  },
+  {
+    title: "Smart Widget",
+    body: "A lightweight widget shows upcoming watering reminders, basic plant status, and the next care task.",
+    rationale:
+      "Users can stay aware of plant needs without opening the app every time.",
+  },
+  {
+    title: "AI Diagnosis",
+    body: "Users can scan a plant symptom, review possible causes, see recommended treatment, and create a follow-up task.",
+    rationale:
+      "The flow connects problem discovery to resolution instead of stopping at diagnosis.",
+  },
+  {
+    title: "Community Support",
+    body: "When AI diagnosis is not enough, users can search similar problems, post questions, and learn from other plant owners.",
+    rationale:
+      "Community becomes a secondary support layer for ambiguous or personal plant-care problems.",
+  },
+];
+
 const mindbridgeVisuals = {
   researchBoard: {
     src: "/images/mindbridge-research-board.png",
@@ -218,6 +284,10 @@ const havenVisuals = {
   },
 };
 
+const leafyVisuals = {
+  hero: undefined,
+};
+
 const reflectionCards = [
   "Transparency over automation.",
   "Designing AI requires trust.",
@@ -237,6 +307,21 @@ const havenReflectionCards = [
   {
     title: "Speed demands prioritization.",
     body: "A 24-hour sprint pushed us to focus on the moments that mattered most: onboarding, matching, comparison, and contact.",
+  },
+];
+
+const leafyReflectionCards = [
+  {
+    title: "Data should reduce decisions.",
+    body: "Plant-care data is most useful when it tells users what action to take next, rather than asking them to interpret every measurement.",
+  },
+  {
+    title: "Reminders are part of the product experience.",
+    body: "The widget became important because care often fails when users forget, not because they do not care.",
+  },
+  {
+    title: "Personalization makes advice feel relevant.",
+    body: "Recommendations become more trustworthy when they respond to plant type, environment, soil condition, and current symptoms.",
   },
 ];
 
@@ -425,6 +510,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const isMindbridge = project.slug === "tmind-ai";
   const isHaven = project.slug === "Haven";
+  const isLeafy = project.slug === "Leafy";
   const caseMeta = {
     duration: project.duration ?? "10 Weeks",
     role: project.role ?? "UX Research, Product Design, AI System",
@@ -437,11 +523,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         "Pricing and project scope often feel unclear before outreach.",
         "Homeowners rely on referrals without enough compatibility or trust signals.",
       ]
+    : isLeafy
+      ? [
+          "Users forget when watering, fertilizer, or other plant care is needed.",
+          "Raw light, temperature, humidity, and soil data can be hard to interpret.",
+          "Generic plant-care advice does not always match a user's specific plant or environment.",
+        ]
     : painPoints;
-  const activeProcessStages = isHaven ? havenProcessStages : processStages;
-  const activeSolutionScreens = isHaven ? havenSolutionScreens : solutionScreens;
+  const activeProcessStages = isHaven
+    ? havenProcessStages
+    : isLeafy
+      ? leafyProcessStages
+      : processStages;
+  const activeSolutionScreens = isHaven
+    ? havenSolutionScreens
+    : isLeafy
+      ? leafySolutionScreens
+      : solutionScreens;
   const activeReflectionCards = isHaven
     ? havenReflectionCards
+    : isLeafy
+      ? leafyReflectionCards
     : reflectionCards.map((reflection) => ({
         title: reflection,
         body:
@@ -455,11 +557,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       }));
   const overviewContribution = isHaven
     ? "My contributions included UX research, product strategy, user flows, wireframing, high-fidelity UI design, and the final presentation."
+    : isLeafy
+      ? "My contributions included research synthesis, information architecture, user flows, wireframing, UI/UX design, and prototyping."
     : "I contributed across research, product design, usability testing, interaction flows, and storytelling for the final case study.";
   const researchCopy = isHaven
     ? "We analyzed Pinterest, Houzz, and Instagram to understand how homeowners move from inspiration to designer selection. The competitive analysis showed that existing platforms support discovery well, but offer weak comparison, pricing, and compatibility signals."
+    : isLeafy
+      ? "The research focused on understanding where plant care breaks down over time. The strongest pattern was that users did not simply want more plant information; they needed a fast, personalized answer to what their plant needs right now."
     : "To better understand what therapists-in-training need before trusting AI-generated recommendations, we conducted six 30-minute semi-structured interviews with three supervisors and trainees. We synthesized the findings using affinity mapping and thematic analysis, which directly informed our design decisions and usability testing.";
-  const primaryVisual = isHaven ? havenVisuals.hero : mindbridgeVisuals.matching;
+  const primaryVisual = isHaven
+    ? havenVisuals.hero
+    : isLeafy
+      ? leafyVisuals.hero
+      : mindbridgeVisuals.matching;
 
   return (
     <main className="site-shell">
@@ -531,6 +641,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <HighlightText>
                 {isHaven
                   ? "Research revealed a gap between inspiration and confident action."
+                  : isLeafy
+                    ? "Research showed that plant care breaks down at the moment of action."
                   : "Research clarified what users needed before trusting AI."}
               </HighlightText>
             </h2>
@@ -540,6 +652,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               caption={
                 isHaven
                   ? "Competitive analysis and designer-discovery opportunity areas"
+                  : isLeafy
+                    ? "Plant-care flow and opportunity areas"
                   : "Affinity map and interview synthesis"
               }
               image={isMindbridge ? mindbridgeVisuals.researchBoard : undefined}
@@ -563,6 +677,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <HighlightText>
                 {isHaven
                   ? "Turning scattered inspiration into a structured matching flow."
+                  : isLeafy
+                    ? "Turning plant data into actionable care."
                   : "From research signals to a more trustworthy matching flow."}
               </HighlightText>
             </h2>
@@ -572,6 +688,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <KeyTakeaway>
               {isHaven
                 ? "The strongest direction was helping users translate visual taste, budget expectations, and trust signals into a confident designer shortlist."
+                : isLeafy
+                  ? "The key shift was designing around the question, “What does my plant need today?” rather than organizing the app around separate data features."
                 : "The most important shift was moving from “AI score” language to plain explanations that users could evaluate on their own terms."}
             </KeyTakeaway>
           </section>
@@ -582,33 +700,57 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <HighlightText>
                 {isHaven
                   ? "An AI-assisted path from inspiration to confident designer selection."
+                  : isLeafy
+                    ? "A connected care system from plant status to reminder."
                   : "A visual system for confident supervisor discovery."}
               </HighlightText>
             </h2>
             <p>
               {isHaven
                 ? "Haven combines visual preference discovery, budget estimation, AI matching, and transparent designer profiles so homeowners can compare options before reaching out."
+                : isLeafy
+                  ? "Leafy connects environmental data, soil signals, personalized recommendations, Today's Task, widget reminders, AI diagnosis, and community support into one continuous care experience."
                 : "The final solution supports a calm path from onboarding to match review, profile evaluation, saving, and messaging."}
             </p>
             <EditorialImage
               caption={
                 isHaven
                   ? "Haven designer discovery interface"
+                  : isLeafy
+                    ? "Leafy smart plant-care experience"
                   : "AI-powered supervisor recommendations"
               }
               image={primaryVisual}
             />
             <div className="supporting-visual-grid supporting-visual-grid--three">
               <EditorialImage
-                caption={isHaven ? "Preference discovery" : "Supervisor profile"}
+                caption={
+                  isHaven
+                    ? "Preference discovery"
+                    : isLeafy
+                      ? "Plant profile"
+                      : "Supervisor profile"
+                }
                 image={isMindbridge ? mindbridgeVisuals.profile : undefined}
               />
               <EditorialImage
-                caption={isHaven ? "Budget estimation" : "Advanced filters"}
+                caption={
+                  isHaven
+                    ? "Budget estimation"
+                    : isLeafy
+                      ? "Today's Task"
+                      : "Advanced filters"
+                }
                 image={isMindbridge ? mindbridgeVisuals.filters : undefined}
               />
               <EditorialImage
-                caption={isHaven ? "Designer profile" : "Messaging request"}
+                caption={
+                  isHaven
+                    ? "Designer profile"
+                    : isLeafy
+                      ? "AI diagnosis"
+                      : "Messaging request"
+                }
                 image={isMindbridge ? mindbridgeVisuals.message : undefined}
               />
             </div>
@@ -632,6 +774,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <KeyTakeaway>
               {isHaven
                 ? "The experience makes AI feel like a thoughtful guide by pairing recommendations with context users can understand and compare."
+                : isLeafy
+                  ? "The final experience turns sensor readings into care decisions, helping users act before plant problems become visible."
                 : "The interface helps users compare and act without rushing the decision, keeping the matching process transparent and human."}
             </KeyTakeaway>
           </section>
@@ -644,6 +788,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p>
               {isHaven
                 ? "The final direction helped transform an open-ended renovation search into a clearer path from taste to confident outreach."
+                : isLeafy
+                  ? "The final direction reframed plant management around timely care actions instead of isolated features or raw data dashboards."
                 : "The final direction made the AI logic easier to understand and reduced uncertainty by supporting comparison before commitment."}
             </p>
             <InsightPanel
@@ -652,12 +798,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ...(project.impact ?? []),
                 isHaven
                   ? "Created an AI-assisted matching concept grounded in user decision-making needs."
+                  : isLeafy
+                    ? "Designed a connected Sensor Data → Plant Status → Recommendation → Today's Task → Reminder flow."
                   : "Better exploration through saved supervisors and comparison.",
               ]}
             />
             <EditorialImage
-              caption={isHaven ? "Final Haven prototype direction" : "Detailed supervisor profile"}
-              image={isHaven ? havenVisuals.hero : mindbridgeVisuals.profile}
+              caption={
+                isHaven
+                  ? "Final Haven prototype direction"
+                  : isLeafy
+                    ? "Final Leafy care flow"
+                    : "Detailed supervisor profile"
+              }
+              image={
+                isHaven
+                  ? havenVisuals.hero
+                  : isLeafy
+                    ? leafyVisuals.hero
+                    : mindbridgeVisuals.profile
+              }
             />
             <div className="learning-stack">
               {activeReflectionCards.map((reflection) => (
