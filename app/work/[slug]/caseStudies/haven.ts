@@ -2,8 +2,8 @@ import type { CaseStudyContent } from "./types";
 
 const visuals = {
   hero: {
-    src: "/images/northline-card.png",
-    alt: "Desktop mockup of the Haven designer discovery interface",
+    src: "/images/haven-device-mockup.png",
+    alt: "Haven desktop and tablet designer matching mockups",
   },
 };
 

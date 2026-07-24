@@ -6,8 +6,8 @@ const visuals = {
     alt: "MindBridge research synthesis board with supervisor and supervisee interview notes",
   },
   matching: {
-    src: "/images/mindbridge-matching-screen.png",
-    alt: "MindBridge clinical supervisor matching recommendations screen",
+    src: "/images/tmind-ai-device-mockup.png",
+    alt: "Tmind AI supervisor matching and profile screens",
   },
   filters: {
     src: "/images/mindbridge-filter.png",
@@ -137,7 +137,7 @@ export const tmindAiCaseStudy: CaseStudyContent = {
   solutionCopy:
     "The final solution supports a calm path from onboarding to match review, profile evaluation, saving, and messaging.",
   primaryVisual: visuals.matching,
-  primaryVisualCaption: "AI-powered supervisor recommendations",
+  primaryVisualCaption: "Tmind AI supervisor matching experience",
   supportingVisuals: [
     { caption: "Supervisor profile", image: visuals.profile },
     { caption: "Advanced filters", image: visuals.filters },

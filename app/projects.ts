@@ -38,6 +38,10 @@ export const projects: Project[] = [
       "An AI-powered platform that helps therapists-in-training find supervisors aligned with their learning goals.",
     year: "2026",
     imageClass: "visual-tmind",
+    cardImage: {
+      src: "/images/tmind-ai-device-mockup.png",
+      alt: "Tmind AI supervisor matching and profile screens",
+    },
     intro:
       "MindBridge helps therapists-in-training discover supervisors aligned with their learning goals while maintaining transparency and user control throughout the matching process.",
     challenge:
@@ -93,8 +97,8 @@ export const projects: Project[] = [
     year: "2026",
     imageClass: "visual-northline",
     cardImage: {
-      src: "/images/northline-card.png",
-      alt: "Desktop mockup of the Haven designer discovery interface",
+      src: "/images/haven-device-mockup.png",
+      alt: "Haven desktop and tablet designer matching mockups",
     },
     intro:
       "During Protothon 2026, our team designed Haven, an AI-assisted platform that helps homeowners discover designers based on style preference, budget, and project compatibility instead of relying on scattered portfolios and referrals.",

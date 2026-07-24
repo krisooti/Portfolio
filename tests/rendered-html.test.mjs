@@ -49,8 +49,10 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /Tmind AI/);
   assert.match(html, /AI-powered platform that helps therapists-in-training/);
   assert.match(html, /Haven/);
-  assert.match(html, /northline-card\.png/);
-  assert.match(html, /Desktop mockup of the Haven designer discovery interface/);
+  assert.match(html, /tmind-ai-device-mockup\.png/);
+  assert.match(html, /Tmind AI supervisor matching and profile screens/);
+  assert.match(html, /haven-device-mockup\.png/);
+  assert.match(html, /Haven desktop and tablet designer matching mockups/);
   assert.match(html, /Leafy/);
   assert.match(html, /UX Research/);
   assert.match(html, /Product Design/);
@@ -88,8 +90,8 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /case-sidebar/);
   assert.match(html, /project-roadmap/);
   assert.match(html, /Mid-Fidelity/);
-  assert.match(html, /mindbridge-matching-screen\.png/);
-  assert.match(html, /MindBridge clinical supervisor matching recommendations screen/);
+  assert.match(html, /tmind-ai-device-mockup\.png/);
+  assert.match(html, /Tmind AI supervisor matching and profile screens/);
   assert.match(html, /mindbridge-research-board\.png/);
   assert.match(html, /mindbridge-filter\.png/);
   assert.match(html, /mindbridge-message-typed\.png/);
