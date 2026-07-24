@@ -101,33 +101,33 @@ const havenProcessStages = [
 const leafyProcessStages = [
   {
     title: "Research",
-    body: "Identified that users struggled less with basic plant-care knowledge and more with knowing when to act.",
+    body: "Learned that users missed care routines because they struggled to know when their specific plant needed attention.",
     caption: "Plant-care behavior and pain-point synthesis",
   },
   {
-    title: "IA",
-    body: "Explored My Plant, Diagnosis, Community, Data Insight, and Widget before reorganizing the product around care actions.",
-    caption: "Information architecture exploration",
+    title: "Strategy",
+    body: "Shifted the product from providing more plant-care information to delivering actionable, personalized guidance.",
+    caption: "Don't just show plant data. Tell users what to do with it.",
   },
   {
     title: "User Flow",
-    body: "Mapped a connected flow from widget reminders to plant status, recommendations, and completed care tasks.",
+    body: "Mapped a flow from Widget and Home to Today's Task, Plant Profile, current status, recommendation, and completed care.",
     caption: "Monitor, understand, recommend, act",
   },
   {
-    title: "Wireframes",
-    body: "Structured the core screens around Today's Task, plant profiles, sensor data, and AI diagnosis.",
-    caption: "Low-fidelity app structure",
+    title: "Data Model",
+    body: "Connected low soil moisture, environmental readings, and plant status to clear recommendations and follow-up tasks.",
+    caption: "Sensor data to actionable care",
   },
   {
-    title: "Prototype",
-    body: "Created a personalized care experience that turns plant data into clear reminders and recommendations.",
-    caption: "Interactive plant-care prototype",
+    title: "Widget",
+    body: "Designed a lightweight widget so time-sensitive care tasks could fit naturally into the user's daily routine.",
+    caption: "Care without opening the app",
   },
   {
-    title: "Iteration",
-    body: "Refined the experience so data always leads to a next step rather than asking users to interpret raw numbers.",
-    caption: "Recommendation-led care model",
+    title: "Final Flow",
+    body: "Created a connected decision-support experience that tells users what their plant needs today, and why.",
+    caption: "Here is what your plant needs today",
   },
 ];
 
@@ -220,33 +220,33 @@ const havenSolutionScreens = [
 const leafySolutionScreens = [
   {
     title: "Plant Profile",
-    body: "A central plant hub shows environmental information, soil data, current plant status, and recommended care.",
+    body: "The Plant Profile brings together environmental information, soil data, current plant status, and recommended care in one place.",
     rationale:
-      "Users can understand their plant's condition without searching across disconnected screens.",
+      "Instead of presenting light, temperature, humidity, moisture, pH, and nutrient levels as isolated metrics, the interface translates them into an understandable health status.",
   },
   {
     title: "Today's Task",
-    body: "The app surfaces the most important care action for the day, such as watering a Monstera when soil moisture is low.",
+    body: "Today's Task prioritizes what needs attention, such as Water Monstera Today when soil moisture is below the recommended range.",
     rationale:
-      "Pairing each task with a reason helps users understand why the action matters.",
+      "Showing both the action and reason helps users understand why the recommendation matters.",
   },
   {
     title: "Smart Widget",
-    body: "A lightweight widget shows upcoming watering reminders, basic plant status, and the next care task.",
+    body: "The widget brings today's care task, upcoming reminders, quick plant status, and priority alerts directly to the home screen.",
     rationale:
-      "Users can stay aware of plant needs without opening the app every time.",
+      "Plant care becomes part of the user's existing routine instead of requiring them to remember to open another app.",
   },
   {
     title: "AI Diagnosis",
-    body: "Users can scan a plant symptom, review possible causes, see recommended treatment, and create a follow-up task.",
+    body: "When users notice an unusual change, they can select a plant, scan symptoms, view a diagnosis, receive treatment guidance, and create a follow-up task.",
     rationale:
-      "The flow connects problem discovery to resolution instead of stopping at diagnosis.",
+      "AI Diagnosis adds support when regular monitoring is no longer enough.",
   },
   {
-    title: "Community Support",
-    body: "When AI diagnosis is not enough, users can search similar problems, post questions, and learn from other plant owners.",
+    title: "Community",
+    body: "For problems without a straightforward answer, users can search posts, share plant conditions, ask questions, and receive advice from other plant owners.",
     rationale:
-      "Community becomes a secondary support layer for ambiguous or personal plant-care problems.",
+      "Community creates a secondary support path when users need help beyond AI recommendations.",
   },
 ];
 
@@ -313,15 +313,15 @@ const havenReflectionCards = [
 const leafyReflectionCards = [
   {
     title: "Data should reduce decisions.",
-    body: "Plant-care data is most useful when it tells users what action to take next, rather than asking them to interpret every measurement.",
+    body: "The strongest experience came from translating complex real-time data into clear, timely, and actionable guidance.",
   },
   {
-    title: "Reminders are part of the product experience.",
-    body: "The widget became important because care often fails when users forget, not because they do not care.",
+    title: "Action matters more than information.",
+    body: "The project became clearer when it moved from “Here is your plant data” to “Here is what your plant needs today, and why.”",
   },
   {
-    title: "Personalization makes advice feel relevant.",
-    body: "Recommendations become more trustworthy when they respond to plant type, environment, soil condition, and current symptoms.",
+    title: "Care should fit existing routines.",
+    body: "Widgets and proactive reminders reduced the effort required to keep monitoring plants over time.",
   },
 ];
 
@@ -525,9 +525,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       ]
     : isLeafy
       ? [
-          "Users forget when watering, fertilizer, or other plant care is needed.",
-          "Raw light, temperature, humidity, and soil data can be hard to interpret.",
-          "Generic plant-care advice does not always match a user's specific plant or environment.",
+          "Users have to remember when they last cared for a plant.",
+          "Users have to interpret moisture, light, and environmental conditions.",
+          "Users often notice problems only after they become visible.",
         ]
     : painPoints;
   const activeProcessStages = isHaven
@@ -558,12 +558,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const overviewContribution = isHaven
     ? "My contributions included UX research, product strategy, user flows, wireframing, high-fidelity UI design, and the final presentation."
     : isLeafy
-      ? "My contributions included research synthesis, information architecture, user flows, wireframing, UI/UX design, and prototyping."
+      ? "My role covered UX research, UX/UI design, information architecture, and prototyping, with a focus on plant management, IoT sensor data, AI recommendations, and mobile widgets."
     : "I contributed across research, product design, usability testing, interaction flows, and storytelling for the final case study.";
   const researchCopy = isHaven
     ? "We analyzed Pinterest, Houzz, and Instagram to understand how homeowners move from inspiration to designer selection. The competitive analysis showed that existing platforms support discovery well, but offer weak comparison, pricing, and compatibility signals."
     : isLeafy
-      ? "The research focused on understanding where plant care breaks down over time. The strongest pattern was that users did not simply want more plant information; they needed a fast, personalized answer to what their plant needs right now."
+      ? "Research shifted the project from providing more plant-care information to providing more actionable, personalized guidance. Users needed a fast answer to what their plant needs now, not another dashboard of numbers to interpret."
     : "To better understand what therapists-in-training need before trusting AI-generated recommendations, we conducted six 30-minute semi-structured interviews with three supervisors and trainees. We synthesized the findings using affinity mapping and thematic analysis, which directly informed our design decisions and usability testing.";
   const primaryVisual = isHaven
     ? havenVisuals.hero
@@ -642,7 +642,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {isHaven
                   ? "Research revealed a gap between inspiration and confident action."
                   : isLeafy
-                    ? "Research showed that plant care breaks down at the moment of action."
+                    ? "Research showed that care breaks down when users have to decide what to do next."
                   : "Research clarified what users needed before trusting AI."}
               </HighlightText>
             </h2>
@@ -653,7 +653,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 isHaven
                   ? "Competitive analysis and designer-discovery opportunity areas"
                   : isLeafy
-                    ? "Plant-care flow and opportunity areas"
+                    ? "Monitor, Understand, Recommend, Act strategy"
                   : "Affinity map and interview synthesis"
               }
               image={isMindbridge ? mindbridgeVisuals.researchBoard : undefined}
@@ -678,7 +678,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {isHaven
                   ? "Turning scattered inspiration into a structured matching flow."
                   : isLeafy
-                    ? "Turning plant data into actionable care."
+                    ? "Designing a flow that turns plant data into action."
                   : "From research signals to a more trustworthy matching flow."}
               </HighlightText>
             </h2>
@@ -689,7 +689,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {isHaven
                 ? "The strongest direction was helping users translate visual taste, budget expectations, and trust signals into a confident designer shortlist."
                 : isLeafy
-                  ? "The key shift was designing around the question, “What does my plant need today?” rather than organizing the app around separate data features."
+                  ? "The guiding principle became: don't just show plant data. Tell users what to do with it."
                 : "The most important shift was moving from “AI score” language to plain explanations that users could evaluate on their own terms."}
             </KeyTakeaway>
           </section>
@@ -701,7 +701,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {isHaven
                   ? "An AI-assisted path from inspiration to confident designer selection."
                   : isLeafy
-                    ? "A connected care system from plant status to reminder."
+                    ? "A connected care system from real-time status to timely action."
                   : "A visual system for confident supervisor discovery."}
               </HighlightText>
             </h2>
@@ -709,7 +709,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {isHaven
                 ? "Haven combines visual preference discovery, budget estimation, AI matching, and transparent designer profiles so homeowners can compare options before reaching out."
                 : isLeafy
-                  ? "Leafy connects environmental data, soil signals, personalized recommendations, Today's Task, widget reminders, AI diagnosis, and community support into one continuous care experience."
+                  ? "Leafy connects environmental data, soil signals, plant status, personalized recommendations, Today's Task, widget reminders, AI diagnosis, and community support into one continuous care experience."
                 : "The final solution supports a calm path from onboarding to match review, profile evaluation, saving, and messaging."}
             </p>
             <EditorialImage
@@ -775,7 +775,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {isHaven
                 ? "The experience makes AI feel like a thoughtful guide by pairing recommendations with context users can understand and compare."
                 : isLeafy
-                  ? "The final experience turns sensor readings into care decisions, helping users act before plant problems become visible."
+                  ? "The final experience reduces interpretation by connecting Sensor Data → Plant Status → Recommendation → Today's Task → Reminder."
                 : "The interface helps users compare and act without rushing the decision, keeping the matching process transparent and human."}
             </KeyTakeaway>
           </section>
@@ -789,7 +789,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {isHaven
                 ? "The final direction helped transform an open-ended renovation search into a clearer path from taste to confident outreach."
                 : isLeafy
-                  ? "The final direction reframed plant management around timely care actions instead of isolated features or raw data dashboards."
+                  ? "The project evolved from a collection of plant-care features into a focused decision-support experience."
                 : "The final direction made the AI logic easier to understand and reduced uncertainty by supporting comparison before commitment."}
             </p>
             <InsightPanel

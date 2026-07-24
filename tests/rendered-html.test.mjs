@@ -122,10 +122,10 @@ test("server-renders the Leafy case study", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Leafy - Kristi Kim<\/title>/i);
-  assert.match(html, /personalized plant management app/i);
+  assert.match(html, /Turning real-time plant data into timely, personalized care/);
   assert.match(html, /Smart Plant Care/);
   assert.match(html, /How might we help plant owners understand/);
-  assert.match(html, /What does my plant need today/);
+  assert.match(html, /don&#x27;t just show plant data/i);
   assert.match(html, /Smart Widget/);
   assert.match(html, /AI Diagnosis/);
   assert.match(html, /Data should reduce decisions/);
