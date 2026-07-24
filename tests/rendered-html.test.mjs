@@ -28,7 +28,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Kristi - UX Portfolio<\/title>/i);
+  assert.match(html, /<title>Kristi Kim UX Portfolio<\/title>/i);
   assert.match(html, /Kristi/);
   assert.match(html, /flower-mark/);
   assert.match(html, /marker-highlight/);
@@ -45,12 +45,13 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /Feel free to contact me/);
   assert.doesNotMatch(html, /I shape quiet digital products/);
   assert.match(html, /I&#x27;m currently in Seattle/);
-  assert.match(html, /MindBridge/);
+  assert.match(html, /AI-Powered Supervisor Matching for Therapists-in-Training/);
+  assert.match(html, /Tmind AI/);
   assert.match(html, /AI-powered platform that helps therapists-in-training/);
-  assert.match(html, /Northline/);
+  assert.match(html, /Haven/);
   assert.match(html, /northline-card\.png/);
   assert.match(html, /Desktop mockup of the Haven designer discovery interface/);
-  assert.match(html, /Fieldnotes/);
+  assert.match(html, /Leafy/);
   assert.match(html, /UX Research/);
   assert.match(html, /Product Design/);
   assert.match(html, /Accessibility/);
@@ -78,7 +79,8 @@ test("server-renders the MindBridge case study", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /MindBridge/);
+  assert.match(html, /AI-Powered Supervisor Matching for Therapists-in-Training/);
+  assert.match(html, /Tmind AI/);
   assert.match(html, /<dt>Sponsor<\/dt><dd>Tmind AI<\/dd>/);
   assert.match(html, /case-sidebar/);
   assert.match(html, /project-roadmap/);

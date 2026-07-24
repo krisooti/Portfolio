@@ -366,7 +366,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <Link href="/#work" className="back-link">
               <HighlightText>Back to work</HighlightText>
             </Link>
-            <SectionLabel label="User Research" />
+            <SectionLabel label="Tmind AI" />
 
             <h1>
               <HighlightText>{project.title}</HighlightText>
@@ -396,11 +396,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               final case study.
             </p>
             <ProjectRoadmap />
-            <KeyTakeaway>
-              The roadmap moved from research to final design with one constant
-              goal: make AI recommendations understandable, adjustable, and
-              trustworthy.
-            </KeyTakeaway>
           </section>
 
           <section className="case-section" id="problem">

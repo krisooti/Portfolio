@@ -28,8 +28,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "tmind-ai",
-    title: "MindBridge",
-    category: "AI-Powered Supervisor Matching Platform",
+    title: "AI-Powered Supervisor Matching for Therapists-in-Training",
+    category: "Tmind AI",
     summary:
       "An AI-powered platform that helps therapists-in-training find supervisors aligned with their learning goals.",
     year: "2026",
@@ -82,10 +82,10 @@ export const projects: Project[] = [
       "This project reinforced that successful AI experiences prioritize transparency over automation. Rather than making decisions for users, AI should provide meaningful guidance while keeping people in control. Continuous user feedback was essential in shaping a more trustworthy and intuitive experience.",
   },
   {
-    slug: "northline",
-    title: "Northline",
-    category: "Mobile UX",
-    summary: "A premium travel planning flow built around calm decisions.",
+    slug: "Haven",
+    title: "Haven",
+    category: "Web Design",
+    summary: "Protothon 2026 · 24-Hour UX Design Challenge",
     year: "2025",
     imageClass: "visual-northline",
     cardImage: {
@@ -104,9 +104,9 @@ export const projects: Project[] = [
     tags: ["Mobile App", "Product Design", "Accessibility"],
   },
   {
-    slug: "fieldnotes",
-    title: "Fieldnotes",
-    category: "Service Design",
+    slug: "Leafy",
+    title: "Leafy",
+    category: "Mobile App Design",
     summary: "A client portal with fewer interruptions and clearer handoffs.",
     year: "2025",
     imageClass: "visual-fieldnotes",

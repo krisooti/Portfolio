@@ -6,7 +6,7 @@ import { projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
 
 export const metadata: Metadata = {
-  title: "Kristi - UX Portfolio",
+  title: "Kristi Kim UX Portfolio",
   description:
     "A simple, minimal UX portfolio with centered project cards and a clean modern aesthetic.",
 };
