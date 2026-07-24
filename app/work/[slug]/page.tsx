@@ -10,7 +10,7 @@ import {
   getCaseStudyContent,
   type CaseVisualImage,
   type ProcessStage,
-} from "./caseStudyContent";
+} from "./caseStudies";
 
 type ProjectPageProps = {
   params: Promise<{
