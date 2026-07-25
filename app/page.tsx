@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryTag } from "./CategoryTag";
 import { HighlightText } from "./HighlightText";
-import { projects } from "./projects";
+import { type Project, projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
 
 export const metadata: Metadata = {
@@ -10,6 +10,48 @@ export const metadata: Metadata = {
   description:
     "A simple, minimal UX portfolio with centered project cards and a clean modern aesthetic.",
 };
+
+const featuredProjects = projects.slice(0, 3);
+
+function ProjectCard({ project }: { project: Project }) {
+  const displayTitle =
+    project.slug === "tmind-ai" ? "MindBridge" : project.title;
+
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="project-card"
+      aria-label={`Open ${project.title} case study`}
+    >
+      <div className={`project-image ${project.imageClass}`}>
+        {project.cardImage ? (
+          <img src={project.cardImage.src} alt={project.cardImage.alt} />
+        ) : (
+          <div className="image-system" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+        )}
+      </div>
+      <div className="project-overlay">
+        <div className="project-meta">
+          <p>{project.category}</p>
+          <h2>
+            <HighlightText>{displayTitle}</HighlightText>
+          </h2>
+          <p>{project.summary}</p>
+          <div className="project-tags" aria-label={`${project.title} keywords`}>
+            {project.tags.map((tag) => (
+              <CategoryTag key={tag}>{tag}</CategoryTag>
+            ))}
+          </div>
+          <span className="project-link-text">View Case Study →</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 export default function Home() {
   return (
@@ -26,6 +68,15 @@ export default function Home() {
           <Link href="/about">
             <HighlightText>About</HighlightText>
           </Link>
+          <Link
+            href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link resume-link"
+            aria-label="Open Kristi's resume in a new tab"
+          >
+            <HighlightText>Resume ↗</HighlightText>
+          </Link>
           <a href="#contact">
             <HighlightText>Contact</HighlightText>
           </a>
@@ -36,10 +87,10 @@ export default function Home() {
         <div className="intro-row">
           <div className="intro-block">
             <h1 id="intro-title">
-              Hi there, I&apos;m{" "}
-              <HighlightText persistent>Kristi</HighlightText>, I design
-              minimal, readable experiences that help people move through
-              digital products with clarity and confidence.
+              <HighlightText persistent>Kristi</HighlightText> is a Product
+              Designer passionate about designing human-centered AI experiences.
+              She combines user research, interaction design, and AI to create
+              intuitive products that help people make confident decisions.
             </h1>
             <p className="intro-status">
               <span aria-hidden="true" />
@@ -47,44 +98,36 @@ export default function Home() {
               Centered Design &amp; Engineering
             </p>
           </div>
-          <a className="intro-email" href="mailto:krisooti08@gmail.com">
-            <HighlightText>krisooti08@gmail.com</HighlightText>
-          </a>
         </div>
-
         <div className="project-grid" aria-label="Featured projects">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className="project-card"
-              aria-label={`Open ${project.title} case study`}
-            >
-              <div className={`project-image ${project.imageClass}`}>
-                {project.cardImage ? (
-                  <img src={project.cardImage.src} alt={project.cardImage.alt} />
-                ) : (
-                  <div className="image-system" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                )}
-              </div>
-              <div className="project-meta">
-                <p>{project.category}</p>
-                <h2>
-                  <HighlightText>{project.title}</HighlightText>
-                </h2>
-                <p>{project.summary}</p>
-                <div className="project-tags" aria-label={`${project.title} keywords`}>
-                  {project.tags.map((tag) => (
-                    <CategoryTag key={tag}>{tag}</CategoryTag>
-                  ))}
-                </div>
-              </div>
-            </Link>
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
+          <article
+            className="project-card project-card--placeholder"
+            aria-label="Coming soon project"
+          >
+            <div className="project-image coming-soon-visual" aria-hidden="true">
+              <div className="placeholder-graphic">
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
+            <div className="project-overlay">
+              <div className="project-meta">
+                <p>In Progress</p>
+                <h2>
+                  <HighlightText>Coming Soon</HighlightText>
+                </h2>
+                <p>
+                  A new AI-focused product experience is currently in
+                  development.
+                </p>
+                <p>Stay tuned.</p>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 

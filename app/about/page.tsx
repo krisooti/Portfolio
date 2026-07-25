@@ -66,6 +66,15 @@ export default function AboutPage() {
           <Link href="/about">
             <HighlightText>About</HighlightText>
           </Link>
+          <Link
+            href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link resume-link"
+            aria-label="Open Kristi's resume in a new tab"
+          >
+            <HighlightText>Resume ↗</HighlightText>
+          </Link>
           <a href="mailto:krisooti08@gmail.com">
             <HighlightText>Contact</HighlightText>
           </a>
