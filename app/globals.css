@@ -257,6 +257,10 @@ html {
   color: #111111;
 }
 
+.nav-links a:nth-last-child(-n + 2) {
+  transform: translateX(14px);
+}
+
 .intro-row {
   display: grid;
   width: min(100%, 860px);
@@ -340,7 +344,7 @@ html {
   min-height: clamp(620px, 68vh, 820px);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: minmax(0, 1fr);
-  gap: clamp(24px, 2.4vw, 32px);
+  gap: clamp(16px, 1.8vw, 24px);
   align-self: center;
 }
 
@@ -2529,6 +2533,10 @@ html {
     gap: 16px;
   }
 
+  .nav-links a:nth-last-child(-n + 2) {
+    transform: none;
+  }
+
   .brand-link {
     justify-self: center;
   }
@@ -2559,7 +2567,7 @@ html {
   .project-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: minmax(420px, 72vh);
-    gap: 28px;
+    gap: 22px;
   }
 
   .project-overlay,
