@@ -87,10 +87,33 @@ export default function Home() {
         <div className="intro-row">
           <div className="intro-block">
             <h1 id="intro-title">
-              <HighlightText persistent>Kristi</HighlightText> is a Product
-              Designer passionate about designing human-centered AI experiences.
-              She combines user research, interaction design, and AI to create
-              intuitive products that help people make confident decisions.
+              <HighlightText className="intro-emphasis">Kristi</HighlightText>{" "}
+              is a{" "}
+              <HighlightText className="intro-emphasis">
+                Product Designer
+              </HighlightText>{" "}
+              passionate about designing{" "}
+              <HighlightText className="intro-emphasis">
+                human-centered AI experiences
+              </HighlightText>
+              . She combines{" "}
+              <HighlightText className="intro-emphasis">
+                user research
+              </HighlightText>
+              ,{" "}
+              <HighlightText className="intro-emphasis">
+                interaction design
+              </HighlightText>
+              , and <HighlightText className="intro-emphasis">AI</HighlightText>{" "}
+              to create{" "}
+              <HighlightText className="intro-emphasis">
+                intuitive products
+              </HighlightText>{" "}
+              that help people make{" "}
+              <HighlightText className="intro-emphasis">
+                confident decisions
+              </HighlightText>
+              .
             </h1>
             <p className="intro-status">
               <span aria-hidden="true" />

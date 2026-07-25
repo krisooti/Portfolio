@@ -34,7 +34,12 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /marker-highlight/);
   assert.match(html, /Recent graduate from the University of Washington/);
   assert.match(html, /B\.S\. in Human Centered Design &amp; Engineering/);
-  assert.match(html, /Product Designer passionate about designing human-centered AI experiences/);
+  assert.match(html, /intro-emphasis">Product Designer/);
+  assert.match(html, /intro-emphasis">human-centered AI experiences/);
+  assert.match(html, /intro-emphasis">user research/);
+  assert.match(html, /intro-emphasis">interaction design/);
+  assert.match(html, /intro-emphasis">intuitive products/);
+  assert.match(html, /intro-emphasis">confident decisions/);
   assert.doesNotMatch(html, /class="eyebrow">UX portfolio/);
   assert.doesNotMatch(html, /krisooti08@gmail\.com/);
   assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
