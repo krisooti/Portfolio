@@ -1,16 +1,15 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useRef,
   useState,
   type TouchEvent,
-  type WheelEvent,
 } from "react";
 import { HighlightText } from "../HighlightText";
 
-const TRANSITION_DURATION_MS = 520;
-const WHEEL_THRESHOLD = 58;
+const TRANSITION_DURATION_MS = 680;
 
 type ProfileSlide = {
   headline: string;
@@ -56,17 +55,12 @@ const profileSlides: ProfileSlide[] = [
 
 export default function ProfileCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"next" | "previous">(
-    "next",
-  );
   const [isTransitioning, setIsTransitioning] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const transitionTimeout = useRef<number | null>(null);
-  const wheelDelta = useRef(0);
-  const wheelFrame = useRef<number | null>(null);
 
-  const goToSlide = (index: number, direction: "next" | "previous") => {
-    if (isTransitioning || index === activeIndex) {
+  const flipPhoto = useCallback(() => {
+    if (isTransitioning) {
       return;
     }
 
@@ -75,21 +69,13 @@ export default function ProfileCarousel() {
     }
 
     setIsTransitioning(true);
-    setSlideDirection(direction);
-    setActiveIndex((index + profileSlides.length) % profileSlides.length);
+
     transitionTimeout.current = window.setTimeout(() => {
+      setActiveIndex((currentIndex) => (currentIndex + 1) % profileSlides.length);
       setIsTransitioning(false);
       transitionTimeout.current = null;
     }, TRANSITION_DURATION_MS);
-  };
-
-  const goNext = () => goToSlide(activeIndex + 1, "next");
-  const goPrevious = () => goToSlide(activeIndex - 1, "previous");
-
-  const jumpToSlide = (index: number) => {
-    const direction = index > activeIndex ? "next" : "previous";
-    goToSlide(index, direction);
-  };
+  }, [isTransitioning]);
 
   useEffect(() => {
     profileSlides.forEach((slide) => {
@@ -105,27 +91,19 @@ export default function ProfileCarousel() {
       if (transitionTimeout.current !== null) {
         window.clearTimeout(transitionTimeout.current);
       }
-
-      if (wheelFrame.current !== null) {
-        window.cancelAnimationFrame(wheelFrame.current);
-      }
     };
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
-        goNext();
-      }
-
-      if (event.key === "ArrowLeft") {
-        goPrevious();
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        flipPhoto();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeIndex, isTransitioning]);
+  }, [flipPhoto]);
 
   const handleTouchStart = (event: TouchEvent<HTMLElement>) => {
     touchStartX.current = event.touches[0]?.clientX ?? null;
@@ -140,67 +118,48 @@ export default function ProfileCarousel() {
     const distance = touchStartX.current - touchEndX;
 
     if (Math.abs(distance) > 44) {
-      if (distance > 0) {
-        goNext();
-      } else {
-        goPrevious();
-      }
+      flipPhoto();
     }
 
     touchStartX.current = null;
   };
 
-  const handleWheel = (event: WheelEvent<HTMLElement>) => {
-    if (isTransitioning) {
-      return;
-    }
-
-    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
-      return;
-    }
-
-    wheelDelta.current += event.deltaX;
-
-    if (wheelFrame.current !== null) {
-      return;
-    }
-
-    wheelFrame.current = window.requestAnimationFrame(() => {
-      if (Math.abs(wheelDelta.current) > WHEEL_THRESHOLD) {
-        if (wheelDelta.current > 0) {
-          goNext();
-        } else {
-          goPrevious();
-        }
-      }
-
-      wheelDelta.current = 0;
-      wheelFrame.current = null;
-    });
-  };
+  const activeSlide = profileSlides[activeIndex];
+  const visibleSlides = profileSlides.map(
+    (_, index) => profileSlides[(activeIndex + index) % profileSlides.length],
+  );
 
   return (
     <section
-      className={`about-hero-redesign profile-carousel is-${slideDirection}${
+      className={`about-hero-redesign profile-photo-stack-section${
         isTransitioning ? " is-transitioning" : ""
       }`}
       aria-labelledby="about-title"
-      aria-roledescription="carousel"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      onWheel={handleWheel}
     >
-      <div className="profile-carousel-stage" aria-live="polite">
-        {profileSlides.map((slide, index) => (
-          <div
-            className={`profile-carousel-slide${
-              index === activeIndex ? " is-active" : ""
-            }`}
-            key={slide.headline}
-            aria-hidden={index !== activeIndex}
-          >
-            <div className="about-photo-area">
-              <div className="about-photo-wrap profile-carousel-frame">
+      <div className="profile-photo-stack-layout" aria-live="polite">
+        <div className="profile-photo-stack-area">
+          {visibleSlides.map((slide, index) => {
+            const isTopPhoto = index === 0;
+
+            return (
+              <button
+                className={`profile-stack-photo${
+                  isTopPhoto ? " is-top" : ""
+                }${isTopPhoto && isTransitioning ? " is-flipping" : ""}`}
+                type="button"
+                key={`${slide.headline}-${index}`}
+                onClick={isTopPhoto ? flipPhoto : undefined}
+                disabled={!isTopPhoto || isTransitioning}
+                aria-label={
+                  isTopPhoto
+                    ? "Flip to the next profile photo"
+                    : `${slide.imageLabel} behind the current photo`
+                }
+                aria-hidden={!isTopPhoto}
+                tabIndex={isTopPhoto ? 0 : -1}
+              >
                 {slide.image ? (
                   <img
                     className="profile-photo-image"
@@ -213,67 +172,27 @@ export default function ProfileCarousel() {
                   </span>
                 )}
                 <span className="profile-photo-caption">{slide.caption}</span>
-              </div>
-              <span className="profile-hover-zone profile-hover-zone--previous">
-                <button
-                  className="profile-arrow-button"
-                  type="button"
-                  onClick={goPrevious}
-                  disabled={isTransitioning}
-                  aria-label="Previous introduction"
-                  tabIndex={index === activeIndex ? 0 : -1}
-                >
-                  ←
-                </button>
-              </span>
-              <span className="profile-hover-zone profile-hover-zone--next">
-                <button
-                  className="profile-arrow-button"
-                  type="button"
-                  onClick={goNext}
-                  disabled={isTransitioning}
-                  aria-label="Next introduction"
-                  tabIndex={index === activeIndex ? 0 : -1}
-                >
-                  →
-                </button>
-              </span>
-              <div className="profile-image-preload" aria-hidden="true">
-                {profileSlides
-                  .filter((preloadSlide) => preloadSlide.image)
-                  .map((preloadSlide) => (
-                    <img
-                      src={preloadSlide.image?.src}
-                      alt=""
-                      key={preloadSlide.headline}
-                    />
-                  ))}
-              </div>
-            </div>
-
-            <div className="about-intro-copy">
-              <h1 id={index === activeIndex ? "about-title" : undefined}>
-                <HighlightText>{slide.headline}</HighlightText>
-              </h1>
-              <p>{slide.body}</p>
-            </div>
+              </button>
+            );
+          })}
+          <div className="profile-image-preload" aria-hidden="true">
+            {profileSlides
+              .filter((preloadSlide) => preloadSlide.image)
+              .map((preloadSlide) => (
+                <img
+                  src={preloadSlide.image?.src}
+                  alt=""
+                  key={preloadSlide.headline}
+                />
+              ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-      <div className="profile-carousel-controls" aria-label="Profile slides">
-        <div className="profile-carousel-dots">
-          {profileSlides.map((slide, index) => (
-            <button
-              className={index === activeIndex ? "is-active" : ""}
-              type="button"
-              key={slide.headline}
-              onClick={() => jumpToSlide(index)}
-              disabled={isTransitioning}
-              aria-label={`Show slide ${index + 1}: ${slide.headline}`}
-              aria-current={index === activeIndex ? "true" : undefined}
-            />
-          ))}
+        <div className="about-intro-copy">
+          <h1 id="about-title">
+            <HighlightText>{activeSlide.headline}</HighlightText>
+          </h1>
+          <p>{activeSlide.body}</p>
         </div>
       </div>
     </section>

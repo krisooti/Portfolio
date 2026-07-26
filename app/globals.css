@@ -670,82 +670,109 @@ html {
   min-height: 58vh;
 }
 
-.profile-carousel {
+.profile-photo-stack-layout {
   display: grid;
-  gap: 28px;
-}
-
-.profile-carousel-stage {
-  display: grid;
-}
-
-.profile-carousel-slide {
-  display: grid;
-  grid-area: 1 / 1;
   grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(42px, 8vw, 96px);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(24px);
-  transition:
-    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.profile-carousel.is-previous .profile-carousel-slide {
-  transform: translateX(-24px);
-}
-
-.profile-carousel-slide.is-active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-}
-
-.profile-carousel.is-transitioning .profile-carousel-slide,
-.profile-carousel.is-transitioning .about-intro-copy h1,
-.profile-carousel.is-transitioning .about-intro-copy p {
+.profile-photo-stack-section.is-transitioning .profile-stack-photo.is-top,
+.profile-photo-stack-section.is-transitioning .about-intro-copy h1,
+.profile-photo-stack-section.is-transitioning .about-intro-copy p {
   will-change: transform, opacity;
 }
 
-.about-photo-area {
+.profile-photo-stack-area {
   position: relative;
-  display: grid;
-  justify-items: center;
   width: min(100%, 420px);
+  min-height: 444px;
   margin: 0 auto;
+  perspective: 900px;
 }
 
-.about-photo-wrap {
+.profile-stack-photo {
+  --stack-x: 0px;
+  --stack-y: 0px;
+  --stack-rotate: -1.4deg;
+  position: absolute;
+  top: 0;
+  left: 50%;
   display: grid;
-  justify-self: center;
   width: min(100%, 292px);
   gap: 16px;
   border: 1px solid rgba(17, 17, 17, 0.08);
   background: #fffefa;
+  color: inherit;
   box-shadow:
-    0 18px 36px rgba(17, 17, 17, 0.08),
-    8px 8px 0 rgba(245, 203, 214, 0.24);
+    0 14px 30px rgba(17, 17, 17, 0.075),
+    7px 7px 0 rgba(245, 203, 214, 0.2);
+  cursor: default;
   padding: 12px 12px 28px;
-  transform: rotate(-1.4deg);
+  text-align: inherit;
+  transform: translate3d(calc(-50% + var(--stack-x)), var(--stack-y), 0)
+    rotate(var(--stack-rotate));
+  transform-origin: top center;
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease;
 }
 
-.profile-carousel-frame {
-  position: relative;
+.profile-stack-photo:nth-child(1) {
+  --stack-rotate: -1.4deg;
+  z-index: 4;
 }
 
-.profile-carousel-slide.is-active .profile-carousel-frame {
-  transform: rotate(-1.4deg) translate(0, 0) scale(1);
+.profile-stack-photo:nth-child(2) {
+  --stack-x: 16px;
+  --stack-y: 14px;
+  --stack-rotate: 2.4deg;
+  z-index: 3;
 }
 
-.profile-carousel-frame:hover {
-  border-color: rgba(216, 132, 154, 0.34);
+.profile-stack-photo:nth-child(3) {
+  --stack-x: -15px;
+  --stack-y: 25px;
+  --stack-rotate: -3deg;
+  z-index: 2;
 }
 
-.profile-carousel-dots button:focus-visible {
+.profile-stack-photo:nth-child(4) {
+  --stack-x: 25px;
+  --stack-y: 36px;
+  --stack-rotate: 3.6deg;
+  z-index: 1;
+}
+
+.profile-stack-photo.is-top {
+  cursor: pointer;
+}
+
+.profile-stack-photo.is-top:hover,
+.profile-stack-photo.is-top:focus-visible {
+  box-shadow:
+    0 22px 42px rgba(17, 17, 17, 0.105),
+    7px 7px 0 rgba(245, 203, 214, 0.28);
+  outline: 0;
+  transform: translate3d(-50%, -7px, 0) rotate(-0.2deg) scale(1.015);
+}
+
+.profile-stack-photo.is-top:focus-visible {
   outline: 1px solid #d8849a;
-  outline-offset: 4px;
+  outline-offset: 5px;
+}
+
+.profile-stack-photo.is-flipping {
+  opacity: 0;
+  transform: translate3d(calc(-50% + 44px), -32px, 0) rotate(9deg) scale(0.98);
+  transition:
+    transform 680ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 520ms ease;
+}
+
+.profile-stack-photo:disabled {
+  pointer-events: none;
 }
 
 .profile-photo-image {
@@ -775,7 +802,7 @@ html {
   box-shadow: 18px 18px 0 rgba(17, 17, 17, 0.035);
 }
 
-.profile-carousel-frame .profile-photo-placeholder {
+.profile-stack-photo .profile-photo-placeholder {
   aspect-ratio: 3 / 4;
   min-height: 0;
   box-shadow: none;
@@ -799,7 +826,7 @@ html {
   text-transform: uppercase;
 }
 
-.about-photo-wrap p,
+.profile-photo-caption,
 .dog-card figcaption,
 .handwritten-font {
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
@@ -812,86 +839,6 @@ html {
   font-size: 20px;
   font-weight: 300;
   transform: rotate(1.4deg);
-}
-
-.profile-hover-zone {
-  position: absolute;
-  top: 50%;
-  display: grid;
-  width: 56px;
-  height: 128px;
-  place-items: center;
-  color: #d8849a;
-  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: 24px;
-  font-weight: 300;
-  opacity: 0;
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-.profile-hover-zone--previous {
-  left: 0;
-  cursor: w-resize;
-  transform: translate(8px, -50%);
-}
-
-.profile-hover-zone--next {
-  right: 0;
-  cursor: e-resize;
-  transform: translate(-8px, -50%);
-}
-
-.profile-hover-zone:hover {
-  opacity: 1;
-}
-
-.profile-hover-zone--previous:hover {
-  transform: translate(0, -50%);
-}
-
-.profile-hover-zone--next:hover {
-  transform: translate(0, -50%);
-}
-
-.profile-arrow-button {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  border: 0;
-  background: transparent;
-  color: #9f9996;
-  cursor: pointer;
-  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: 30px;
-  font-weight: 300;
-  line-height: 1;
-  padding: 0;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.profile-hover-zone--previous .profile-arrow-button:hover {
-  color: #d8849a;
-  transform: translateX(-4px);
-}
-
-.profile-hover-zone--next .profile-arrow-button:hover {
-  color: #d8849a;
-  transform: translateX(4px);
-}
-
-.profile-arrow-button:disabled {
-  cursor: default;
-  opacity: 0.38;
-}
-
-.profile-arrow-button:focus-visible {
-  outline: 1px solid #d8849a;
-  outline-offset: 4px;
 }
 
 .profile-image-preload {
@@ -912,6 +859,15 @@ html {
 .about-intro-copy p {
   opacity: 1;
   transform: none;
+  transition:
+    opacity 300ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profile-photo-stack-section.is-transitioning .about-intro-copy h1,
+.profile-photo-stack-section.is-transitioning .about-intro-copy p {
+  opacity: 0.48;
+  transform: translateY(8px);
 }
 
 .about-intro-copy h1 {
@@ -932,62 +888,6 @@ html {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
-}
-
-.profile-carousel-controls {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-}
-
-.profile-carousel-controls > button {
-  border: 0;
-  background: transparent;
-  color: #746f6c;
-  cursor: pointer;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  padding: 8px;
-  text-transform: uppercase;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.profile-carousel-controls > button:hover {
-  color: #d8849a;
-  transform: translateY(-1px);
-}
-
-.profile-carousel-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.profile-carousel-dots button {
-  width: 7px;
-  height: 7px;
-  border: 1px solid #c8bfbc;
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-  transition:
-    width 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 220ms ease,
-    background-color 220ms ease,
-    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.profile-carousel-dots button.is-active {
-  border-color: #d8849a;
-  background: #d8849a;
-  width: 16px;
-  transform: scale(1.08);
 }
 
 .about-story-section {
@@ -2465,7 +2365,7 @@ html {
 
   .case-meta-row,
   .about-hero-redesign,
-  .profile-carousel-slide,
+  .profile-photo-stack-layout,
   .about-process-tools-row,
   .project-roadmap,
   .case-section-grid,
@@ -2560,7 +2460,7 @@ html {
   }
 
   .about-hero-redesign,
-  .profile-carousel-slide,
+  .profile-photo-stack-layout,
   .dog-photo-grid,
   .about-process-tools-row {
     grid-template-columns: 1fr;
@@ -2600,19 +2500,24 @@ html {
     width: min(218px, calc(100vw - 72px));
   }
 
-  .profile-carousel-slide {
+  .profile-photo-stack-layout {
     gap: 34px;
   }
 
-  .profile-hover-zone {
-    display: none;
+  .profile-photo-stack-area {
+    width: min(100%, 320px);
+    min-height: 406px;
+  }
+
+  .profile-stack-photo {
+    width: min(100%, 260px);
   }
 
   .profile-photo-placeholder {
     min-height: 360px;
   }
 
-  .profile-carousel-frame .profile-photo-placeholder {
+  .profile-stack-photo .profile-photo-placeholder {
     min-height: 0;
   }
 
@@ -2711,10 +2616,7 @@ html {
   .sticky-note,
   .toolkit-doodle,
   .marker-highlight::before,
-  .profile-carousel-frame,
-  .profile-hover-zone,
-  .profile-carousel-dots button,
-  .profile-carousel-controls button,
+  .profile-stack-photo,
   .about-intro-copy h1,
   .about-intro-copy p,
   .dog-card,
@@ -2763,9 +2665,7 @@ html {
     transform: scaleX(1);
   }
 
-  .profile-carousel-slide,
-  .profile-carousel.is-previous .profile-carousel-slide {
-    transform: none;
-    transition: opacity 140ms ease;
+  .profile-stack-photo {
+    transition: none;
   }
 }
