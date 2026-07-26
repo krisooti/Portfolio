@@ -77,9 +77,11 @@ export default function Home() {
         <div className="intro-row">
           <div className="intro-block">
             <h1 id="intro-title">
-              <HighlightText className="intro-emphasis">Kristi</HighlightText>{" "}
+              <HighlightText className="intro-emphasis" persistent>
+                Kristi
+              </HighlightText>{" "}
               is a{" "}
-              <HighlightText className="intro-emphasis">
+              <HighlightText className="intro-emphasis" persistent>
                 Product Designer
               </HighlightText>{" "}
               passionate about designing{" "}
