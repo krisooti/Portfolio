@@ -373,20 +373,47 @@ html {
 
 .project-card {
   position: relative;
-  display: block;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
   overflow: hidden;
   border-radius: 0;
-  background: #f5f3f1;
-  box-shadow: 0 10px 34px rgba(17, 17, 17, 0.045);
+  background: transparent;
+  box-shadow: none;
   transition:
-    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow 330ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 330ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-card:hover,
 .project-card:focus-visible {
-  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.095);
-  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(17, 17, 17, 0.075);
+}
+
+.project-card-header {
+  display: grid;
+  gap: 5px;
+  padding: 0 0 2px;
+}
+
+.project-card-header p {
+  margin: 0;
+  color: #8a8583;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.project-card-header h2 {
+  margin: 0;
+  color: #222222;
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(20px, 1.7vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .project-image {
@@ -394,9 +421,12 @@ html {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  min-height: 280px;
+  min-height: 260px;
   background: #eeeeee;
-  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.045);
+  transition:
+    box-shadow 330ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 330ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-image::before {
@@ -426,12 +456,17 @@ html {
 }
 
 .project-card:hover .image-system {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .project-card:hover .project-image img,
 .project-card:focus-visible .project-image img {
-  transform: scale(1.03);
+  transform: scale(1.02);
+}
+
+.project-card:hover .project-image,
+.project-card:focus-visible .project-image {
+  box-shadow: 0 16px 38px rgba(17, 17, 17, 0.075);
 }
 
 .image-system span {
@@ -456,41 +491,6 @@ html {
   background: #e8e5e3;
 }
 
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: grid;
-  align-items: end;
-  background: rgba(255, 253, 252, 0.78);
-  opacity: 0;
-  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-card:hover .project-overlay,
-.project-card:focus-visible .project-overlay {
-  opacity: 1;
-}
-
-.project-meta {
-  display: grid;
-  gap: 12px;
-  max-width: 430px;
-  padding: clamp(24px, 4vw, 42px);
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-card:hover .project-meta,
-.project-card:focus-visible .project-meta {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-meta p,
 .about-section p,
 .resume-section a,
 .case-hero > p,
@@ -501,45 +501,6 @@ html {
   font-size: 13px;
   font-weight: 300;
   line-height: 1.7;
-}
-
-.project-meta p:first-child {
-  color: #8a8583;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.project-meta h2 {
-  margin: 0;
-  color: #141414;
-  font-size: clamp(24px, 2.2vw, 34px);
-  font-weight: 300;
-  letter-spacing: 0;
-  line-height: 1.05;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  padding-top: 4px;
-}
-
-.project-link-text {
-  display: inline-flex;
-  width: max-content;
-  padding-top: 4px;
-  color: #171717;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.4;
-  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-card:hover .project-link-text,
-.project-card:focus-visible .project-link-text {
-  transform: translateX(4px);
 }
 
 .project-card--placeholder {
@@ -2593,23 +2554,6 @@ html {
     gap: 22px;
   }
 
-  .project-overlay,
-  .project-card:hover .project-overlay,
-  .project-card:focus-visible .project-overlay {
-    opacity: 1;
-  }
-
-  .project-meta,
-  .project-card:hover .project-meta,
-  .project-card:focus-visible .project-meta {
-    opacity: 1;
-    transform: none;
-  }
-
-  .project-meta {
-    padding: 24px;
-  }
-
   .about-page {
     padding-right: 18px;
     padding-left: 18px;
@@ -2685,10 +2629,6 @@ html {
     flex-direction: column;
     gap: 8px;
     text-align: center;
-  }
-
-  .project-meta {
-    padding: 20px;
   }
 
   .case-study-shell {
