@@ -5,6 +5,7 @@ import {
   useEffect,
   useRef,
   useState,
+  type ReactNode,
   type TouchEvent,
 } from "react";
 import { HighlightText } from "../HighlightText";
@@ -13,7 +14,7 @@ const TRANSITION_DURATION_MS = 680;
 
 type ProfileSlide = {
   headline: string;
-  body: string;
+  body: ReactNode;
   imageLabel: string;
   caption: string;
   image?: {
@@ -25,7 +26,25 @@ type ProfileSlide = {
 const profileSlides: ProfileSlide[] = [
   {
     headline: "Hi there! I'm Kristi",
-    body: "I'm a recent graduate from the University of Washington with a degree in Human Centered Design & Engineering. I enjoy creating thoughtful digital experiences that are intuitive, accessible, and meaningful. I believe good design should make technology feel approachable while solving real problems.",
+    body: (
+      <>
+        I&apos;m a recent graduate from the University of Washington with a degree
+        in{" "}
+        <span
+          className="hcde-note-trigger"
+          tabIndex={0}
+          aria-describedby="hcde-note"
+        >
+          Human-Centered Design &amp; Engineering
+          <span className="hcde-note" id="hcde-note" role="tooltip">
+            Designing systems around real human needs.
+          </span>
+        </span>
+        . I enjoy creating thoughtful digital experiences that are intuitive,
+        accessible, and meaningful. I believe good design should make technology
+        feel approachable while solving real problems.
+      </>
+    ),
     imageLabel: "Kristi profile photo",
     caption: "This is me :)",
     image: {

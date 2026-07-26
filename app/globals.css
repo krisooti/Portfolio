@@ -890,6 +890,65 @@ html {
   line-height: 1.8;
 }
 
+.hcde-note-trigger {
+  position: relative;
+  display: inline-block;
+  color: #26211f;
+  cursor: help;
+  font-weight: 400;
+}
+
+.hcde-note-trigger::after {
+  position: absolute;
+  right: 2px;
+  bottom: 0.08em;
+  left: 2px;
+  height: 1px;
+  background: rgba(216, 132, 154, 0.6);
+  content: "";
+}
+
+.hcde-note {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  z-index: 4;
+  width: max-content;
+  max-width: 220px;
+  border: 1px solid rgba(243, 214, 225, 0.9);
+  background: #fff8fa;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.09);
+  color: #2c2928;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.45;
+  opacity: 0;
+  padding: 10px 12px;
+  pointer-events: none;
+  transform: translate(-50%, 8px) rotate(-1.4deg);
+  transition:
+    opacity 220ms ease,
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hcde-note::after {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 18px;
+  height: 10px;
+  border-bottom: 1px solid rgba(216, 132, 154, 0.8);
+  border-left: 1px solid rgba(216, 132, 154, 0.8);
+  content: "";
+  transform: translateX(-50%) rotate(-34deg);
+}
+
+.hcde-note-trigger:hover .hcde-note,
+.hcde-note-trigger:focus-visible .hcde-note {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(-1.4deg);
+}
+
 .about-story-section {
   display: grid;
   gap: 0;
@@ -949,12 +1008,30 @@ html {
 }
 
 .about-process-tools-row {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(240px, 0.36fr) minmax(0, 0.64fr);
+  grid-template-columns: minmax(260px, 0.38fr) minmax(0, 0.62fr);
   align-items: start;
-  gap: clamp(16px, 2.4vw, 28px);
+  gap: clamp(10px, 2vw, 24px);
   width: min(100%, 1040px);
   margin: 0 auto;
+}
+
+.about-process-tools-section {
+  position: relative;
+}
+
+.about-process-tools-section::before {
+  position: absolute;
+  inset: clamp(32px, 5vw, 56px) clamp(-12px, -1vw, 0px) auto;
+  z-index: -1;
+  height: clamp(360px, 42vw, 520px);
+  background-image:
+    linear-gradient(rgba(216, 132, 154, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 132, 154, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+  opacity: 0.62;
 }
 
 .thought-process-column,
@@ -971,7 +1048,7 @@ html {
 
 .toolkit-column {
   z-index: 1;
-  margin-left: -36px;
+  margin-left: -48px;
 }
 
 .design-desk-subtitle {
@@ -985,30 +1062,30 @@ html {
 
 .sticky-note-stack {
   position: relative;
-  width: min(100%, 268px);
-  min-height: 248px;
-  margin-top: 2px;
+  width: min(100%, 340px);
+  min-height: 308px;
+  margin-top: 10px;
   perspective: 900px;
 }
 
 .sticky-note {
-  --note-x: calc(var(--stack-index) * 10px);
-  --note-y: calc(var(--stack-index) * 12px);
-  --note-rotate: calc((var(--stack-index) - 2) * 1.35deg);
+  --note-x: calc(var(--stack-index) * 18px);
+  --note-y: calc(var(--stack-index) * 22px);
+  --note-rotate: calc((var(--stack-index) - 1.5) * 2.1deg);
   position: absolute;
   top: 0;
   left: 0;
   z-index: calc(10 - var(--stack-index));
   display: grid;
-  width: 218px;
-  min-height: 156px;
+  width: 244px;
+  min-height: 174px;
   align-content: start;
-  gap: 10px;
+  gap: 12px;
   border: 1px solid rgba(17, 17, 17, 0.045);
   color: #2c2928;
-  cursor: default;
+  cursor: pointer;
   font: inherit;
-  padding: 20px 18px 18px;
+  padding: 22px 20px 20px;
   text-align: left;
   transform: translate3d(var(--note-x), var(--note-y), 0) rotate(var(--note-rotate));
   transform-origin: 50% 8px;
@@ -1049,7 +1126,6 @@ html {
 }
 
 .sticky-note:not(.is-top) {
-  pointer-events: none;
   box-shadow: 0 8px 18px rgba(17, 17, 17, 0.055);
 }
 
@@ -1058,14 +1134,16 @@ html {
   box-shadow: 0 16px 30px rgba(17, 17, 17, 0.11);
 }
 
+.sticky-note:hover,
 .sticky-note.is-top:hover {
+  z-index: 14;
   box-shadow: 0 22px 40px rgba(17, 17, 17, 0.14);
-  transform: translate3d(var(--note-x), calc(var(--note-y) - 7px), 0) rotate(calc(var(--note-rotate) * 0.45)) scale(1.02);
+  transform: translate3d(var(--note-x), calc(var(--note-y) - 7px), 0) rotate(calc(var(--note-rotate) * 0.35)) scale(1.015);
 }
 
 .sticky-note.is-flipping {
   opacity: 0.92;
-  transform: translate3d(calc(var(--note-x) + 34px), calc(var(--note-y) - 24px), 0) rotateX(78deg) rotate(8deg);
+  transform: translate3d(calc(var(--note-x) + 28px), calc(var(--note-y) - 20px), 0) rotateX(58deg) rotate(6deg);
 }
 
 .sticky-note:focus-visible {
@@ -1073,25 +1151,25 @@ html {
   outline-offset: 4px;
 }
 
-.sticky-note:disabled {
-  color: #2c2928;
-}
-
 .sticky-note-doodle {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
   width: max-content;
-  color: #746f6c;
+  color: #d8849a;
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1;
+  opacity: 0.72;
 }
 
 .sticky-note-title {
   color: #171717;
   font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .sticky-note-body {
@@ -1100,6 +1178,45 @@ html {
   font-size: 13px;
   font-weight: 300;
   line-height: 1.55;
+}
+
+.sticky-note-detail {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sticky-note-detail--tape {
+  top: -10px;
+  left: 74px;
+  width: 74px;
+  height: 22px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.42) 0 5px,
+      rgba(216, 132, 154, 0.12) 5px 10px
+    ),
+    rgba(245, 203, 214, 0.44);
+  box-shadow: 0 2px 6px rgba(17, 17, 17, 0.055);
+  transform: rotate(-3deg);
+}
+
+.sticky-note-detail--paperclip {
+  top: 16px;
+  right: 18px;
+  width: 18px;
+  height: 30px;
+  border: 1px solid #8a8583;
+  border-radius: 10px;
+  opacity: 0.48;
+}
+
+.sticky-note-detail--paperclip::after {
+  position: absolute;
+  inset: 5px 4px;
+  border: 1px solid #8a8583;
+  border-radius: 8px;
+  content: "";
 }
 
 .toolkit-notebook {
@@ -1122,9 +1239,19 @@ html {
     #fff8fa;
   box-shadow: 0 18px 42px rgba(17, 17, 17, 0.045);
   padding: clamp(34px, 5vw, 52px) clamp(28px, 5vw, 56px) clamp(34px, 5vw, 54px) clamp(78px, 9vw, 104px);
+  transition:
+    box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toolkit-notebook:hover {
+  box-shadow: 0 24px 56px rgba(17, 17, 17, 0.07);
+  transform: translateY(-3px);
 }
 
 .toolkit-notebook h3 {
+  position: relative;
+  width: max-content;
   margin: 0;
   color: #171717;
   font-family: var(--font-editorial-serif);
@@ -1134,9 +1261,38 @@ html {
   line-height: 1.3;
 }
 
+.toolkit-notebook h3::after {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  height: 6px;
+  background: rgba(239, 161, 182, 0.64);
+  clip-path: polygon(0 38%, 28% 18%, 54% 34%, 80% 8%, 100% 30%, 96% 78%, 48% 72%, 14% 100%);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    opacity 260ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toolkit-notebook:hover h3::after {
+  opacity: 0.62;
+  transform: scaleX(1);
+}
+
 .toolkit-note-section {
   display: grid;
   gap: 12px;
+}
+
+.toolkit-note-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .toolkit-note-section h4 {
@@ -1147,6 +1303,15 @@ html {
   letter-spacing: 0.12em;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+.toolkit-note-heading > span {
+  color: #d8849a;
+  font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+  transform: rotate(-2deg);
 }
 
 .toolkit-note-section ul {
@@ -2407,8 +2572,17 @@ html {
     gap: 32px;
   }
 
+  .about-process-tools-section::before {
+    right: 0;
+    left: 0;
+  }
+
   .toolkit-column {
     margin-left: 0;
+  }
+
+  .sticky-note-stack {
+    width: min(100%, 340px);
   }
 }
 
@@ -2507,11 +2681,22 @@ html {
   }
 
   .sticky-note-stack {
-    min-height: 230px;
+    min-height: 282px;
   }
 
   .sticky-note {
-    width: min(218px, calc(100vw - 72px));
+    width: min(236px, calc(100vw - 72px));
+  }
+
+  .hcde-note {
+    left: 0;
+    width: min(220px, calc(100vw - 48px));
+    transform: translate(0, 8px) rotate(-1.4deg);
+  }
+
+  .hcde-note-trigger:hover .hcde-note,
+  .hcde-note-trigger:focus-visible .hcde-note {
+    transform: translate(0, 0) rotate(-1.4deg);
   }
 
   .profile-photo-stack-layout {

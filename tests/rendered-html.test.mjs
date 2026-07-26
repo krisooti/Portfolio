@@ -84,7 +84,8 @@ test("server-renders the redesigned about page", async () => {
   const html = await response.text();
   assert.match(html, /<title>About - Kristi Kim<\/title>/i);
   assert.match(html, /Hi there! I&#x27;m Kristi/);
-  assert.match(html, /Human Centered Design &amp; Engineering/);
+  assert.match(html, /Human-Centered Design &amp; Engineering/);
+  assert.match(html, /Designing systems around real human needs/);
   assert.match(html, /This is me :\)/);
   assert.match(html, /Resume ↗/);
   assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);

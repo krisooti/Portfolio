@@ -2,50 +2,34 @@
 
 import { useRef, useState, type CSSProperties, type TouchEvent } from "react";
 
-const FLIP_DURATION_MS = 680;
+const FLIP_DURATION_MS = 350;
 
 const stickyNotes = [
   {
-    title: "People",
-    body: "Start with people, not screens.",
+    title: "Design with empathy",
+    body: "Start with people, context, and the real problem.",
     doodle: "*",
     tone: "pink",
+    detail: "tape",
   },
   {
-    title: "Interviews",
-    body: "Every interview teaches something unexpected.",
-    doodle: "o",
+    title: "Make complexity simple",
+    body: "Turn messy systems into clear next steps.",
+    doodle: "",
     tone: "cream",
   },
   {
-    title: "Details",
-    body: "Small interactions create memorable experiences.",
+    title: "Give users control",
+    body: "AI should guide decisions, not take them away.",
     doodle: "+",
-    tone: "yellow",
+    tone: "beige",
+    detail: "paperclip",
   },
   {
-    title: "Iterate",
-    body: "Iterate before polishing.",
+    title: "Iterate through feedback",
+    body: "Prototype early, learn quickly, refine with care.",
     doodle: "->",
-    tone: "beige",
-  },
-  {
-    title: "Access",
-    body: "Accessibility is part of good design.",
-    doodle: "<3",
-    tone: "cream",
-  },
-  {
-    title: "Why",
-    body: 'Ask "Why?" before designing.',
-    doodle: ":)",
-    tone: "beige",
-  },
-  {
-    title: "Curiosity",
-    body: "Curiosity leads better solutions.",
-    doodle: "*",
-    tone: "pink",
+    tone: "yellow",
   },
 ];
 
@@ -54,14 +38,18 @@ export function StickyNoteStack() {
   const [isFlipping, setIsFlipping] = useState(false);
   const touchStartY = useRef<number | null>(null);
 
-  const flipNote = () => {
+  const flipNote = (selectedIndex = 0) => {
     if (isFlipping) {
       return;
     }
 
     setIsFlipping(true);
     window.setTimeout(() => {
-      setActiveIndex((currentIndex) => (currentIndex + 1) % stickyNotes.length);
+      setActiveIndex(
+        (currentIndex) =>
+          (currentIndex + (selectedIndex === 0 ? 1 : selectedIndex)) %
+          stickyNotes.length,
+      );
       setIsFlipping(false);
     }, FLIP_DURATION_MS);
   };
@@ -101,21 +89,30 @@ export function StickyNoteStack() {
           <button
             className={`sticky-note sticky-note--${note.tone}${
               isTopNote ? " is-top" : ""
-            }${isTopNote && isFlipping ? " is-flipping" : ""}`}
+            }${isTopNote && isFlipping ? " is-flipping" : ""}${
+              note.detail ? ` has-${note.detail}` : ""
+            }`}
             style={{ "--stack-index": index } as CSSProperties}
             type="button"
             key={`${note.title}-${index}`}
-            onClick={isTopNote ? flipNote : undefined}
-            disabled={!isTopNote}
+            onClick={() => flipNote(index)}
             aria-label={
               isTopNote
                 ? `Flip note: ${note.title}`
-                : `${note.title} note underneath`
+                : `Bring note to front: ${note.title}`
             }
           >
-            <span className="sticky-note-doodle" aria-hidden="true">
-              {note.doodle}
-            </span>
+            {note.doodle ? (
+              <span className="sticky-note-doodle" aria-hidden="true">
+                {note.doodle}
+              </span>
+            ) : null}
+            {note.detail ? (
+              <span
+                className={`sticky-note-detail sticky-note-detail--${note.detail}`}
+                aria-hidden="true"
+              />
+            ) : null}
             <span className="sticky-note-title">{note.title}</span>
             <span className="sticky-note-body">{note.body}</span>
           </button>

@@ -14,20 +14,23 @@ export const metadata: Metadata = {
 
 const toolkitGroups = [
   {
-    title: "Design",
-    tools: ["Figma", "FigJam", "Framer"],
-  },
-  {
-    title: "Development",
-    tools: ["React", "Next.js", "TypeScript", "HTML/CSS"],
-  },
-  {
     title: "Research",
-    tools: ["User Interviews", "Usability Testing", "Affinity Mapping"],
+    tools: ["User Interviews", "Usability Testing", "Affinity Mapping", "Thematic Analysis"],
+    note: "daily ->",
+  },
+  {
+    title: "Design",
+    tools: ["Figma", "Prototyping", "Design Systems", "Interaction Design"],
+  },
+  {
+    title: "Build",
+    tools: ["React", "Next.js", "HTML/CSS"],
+    note: "currently building",
   },
   {
     title: "AI",
-    tools: ["ChatGPT", "Claude", "Cursor", "GitHub Copilot"],
+    tools: ["AI Prototyping", "Prompt Engineering", "AI-Assisted Workflows"],
+    note: "exploring lately",
   },
 ];
 
@@ -120,10 +123,15 @@ export default function AboutPage() {
                 <div className="toolkit-doodle toolkit-doodle--sparkle" aria-hidden="true" />
                 <div className="toolkit-doodle toolkit-doodle--flower" aria-hidden="true" />
                 <div className="toolkit-doodle toolkit-doodle--pencil" aria-hidden="true" />
-                <h3>Design Toolbox</h3>
+                <h3>
+                  <span>Design Toolbox</span>
+                </h3>
                 {toolkitGroups.map((group) => (
                   <section className="toolkit-note-section" key={group.title}>
-                    <h4>{group.title}</h4>
+                    <div className="toolkit-note-heading">
+                      <h4>{group.title}</h4>
+                      {group.note ? <span>{group.note}</span> : null}
+                    </div>
                     <ul>
                       {group.tools.map((tool) => (
                         <li key={tool}>
