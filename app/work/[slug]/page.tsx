@@ -272,6 +272,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <dd>{content.meta.sponsor}</dd>
               </div>
             </dl>
+            {project.cardImage ? (
+              <figure className="case-landing-image">
+                <img src={project.cardImage.src} alt={project.cardImage.alt} />
+              </figure>
+            ) : null}
             <p>{project.intro} {content.overviewContribution}</p>
             <ProjectRoadmap stages={content.processStages} />
           </section>

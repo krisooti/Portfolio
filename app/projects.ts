@@ -158,6 +158,12 @@ export const projects: Project[] = [
       "Turning real-time plant data into timely, personalized care.",
     year: "2026",
     imageClass: "visual-fieldnotes",
+
+    cardImage: {
+      src: "/images/leafy.png",
+      alt: "Leafy AI-powered smart plant care mobile app",
+    },
+
     intro:
       "Smart Plant Care is a mobile plant management experience designed to help plant owners understand what their plants need and act at the right time.",
     challenge:

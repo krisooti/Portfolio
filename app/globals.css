@@ -1575,6 +1575,20 @@ html {
   line-height: 1.5;
 }
 
+.case-landing-image {
+  width: min(100%, 980px);
+  margin: clamp(34px, 5vw, 48px) auto var(--space-lg);
+  background: #ffffff;
+  box-shadow: 0 20px 54px rgba(17, 17, 17, 0.07);
+}
+
+.case-landing-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .case-section-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);
