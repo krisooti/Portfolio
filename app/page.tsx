@@ -73,8 +73,8 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="home-center" id="work" aria-labelledby="intro-title">
-        <div className="intro-row">
+      <section className="home-editorial" id="work" aria-labelledby="intro-title">
+        <aside className="bio-column">
           <div className="intro-block">
             <h1 id="intro-title">
               <HighlightText className="intro-emphasis" persistent>
@@ -113,8 +113,8 @@ export default function Home() {
               Centered Design &amp; Engineering
             </p>
           </div>
-        </div>
-        <div className="project-grid" aria-label="Featured projects">
+        </aside>
+        <div className="project-list" aria-label="Featured projects">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
