@@ -8,7 +8,7 @@
   --soft: #f8f5f4;
   --pink: #efa1b6;
   --pink-soft: #fff0f4;
-  --surface-neutral: #fffdf8;
+  --surface-neutral: #9a989809;
   --surface-neutral-hover: #fff8f2;
   --space-xs: 6px;
   --space-sm: 12px;
@@ -335,7 +335,7 @@ html {
   margin: 0;
   max-width: 560px;
   color: #6f6f6f;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.5;
@@ -412,7 +412,7 @@ html {
   gap: 18px;
   border-radius: 4px;
   background: var(--surface-neutral);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+  box-shadow: 0 4px 18px rgba(190, 190, 190, 0.035);
   padding: clamp(18px, 2vw, 28px);
   transition:
     background-color 350ms cubic-bezier(0.22, 1, 0.36, 1),

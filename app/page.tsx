@@ -62,7 +62,7 @@ export default function Home() {
               </HighlightText>{" "}
               passionate about designing{" "}
               <HighlightText className="intro-emphasis">
-                human-centered AI experiences
+                human-centered AI experiences 
               </HighlightText>
               . She combines{" "}
               <HighlightText className="intro-emphasis">
