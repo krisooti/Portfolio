@@ -62,17 +62,26 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
   }, [sections]);
 
   return (
-    <aside className="case-sidebar" aria-label="Case study sections">
-      <nav className="case-sidebar-nav">
+    <aside
+      className="sticky top-24 self-start py-1 max-[980px]:top-[58px] max-[980px]:z-[6] max-[980px]:overflow-x-auto max-[980px]:border-b max-[980px]:border-[var(--line)] max-[980px]:bg-[rgba(255,253,251,0.94)] max-[980px]:pb-3 max-[980px]:pt-0 max-[980px]:backdrop-blur-[14px]"
+      aria-label="Case study sections"
+    >
+      <nav className="case-sidebar-nav grid gap-4 max-[980px]:flex max-[980px]:min-w-max max-[980px]:gap-[22px]">
         {sections.map((section) => (
           <a
             key={section.id}
             href={`#${section.id}`}
-            className={activeSection === section.id ? "is-active" : undefined}
+            className={`relative flex items-center gap-3 py-2 pl-4 text-[13px] font-light text-[#5f5a58] transition-[color,transform] duration-200 ease-out hover:translate-x-[3px] hover:text-[#171717] max-[980px]:hover:translate-x-0 max-[980px]:hover:-translate-y-px${
+              activeSection === section.id
+                ? " is-active translate-x-[3px] text-[#171717] max-[980px]:translate-x-0 max-[980px]:-translate-y-px"
+                : ""
+            }`}
             aria-current={activeSection === section.id ? "true" : undefined}
             onClick={() => setActiveSection(section.id)}
           >
-            <span>{section.number}</span>
+            <span className="text-[11px] text-[#9b9491] transition-colors duration-200 ease-out">
+              {section.number}
+            </span>
             <HighlightText>{section.label}</HighlightText>
           </a>
         ))}

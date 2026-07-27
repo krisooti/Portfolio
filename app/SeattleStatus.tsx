@@ -103,7 +103,10 @@ export function SeattleStatus() {
   }, [state]);
 
   return (
-    <div className="seattle-status" aria-live="polite">
+    <div
+      className="seattle-status flex items-center gap-2.5 text-[#6b6664]"
+      aria-live="polite"
+    >
       {content}
     </div>
   );

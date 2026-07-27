@@ -150,14 +150,17 @@ export default function ProfileCarousel() {
 
   return (
     <section
-      className={`about-hero-redesign profile-photo-stack-section${
+      className={`about-hero-redesign profile-photo-stack-section mx-auto min-h-[58vh] w-[min(100%,960px)]${
         isTransitioning ? " is-transitioning" : ""
       }`}
       aria-labelledby="about-title"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="profile-photo-stack-layout" aria-live="polite">
+      <div
+        className="profile-photo-stack-layout grid grid-cols-[minmax(260px,0.86fr)_minmax(0,1fr)] items-center gap-[clamp(42px,8vw,96px)] max-[980px]:grid-cols-1 max-[560px]:grid-cols-1 max-[560px]:gap-[34px]"
+        aria-live="polite"
+      >
         <div className="profile-photo-stack-area">
           {visibleSlides.map((slide, index) => {
             const isTopPhoto = index === 0;
@@ -207,11 +210,16 @@ export default function ProfileCarousel() {
           </div>
         </div>
 
-        <div className="about-intro-copy">
-          <h1 id="about-title">
+        <div className="about-intro-copy grid gap-6">
+          <h1
+            id="about-title"
+            className="m-0 max-w-full font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive] text-[26px] font-light leading-[1.15] tracking-normal text-[#171717] max-[560px]:w-full max-[560px]:whitespace-normal"
+          >
             <HighlightText>{activeSlide.headline}</HighlightText>
           </h1>
-          <p>{activeSlide.body}</p>
+          <p className="m-0 max-w-[620px] text-[15px] font-light leading-[1.8] text-[#4f4a48]">
+            {activeSlide.body}
+          </p>
         </div>
       </div>
     </section>

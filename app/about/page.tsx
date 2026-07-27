@@ -44,9 +44,9 @@ function AboutSection({
   children: ReactNode;
 }) {
   return (
-    <section className="about-story-section">
+    <section className="about-story-section mx-auto mt-[clamp(82px,11vw,132px)] grid w-[min(100%,960px)] gap-0 border-t border-[var(--line)] pt-[clamp(54px,7vw,78px)] max-[560px]:mt-[72px] max-[560px]:pt-11">
       <CategoryTag>{tag}</CategoryTag>
-      <h2>
+      <h2 className="mb-5 mt-0 max-w-[720px] font-serif text-base font-medium leading-[1.3] tracking-[-0.01em] text-[#171717]">
         <HighlightText>{title}</HighlightText>
       </h2>
       {children}
@@ -56,21 +56,21 @@ function AboutSection({
 
 export default function AboutPage() {
   return (
-    <main className="site-shell">
+    <main className="min-h-screen bg-[var(--background)]">
       <SiteNav />
 
-      <article className="about-page">
+      <article className="mx-auto w-[min(100%,1120px)] bg-[#fffdfc] px-[clamp(20px,5vw,64px)] pb-[120px] pt-[140px] text-[#171717] max-[560px]:px-[18px]">
         <ProfileCarousel />
 
         <AboutSection tag="ABOUT ME" title="Designing with curiosity and empathy.">
-          <div className="about-story-copy">
-            <p>
+          <div className="grid max-w-[70ch] gap-[18px]">
+            <p className="m-0 text-[15px] font-light leading-[1.72] text-[#5d5856]">
               My interest in design began from wanting to understand
               people—their behaviors, frustrations, and everyday experiences.
               Through UX, I discovered that the best products aren&apos;t just
               functional—they make people feel understood.
             </p>
-            <p>
+            <p className="m-0 text-[15px] font-light leading-[1.72] text-[#5d5856]">
               Whether I&apos;m conducting user research, prototyping ideas, or
               refining interaction details, I enjoy turning complex problems
               into experiences that feel simple, intuitive, and human.
@@ -78,10 +78,10 @@ export default function AboutPage() {
           </div>
         </AboutSection>
 
-        <section className="about-story-section about-process-tools-section">
-          <div className="about-process-tools-row">
-            <div className="thought-process-column">
-              <h2>
+        <section className="about-story-section about-process-tools-section relative mx-auto mt-[clamp(82px,11vw,132px)] grid w-[min(100%,960px)] gap-0 border-t border-[var(--line)] pt-[clamp(54px,7vw,78px)] max-[560px]:mt-[72px] max-[560px]:pt-11">
+          <div className="relative mx-auto grid w-[min(100%,1040px)] grid-cols-[minmax(260px,0.38fr)_minmax(0,0.62fr)] items-start gap-[clamp(10px,2vw,24px)] max-[980px]:grid-cols-1 max-[980px]:gap-8 max-[560px]:gap-7">
+            <div className="thought-process-column relative z-[2] grid min-w-0 content-start">
+              <h2 className="mb-5 mt-0 max-w-[720px] font-serif text-base font-medium leading-[1.3] tracking-[-0.01em] text-[#171717]">
                 <HighlightText>My Design Desk</HighlightText>
               </h2>
               <p className="design-desk-subtitle">
@@ -90,8 +90,8 @@ export default function AboutPage() {
               <StickyNoteStack />
             </div>
 
-            <div className="toolkit-column">
-              <h2>
+            <div className="toolkit-column relative z-[1] grid min-w-0 content-start ml-[-48px] max-[980px]:ml-0">
+              <h2 className="mb-5 mt-0 max-w-[720px] font-serif text-base font-medium leading-[1.3] tracking-[-0.01em] text-[#171717]">
                 <HighlightText>How I shape ideas into products.</HighlightText>
               </h2>
               <div className="toolkit-notebook">

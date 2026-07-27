@@ -20,12 +20,18 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="project-card"
+      className="project-card group relative grid grid-rows-[auto_auto] gap-[18px] rounded bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[560px]:w-[min(100%,460px)]"
       aria-label={`Open ${project.title} case study`}
     >
-      <div className={`project-image ${project.imageClass}`}>
+      <div
+        className={`project-image relative w-full overflow-hidden bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
+      >
         {project.cardImage ? (
-          <img src={project.cardImage.src} alt={project.cardImage.alt} />
+          <img
+            className="block h-auto w-full object-contain object-center transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+            src={project.cardImage.src}
+            alt={project.cardImage.alt}
+          />
         ) : (
           <div className="image-system" aria-hidden="true">
             <span />
@@ -34,9 +40,11 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-      <div className="project-card-header">
-        <p>{project.category}</p>
-        <h2>
+      <div className="grid gap-[5px] p-0">
+        <p className="m-0 text-[11px] font-light uppercase leading-[1.3] tracking-normal text-[#8a8583]">
+          {project.category}
+        </p>
+        <h2 className="m-0 font-serif text-[clamp(22px,2.1vw,26px)] font-normal leading-[1.15] tracking-normal text-[#343434] max-[560px]:text-2xl">
           <HighlightText>{displayTitle}</HighlightText>
         </h2>
       </div>
@@ -46,13 +54,20 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Home() {
   return (
-    <main className="site-shell">
+    <main className="min-h-screen bg-[var(--background)]">
       <SiteNav home />
 
-      <section className="home-editorial" id="work" aria-labelledby="intro-title">
-        <aside className="bio-column">
-          <div className="intro-block">
-            <h1 id="intro-title">
+      <section
+        className="mx-auto grid min-h-screen w-[min(100%,1440px)] grid-cols-[minmax(280px,0.38fr)_minmax(0,0.62fr)] items-start gap-[clamp(48px,7vw,112px)] px-[clamp(24px,5vw,72px)] pb-[104px] pt-[124px] max-[980px]:grid-cols-[minmax(240px,0.36fr)_minmax(0,0.64fr)] max-[980px]:gap-[clamp(32px,5vw,56px)] max-[980px]:pt-[116px] max-[560px]:grid-cols-1 max-[560px]:gap-[58px] max-[560px]:px-[18px] max-[560px]:pb-[76px] max-[560px]:pt-[126px]"
+        id="work"
+        aria-labelledby="intro-title"
+      >
+        <aside className="sticky top-[100px] h-fit pt-0.5 max-[560px]:static max-[560px]:pt-0">
+          <div className="min-w-0 text-left">
+            <h1
+              id="intro-title"
+              className="m-0 max-w-[560px] text-lg font-normal leading-[1.5] tracking-[-0.02em] text-[#6f6f6f]"
+            >
               <HighlightText className="intro-emphasis" persistent>
                 Kristi
               </HighlightText>{" "}
@@ -83,31 +98,42 @@ export default function Home() {
               </HighlightText>
               .
             </h1>
-            <p className="intro-status">
-              <span aria-hidden="true" />
+            <p className="intro-status inline-flex max-w-[560px] items-center gap-2 text-xs font-light leading-[1.6] text-[#8a8583] max-[560px]:items-start">
+              <span
+                className="size-1.5 flex-none bg-[#63a66f] shadow-[0_0_0_3px_rgba(99,166,111,0.12)]"
+                aria-hidden="true"
+              />
               Recent graduate from the University of Washington · B.S. in Human
               Centered Design &amp; Engineering
             </p>
           </div>
         </aside>
-        <div className="project-list" aria-label="Featured projects">
+        <div
+          className="grid min-w-0 gap-[clamp(68px,8vw,112px)] max-[560px]:justify-items-center max-[560px]:gap-[62px]"
+          aria-label="Featured projects"
+        >
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
           <article
-            className="project-card project-card--placeholder"
+            className="project-card project-card--placeholder relative grid cursor-default grid-rows-[auto_auto] gap-[18px] rounded bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] max-[560px]:w-[min(100%,460px)]"
             aria-label="Coming soon project"
           >
-            <div className="project-image coming-soon-visual" aria-hidden="true">
+            <div
+              className="project-image coming-soon-visual relative grid aspect-[4/3] w-full place-items-center overflow-hidden bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+              aria-hidden="true"
+            >
               <div className="placeholder-graphic">
                 <span />
                 <span />
                 <span />
               </div>
             </div>
-            <div className="project-card-header">
-              <p>Coming Soon</p>
-              <h2>
+            <div className="grid gap-[5px] p-0">
+              <p className="m-0 text-[11px] font-light uppercase leading-[1.3] tracking-normal text-[#8a8583]">
+                Coming Soon
+              </p>
+              <h2 className="m-0 font-serif text-[clamp(22px,2.1vw,26px)] font-normal leading-[1.15] tracking-normal text-[#343434] max-[560px]:text-2xl">
                 <HighlightText>New Project</HighlightText>
               </h2>
             </div>
@@ -115,8 +141,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <p>I&apos;m currently in Seattle.</p>
+      <footer className="flex items-center justify-center gap-[18px] border-t border-[var(--line)] px-[clamp(20px,5vw,64px)] py-7 text-xs font-light text-[#6b6664] max-[560px]:flex-col max-[560px]:gap-2 max-[560px]:text-center">
+        <p className="m-0">I&apos;m currently in Seattle.</p>
         <SeattleStatus />
       </footer>
     </main>

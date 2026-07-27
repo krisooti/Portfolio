@@ -40,22 +40,34 @@ export function SiteNav({ home = false }: { home?: boolean }) {
   };
 
   return (
-    <header className="site-nav" aria-label="Primary navigation">
-      <Link href="/" className="brand-link">
+    <header
+      className="fixed left-0 top-0 z-50 grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center border-b border-black/[0.05] bg-[rgba(255,253,252,0.82)] px-[clamp(24px,10vw,160px)] py-[18px] backdrop-blur-[18px] max-[560px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-3 max-[560px]:px-[18px] max-[560px]:py-4"
+      aria-label="Primary navigation"
+    >
+      <Link
+        href="/"
+        className="inline-flex items-center justify-self-start gap-[7px] font-serif text-[15px] font-medium leading-none tracking-[-0.01em] text-[#171717] max-[560px]:justify-self-center max-[560px]:text-xs"
+      >
         <HighlightText>Kristi Kim</HighlightText>
       </Link>
-      <nav className="nav-links">
-        <Link href={home ? "#work" : "/#work"}>
+      <nav className="flex items-center justify-self-center gap-[clamp(18px,3vw,34px)] max-[560px]:gap-4">
+        <Link
+          href={home ? "#work" : "/#work"}
+          className="text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
+        >
           <HighlightText>Work</HighlightText>
         </Link>
-        <Link href="/about">
+        <Link
+          href="/about"
+          className="text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
+        >
           <HighlightText>About</HighlightText>
         </Link>
         <Link
           href={RESUME_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="nav-link resume-link"
+          className="inline-flex items-center text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
           aria-label="Open Kristi's resume in a new tab"
         >
           <HighlightText>Resume ↗</HighlightText>
@@ -66,7 +78,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
         >
           <button
             type="button"
-            className="contact-trigger"
+            className="cursor-pointer border-0 bg-transparent p-0 font-[inherit] text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
             aria-expanded={isOpen}
             aria-controls="contact-popup"
             onClick={() => setIsOpen((open) => !open)}
@@ -86,7 +98,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
           </div>
         </div>
       </nav>
-      <span className="nav-spacer" aria-hidden="true" />
+      <span className="justify-self-end" aria-hidden="true" />
     </header>
   );
 }
