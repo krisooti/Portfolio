@@ -8,8 +8,8 @@
   --soft: #f8f5f4;
   --pink: #efa1b6;
   --pink-soft: #fff0f4;
-  --surface-neutral: #f3f1ed;
-  --surface-neutral-hover: #eeebe5;
+  --surface-neutral: #fffdf8;
+  --surface-neutral-hover: #fff8f2;
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 20px;
@@ -446,7 +446,7 @@ html {
 
 .project-card-header h2 {
   margin: 0;
-  color: #222222;
+  color: #343434;
   font-family: var(--font-editorial-serif);
   font-size: clamp(22px, 2.1vw, 26px);
   font-weight: 400;
@@ -2329,7 +2329,7 @@ html {
   left: calc(50% + 22px);
   width: calc(100% - 18px);
   height: 1px;
-  background: #d4ceca;
+  background: #d2d0cf;
   transform: scaleX(0);
   transform-origin: left;
   content: "";
@@ -2643,6 +2643,11 @@ html {
 
   .project-list {
     gap: 62px;
+    justify-items: center;
+  }
+
+  .project-card {
+    width: min(100%, 460px);
   }
 
   .project-card-header h2 {
