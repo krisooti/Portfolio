@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { CategoryTag } from "../CategoryTag";
 import { HighlightText } from "../HighlightText";
 import ProfileCarousel from "./ProfileCarousel";
 import { StickyNoteStack } from "./StickyNoteStack";
+import { SiteNav } from "../SiteNav";
 
 export const metadata: Metadata = {
   title: "About - Kristi Kim",
@@ -57,32 +57,7 @@ function AboutSection({
 export default function AboutPage() {
   return (
     <main className="site-shell">
-      <header className="site-nav" aria-label="Primary navigation">
-        <Link href="/" className="brand-link">
-          <HighlightText>Kristi</HighlightText>
-          <span className="flower-mark" aria-hidden="true" />
-        </Link>
-        <nav className="nav-links">
-          <Link href="/#work">
-            <HighlightText>Work</HighlightText>
-          </Link>
-          <Link href="/about">
-            <HighlightText>About</HighlightText>
-          </Link>
-          <Link
-            href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link resume-link"
-            aria-label="Open Kristi's resume in a new tab"
-          >
-            <HighlightText>Resume ↗</HighlightText>
-          </Link>
-          <a href="mailto:krisooti08@gmail.com">
-            <HighlightText>Contact</HighlightText>
-          </a>
-        </nav>
-      </header>
+      <SiteNav />
 
       <article className="about-page">
         <ProfileCarousel />

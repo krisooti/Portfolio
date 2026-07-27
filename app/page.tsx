@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HighlightText } from "./HighlightText";
 import { type Project, projects } from "./projects";
 import { SeattleStatus } from "./SeattleStatus";
+import { SiteNav } from "./SiteNav";
 
 export const metadata: Metadata = {
   title: "Kristi Kim UX Portfolio",
@@ -46,32 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
 export default function Home() {
   return (
     <main className="site-shell">
-      <header className="site-nav" aria-label="Primary navigation">
-        <Link href="/" className="brand-link">
-          <HighlightText>Kristi</HighlightText>
-          <span className="flower-mark" aria-hidden="true" />
-        </Link>
-        <nav className="nav-links">
-          <a href="#work">
-            <HighlightText>Work</HighlightText>
-          </a>
-          <Link href="/about">
-            <HighlightText>About</HighlightText>
-          </Link>
-          <Link
-            href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link resume-link"
-            aria-label="Open Kristi's resume in a new tab"
-          >
-            <HighlightText>Resume ↗</HighlightText>
-          </Link>
-          <a href="#contact">
-            <HighlightText>Contact</HighlightText>
-          </a>
-        </nav>
-      </header>
+      <SiteNav home />
 
       <section className="home-editorial" id="work" aria-labelledby="intro-title">
         <aside className="bio-column">

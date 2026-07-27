@@ -31,13 +31,13 @@ const profileSlides: ProfileSlide[] = [
         I&apos;m a recent graduate from the University of Washington with a degree
         in{" "}
         <span
-          className="hcde-note-trigger"
+          className="hcde-note-trigger hover-popup-trigger"
           tabIndex={0}
           aria-describedby="hcde-note"
         >
           Human-Centered Design &amp; Engineering
-          <span className="hcde-note" id="hcde-note" role="tooltip">
-            Designing systems around real human needs.
+          <span className="hcde-note hover-popup" id="hcde-note" role="tooltip">
+            Where design, technology, and people come together.
           </span>
         </span>
         . I enjoy creating thoughtful digital experiences that are intuitive,

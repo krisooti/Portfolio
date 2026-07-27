@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CategoryTag } from "../../CategoryTag";
 import { HighlightText } from "../../HighlightText";
+import { SiteNav } from "../../SiteNav";
 import { CaseStudyNav } from "./CaseStudyNav";
 import { getProject, projects } from "../../projects";
 import {
@@ -172,31 +173,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     return (
       <main className="site-shell">
-        <header className="site-nav" aria-label="Primary navigation">
-          <Link href="/" className="brand-link">
-            <HighlightText>Kristi Kim</HighlightText>
-          </Link>
-          <nav className="nav-links">
-            <Link href="/#work">
-              <HighlightText>Work</HighlightText>
-            </Link>
-            <Link href="/about">
-              <HighlightText>About</HighlightText>
-            </Link>
-            <Link
-              href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link resume-link"
-              aria-label="Open Kristi's resume in a new tab"
-            >
-              <HighlightText>Resume ↗</HighlightText>
-            </Link>
-            <Link href="mailto:krisooti08@gmail.com">
-              <HighlightText>Contact</HighlightText>
-            </Link>
-          </nav>
-        </header>
+        <SiteNav />
         <section className="case-hero">
           <p className="eyebrow">Case study</p>
           <h1>
@@ -214,31 +191,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <main className="site-shell">
-      <header className="site-nav" aria-label="Primary navigation">
-        <Link href="/" className="brand-link">
-          <HighlightText>Kristi Kim</HighlightText>
-        </Link>
-        <nav className="nav-links">
-          <Link href="/#work">
-            <HighlightText>Work</HighlightText>
-          </Link>
-          <Link href="/about">
-            <HighlightText>About</HighlightText>
-          </Link>
-          <Link
-            href="https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link resume-link"
-            aria-label="Open Kristi's resume in a new tab"
-          >
-            <HighlightText>Resume ↗</HighlightText>
-          </Link>
-          <Link href="mailto:krisooti08@gmail.com">
-            <HighlightText>Contact</HighlightText>
-          </Link>
-        </nav>
-      </header>
+      <SiteNav />
 
       <article className="case-study-shell">
         <CaseStudyNav sections={caseSections} />

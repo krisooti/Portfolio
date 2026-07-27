@@ -29,8 +29,7 @@ test("server-renders the portfolio homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Kristi Kim UX Portfolio<\/title>/i);
-  assert.match(html, /Kristi/);
-  assert.match(html, /flower-mark/);
+  assert.match(html, /Kristi Kim/);
   assert.match(html, /marker-highlight/);
   assert.match(html, /Recent graduate from the University of Washington/);
   assert.match(html, /B\.S\. in Human Centered Design &amp; Engineering/);
@@ -41,7 +40,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /intro-emphasis">intuitive products/);
   assert.match(html, /intro-emphasis">confident decisions/);
   assert.doesNotMatch(html, /class="eyebrow">UX portfolio/);
-  assert.doesNotMatch(html, /krisooti08@gmail\.com/);
+  assert.match(html, /krisooti08@gmail\.com/);
+  assert.match(html, />Copy</);
   assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
   assert.doesNotMatch(html, /hello@example\.com/);
   assert.match(html, /Work/);
@@ -85,7 +85,7 @@ test("server-renders the redesigned about page", async () => {
   assert.match(html, /<title>About - Kristi Kim<\/title>/i);
   assert.match(html, /Hi there! I&#x27;m Kristi/);
   assert.match(html, /Human-Centered Design &amp; Engineering/);
-  assert.match(html, /Designing systems around real human needs/);
+  assert.match(html, /Where design, technology, and people come together/);
   assert.match(html, /This is me :\)/);
   assert.match(html, /Resume ↗/);
   assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
