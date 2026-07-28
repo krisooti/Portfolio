@@ -61,7 +61,7 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, /New Project/);
   assert.doesNotMatch(html, /A new AI-focused product experience is currently in development/);
   assert.doesNotMatch(html, /Stay tuned/);
-  assert.match(html, /tmind-ai-device-mockup\.png/);
+  assert.match(html, /(?:tmind-ai-device-mockup|tmind)\.png/);
   assert.match(html, /Tmind AI supervisor matching and profile screens/);
   assert.match(html, /haven-device-mockup\.png/);
   assert.match(html, /Haven desktop and tablet designer matching mockups/);
@@ -130,8 +130,12 @@ test("server-renders the Haven case study", async () => {
   assert.match(html, /24 Hours/);
   assert.match(html, /How might we help homeowners confidently evaluate/);
   assert.match(html, /Pinterest, Houzz, and Instagram/);
-  assert.match(html, /Secondary research/);
-  assert.match(html, /Budget estimation/);
+  assert.match(html, /Existing Platforms/);
+  assert.match(html, /Budget Clarity/);
+  assert.match(html, /Designer Shortlist/);
+  assert.match(html, /object-contain/);
+  assert.match(html, /Budget Estimation/i);
+  assert.match(html, /Full prototype/);
   assert.match(html, /Design for decision-making, not discovery/);
 });
 

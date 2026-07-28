@@ -30,18 +30,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    slug: "tmind-ai",
-    title: "AI-Powered Supervisor Matching for Therapists-in-Training",
-    category: "Tmind AI",
-    summary:
-      "An AI-powered platform that helps therapists-in-training find supervisors aligned with their learning goals.",
-    year: "2026",
-    imageClass: "visual-tmind",
-    cardImage: {
-      src: "/images/tmind-ai-device-mockup.png",
-      alt: "Tmind AI supervisor matching and profile screens",
-    },
+{
+  slug: "tmind-ai",
+  title: "AI-Powered Supervisor Matching for Therapists-in-Training",
+  category: "Tmind AI",
+  summary:
+    "An AI-powered platform that helps therapists-in-training find supervisors aligned with their learning goals.",
+  year: "2026",
+  imageClass: "visual-tmind",
+  cardImage: {
+    src: "/images/tmind.png",
+    alt: "Tmind AI supervisor matching and profile screens",
+  },
     intro:
       "MindBridge helps therapists-in-training discover supervisors aligned with their learning goals while maintaining transparency and user control throughout the matching process.",
     challenge:
