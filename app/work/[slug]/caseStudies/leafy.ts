@@ -1,5 +1,12 @@
 import type { CaseStudyContent } from "./types";
 
+const visuals = {
+  hero: {
+    src: "/images/leafy.png",
+    alt: "Leafy AI-powered smart plant care mobile app",
+  },
+};
+
 export const leafyCaseStudy: CaseStudyContent = {
   meta: {
     duration: "Mobile UX Case Study",
@@ -104,6 +111,7 @@ export const leafyCaseStudy: CaseStudyContent = {
     "A connected care system from real-time status to timely action.",
   solutionCopy:
     "Leafy connects environmental data, soil signals, plant status, personalized recommendations, Today's Task, widget reminders, AI diagnosis, and community support into one continuous care experience.",
+  primaryVisual: visuals.hero,
   primaryVisualCaption: "Leafy smart plant-care experience",
   supportingVisuals: [
     { caption: "Plant profile" },
@@ -117,4 +125,5 @@ export const leafyCaseStudy: CaseStudyContent = {
   extraResult:
     "Designed a connected Sensor Data → Plant Status → Recommendation → Today's Task → Reminder flow.",
   resultsVisualCaption: "Final Leafy care flow",
+  resultsVisual: visuals.hero,
 };

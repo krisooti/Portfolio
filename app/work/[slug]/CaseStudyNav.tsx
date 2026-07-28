@@ -63,17 +63,17 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
 
   return (
     <aside
-      className="sticky top-24 self-start py-1 max-[980px]:top-[58px] max-[980px]:z-[6] max-[980px]:overflow-x-auto max-[980px]:border-b max-[980px]:border-[var(--line)] max-[980px]:bg-[rgba(255,253,251,0.94)] max-[980px]:pb-3 max-[980px]:pt-0 max-[980px]:backdrop-blur-[14px]"
+      className="fixed bottom-6 left-6 z-40 rounded-2xl border border-[#e4ded9] bg-[#fffdfc]/90 p-2 shadow-[0_10px_30px_rgba(17,17,17,0.08)] backdrop-blur-md max-[980px]:bottom-4 max-[980px]:left-4 max-[560px]:right-4 max-[560px]:overflow-x-auto"
       aria-label="Case study sections"
     >
-      <nav className="case-sidebar-nav grid gap-4 max-[980px]:flex max-[980px]:min-w-max max-[980px]:gap-[22px]">
+      <nav className="case-sidebar-nav grid gap-1 max-[560px]:flex max-[560px]:min-w-max">
         {sections.map((section) => (
           <a
             key={section.id}
             href={`#${section.id}`}
-            className={`relative flex items-center gap-3 py-2 pl-4 text-[13px] font-light text-[#5f5a58] transition-[color,transform] duration-200 ease-out hover:translate-x-[3px] hover:text-[#171717] max-[980px]:hover:translate-x-0 max-[980px]:hover:-translate-y-px${
+            className={`relative flex items-center gap-2 rounded-xl px-3 py-2 text-[12px] font-light text-[#5f5a58] transition-[background-color,color,transform] duration-200 ease-out hover:-translate-y-px hover:bg-[#f7f4f1] hover:text-[#171717]${
               activeSection === section.id
-                ? " is-active translate-x-[3px] text-[#171717] max-[980px]:translate-x-0 max-[980px]:-translate-y-px"
+                ? " is-active bg-[#f7f4f1] text-[#171717] shadow-[inset_2px_2px_6px_rgba(0,0,0,0.035),inset_-2px_-2px_6px_rgba(255,255,255,0.82)]"
                 : ""
             }`}
             aria-current={activeSection === section.id ? "true" : undefined}

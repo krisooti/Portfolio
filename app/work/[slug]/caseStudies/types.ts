@@ -3,6 +3,12 @@ export type CaseVisualImage = {
   alt: string;
 };
 
+export type CaseVideo = {
+  src: string;
+  poster?: string;
+  caption: string;
+};
+
 export type ProcessStage = {
   title: string;
   body: string;
@@ -32,6 +38,7 @@ export type CaseStudyContent = {
   processStages: ProcessStage[];
   solutionScreens: SolutionScreen[];
   reflectionCards: ReflectionCard[];
+  overviewLogo?: CaseVisualImage;
   overviewContribution: string;
   researchHeading: string;
   researchCopy: string;
@@ -43,6 +50,8 @@ export type CaseStudyContent = {
   solutionCopy: string;
   primaryVisual?: CaseVisualImage;
   primaryVisualCaption: string;
+  prototypeVideo?: CaseVideo;
+  prototypeVideos?: CaseVideo[];
   supportingVisuals: Array<{
     caption: string;
     image?: CaseVisualImage;

@@ -8,28 +8,18 @@ const stickyNotes = [
   {
     title: "Design with empathy",
     body: "Start with people, context, and the real problem.",
-    doodle: "*",
-    tone: "pink",
-    detail: "tape",
   },
   {
     title: "Make complexity simple",
     body: "Turn messy systems into clear next steps.",
-    doodle: "",
-    tone: "cream",
   },
   {
     title: "Give users control",
     body: "AI should guide decisions, not take them away.",
-    doodle: "+",
-    tone: "beige",
-    detail: "paperclip",
   },
   {
     title: "Iterate through feedback",
     body: "Prototype early, learn quickly, refine with care.",
-    doodle: "->",
-    tone: "yellow",
   },
 ];
 
@@ -79,7 +69,7 @@ export function StickyNoteStack() {
   return (
     <div
       className="sticky-note-stack"
-      aria-label="Interactive design desk sticky notes"
+      aria-label="Interactive design reminders"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -87,10 +77,8 @@ export function StickyNoteStack() {
         const isTopNote = index === 0;
         return (
           <button
-            className={`sticky-note sticky-note--${note.tone}${
-              isTopNote ? " is-top" : ""
-            }${isTopNote && isFlipping ? " is-flipping" : ""}${
-              note.detail ? ` has-${note.detail}` : ""
+            className={`sticky-note${isTopNote ? " is-top" : ""}${
+              isTopNote && isFlipping ? " is-flipping" : ""
             }`}
             style={{ "--stack-index": index } as CSSProperties}
             type="button"
@@ -102,17 +90,6 @@ export function StickyNoteStack() {
                 : `Bring note to front: ${note.title}`
             }
           >
-            {note.doodle ? (
-              <span className="sticky-note-doodle" aria-hidden="true">
-                {note.doodle}
-              </span>
-            ) : null}
-            {note.detail ? (
-              <span
-                className={`sticky-note-detail sticky-note-detail--${note.detail}`}
-                aria-hidden="true"
-              />
-            ) : null}
             <span className="sticky-note-title">{note.title}</span>
             <span className="sticky-note-body">{note.body}</span>
           </button>

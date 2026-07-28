@@ -57,8 +57,8 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /AI-powered platform that helps therapists-in-training/);
   assert.match(html, /Haven/);
   assert.match(html, /Leafy/);
-  assert.match(html, /Coming Soon/);
-  assert.match(html, /New Project/);
+  assert.doesNotMatch(html, /Coming Soon/);
+  assert.doesNotMatch(html, /New Project/);
   assert.doesNotMatch(html, /A new AI-focused product experience is currently in development/);
   assert.doesNotMatch(html, /Stay tuned/);
   assert.match(html, /(?:tmind-ai-device-mockup|tmind)\.png/);
@@ -85,7 +85,6 @@ test("server-renders the redesigned about page", async () => {
   assert.match(html, /<title>About - Kristi Kim<\/title>/i);
   assert.match(html, /Hi there! I&#x27;m Kristi/);
   assert.match(html, /Human-Centered Design &amp; Engineering/);
-  assert.match(html, /Where design, technology, and people come together/);
   assert.match(html, /This is me :\)/);
   assert.match(html, /Resume ↗/);
   assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
@@ -105,17 +104,16 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /Tmind AI/);
   assert.match(html, /<dt>Sponsor<\/dt><dd>Tmind AI<\/dd>/);
   assert.match(html, /case-sidebar/);
-  assert.match(html, /project-roadmap/);
   assert.match(html, /Mid-Fidelity/);
-  assert.match(html, /tmind-ai-device-mockup\.png/);
+  assert.match(html, /tmind\.png/);
   assert.match(html, /Tmind AI supervisor matching and profile screens/);
   assert.match(html, /mindbridge-research-board\.png/);
   assert.match(html, /mindbridge-filter\.png/);
   assert.match(html, /mindbridge-message-typed\.png/);
   assert.match(html, /mindbridge-supervisor-profile\.png/);
   assert.match(html, /How might we help users confidently find the right supervisor/);
-  assert.match(html, /User interviews/i);
-  assert.match(html, /Transparent AI recommendations with matching rationale/);
+  assert.match(html, /six 30-minute semi-structured interviews/);
+  assert.match(html, /Instead of leading with compatibility scores/);
   assert.match(html, /transparency over automation/i);
 });
 
@@ -129,13 +127,19 @@ test("server-renders the Haven case study", async () => {
   assert.match(html, /Protothon 2026/);
   assert.match(html, /24 Hours/);
   assert.match(html, /How might we help homeowners confidently evaluate/);
-  assert.match(html, /Pinterest, Houzz, and Instagram/);
-  assert.match(html, /Existing Platforms/);
-  assert.match(html, /Budget Clarity/);
-  assert.match(html, /Designer Shortlist/);
+  assert.match(html, /moving from inspiration to renovation planning/);
+  assert.match(html, /ca\.png/);
+  assert.match(html, /Competitive feature analysis/);
   assert.match(html, /object-contain/);
   assert.match(html, /Budget Estimation/i);
-  assert.match(html, /Full prototype/);
+  assert.match(html, /haven-protothon\.svg/);
+  assert.match(html, /Protothon 2026 graphic illustration/);
+  assert.match(html, /Final Haven prototype direction/);
+  assert.match(html, /Prototype demos/);
+  assert.match(html, /\/videos\/haven1\.mp4/);
+  assert.match(html, /\/videos\/haven2\.mp4/);
+  assert.match(html, /Haven prototype demo 01/);
+  assert.match(html, /Haven prototype demo 02/);
   assert.match(html, /Design for decision-making, not discovery/);
 });
 

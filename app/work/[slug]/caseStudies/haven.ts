@@ -5,118 +5,174 @@ const visuals = {
     src: "/images/haven-device-mockup.png",
     alt: "Haven desktop and tablet designer matching mockups",
   },
+  competitiveAnalysis: {
+    src: "/images/ca.png",
+    alt: "Competitive analysis comparing Haven with Houzz, Instagram, and other platforms",
+  },
+  protothonGraphic: {
+    src: "/images/haven-protothon.svg",
+    alt: "Protothon 2026 graphic illustration",
+  },
 };
 
 export const havenCaseStudy: CaseStudyContent = {
   meta: {
     duration: "24 Hours",
     role:
-      "UX Research, Product Strategy, User Flow, Wireframing, High-fidelity UI Design, Presentation",
+      "UX Research, Product Strategy, User Flow, Prototyping, High-fidelity UI Design, Presentation",
     team: "3 UX Designers",
     sponsor: "Protothon 2026",
   },
+
   painPoints: [
     "Inspiration platforms help homeowners collect ideas, but not evaluate designer fit.",
     "Pricing and project scope often feel unclear before outreach.",
     "Homeowners rely on referrals without enough compatibility or trust signals.",
   ],
+
   processStages: [
     {
       title: "Research",
-      body: "Analyzed inspiration and designer-discovery platforms to understand where homeowners lose confidence.",
-      caption: "Competitive research across Pinterest, Houzz, and Instagram",
+      body:
+        "Analyzed existing platforms to understand where homeowners lose confidence.",
+      caption: "Competitive analysis",
     },
     {
-      title: "Opportunity",
-      body: "Identified the gap between collecting inspiration and choosing a designer who fits style, budget, and project needs.",
-      caption: "Problem framing and product opportunity",
+      title: "Define",
+      body:
+        "Focused the problem around three confidence gaps: taste, budget, and designer fit.",
+      caption: "Problem definition",
     },
     {
       title: "User Flow",
-      body: "Mapped a journey from visual preference discovery to budget context, designer matches, and outreach.",
-      caption: "End-to-end matching flow",
+      body:
+        "Mapped the journey from visual preference discovery to budget planning, designer matching, and outreach.",
+      caption: "End-to-end user flow",
     },
     {
-      title: "Wireframes",
-      body: "Sketched the core onboarding, matching, and designer profile screens under a 24-hour timeline.",
-      caption: "Low-fidelity concept structure",
-    },
-    {
-      title: "High-Fidelity",
-      body: "Built a polished prototype that made designer fit, budget, and compatibility easier to compare.",
-      caption: "Final visual design and prototype",
-    },
-    {
-      title: "Presentation",
-      body: "Presented an AI-assisted matching concept grounded in user needs and clear decision support.",
-      caption: "Protothon 2026 final pitch",
+      title: "Prototyping",
+      body:
+        "Moved from early wireframes into high-fidelity screens, iterating on the core matching experience within the 24-hour sprint.",
+      caption: "Wireframes to interactive prototype",
     },
   ],
+
   solutionScreens: [
     {
       title: "Preference Discovery",
-      body: "Homeowners select interior images they love, allowing the product to translate taste into a clearer aesthetic profile.",
+      body:
+        "Homeowners select interior images they love, allowing Haven to translate visual taste into a clearer aesthetic profile.",
       rationale:
-        "This removes the pressure to know design vocabulary and gives the matching system more meaningful signals.",
+        "Visual selection removes the pressure to understand interior design terminology.",
     },
     {
       title: "Budget Estimation",
-      body: "A simple estimator uses ZIP code, home type, and renovation scope to help users understand realistic cost ranges earlier.",
+      body:
+        "Users provide location, home type, and project scope to establish realistic budget expectations early.",
       rationale:
-        "Budget clarity reduces uncertainty before users invest time contacting designers.",
+        "Early cost context reduces uncertainty before users begin contacting designers.",
     },
     {
       title: "AI Designer Matching",
-      body: "The matching experience recommends designers based on style similarity, budget alignment, project experience, and compatibility.",
+      body:
+        "Haven recommends designers based on style, budget, project experience, and compatibility.",
       rationale:
-        "AI supports the shortlist, while users can still browse, compare, and choose for themselves.",
+        "AI narrows the search while keeping homeowners in control of the final decision.",
     },
     {
       title: "Transparent Designer Profiles",
-      body: "Designer profiles highlight previous projects, typical budgets, specialties, verified reviews, and communication style.",
+      body:
+        "Profiles surface relevant projects, typical budgets, specialties, reviews, and compatibility signals.",
       rationale:
-        "Trust signals help homeowners evaluate fit beyond beautiful portfolio images.",
+        "Homeowners can evaluate fit beyond portfolio aesthetics.",
     },
   ],
+
   reflectionCards: [
     {
       title: "Design for decision-making, not discovery.",
-      body: "Homeowners were not short on inspiration. The bigger need was help turning taste, budget, and trust signals into a confident next step.",
+      body:
+        "Homeowners were not short on inspiration. The bigger opportunity was helping them confidently act on it.",
     },
     {
       title: "AI should reduce uncertainty.",
-      body: "The matching concept worked best when AI explained why a designer might fit, rather than asking users to trust a hidden score.",
+      body:
+        "Matching became more useful when recommendations explained why a designer might fit rather than relying on an unexplained score.",
     },
     {
       title: "Speed demands prioritization.",
-      body: "A 24-hour sprint pushed us to focus on the moments that mattered most: onboarding, matching, comparison, and contact.",
+      body:
+        "The 24-hour sprint pushed us to prioritize the moments that mattered most: preference discovery, budget, matching, and evaluation.",
     },
   ],
+
+  overviewLogo: visuals.protothonGraphic,
+
   overviewContribution:
-    "My contributions included UX research, product strategy, user flows, wireframing, high-fidelity UI design, and the final presentation.",
-  researchHeading: "Research revealed a gap between inspiration and confident action.",
+    "My contributions included UX research, product strategy, user flows, prototyping, high-fidelity UI design, and the final presentation.",
+
+  researchHeading:
+    "Existing platforms support inspiration, but not the full decision-making journey.",
+
   researchCopy:
-    "We analyzed Pinterest, Houzz, and Instagram to understand how homeowners move from inspiration to designer selection. The competitive analysis showed that existing platforms support discovery well, but offer weak comparison, pricing, and compatibility signals.",
-  researchCaption: "Competitive analysis and designer-discovery opportunity areas",
-  designHeading: "Turning scattered inspiration into a structured matching flow.",
+    "We compared existing platforms to identify where homeowners still needed support when moving from inspiration to renovation planning.",
+
+  researchCaption: "Competitive feature analysis",
+
+  researchImage: visuals.competitiveAnalysis,
+
+  designHeading:
+    "Turning scattered inspiration into a structured path forward.",
+
   designTakeaway:
-    "The strongest direction was helping users translate visual taste, budget expectations, and trust signals into a confident designer shortlist.",
-  solutionHeading: "An AI-assisted path from inspiration to confident designer selection.",
+    "We focused the experience around helping homeowners understand their taste, establish budget expectations, and evaluate designer compatibility.",
+
+  solutionHeading:
+    "From inspiration to confident designer selection.",
+
   solutionCopy:
-    "Haven combines visual preference discovery, budget estimation, AI matching, and transparent designer profiles so homeowners can compare options before reaching out.",
+    "Haven combines visual preference discovery, budget estimation, AI matching, and transparent designer profiles into one connected experience.",
+
   primaryVisual: visuals.hero,
+
   primaryVisualCaption: "Haven designer discovery interface",
+
   supportingVisuals: [
-    { caption: "Preference discovery" },
-    { caption: "Budget estimation" },
-    { caption: "Designer profile" },
+    {
+      caption: "Preference discovery",
+    },
+    {
+      caption: "Budget estimation",
+    },
+    {
+      caption: "Designer matching",
+    },
   ],
+
+  /* Prototype videos */
+  prototypeVideos: [
+    {
+      src: "/videos/haven1.mp4",
+      poster: "/images/haven-device-mockup.png",
+      caption: "Haven prototype demo 01",
+    },
+    {
+      src: "/videos/haven2.mp4",
+      poster: "/images/haven-device-mockup.png",
+      caption: "Haven prototype demo 02",
+    },
+  ],
+
   solutionTakeaway:
-    "The experience makes AI feel like a thoughtful guide by pairing recommendations with context users can understand and compare.",
+    "Haven turns fragmented renovation decisions into a guided experience while keeping homeowners in control.",
+
   resultsCopy:
-    "The final direction helped transform an open-ended renovation search into a clearer path from taste to confident outreach.",
+    "Within 24 hours, our team transformed a fragmented renovation journey into an end-to-end product concept.",
+
   extraResult:
-    "Created an AI-assisted matching concept grounded in user decision-making needs.",
+    "Delivered a high-fidelity interactive prototype and final Protothon presentation.",
+
   resultsVisualCaption: "Final Haven prototype direction",
+
   resultsVisual: visuals.hero,
 };
