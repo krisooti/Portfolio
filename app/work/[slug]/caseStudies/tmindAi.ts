@@ -138,6 +138,18 @@ export const tmindAiCaseStudy: CaseStudyContent = {
     "The final solution supports a calm path from onboarding to match review, profile evaluation, saving, and messaging.",
   primaryVisual: visuals.matching,
   primaryVisualCaption: "Tmind AI supervisor matching experience",
+  prototypeVideos: [
+    {
+      src: "/videos/tmind-filter.mp4",
+      poster: "/images/tmind-filter-poster.jpg",
+      caption: "Advanced supervisor filter demo",
+    },
+    {
+      src: "/videos/tmind-request.mp4",
+      poster: "/images/tmind-request-poster.jpg",
+      caption: "Supervisor request flow demo",
+    },
+  ],
   supportingVisuals: [
     { caption: "Supervisor profile", image: visuals.profile },
     { caption: "Advanced filters", image: visuals.filters },

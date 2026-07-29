@@ -153,12 +153,12 @@ export const havenCaseStudy: CaseStudyContent = {
   prototypeVideos: [
     {
       src: "/videos/haven1.mp4",
-      poster: "/images/haven-device-mockup.png",
+      poster: "/images/haven-demo-01-poster.jpg",
       caption: "Haven prototype demo 01",
     },
     {
       src: "/videos/haven2.mp4",
-      poster: "/images/haven-device-mockup.png",
+      poster: "/images/haven-demo-02-poster.jpg",
       caption: "Haven prototype demo 02",
     },
   ],
