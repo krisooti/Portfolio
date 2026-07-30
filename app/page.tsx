@@ -20,7 +20,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="project-card group relative grid grid-rows-[auto_auto] gap-[18px] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[560px]:w-[min(100%,460px)]"
+      className="project-card group relative grid grid-cols-[minmax(0,0.58fr)_minmax(220px,0.42fr)] items-center gap-[clamp(20px,3vw,36px)] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[760px]:grid-cols-1 max-[560px]:w-[min(100%,460px)]"
       aria-label={`Open ${project.title} case study`}
     >
       <div
@@ -40,7 +40,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-      <div className="grid gap-[5px] p-0">
+      <div className="grid content-center gap-[7px] p-0">
         <p className="m-0 text-[11px] font-light uppercase leading-[1.3] tracking-normal text-[#8a8583]">
           {project.category}
         </p>

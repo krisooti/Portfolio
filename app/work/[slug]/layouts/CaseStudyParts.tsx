@@ -137,7 +137,7 @@ export function CaseVideo({
         </div>
       ) : (
         <div
-          className="w-full overflow-hidden rounded-3xl border border-[#e6dfdb] p-[clamp(10px,2vw,20px)] shadow-[0_18px_44px_rgba(17,17,17,0.05)]"
+          className="w-full overflow-hidden rounded-3xl p-[clamp(10px,2vw,20px)] shadow-[0_18px_44px_rgba(17,17,17,0.05)]"
           style={{ backgroundColor: videoBackground }}
         >
           <ViewportVideo
