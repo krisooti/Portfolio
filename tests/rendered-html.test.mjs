@@ -169,7 +169,16 @@ test("server-renders the Leafy case study", async () => {
   assert.match(html, /Smart Plant Care/);
   assert.match(html, /How might we help plant owners understand/);
   assert.match(html, /don&#x27;t just show plant data/i);
-  assert.match(html, /Smart Widget/);
+  assert.match(html, /Indoor Plant Market Growth/);
+  assert.match(html, /\$20\.68B/);
+  assert.match(html, /Plant Care Challenges/);
+  assert.match(html, /Initial Hypothesis/);
+  assert.match(html, /Today&#x27;s Task widget demo/);
+  assert.match(html, /\/videos\/leafy-widget\.mp4/);
+  assert.match(html, /\/videos\/leafy-data\.mp4/);
+  assert.match(html, /\/videos\/leafy-scan\.mp4/);
+  assert.match(html, /\/videos\/leafy-scan2\.mp4/);
+  assert.match(html, /leafy-widget-poster\.jpg/);
   assert.match(html, /AI Diagnosis/);
   assert.match(html, /Data should reduce decisions/);
 });

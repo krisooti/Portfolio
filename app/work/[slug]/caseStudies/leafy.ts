@@ -53,34 +53,22 @@ export const leafyCaseStudy: CaseStudyContent = {
   ],
   solutionScreens: [
     {
-      title: "Plant Profile",
-      body: "The Plant Profile brings together environmental information, soil data, current plant status, and recommended care in one place.",
-      rationale:
-        "Instead of presenting light, temperature, humidity, moisture, pH, and nutrient levels as isolated metrics, the interface translates them into an understandable health status.",
-    },
-    {
       title: "Today's Task",
       body: "Today's Task prioritizes what needs attention, such as Water Monstera Today when soil moisture is below the recommended range.",
       rationale:
         "Showing both the action and reason helps users understand why the recommendation matters.",
     },
     {
-      title: "Smart Widget",
-      body: "The widget brings today's care task, upcoming reminders, quick plant status, and priority alerts directly to the home screen.",
+      title: "Plant Profile",
+      body: "The Plant Profile brings together environmental information, soil data, current plant status, and recommended care in one place.",
       rationale:
-        "Plant care becomes part of the user's existing routine instead of requiring them to remember to open another app.",
+        "Instead of presenting light, temperature, humidity, moisture, pH, and nutrient levels as isolated metrics, the interface translates them into an understandable health status.",
     },
     {
       title: "AI Diagnosis",
       body: "When users notice an unusual change, they can select a plant, scan symptoms, view a diagnosis, receive treatment guidance, and create a follow-up task.",
       rationale:
         "AI Diagnosis adds support when regular monitoring is no longer enough.",
-    },
-    {
-      title: "Community",
-      body: "For problems without a straightforward answer, users can search posts, share plant conditions, ask questions, and receive advice from other plant owners.",
-      rationale:
-        "Community creates a secondary support path when users need help beyond AI recommendations.",
     },
   ],
   reflectionCards: [
@@ -114,8 +102,8 @@ export const leafyCaseStudy: CaseStudyContent = {
   primaryVisual: visuals.hero,
   primaryVisualCaption: "Leafy smart plant-care experience",
   supportingVisuals: [
-    { caption: "Plant profile" },
     { caption: "Today's Task" },
+    { caption: "Plant profile" },
     { caption: "AI diagnosis" },
   ],
   solutionTakeaway:

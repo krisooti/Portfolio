@@ -79,10 +79,12 @@ export function CaseVisual({
 
 export function CaseVideo({
   caption,
+  className = "",
   poster,
   src,
 }: {
   caption: string;
+  className?: string;
   poster?: string;
   src: string;
 }) {
@@ -93,7 +95,7 @@ export function CaseVideo({
       : undefined;
 
   return (
-    <figure className="my-14 w-full">
+    <figure className={`my-14 w-full ${className}`}>
       <div className="w-full overflow-hidden rounded-2xl border border-[#e6dfdb] bg-[#f7f4f1] shadow-[0_18px_44px_rgba(17,17,17,0.06)]">
         <div className="flex items-center justify-between border-b border-[#e6dfdb] bg-[#fffdfc] px-4 py-3">
           <div className="flex items-center gap-2" aria-hidden="true">
