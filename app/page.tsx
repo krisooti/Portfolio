@@ -20,15 +20,15 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="project-card group relative grid grid-cols-[minmax(0,0.58fr)_minmax(220px,0.42fr)] items-center gap-[clamp(20px,3vw,36px)] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[760px]:grid-cols-1 max-[560px]:w-[min(100%,460px)]"
+      className="project-card group relative grid h-full grid-cols-1 content-start gap-[18px] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[560px]:w-[min(100%,460px)]"
       aria-label={`Open ${project.title} case study`}
     >
       <div
-        className={`project-image relative w-full overflow-hidden rounded-[14px] bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
+        className={`project-image relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
       >
         {project.cardImage ? (
           <img
-            className="block h-auto w-full object-contain object-center transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+            className="block h-full w-full object-contain object-center transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
             src={project.cardImage.src}
             alt={project.cardImage.alt}
           />
@@ -58,11 +58,11 @@ export default function Home() {
       <SiteNav home />
 
       <section
-        className="mx-auto grid min-h-screen w-[min(100%,1440px)] grid-cols-[minmax(280px,0.38fr)_minmax(0,0.62fr)] items-start gap-[clamp(48px,7vw,112px)] px-[clamp(24px,5vw,72px)] pb-[104px] pt-[124px] max-[980px]:grid-cols-[minmax(240px,0.36fr)_minmax(0,0.64fr)] max-[980px]:gap-[clamp(32px,5vw,56px)] max-[980px]:pt-[116px] max-[560px]:grid-cols-1 max-[560px]:gap-[58px] max-[560px]:px-[18px] max-[560px]:pb-[76px] max-[560px]:pt-[126px]"
+        className="mx-auto grid min-h-screen w-[min(100%,1440px)] grid-cols-1 items-start gap-[clamp(54px,7vw,92px)] px-[clamp(24px,5vw,72px)] pb-[104px] pt-[124px] max-[980px]:gap-[clamp(40px,6vw,64px)] max-[980px]:pt-[116px] max-[560px]:gap-[48px] max-[560px]:px-[18px] max-[560px]:pb-[76px] max-[560px]:pt-[126px]"
         id="work"
         aria-labelledby="intro-title"
       >
-        <aside className="sticky top-[100px] h-fit pt-0.5 max-[560px]:static max-[560px]:pt-0">
+        <aside className="h-fit pt-0.5 max-[560px]:pt-0">
           <div className="min-w-0 text-left">
             <h1
               id="intro-title"
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
         </aside>
         <div
-          className="grid min-w-0 gap-[clamp(68px,8vw,112px)] max-[560px]:justify-items-center max-[560px]:gap-[62px]"
+          className="grid min-w-0 grid-cols-3 items-stretch gap-8 max-[1100px]:grid-cols-2 max-[560px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-7"
           aria-label="Featured projects"
         >
           {featuredProjects.map((project) => (
