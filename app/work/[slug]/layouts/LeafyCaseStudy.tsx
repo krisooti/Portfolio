@@ -81,8 +81,6 @@ const leafyDemoVideos = [
   },
 ];
 
-const competitorApps = ["01", "02", "03", "04"];
-
 const leafyProcessTimeline = [
   {
     title: "Research",
@@ -155,9 +153,6 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                 <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
                   <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
-                      <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-                        Insight 01
-                      </p>
                       <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
                         Market Growth
                       </span>
@@ -166,9 +161,6 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                       <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Indoor Plant Market Growth
                       </h4>
-                      <p className="mb-0 mt-4 font-serif text-[clamp(42px,6vw,58px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
-                        $20.68B <span className="text-[#b7c9bd]">→</span> $30.25B
-                      </p>
                       <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
                         Projected growth from 2024 to 2032
                       </p>
@@ -197,24 +189,18 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         </text>
                       </svg>
                     </div>
-                    <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                      More people are bringing plants into their homes.
-                    </p>
                     <div className="border-t border-[#e6dfdb] pt-4">
-                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Key Insight
+                      <p className="mb-0 mt-4 font-serif text-[clamp(42px,6vw,58px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
+                        Indoor plant market is projected to grow from $20.68B in 2024to $30.25B by 2032
                       </p>
-                      <p className="mb-0 mt-2 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
-                        People are buying more plants, but maintaining them remains difficult.
-                      </p>
+                        <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      <span className="text-[#b7c9bd]">→</span> More people are bringing plants into their homes.
+                    </p>
                     </div>
                   </article>
 
                   <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
-                      <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-                        Insight 02
-                      </p>
                       <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
                         70% Plant Loss
                       </span>
@@ -223,12 +209,6 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                       <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Plant Care Challenges
                       </h4>
-                      <p className="mb-0 mt-4 font-serif text-[clamp(52px,8vw,60px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
-                        70%
-                      </p>
-                      <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
-                        Gen Z plant owners who have accidentally killed a plant
-                      </p>
                     </div>
                     <div className="flex items-center justify-center">
                       <svg
@@ -264,15 +244,12 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         </text>
                       </svg>
                     </div>
-                    <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                      Beginners struggle when routines and care guidance are unclear.
-                    </p>
                     <div className="border-t border-[#e6dfdb] pt-4">
-                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Key Insight
-                      </p>
                       <p className="mb-0 mt-2 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
-                        Plant care feels stressful when users do not know what to do next.
+                        70% Gen Z plant owners who have accidentally killed a plant
+                      </p>
+                      <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      <span className="text-[#b7c9bd]">→</span> Plant care feels stressful when users do not know what to do next.
                       </p>
                     </div>
                   </article>
@@ -287,59 +264,61 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                   Competitive analysis helped frame the first product direction.
                 </h3>
 
-                <div className="relative mt-8">
-                  <div className="absolute left-6 right-6 top-[88px] hidden h-px bg-[#d8d2ce] lg:block" aria-hidden="true" />
-                  <div className="grid gap-7 lg:grid-cols-[minmax(0,0.28fr)_minmax(0,0.27fr)_minmax(0,0.45fr)]">
-                    <div className="relative bg-[var(--background)] pr-4">
+                <div className="mt-8 grid gap-8">
+                  <figure className="m-0 mx-auto w-full max-w-[760px]">
+                    <div className="rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-8 shadow-[0_18px_42px_rgba(17,17,17,0.055)]">
+                      <img
+                        className="mx-auto block h-auto w-full max-w-[560px] object-contain"
+                        src="/images/pa.png"
+                        alt="Competitive analysis app icons for plant care products"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-center text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+                      Competitive app landscape
+                    </figcaption>
+                  </figure>
+
+                  <div className="grid gap-8 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:items-start">
+                    <div>
                       <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Competitor Apps
+                        Common Features
                       </p>
                       <div className="mt-5 flex flex-wrap gap-3">
-                        {competitorApps.map((app) => (
-                          <div
-                            className="flex h-12 w-12 items-center justify-center rounded-[12px] border border-[#e6dfdb] bg-white text-[#4f7f64] shadow-[0_8px_20px_rgba(17,17,17,0.035)]"
-                            key={app}
+                        {[
+                          "Watering reminders",
+                          "Care schedules",
+                          "Growth tracking",
+                        ].map((item) => (
+                          <span
+                            className="rounded-full border border-[#e6dfdb] bg-[#fffdfb] px-4 py-2 text-sm font-light text-[#5d5856]"
+                            key={item}
                           >
-                            <svg
-                              aria-hidden="true"
-                              className="h-6 w-6"
-                              fill="none"
-                              viewBox="0 0 28 28"
-                            >
-                              <path
-                                d="M14 22V10M14 10C10.5 10 8 8.2 7.2 5.5C10.8 5.2 13.1 6.8 14 10ZM14 10C17.5 10 20 8.2 20.8 5.5C17.2 5.2 14.9 6.8 14 10Z"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="1.4"
-                              />
-                            </svg>
-                            <span className="sr-only">Competitor app {app}</span>
-                          </div>
+                            {item}
+                          </span>
                         ))}
                       </div>
                     </div>
 
-                    <div className="relative bg-[var(--background)] pr-4">
-                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Common Features
-                      </p>
-                      <ul className="mb-0 mt-5 grid list-none gap-2 p-0 text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                        <li>Watering reminders</li>
-                        <li>Care schedules</li>
-                        <li>Growth tracking</li>
-                      </ul>
-                    </div>
+                    <div className="grid gap-7">
+                      <div>
+                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                          Key Observation
+                        </p>
+                        <p className="mb-0 mt-4 max-w-[70ch] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                          Existing apps focused on reminding users when to care for plants, but provided little guidance on what to do when a plant's condition changed.
+                        </p>
+                      </div>
 
-                    <blockquote className="relative m-0 bg-[#fbfdfa] px-7 py-6 shadow-[0_18px_42px_rgba(17,17,17,0.04)]">
-                      <span className="absolute bottom-6 left-0 top-6 w-1 bg-[#4f7f64]" aria-hidden="true" />
-                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Initial Assumption
-                      </p>
-                      <p className="mb-0 mt-4 font-serif text-[clamp(24px,3vw,32px)] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
-                        “The core problem is that users struggle to keep up with their plant care schedule.”
-                      </p>
-                    </blockquote>
+                      <blockquote className="relative m-0 rounded-2xl border border-[#e6dfdb] bg-[#fbfdfa] px-7 py-6 shadow-[0_18px_42px_rgba(17,17,17,0.04)]">
+                        <span className="absolute bottom-6 left-0 top-6 w-1 bg-[#4f7f64]" aria-hidden="true" />
+                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                          Initial Assumption
+                        </p>
+                        <p className="mb-0 mt-4 font-serif text-[clamp(24px,3vw,32px)] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+                          “The core problem is that users struggle to keep up with their plant care schedule.”
+                        </p>
+                      </blockquote>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -402,7 +381,7 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                       <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
                         <HighlightText>{demo.title}</HighlightText>
                       </h3>
-                      <dl className="mb-0 mt-5 grid gap-4">
+                      <dl className="mt-5 grid gap-4 rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-6">
                         <div>
                           <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                             Challenge

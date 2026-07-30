@@ -4,7 +4,10 @@ import { HighlightText } from "../../../HighlightText";
 import { SiteNav } from "../../../SiteNav";
 import { CaseStudyNav } from "../CaseStudyNav";
 import type { Project } from "../../../projects";
-import type { CaseStudyContent, CaseVisualImage } from "../caseStudies/types";
+import type {
+  CaseStudyContent,
+  CaseVisualImage,
+} from "../caseStudies/types";
 import { ViewportVideo } from "./ViewportVideo";
 
 export type ProjectCaseStudyProps = {
@@ -32,10 +35,12 @@ export function CaseSection({
         <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
           {label}
         </p>
+
         <h2 className="m-0 font-serif text-[clamp(28px,4vw,44px)] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
           {title}
         </h2>
       </header>
+
       <div className="w-full">{children}</div>
     </section>
   );
@@ -61,7 +66,10 @@ export function CaseVisual({
       ) : (
         <div className="flex min-h-[360px] items-center justify-center border border-dashed border-[#d8d2ce] bg-[#faf8f6] px-8 text-center">
           <div className="max-w-[520px]">
-            <p className="m-0 font-serif text-2xl text-[#24201e]">{label}</p>
+            <p className="m-0 font-serif text-2xl text-[#24201e]">
+              {label}
+            </p>
+
             {note ? (
               <p className="mt-3 text-sm font-light leading-[1.6] text-[#716b67]">
                 {note}
@@ -70,6 +78,7 @@ export function CaseVisual({
           </div>
         </div>
       )}
+
       <figcaption className="mt-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
         {label}
       </figcaption>
@@ -108,32 +117,41 @@ export function CaseVideo({
               <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
             </div>
+
             <span className="text-[11px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
               Prototype Demo
             </span>
           </div>
+
           <div
-            className="p-[clamp(10px,2vw,20px)]"
+            className="overflow-hidden rounded-b-2xl p-[clamp(10px,2vw,20px)]"
             style={{ backgroundColor: videoBackground }}
           >
-            <ViewportVideo poster={poster} src={src} videoType={videoType} />
+            <ViewportVideo
+              className="overflow-hidden rounded-xl"
+              poster={poster}
+              src={src}
+              videoType={videoType}
+            />
           </div>
         </div>
       ) : (
         <div
-          className="w-full p-[clamp(10px,2vw,20px)]"
+          className="w-full overflow-hidden rounded-3xl border border-[#e6dfdb] p-[clamp(10px,2vw,20px)] shadow-[0_18px_44px_rgba(17,17,17,0.05)]"
           style={{ backgroundColor: videoBackground }}
         >
           <ViewportVideo
-            className="bg-[#F6F6F6]"
+            className="overflow-hidden rounded-2xl bg-[#F6F6F6]"
             poster={poster}
             src={src}
             videoType={videoType}
           />
         </div>
       )}
+
       <figcaption className="mt-3 flex flex-wrap items-center gap-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
         <span>{caption}</span>
+
         <a
           className="border-b border-current text-[#6b6664] transition-colors duration-200 hover:text-[#171717]"
           href={src}
@@ -152,7 +170,11 @@ export function CaseStudyShell({
   sections,
 }: {
   children: ReactNode;
-  sections: Array<{ id: string; label: string; number: string }>;
+  sections: Array<{
+    id: string;
+    label: string;
+    number: string;
+  }>;
 }) {
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -226,6 +248,7 @@ export function ProjectCaseIntro({
             <dt className="mb-2 text-[11px] font-light uppercase tracking-[0.12em] text-[#9c9490]">
               {label}
             </dt>
+
             <dd className="m-0 text-[14px] font-light leading-[1.6] text-[#272321]">
               {value}
             </dd>
@@ -259,6 +282,7 @@ export function ReturnToWorkSection() {
   return (
     <section className="py-14 md:py-18">
       <p className="eyebrow">Next</p>
+
       <Link href="/#work">
         <HighlightText>Return to selected work</HighlightText>
       </Link>
@@ -270,11 +294,14 @@ export function ProjectNotFound() {
   return (
     <main className="min-h-screen bg-[var(--background)]">
       <SiteNav />
+
       <section className="px-[clamp(20px,5vw,64px)]">
         <p className="eyebrow">Case study</p>
+
         <h1>
           <HighlightText>Project not found.</HighlightText>
         </h1>
+
         <Link href="/#work" className="text-link">
           <HighlightText>Back to work</HighlightText>
         </Link>
