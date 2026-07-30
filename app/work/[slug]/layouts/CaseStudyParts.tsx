@@ -80,13 +80,17 @@ export function CaseVisual({
 export function CaseVideo({
   caption,
   className = "",
+  frame = "browser",
   poster,
   src,
+  videoBackground = "#ede9e5",
 }: {
   caption: string;
   className?: string;
+  frame?: "browser" | "plain";
   poster?: string;
   src: string;
+  videoBackground?: string;
 }) {
   const videoType = src.endsWith(".mp4")
     ? "video/mp4"
@@ -96,21 +100,38 @@ export function CaseVideo({
 
   return (
     <figure className={`my-14 w-full ${className}`}>
-      <div className="w-full overflow-hidden rounded-2xl border border-[#e6dfdb] bg-[#f7f4f1] shadow-[0_18px_44px_rgba(17,17,17,0.06)]">
-        <div className="flex items-center justify-between border-b border-[#e6dfdb] bg-[#fffdfc] px-4 py-3">
-          <div className="flex items-center gap-2" aria-hidden="true">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#e7b7c4]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
+      {frame === "browser" ? (
+        <div className="w-full overflow-hidden rounded-2xl border border-[#e6dfdb] bg-[#f7f4f1] shadow-[0_18px_44px_rgba(17,17,17,0.06)]">
+          <div className="flex items-center justify-between border-b border-[#e6dfdb] bg-[#fffdfc] px-4 py-3">
+            <div className="flex items-center gap-2" aria-hidden="true">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#e7b7c4]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
+            </div>
+            <span className="text-[11px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
+              Prototype Demo
+            </span>
           </div>
-          <span className="text-[11px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
-            Prototype Demo
-          </span>
+          <div
+            className="p-[clamp(10px,2vw,20px)]"
+            style={{ backgroundColor: videoBackground }}
+          >
+            <ViewportVideo poster={poster} src={src} videoType={videoType} />
+          </div>
         </div>
-        <div className="bg-[#ede9e5] p-[clamp(10px,2vw,20px)]">
-          <ViewportVideo poster={poster} src={src} videoType={videoType} />
+      ) : (
+        <div
+          className="w-full p-[clamp(10px,2vw,20px)]"
+          style={{ backgroundColor: videoBackground }}
+        >
+          <ViewportVideo
+            className="bg-[#F6F6F6]"
+            poster={poster}
+            src={src}
+            videoType={videoType}
+          />
         </div>
-      </div>
+      )}
       <figcaption className="mt-3 flex flex-wrap items-center gap-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
         <span>{caption}</span>
         <a

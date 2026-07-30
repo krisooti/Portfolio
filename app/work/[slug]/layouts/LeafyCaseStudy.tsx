@@ -148,185 +148,198 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                 <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
                   Research Insights
                 </p>
-                <h3 className="mb-0 mt-3 font-serif text-[clamp(28px,4vw,32px)] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
-                  Why plant care needs clearer, more actionable support.
+                <h3 className="mb-0 mt-3 font-serif text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                  Market growth and user pain pointed to a care-confidence gap.
                 </h3>
 
-                <div className="mt-8 grid gap-10 lg:grid-cols-2">
-                  <article>
-                    <div className="grid gap-6 md:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] md:items-end lg:grid-cols-1 xl:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)]">
-                      <div>
-                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                          Insight 01
-                        </p>
-                        <h4 className="mb-0 mt-3 font-serif text-2xl font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
-                          Indoor Plant Market Growth
-                        </h4>
-                        <p className="mb-0 mt-5 font-serif text-[clamp(42px,6vw,58px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
-                          $20.68B <span className="text-[#b7c9bd]">→</span> $30.25B
-                        </p>
-                        <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
-                          Projected market growth from 2024 to 2032
-                        </p>
-                      </div>
-                      <div className="h-[240px]">
-                        <svg
-                          aria-label="Vertical bar chart showing indoor plant market growth from 20.68 billion to 30.25 billion dollars."
-                          className="h-full w-full"
-                          role="img"
-                          viewBox="0 0 280 220"
-                        >
-                          <line x1="36" x2="244" y1="184" y2="184" stroke="#ded8d4" />
-                          <rect x="72" y="74" width="54" height="110" fill="#dce8df" />
-                          <rect x="154" y="32" width="54" height="152" fill="#4f7f64" />
-                          <text x="99" y="62" textAnchor="middle" fill="#4f7f64" fontSize="13">
-                            $20.68B
-                          </text>
-                          <text x="181" y="20" textAnchor="middle" fill="#4f7f64" fontSize="13">
-                            $30.25B
-                          </text>
-                          <text x="99" y="205" textAnchor="middle" fill="#8a8380" fontSize="11">
-                            2024
-                          </text>
-                          <text x="181" y="205" textAnchor="middle" fill="#8a8380" fontSize="11">
-                            2032
-                          </text>
-                        </svg>
-                      </div>
+                <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
+                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                        Insight 01
+                      </p>
+                      <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
+                        Market Growth
+                      </span>
                     </div>
-                    <p className="mb-0 mt-5 max-w-[48ch] text-[15px] font-light leading-[1.6] text-[#5d5856]">
-                      More people are bringing plants home, increasing demand for accessible care support.
+                    <div>
+                      <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                        Indoor Plant Market Growth
+                      </h4>
+                      <p className="mb-0 mt-4 font-serif text-[clamp(42px,6vw,58px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
+                        $20.68B <span className="text-[#b7c9bd]">→</span> $30.25B
+                      </p>
+                      <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
+                        Projected growth from 2024 to 2032
+                      </p>
+                    </div>
+                    <div className="flex items-end">
+                      <svg
+                        aria-label="Vertical bar chart showing indoor plant market growth from 20.68 billion to 30.25 billion dollars."
+                        className="h-[240px] w-full"
+                        role="img"
+                        viewBox="0 0 360 240"
+                      >
+                        <line x1="48" x2="312" y1="204" y2="204" stroke="#ded8d4" />
+                        <rect x="96" y="86" width="68" height="118" fill="#dce8df" />
+                        <rect x="196" y="40" width="68" height="164" fill="#4f7f64" />
+                        <text x="130" y="72" textAnchor="middle" fill="#4f7f64" fontSize="14">
+                          $20.68B
+                        </text>
+                        <text x="230" y="26" textAnchor="middle" fill="#4f7f64" fontSize="14">
+                          $30.25B
+                        </text>
+                        <text x="130" y="226" textAnchor="middle" fill="#8a8380" fontSize="12">
+                          2024
+                        </text>
+                        <text x="230" y="226" textAnchor="middle" fill="#8a8380" fontSize="12">
+                          2032
+                        </text>
+                      </svg>
+                    </div>
+                    <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      More people are bringing plants into their homes.
                     </p>
-                    <p className="mb-0 mt-4 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
-                      People are buying more plants, but maintaining them remains a challenge.
-                    </p>
+                    <div className="border-t border-[#e6dfdb] pt-4">
+                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                        Key Insight
+                      </p>
+                      <p className="mb-0 mt-2 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
+                        People are buying more plants, but maintaining them remains difficult.
+                      </p>
+                    </div>
                   </article>
 
-                  <article>
-                    <div className="grid gap-6 md:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] md:items-center lg:grid-cols-1 xl:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)]">
-                      <div>
-                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                          Insight 02
-                        </p>
-                        <h4 className="mb-0 mt-3 font-serif text-2xl font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
-                          Plant Care Challenges
-                        </h4>
-                        <p className="mb-0 mt-5 font-serif text-[clamp(54px,8vw,64px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
-                          70%
-                        </p>
-                        <p className="mb-0 mt-3 max-w-[28ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                          of Gen Z plant owners have accidentally killed a plant.
-                        </p>
-                      </div>
-                      <div className="flex justify-center">
-                        <svg
-                          aria-label="Donut chart showing 70 percent of Gen Z plant owners have accidentally killed a plant."
-                          className="h-[220px] w-[220px]"
-                          role="img"
-                          viewBox="0 0 220 220"
-                        >
-                          <circle
-                            cx="110"
-                            cy="110"
-                            fill="none"
-                            r="78"
-                            stroke="#e9e4e0"
-                            strokeWidth="24"
-                          />
-                          <circle
-                            cx="110"
-                            cy="110"
-                            fill="none"
-                            r="78"
-                            stroke="#4f7f64"
-                            strokeDasharray="343 147"
-                            strokeLinecap="round"
-                            strokeWidth="24"
-                            transform="rotate(-90 110 110)"
-                          />
-                          <text x="110" y="104" textAnchor="middle" fill="#171717" fontSize="34" fontWeight="600">
-                            70%
-                          </text>
-                          <text x="110" y="130" textAnchor="middle" fill="#8a8380" fontSize="11">
-                            PLANT LOSS
-                          </text>
-                        </svg>
-                      </div>
+                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                        Insight 02
+                      </p>
+                      <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
+                        70% Plant Loss
+                      </span>
                     </div>
-                    <p className="mb-0 mt-5 max-w-[48ch] text-[15px] font-light leading-[1.6] text-[#5d5856]">
-                      Beginners struggle when care routines are inconsistent and guidance is hard to interpret.
+                    <div>
+                      <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                        Plant Care Challenges
+                      </h4>
+                      <p className="mb-0 mt-4 font-serif text-[clamp(52px,8vw,60px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
+                        70%
+                      </p>
+                      <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
+                        Gen Z plant owners who have accidentally killed a plant
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <svg
+                        aria-label="Donut chart showing 70 percent of Gen Z plant owners have accidentally killed a plant."
+                        className="h-[240px] w-[240px]"
+                        role="img"
+                        viewBox="0 0 240 240"
+                      >
+                        <circle
+                          cx="120"
+                          cy="120"
+                          fill="none"
+                          r="82"
+                          stroke="#e9e4e0"
+                          strokeWidth="24"
+                        />
+                        <circle
+                          cx="120"
+                          cy="120"
+                          fill="none"
+                          r="82"
+                          stroke="#4f7f64"
+                          strokeDasharray="361 155"
+                          strokeLinecap="round"
+                          strokeWidth="24"
+                          transform="rotate(-90 120 120)"
+                        />
+                        <text x="120" y="114" textAnchor="middle" fill="#171717" fontSize="38" fontWeight="600">
+                          70%
+                        </text>
+                        <text x="120" y="142" textAnchor="middle" fill="#8a8380" fontSize="12">
+                          PLANT LOSS
+                        </text>
+                      </svg>
+                    </div>
+                    <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      Beginners struggle when routines and care guidance are unclear.
                     </p>
-                    <p className="mb-0 mt-4 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
-                      Plant care is stressful and overwhelming for first-time owners.
-                    </p>
+                    <div className="border-t border-[#e6dfdb] pt-4">
+                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                        Key Insight
+                      </p>
+                      <p className="mb-0 mt-2 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
+                        Plant care feels stressful when users do not know what to do next.
+                      </p>
+                    </div>
                   </article>
                 </div>
               </div>
 
-              <div className="mt-20">
+              <div className="mt-16">
                 <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
                   Initial Hypothesis
                 </p>
-                <h3 className="mb-0 mt-3 font-serif text-[clamp(28px,4vw,32px)] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
-                  Early competitive analysis pointed toward routine support.
+                <h3 className="mb-0 mt-3 font-serif text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                  Competitive analysis helped frame the first product direction.
                 </h3>
 
-                <div className="mt-8">
-                  <div className="flex flex-wrap items-center gap-3">
-                    {competitorApps.map((app) => (
-                      <div
-                        className="flex h-12 w-12 items-center justify-center rounded-[12px] border border-[#e6dfdb] bg-white text-[12px] font-light text-[#4f7f64] shadow-[0_8px_20px_rgba(17,17,17,0.035)]"
-                        key={app}
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 28 28"
-                        >
-                          <path
-                            d="M14 22V10M14 10C10.5 10 8 8.2 7.2 5.5C10.8 5.2 13.1 6.8 14 10ZM14 10C17.5 10 20 8.2 20.8 5.5C17.2 5.2 14.9 6.8 14 10Z"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="1.4"
-                          />
-                        </svg>
-                        <span className="sr-only">Competitor app {app}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,0.26fr)_minmax(0,0.28fr)_minmax(0,0.46fr)] lg:items-stretch">
-                    <div>
+                <div className="relative mt-8">
+                  <div className="absolute left-6 right-6 top-[88px] hidden h-px bg-[#d8d2ce] lg:block" aria-hidden="true" />
+                  <div className="grid gap-7 lg:grid-cols-[minmax(0,0.28fr)_minmax(0,0.27fr)_minmax(0,0.45fr)]">
+                    <div className="relative bg-[var(--background)] pr-4">
                       <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Competitive Analysis
+                        Competitor Apps
                       </p>
+                      <div className="mt-5 flex flex-wrap gap-3">
+                        {competitorApps.map((app) => (
+                          <div
+                            className="flex h-12 w-12 items-center justify-center rounded-[12px] border border-[#e6dfdb] bg-white text-[#4f7f64] shadow-[0_8px_20px_rgba(17,17,17,0.035)]"
+                            key={app}
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 28 28"
+                            >
+                              <path
+                                d="M14 22V10M14 10C10.5 10 8 8.2 7.2 5.5C10.8 5.2 13.1 6.8 14 10ZM14 10C17.5 10 20 8.2 20.8 5.5C17.2 5.2 14.9 6.8 14 10Z"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="1.4"
+                              />
+                            </svg>
+                            <span className="sr-only">Competitor app {app}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="relative border-l border-[#d8d2ce] pl-5 max-lg:border-l-0 max-lg:border-t max-lg:pl-0 max-lg:pt-5">
+
+                    <div className="relative bg-[var(--background)] pr-4">
                       <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                         Common Features
                       </p>
-                      <ul className="mb-0 mt-3 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-[14px] font-light leading-[1.6] text-[#5d5856]">
+                      <ul className="mb-0 mt-5 grid list-none gap-2 p-0 text-[15px] font-light leading-[1.55] text-[#5d5856]">
                         <li>Watering reminders</li>
                         <li>Care schedules</li>
                         <li>Growth tracking</li>
                       </ul>
                     </div>
-                    <blockquote className="m-0 border-l-2 border-[#4f7f64] bg-[#fbfdfa] px-6 py-5 max-lg:mt-2">
+
+                    <blockquote className="relative m-0 bg-[#fbfdfa] px-7 py-6 shadow-[0_18px_42px_rgba(17,17,17,0.04)]">
+                      <span className="absolute bottom-6 left-0 top-6 w-1 bg-[#4f7f64]" aria-hidden="true" />
                       <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                         Initial Assumption
                       </p>
-                      <p className="mb-0 mt-3 font-serif text-[clamp(22px,3vw,28px)] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+                      <p className="mb-0 mt-4 font-serif text-[clamp(24px,3vw,32px)] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
                         “The core problem is that users struggle to keep up with their plant care schedule.”
                       </p>
                     </blockquote>
-                  </div>
-
-                  <div className="mt-6 hidden items-center gap-3 text-[#b6afab] lg:flex" aria-hidden="true">
-                    <span className="h-px flex-1 bg-[#ded8d4]" />
-                    <span className="text-[12px] uppercase tracking-[0.12em]">flow</span>
-                    <span className="h-px flex-1 bg-[#ded8d4]" />
                   </div>
                 </div>
               </div>

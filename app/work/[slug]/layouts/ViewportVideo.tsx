@@ -3,10 +3,12 @@
 import { useEffect, useRef } from "react";
 
 export function ViewportVideo({
+  className = "",
   poster,
   src,
   videoType,
 }: {
+  className?: string;
   poster?: string;
   src: string;
   videoType?: string;
@@ -42,7 +44,7 @@ export function ViewportVideo({
   return (
     <video
       ref={videoRef}
-      className="block h-auto min-h-[220px] w-full bg-black"
+      className={`block h-auto min-h-[220px] w-full bg-black ${className}`}
       autoPlay
       loop
       muted
