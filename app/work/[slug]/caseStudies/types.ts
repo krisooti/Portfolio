@@ -39,6 +39,7 @@ export type CaseStudyContent = {
   solutionScreens: SolutionScreen[];
   reflectionCards: ReflectionCard[];
   overviewLogo?: CaseVisualImage;
+  overview?: string;
   overviewContribution: string;
   researchHeading: string;
   researchCopy: string;

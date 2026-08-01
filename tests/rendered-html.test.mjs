@@ -111,7 +111,10 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /Thematic Analysis/);
   assert.match(html, /Usability Testing/);
   assert.match(html, /Research Synthesis/);
-  assert.match(html, /Human Control/);
+  assert.match(html, /Research Insights/);
+  assert.match(html, /Finding #1/);
+  assert.match(html, /AI Trust/);
+  assert.match(html, /Trainees \+ Supervisors/);
   assert.match(html, /Design Decisions/);
   assert.match(html, /Removed percentage scores/);
   assert.match(html, /Filtering Supervisors/);

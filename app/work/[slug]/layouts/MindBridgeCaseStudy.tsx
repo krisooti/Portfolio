@@ -29,16 +29,22 @@ const researchMethods = [
 
 const insights = [
   {
-    title: "Human Control",
-    body: "Users wanted AI to support, not replace, their decision making.",
+    category: "Current Experience",
+    headline: "Finding #1",
+    body: "The supervision matching process feels informal, opaque, and heavily dependent on referrals or existing networks.",
+    userGroup: "Trainees",
   },
   {
-    title: "Transparency",
-    body: "Users needed to understand why recommendations were generated.",
+    category: "Decision Factors",
+    headline: "Finding #2",
+    body: "When evaluating supervisors, trainees prioritize learning goals, growth areas, clinical modality, and supervisor experience over convenience.",
+    userGroup: "Trainees",
   },
   {
-    title: "Exploration",
-    body: "Users preferred comparing multiple supervisors before committing.",
+    category: "AI Trust",
+    headline: "Finding #3",
+    body: "Both trainees and supervisors welcomed AI assistance, but emphasized that AI should support—not replace—human judgment and final decision making.",
+    userGroup: "Trainees + Supervisors",
   },
 ];
 
@@ -175,22 +181,51 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
               />
             </div>
 
-            <div className="mt-16 border-y border-[#e6dfdb] py-8">
-              <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
-                <HighlightText>Key Insights</HighlightText>
-              </h3>
-              <div className="mt-7 grid gap-8 md:grid-cols-3">
+            <div className="mt-16">
+              <div className="max-w-[920px]">
+                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                  Research Findings
+                </p>
+
+                <h3 className="mb-0 mt-3 font-serif text-[clamp(28px,4vw,40px)] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
+                  <HighlightText>Research Insights</HighlightText>
+                </h3>
+
+                <p className="mb-0 mt-4 text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                  Through interviews with therapists-in-training and licensed
+                  supervisors, three key themes consistently emerged.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {insights.map((insight, index) => (
-                  <article className="grid gap-3" key={insight.title}>
-                    <span className="font-serif text-lg font-medium text-[#8a8380]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h4 className="m-0 font-serif text-lg font-medium text-[#171717]">
-                      <HighlightText>{insight.title}</HighlightText>
+                  <article
+                    className="group flex min-h-[330px] flex-col rounded-[20px] border border-[#e6dfdb] bg-[#f7f5f3] p-7 transition-all duration-[250ms] ease-out hover:-translate-y-1 hover:border-[#cbc4c0] hover:bg-[#faf8f6] hover:shadow-[0_16px_38px_rgba(17,17,17,0.07)]"
+                    key={insight.category}
+                  >
+                    <div className="flex items-start justify-between gap-5">
+                      <span className="font-serif text-[30px] font-medium leading-none tracking-[-0.04em] text-[#c7c0bc] transition-colors duration-[250ms] group-hover:text-[#8a8380]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <span className="text-right text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                        {insight.category}
+                      </span>
+                    </div>
+
+                    <h4 className="mb-0 mt-12 font-serif text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-[#171717]">
+                      <HighlightText>{insight.headline}</HighlightText>
                     </h4>
-                    <p className="m-0 text-sm font-light leading-[1.65] text-[#5d5856]">
+
+                    <p className="mb-0 mt-5 text-[14px] font-light leading-[1.7] text-[#5d5856]">
                       {insight.body}
                     </p>
+
+                    <div className="mt-auto pt-8">
+                      <span className="inline-flex rounded-full border border-[#d8d3d0] bg-[#fffdfc] px-3 py-1 text-[11px] font-light uppercase tracking-[0.08em] text-[#6b6664]">
+                        {insight.userGroup}
+                      </span>
+                    </div>
                   </article>
                 ))}
               </div>

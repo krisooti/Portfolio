@@ -281,6 +281,8 @@ export function ProjectCaseIntro({
         <HighlightText>interactive prototyping</HighlightText> from concept to
         final prototype.
       </>
+    ) : content.overview ? (
+      <>{content.overview}</>
     ) : (
       <>
         {project.intro} {content.overviewContribution}

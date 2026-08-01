@@ -123,8 +123,9 @@ export const tmindAiCaseStudy: CaseStudyContent = {
       body: "The strongest design decisions came directly from user needs and stakeholder feedback.",
     },
   ],
-  overviewContribution:
-    "I contributed across research, product design, usability testing, interaction flows, and storytelling for the final case study.",
+  overview:
+    "Over six months, in collaboration with Tmind AI, our team designed an AI-powered supervisor matching system that streamlines the search process by providing personalized recommendations, increasing transparency, and helping therapists-in-training confidently find the right supervisor.",
+  overviewContribution: "",
   researchHeading: "Research clarified what users needed before trusting AI.",
   researchCopy:
     "To better understand what therapists-in-training need before trusting AI-generated recommendations, we conducted six 30-minute semi-structured interviews with three supervisors and trainees. We synthesized the findings using affinity mapping and thematic analysis, which directly informed our design decisions and usability testing.",
