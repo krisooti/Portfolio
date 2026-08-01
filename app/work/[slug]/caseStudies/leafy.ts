@@ -9,8 +9,8 @@ const visuals = {
 
 export const leafyCaseStudy: CaseStudyContent = {
   meta: {
-    duration: "Mobile UX Case Study",
-    role: "UX Research, UX/UI Design, Information Architecture, Prototyping",
+    duration: "6 Months",
+    role: "UX Researcher, UX Designer",
     team: "Individual Project",
     sponsor: "Smart Plant Care",
   },
@@ -85,8 +85,7 @@ export const leafyCaseStudy: CaseStudyContent = {
       body: "Widgets and proactive reminders reduced the effort required to keep monitoring plants over time.",
     },
   ],
-  overviewContribution:
-    "My role covered UX research, UX/UI design, information architecture, and prototyping, with a focus on plant management, IoT sensor data, AI recommendations, and mobile widgets.",
+  overviewContribution: "",
   researchHeading:
     "Research showed that care breaks down when users have to decide what to do next.",
   researchCopy:

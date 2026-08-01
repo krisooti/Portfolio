@@ -165,7 +165,7 @@ export const projects: Project[] = [
     },
 
     intro:
-      "Smart Plant Care is a mobile plant management experience designed to help plant owners understand what their plants need and act at the right time.",
+      "Leafy is a mobile plant management experience that helps plant owners understand their plants' health and take the right action at the right time. The experience transforms plant care into clear, actionable guidance through personalized recommendations, environmental insights, and timely reminders. I led the UX research, information architecture, UX/UI design, and interactive prototyping from concept to final prototype.",
     challenge:
       "Plant owners know they need to care for their plants. The challenge is knowing when.",
     approach:
@@ -174,9 +174,8 @@ export const projects: Project[] = [
       "The final experience shifts plant care from raw data display to timely decision support: here is what your plant needs today, and why.",
     details: ["Smart plant care", "AI diagnosis", "Mobile UX"],
     tags: ["Mobile UX", "AI", "IoT", "Product Design"],
-    duration: "Mobile UX Case Study",
-    role:
-      "UX Research, UX/UI Design, Information Architecture, Prototyping",
+    duration: "6 Months",
+    role: "UX Researcher, UX Designer",
     team: "Individual Project",
     sponsor: "Smart Plant Care",
     problem:

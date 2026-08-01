@@ -66,7 +66,7 @@ export default function Home() {
           <div className="min-w-0 text-left">
             <h1
               id="intro-title"
-              className="m-0 max-w-[560px] text-lg font-normal leading-[1.5] tracking-[-0.02em] text-[#6f6f6f]"
+              className="m-0 max-w-[840px] text-lg font-normal leading-[1.5] tracking-[-0.02em] text-[#6f6f6f]"
             >
               <HighlightText className="intro-emphasis" persistent>
                 Kristi
@@ -98,7 +98,7 @@ export default function Home() {
               </HighlightText>
               .
             </h1>
-            <p className="intro-status inline-flex max-w-[560px] items-center gap-2 text-xs font-light leading-[1.6] text-[#8a8583] max-[560px]:items-start">
+            <p className="intro-status inline-flex max-w-[840px] items-center gap-2 text-xs font-light leading-[1.6] text-[#8a8583] max-[560px]:items-start">
               <span
                 className="size-1.5 flex-none bg-[#63a66f] shadow-[0_0_0_3px_rgba(99,166,111,0.12)]"
                 aria-hidden="true"

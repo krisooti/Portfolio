@@ -330,7 +330,7 @@ export default function ProfileCarousel() {
           <p
             className="
               m-0
-              max-w-[620px]
+              max-w-[840px]
               text-[15px]
               font-light
               leading-[1.8]

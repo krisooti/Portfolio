@@ -2,7 +2,9 @@ import { HighlightText } from "../../../HighlightText";
 import { caseSections } from "../caseStudies";
 import {
   BackToWorkLink,
+  CaseInsightPanel,
   CaseSection,
+  CaseSolutionFeature,
   CaseStudyShell,
   CaseVideo,
   CaseVisual,
@@ -18,40 +20,24 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
 
   return (
     <CaseStudyShell sections={caseSections}>
-      <article className="mx-auto w-full max-w-[1180px] px-[clamp(20px,5vw,72px)] pt-[120px]">
-        <div className="min-w-0 pb-36 max-[560px]:pb-44">
+      <article className="mx-auto w-[min(100%,1440px)] px-[clamp(20px,5vw,72px)] pt-[120px] max-[560px]:px-[18px]">
+        <div className="mx-auto min-w-0 max-w-[1320px] pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
           <ProjectCaseIntro project={project} content={content} />
 
-          <div>
+          <div className="divide-y divide-[#ebe5e1]">
             <CaseSection
               id="problem"
               label="Problem"
               title={project.problem ?? project.challenge}
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {project.challenge}
               </p>
-              <p className="mt-5 max-w-[760px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
+              <p className="mt-5 max-w-[1120px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
                 {project.question}
               </p>
-              <div className="my-8 border-y border-[#e6dfdb] py-7">
-                <h3 className="mb-5 mt-0 font-serif text-xl font-medium leading-[1.25] text-[#171717]">
-                  <HighlightText>Pain points</HighlightText>
-                </h3>
-                <ol className="m-0 grid list-none gap-5 p-0 md:grid-cols-3">
-                  {content.painPoints.map((item, index) => (
-                    <li className="grid gap-2" key={item}>
-                      <span className="font-serif text-lg font-medium text-[var(--pink)]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <p className="m-0 text-[15px] font-light leading-[1.65] text-[#5d5856]">
-                        {item}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <CaseInsightPanel title="Pain points" items={content.painPoints} />
             </CaseSection>
 
             <CaseSection
@@ -59,7 +45,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {content.researchCopy}
               </p>
 
@@ -75,7 +61,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Design Process"
               title={content.designHeading}
             >
-              <div className="max-w-[760px]">
+              <div className="max-w-[920px]">
                 <p className="m-0 text-[15px] font-light leading-[1.7] text-[#5d5856]">
                   {content.designTakeaway}
                 </p>
@@ -104,7 +90,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         ) : null}
                       </div>
 
-                      <p className="mb-0 mt-3 max-w-[68ch] text-sm font-light leading-[1.65] text-[#5d5856]">
+                      <p className="mb-0 mt-3 max-w-[920px] text-sm font-light leading-[1.65] text-[#5d5856]">
                         {stage.body}
                       </p>
                     </div>
@@ -118,13 +104,13 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {content.solutionCopy}
               </p>
 
               {prototypeVideos.length > 0 ? (
                 <div className="mt-10 grid gap-8">
-                  <div className="max-w-[760px] border-t border-[#e6dfdb] pt-7">
+                  <div className="max-w-[920px] border-t border-[#e6dfdb] pt-7">
                     <p className="m-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                       Prototype demos
                     </p>
@@ -142,21 +128,12 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
 
               <div className="mt-10 grid gap-12">
                 {content.solutionScreens.map((screen, index) => (
-                  <article className="border-t border-[#e6dfdb] pt-8" key={screen.title}>
-                    <CaseVisual
-                      image={content.supportingVisuals[index]?.image}
-                      label={screen.title}
-                      note="Replace with a final solution screen."
-                    />
-                    <div className="max-w-[760px]">
-                      <h3 className="m-0 font-serif text-lg font-medium leading-[1.3] text-[#171717]">
-                        <HighlightText>{screen.title}</HighlightText>
-                      </h3>
-                      <p className="mb-0 mt-3 text-sm font-light leading-[1.65] text-[#5d5856]">
-                        {screen.rationale}
-                      </p>
-                    </div>
-                  </article>
+                  <CaseSolutionFeature
+                    key={screen.title}
+                    image={content.supportingVisuals[index]?.image}
+                    rationale={screen.rationale}
+                    title={screen.title}
+                  />
                 ))}
               </div>
             </CaseSection>
@@ -166,7 +143,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Results + Reflection"
               title="The final direction made the search feel more guided and less uncertain."
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {content.resultsCopy}
               </p>
               <CaseVisual
@@ -183,7 +160,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                     <h3 className="m-0 font-serif text-lg font-medium leading-[1.3] text-[#171717]">
                       <HighlightText>{reflection.title}</HighlightText>
                     </h3>
-                    <p className="mb-0 mt-3 max-w-[72ch] text-sm font-light leading-[1.7] text-[#5d5856]">
+                    <p className="mb-0 mt-3 max-w-[920px] text-sm font-light leading-[1.7] text-[#5d5856]">
                       {reflection.body}
                     </p>
                   </article>

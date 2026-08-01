@@ -92,7 +92,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
   return (
     <CaseStudyShell sections={mindBridgeSections}>
-      <article className="mx-auto w-full max-w-[1180px] px-[clamp(20px,5vw,72px)] pt-[120px]">
+      <article className="mx-auto w-full max-w-[1320px] px-[clamp(20px,5vw,72px)] pt-[120px]">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
           <ProjectCaseIntro project={project} content={content} />
@@ -108,7 +108,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                   <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                     Background
                   </p>
-                  <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                  <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                     {project.challenge}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                   <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                     How Might We
                   </p>
-                  <p className="m-0 max-w-[760px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
+                  <p className="m-0 max-w-[1120px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
                     {project.question}
                   </p>
                 </div>
@@ -141,7 +141,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Research"
             title="Research clarified what users needed before trusting AI."
           >
-            <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
               Research became the foundation for deciding how AI should explain, support, and stay secondary to human judgment.
             </p>
 
@@ -156,7 +156,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
               ))}
             </ul>
 
-            <div className="mt-14 max-w-[760px]">
+            <div className="mt-14 max-w-[920px]">
               <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                 User Interviews
               </p>
@@ -202,7 +202,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Design Decisions"
             title="Research insights became focused product decisions."
           >
-            <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
               Instead of documenting every screen iteration, I focused the case study around the decisions that changed the product experience.
             </p>
             <div className="mt-10 border-y border-[#e6dfdb]">
@@ -257,7 +257,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Final Solution"
             title="The demos show the core matching experience in motion."
           >
-            <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 max-w-[1120px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
               The final solution centers on helping users refine supervisor recommendations and take action with clarity.
             </p>
             <div className="mt-10 grid gap-16">
@@ -266,7 +266,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
                 return (
                   <article className="grid gap-7" key={feature.title}>
-                    <div className="max-w-[760px]">
+                    <div className="max-w-[920px]">
                       <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
                         <HighlightText>{feature.title}</HighlightText>
                       </h3>
@@ -312,7 +312,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Design System"
             title="A restrained visual system built for clarity and trust."
           >
-            <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
               The interface uses a clean and accessible visual language focused on clarity, consistency, and trust. A restrained color palette and consistent typography help users focus on important clinical information while supporting AI transparency.
             </p>
             <figure className="my-10 w-full">

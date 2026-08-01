@@ -1,5 +1,4 @@
 import { HighlightText } from "../../../HighlightText";
-import { caseSections } from "../caseStudies";
 import {
   BackToWorkLink,
   CaseSection,
@@ -9,6 +8,23 @@ import {
   ReturnToWorkSection,
   type ProjectCaseStudyProps,
 } from "./CaseStudyParts";
+import { LeafyPersonaCard, type LeafyPersona } from "./LeafyPersonaCard";
+
+const leafyCaseSections = [
+  { id: "overview", label: "Project Overview", number: "01" },
+  { id: "challenge", label: "Challenge", number: "02" },
+  { id: "research", label: "Research", number: "03" },
+  { id: "initial-assumption", label: "Initial Assumption", number: "04" },
+  { id: "user-definition", label: "User Definition", number: "05" },
+  { id: "design-process", label: "Design Process", number: "06" },
+  { id: "design-solution", label: "Meet PlantPal", number: "07" },
+  { id: "final-solution", label: "Final Solution", number: "08" },
+  {
+    id: "results-learnings",
+    label: "Results + Reflection",
+    number: "09",
+  },
+];
 
 const leafyDemoVideos = [
   {
@@ -81,57 +97,245 @@ const leafyDemoVideos = [
   },
 ];
 
-const leafyProcessTimeline = [
+const leafyDesignProcessCards = [
   {
     title: "Research",
-    body: "Reviewed plant-care habits, market growth, and beginner pain points.",
+    items: ["Interviews", "Market Analysis", "Competitive Analysis"],
   },
   {
-    title: "Insights",
-    body: "Identified that users needed clear next actions, not more raw data.",
+    title: "Define",
+    items: ["Personas", "User Journey", "Design Opportunity"],
   },
   {
-    title: "Ideation",
-    body: "Explored care reminders, sensor summaries, diagnosis, and widget touchpoints.",
+    title: "Ideate",
+    items: ["Information Architecture", "User Flow", "Wireframes"],
   },
   {
     title: "Prototype",
-    body: "Built a mobile flow that connects plant status to timely care decisions.",
+    items: ["Visual Design", "Design System", "Interactions"],
+  },
+  {
+    title: "Validate",
+    items: ["Usability Testing", "Iteration", "Final Prototype"],
   },
 ];
 
-export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
+const leafyPlantPalMedia = [
+  {
+    title: "AI generated peony",
+    src: "/images/leafy-character-gif.gif",
+    type: "image",
+  },
+  {
+    title: "AI generated Montestra",
+    src: "/videos/leafy-character-growing.mov",
+    type: "video",
+  },
+] as const;
+
+const leafyPlantPalWidgetImage = {
+  title: "PlantPal widget system",
+  src: "/images/leafy-widget-system.png",
+};
+
+const leafyUserProfiles: LeafyPersona[] = [
+  {
+    type: "Primary User",
+    title: "Curious Beginners",
+    detail: "20–35 · First-time Owners",
+    tabs: [
+      {
+        title: "Goals",
+        items: ["Learn plant care", "Build confidence", "Keep plants alive"],
+      },
+      {
+        title: "Behaviors",
+        items: ["Searches online", "Forgets watering", "Wants simple guidance"],
+      },
+      {
+        title: "Pain Points",
+        items: [
+          "Unsure what plants need",
+          "Misses warning signs",
+          "Information overload",
+        ],
+      },
+    ],
+  },
+  {
+    type: "Secondary User",
+    title: "Growing Plant Enthusiasts",
+    detail: "Multiple Plants · Basic Experience",
+    tabs: [
+      {
+        title: "Goals",
+        items: ["Manage multiple plants", "Improve plant health", "Save time"],
+      },
+      {
+        title: "Behaviors",
+        items: [
+          "Checks plants often",
+          "Tracks plant progress",
+          "Uses digital tools",
+        ],
+      },
+      {
+        title: "Pain Points",
+        items: [
+          "Complex schedules",
+          "Hard to diagnose issues",
+          "Manual tracking",
+        ],
+      },
+    ],
+  },
+];
+
+function PlantPalDesignSolution() {
   return (
-    <CaseStudyShell sections={caseSections}>
-      <article className="mx-auto w-full max-w-[1180px] px-[clamp(20px,5vw,72px)] pt-[120px]">
+    <CaseSection
+      id="design-solution"
+      label="*AI Integration"
+      title="Meet your personalized PlantPal, a friendly companion for everyday plant care."
+    >
+      <p className="m-0 max-w-[920px] text-[12px] font-light leading-[1.7] text-[#5d5856]">
+        PlantPal uses expressive characters and glanceable widgets to help users
+        understand plant conditions, celebrate healthy growth, and take the
+        right action without interpreting technical data.
+      </p>
+
+      <div className="mt-10 px-[clamp(22px,4vw,52px)] py-[clamp(28px,5vw,56px)]">
+        {/* PlantPal character introduction */}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:items-start">
+          <div>
+            <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#4f7f64]">
+              AI Plant Companion
+            </p>
+
+            <h3 className="mb-0 mt-3 font-serif text-[clamp(24px,3vw,34px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
+              Plant health, made more approachable.
+            </h3>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {leafyPlantPalMedia.map((item) => (
+              <figure
+                className="group m-0 rounded-[24px] border border-[#e6dfdb] bg-[#fffdfb] p-5 transition-all duration-[250ms] ease-out hover:border-[#d7e5d9] hover:bg-[#f5faf4] motion-safe:hover:-translate-y-[3px] motion-reduce:transition-none"
+                key={item.title}
+              >
+                <div className="overflow-hidden rounded-[18px] bg-white">
+                  {item.type === "video" ? (
+                    <video
+                      aria-label={item.title}
+                      autoPlay
+                      className="block h-auto w-full object-contain transition-transform duration-[250ms] ease-out motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none"
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      src={item.src}
+                    />
+                  ) : (
+                    <img
+                      alt={item.title}
+                      className="block h-auto w-full object-contain transition-transform duration-[250ms] ease-out motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none"
+                      src={item.src}
+                    />
+                  )}
+                </div>
+
+                <figcaption className="pt-4">
+                  <span className="block font-serif text-[18px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+                    {item.title}
+                  </span>
+
+                  <span className="mt-2 block text-[13px] font-light leading-[1.55] text-[#6a6461]">
+                    {item.caption}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        {/* Interactive widget introduction */}
+        <div>
+          <div className="max-w-[920px]">
+            <h3 className="mb-0 mt-3 font-serif text-[clamp(24px,3vw,34px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
+              Plant care at a glance.
+            </h3>
+
+            <p className="mb-0 mt-4 text-[14px] font-light leading-[1.7] text-[#5d5856]">
+              Each widget translates a plant condition into a clear status and
+              recommended next step.
+            </p>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <figure className="m-0 w-full">
+              <img
+                alt="Leafy PlantPal widget system showing care, temperature, light, thirst, and watering states"
+                className="mx-auto block h-auto w-full object-contain"
+                src={leafyPlantPalWidgetImage.src}
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </CaseSection>
+  );
+}
+
+export function LeafyCaseStudy({
+  project,
+  content,
+}: ProjectCaseStudyProps) {
+  return (
+    <CaseStudyShell sections={leafyCaseSections}>
+      <article className="mx-auto w-full max-w-[1320px] px-[clamp(20px,5vw,72px)] pt-[120px]">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
+
           <ProjectCaseIntro project={project} content={content} />
 
           <div>
             <CaseSection
-              id="problem"
-              label="Problem"
-              title={project.problem ?? project.challenge}
+              id="challenge"
+              label="Challenge"
+              title="Plant owners know they need to care for their plants. The challenge is knowing when."
             >
-              <div className="grid gap-5 md:grid-cols-2">
-                <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
-                  {project.challenge}
+              <div>
+                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                  Key Pain Points
                 </p>
-                <p className="m-0 max-w-[760px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
-                  {project.question}
+
+                <div className="mt-5 grid gap-4 md:grid-cols-3">
+                  {content.painPoints.map((point, index) => (
+                    <article
+                      className="min-h-[170px] rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-6"
+                      key={point}
+                    >
+                      <span className="font-serif text-[28px] font-medium leading-none tracking-[-0.04em] text-[#c9c3bf]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <p className="mb-0 mt-8 w-full text-[13px] font-light leading-[1.7] text-[#5d5856]">
+                        {point}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-12 w-full border-t border-[#e6dfdb] pt-10">
+                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                  Design Question
+                </p>
+
+                <p className="mb-0 mt-4 max-w-[1120px] font-serif text-[clamp(22px,2.5vw,30px)] font-medium leading-[1.28] tracking-[-0.025em] text-[#171717]">
+                  How might we help plant owners understand what their plant needs and take the right action at the right time?
                 </p>
               </div>
-              <ul className="mt-8 grid list-none gap-3 p-0 md:grid-cols-3">
-                {content.painPoints.map((point) => (
-                  <li
-                    className="rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-5 text-sm font-light leading-[1.6] text-[#5d5856]"
-                    key={point}
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
             </CaseSection>
 
             <CaseSection
@@ -139,32 +343,37 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {content.researchCopy}
               </p>
+
               <div className="mt-12">
                 <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
                   Research Insights
                 </p>
+
                 <h3 className="mb-0 mt-3 font-serif text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                   Market growth and user pain pointed to a care-confidence gap.
                 </h3>
 
                 <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
-                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
+                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
                         Market Growth
                       </span>
                     </div>
+
                     <div>
                       <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Indoor Plant Market Growth
                       </h4>
+
                       <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
                         Projected growth from 2024 to 2032
                       </p>
                     </div>
+
                     <div className="flex items-end">
                       <svg
                         aria-label="Vertical bar chart showing indoor plant market growth from 20.68 billion to 30.25 billion dollars."
@@ -172,44 +381,97 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         role="img"
                         viewBox="0 0 360 240"
                       >
-                        <line x1="48" x2="312" y1="204" y2="204" stroke="#ded8d4" />
-                        <rect x="96" y="86" width="68" height="118" fill="#dce8df" />
-                        <rect x="196" y="40" width="68" height="164" fill="#4f7f64" />
-                        <text x="130" y="72" textAnchor="middle" fill="#4f7f64" fontSize="14">
+                        <line
+                          x1="48"
+                          x2="312"
+                          y1="204"
+                          y2="204"
+                          stroke="#ded8d4"
+                        />
+
+                        <rect
+                          x="96"
+                          y="86"
+                          width="68"
+                          height="118"
+                          fill="#dce8df"
+                        />
+
+                        <rect
+                          x="196"
+                          y="40"
+                          width="68"
+                          height="164"
+                          fill="#4f7f64"
+                        />
+
+                        <text
+                          x="130"
+                          y="72"
+                          textAnchor="middle"
+                          fill="#4f7f64"
+                          fontSize="14"
+                        >
                           $20.68B
                         </text>
-                        <text x="230" y="26" textAnchor="middle" fill="#4f7f64" fontSize="14">
+
+                        <text
+                          x="230"
+                          y="26"
+                          textAnchor="middle"
+                          fill="#4f7f64"
+                          fontSize="14"
+                        >
                           $30.25B
                         </text>
-                        <text x="130" y="226" textAnchor="middle" fill="#8a8380" fontSize="12">
+
+                        <text
+                          x="130"
+                          y="226"
+                          textAnchor="middle"
+                          fill="#8a8380"
+                          fontSize="12"
+                        >
                           2024
                         </text>
-                        <text x="230" y="226" textAnchor="middle" fill="#8a8380" fontSize="12">
+
+                        <text
+                          x="230"
+                          y="226"
+                          textAnchor="middle"
+                          fill="#8a8380"
+                          fontSize="12"
+                        >
                           2032
                         </text>
                       </svg>
                     </div>
+
                     <div className="border-t border-[#e6dfdb] pt-4">
-                      <p className="mb-0 mt-4 font-serif text-[clamp(42px,6vw,58px)] font-semibold leading-none tracking-[-0.04em] text-[#4f7f64]">
-                        Indoor plant market is projected to grow from $20.68B in 2024to $30.25B by 2032
+                      <p className="m-0 font-serif text-[clamp(28px,4vw,42px)] font-semibold leading-[1.1] tracking-[-0.04em] text-[#4f7f64]">
+                        $20.68B to $30.25B
                       </p>
-                        <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                      <span className="text-[#b7c9bd]">→</span> More people are bringing plants into their homes.
-                    </p>
+
+                      <p className="mb-0 mt-4 max-w-[920px] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                        <span className="text-[#b7c9bd]">→</span> More people
+                        are bringing plants into their homes.
+                      </p>
                     </div>
                   </article>
 
-                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
+                  <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
                         70% Plant Loss
                       </span>
                     </div>
+
                     <div>
                       <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Plant Care Challenges
                       </h4>
                     </div>
+
                     <div className="flex items-center justify-center">
                       <svg
                         aria-label="Donut chart showing 70 percent of Gen Z plant owners have accidentally killed a plant."
@@ -225,6 +487,7 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                           stroke="#e9e4e0"
                           strokeWidth="24"
                         />
+
                         <circle
                           cx="120"
                           cy="120"
@@ -236,91 +499,127 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                           strokeWidth="24"
                           transform="rotate(-90 120 120)"
                         />
-                        <text x="120" y="114" textAnchor="middle" fill="#171717" fontSize="38" fontWeight="600">
+
+                        <text
+                          x="120"
+                          y="114"
+                          textAnchor="middle"
+                          fill="#171717"
+                          fontSize="38"
+                          fontWeight="600"
+                        >
                           70%
                         </text>
-                        <text x="120" y="142" textAnchor="middle" fill="#8a8380" fontSize="12">
+
+                        <text
+                          x="120"
+                          y="142"
+                          textAnchor="middle"
+                          fill="#8a8380"
+                          fontSize="12"
+                        >
                           PLANT LOSS
                         </text>
                       </svg>
                     </div>
+
                     <div className="border-t border-[#e6dfdb] pt-4">
-                      <p className="mb-0 mt-2 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
-                        70% Gen Z plant owners who have accidentally killed a plant
+                      <p className="m-0 font-serif text-lg font-medium leading-[1.35] text-[#2c2826]">
+                        70% of Gen Z plant owners have accidentally killed a
+                        plant.
                       </p>
-                      <p className="m-0 max-w-[44ch] text-[15px] font-light leading-[1.55] text-[#5d5856]">
-                      <span className="text-[#b7c9bd]">→</span> Plant care feels stressful when users do not know what to do next.
+
+                      <p className="mb-0 mt-4 max-w-[920px] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                        <span className="text-[#b7c9bd]">→</span> Plant care
+                        feels stressful when users do not know what to do next.
                       </p>
                     </div>
                   </article>
                 </div>
               </div>
+            </CaseSection>
 
-              <div className="mt-16">
-                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-                  Initial Hypothesis
-                </p>
-                <h3 className="mb-0 mt-3 font-serif text-[30px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
-                  Competitive analysis helped frame the first product direction.
-                </h3>
+            <CaseSection
+              id="initial-assumption"
+              label="Initial Assumption"
+              title="Competitive analysis helped frame the first product direction."
+            >
+              <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] lg:items-start">
+                <figure className="m-0">
+                  <img
+                    className="block h-auto w-full object-contain"
+                    src="/images/pa.png"
+                    alt="Competitive analysis app icons for plant care products"
+                  />
 
-                <div className="mt-8 grid gap-8">
-                  <figure className="m-0 mx-auto w-full max-w-[760px]">
-                    <div className="rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-8 shadow-[0_18px_42px_rgba(17,17,17,0.055)]">
-                      <img
-                        className="mx-auto block h-auto w-full max-w-[560px] object-contain"
-                        src="/images/pa.png"
-                        alt="Competitive analysis app icons for plant care products"
-                      />
-                    </div>
-                    <figcaption className="mt-3 text-center text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
-                      Competitive app landscape
-                    </figcaption>
-                  </figure>
+                  <figcaption className="mt-3 text-[11px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+                    Competitive app landscape
+                  </figcaption>
+                </figure>
 
-                  <div className="grid gap-8 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:items-start">
-                    <div>
-                      <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        Common Features
-                      </p>
-                      <div className="mt-5 flex flex-wrap gap-3">
-                        {[
-                          "Watering reminders",
-                          "Care schedules",
-                          "Growth tracking",
-                        ].map((item) => (
-                          <span
-                            className="rounded-full border border-[#e6dfdb] bg-[#fffdfb] px-4 py-2 text-sm font-light text-[#5d5856]"
-                            key={item}
-                          >
-                            {item}
+                <div className="grid gap-10">
+                  <div>
+                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                      Common Patterns
+                    </p>
+
+                    <ul className="mt-5 grid list-none gap-3 p-0">
+                      {[
+                        "Watering reminders",
+                        "Care schedules",
+                        "Growth tracking",
+                      ].map((item, index) => (
+                        <li
+                          className="grid grid-cols-[28px_1fr] items-start gap-3 text-[12px] font-light leading-[1.7] text-[#5d5856]"
+                          key={item}
+                        >
+                          <span className="font-serif text-[15px] text-[#8a8380]">
+                            {String(index + 1).padStart(2, "0")}
                           </span>
-                        ))}
-                      </div>
-                    </div>
 
-                    <div className="grid gap-7">
-                      <div>
-                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                          Key Observation
-                        </p>
-                        <p className="mb-0 mt-4 max-w-[70ch] text-[15px] font-light leading-[1.7] text-[#5d5856]">
-                          Existing apps focused on reminding users when to care for plants, but provided little guidance on what to do when a plant's condition changed.
-                        </p>
-                      </div>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                      <blockquote className="relative m-0 rounded-2xl border border-[#e6dfdb] bg-[#fbfdfa] px-7 py-6 shadow-[0_18px_42px_rgba(17,17,17,0.04)]">
-                        <span className="absolute bottom-6 left-0 top-6 w-1 bg-[#4f7f64]" aria-hidden="true" />
-                        <p className="m-0 text-[12px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                          Initial Assumption
-                        </p>
-                        <p className="mb-0 mt-4 font-serif text-[clamp(24px,3vw,32px)] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
-                          “The core problem is that users struggle to keep up with their plant care schedule.”
-                        </p>
-                      </blockquote>
-                    </div>
+                  <div>
+                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                      Key Observation
+                    </p>
+
+                    <p className="mb-0 mt-4 text-[12px] font-light leading-[1.8] text-[#5d5856]">
+                      Existing apps tell users when to care, but not what to do
+                      when a plant&apos;s condition changes.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                      Initial Hypothesis
+                    </p>
+
+                    <p className="mb-0 mt-4 font-serif text-[clamp(22px,3vw,30px)] font-medium leading-[1.3] tracking-[-0.02em] text-[#171717]">
+                      “The core problem is that users struggle to keep up with
+                      their plant care schedule.”
+                    </p>
                   </div>
                 </div>
+              </div>
+            </CaseSection>
+
+            <CaseSection
+              id="user-definition"
+              label="User Definition"
+              title="Defining the plant-care user."
+            >
+              <div className="mt-10 grid gap-6 md:grid-cols-2">
+                {leafyUserProfiles.map((profile) => (
+                  <LeafyPersonaCard
+                    key={profile.type}
+                    persona={profile}
+                  />
+                ))}
               </div>
             </CaseSection>
 
@@ -329,40 +628,57 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Design Process"
               title={content.designHeading}
             >
-              <p className="m-0 max-w-[620px] text-[15px] font-light leading-[1.65] text-[#5d5856]">
-                {content.designTakeaway}
-              </p>
-              <div className="mt-10 grid gap-6 md:grid-cols-4">
-                {leafyProcessTimeline.map((stage, index) => (
-                  <article className="relative min-w-0 pr-5" key={stage.title}>
-                    {index < leafyProcessTimeline.length - 1 ? (
-                      <span
-                        className="absolute right-1 top-[20px] hidden h-px w-10 bg-[#d8d2ce] md:block"
-                        aria-hidden="true"
-                      />
-                    ) : null}
-                    <p className="m-0 font-serif text-3xl font-medium leading-none text-[#4f7f64]">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mb-0 mt-4 font-serif text-xl font-medium leading-[1.2] text-[#171717]">
-                      <HighlightText>{stage.title}</HighlightText>
-                    </h3>
-                    <p className="mb-0 mt-3 text-sm font-light leading-[1.6] text-[#5d5856]">
-                      {stage.body}
-                    </p>
-                  </article>
-                ))}
-              </div>
+              <figure className="m-0 overflow-hidden rounded-[24px] bg-[#F8F6F3] px-[clamp(22px,4vw,48px)] py-[clamp(24px,4vw,44px)]">
+                <figcaption className="m-0 text-[11px] font-medium uppercase tracking-[0.16em] text-[#171717]">
+                  Design Process
+                </figcaption>
+
+                <div className="relative mt-9 grid gap-6 md:grid-cols-5 md:gap-5">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[10%] right-[10%] top-[18px] hidden h-px bg-[#7C3AED]/55 md:block"
+                  />
+
+                  {leafyDesignProcessCards.map((stage, index) => (
+                    <article
+                      className="relative z-10 rounded-[18px] bg-[#F2EFEF] px-5 py-6"
+                      key={stage.title}
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#7C3AED] font-serif text-[13px] font-medium text-white">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <h3 className="mb-0 mt-5 text-[18px] font-semibold leading-[1.25] text-[#111111]">
+                        {stage.title}
+                      </h3>
+
+                      <ul className="mt-4 grid list-none gap-2 p-0">
+                        {stage.items.map((item) => (
+                          <li
+                            className="text-[12px] font-light leading-[1.45] text-[#66605d]"
+                            key={item}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              </figure>
             </CaseSection>
+
+            <PlantPalDesignSolution />
 
             <CaseSection
               id="final-solution"
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
                 {content.solutionCopy}
               </p>
+
               <div className="mt-10 grid gap-14">
                 {leafyDemoVideos.map((demo) => (
                   <article
@@ -377,36 +693,44 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
                       src={demo.src}
                       videoBackground="#F6F6F6"
                     />
-                    <div className="max-w-[760px]">
+
+                    <div className="max-w-[920px]">
                       <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
                         <HighlightText>{demo.title}</HighlightText>
                       </h3>
+
                       <dl className="mt-5 grid gap-4 rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-6">
                         <div>
                           <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                             Challenge
                           </dt>
+
                           <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
                             {demo.challenge}
                           </dd>
                         </div>
+
                         <div>
                           <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                             Design Decision
                           </dt>
+
                           <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
                             {demo.decision}
                           </dd>
                         </div>
+
                         <div>
                           <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
                             Outcome
                           </dt>
+
                           <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
                             {demo.outcome}
                           </dd>
                         </div>
                       </dl>
+
                       <ul className="mt-5 grid list-none gap-2 p-0">
                         {demo.highlights.map((highlight) => (
                           <li
@@ -423,27 +747,36 @@ export function LeafyCaseStudy({ project, content }: ProjectCaseStudyProps) {
               </div>
             </CaseSection>
 
-            <CaseSection
-              id="results-learnings"
-              label="Results + Reflection"
-              title="The final direction made plant care feel calmer and easier to act on."
-            >
-              <p className="m-0 max-w-[760px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
-                {content.resultsCopy}
-              </p>
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
-                {content.reflectionCards.map((reflection) => (
-                  <article className="border-t border-[#e6dfdb] pt-5" key={reflection.title}>
-                    <h3 className="m-0 font-serif text-lg font-medium text-[#171717]">
-                      <HighlightText>{reflection.title}</HighlightText>
-                    </h3>
-                    <p className="mb-0 mt-3 text-sm font-light leading-[1.7] text-[#5d5856]">
-                      {reflection.body}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </CaseSection>
+            <div className="pt-10">
+              <CaseSection
+                id="results-learnings"
+                label="Results + Reflection"
+                title="The final direction made plant care feel calmer and easier to act on."
+              >
+                <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                  {content.resultsCopy}
+                </p>
+
+                <div className="mt-8 grid gap-5 md:grid-cols-3">
+                  {content.reflectionCards.map((reflection) => (
+                    <article
+                      className="border-t border-[#e6dfdb] pt-5"
+                      key={reflection.title}
+                    >
+                      <h3 className="m-0 font-serif text-lg font-medium text-[#171717]">
+                        <HighlightText>
+                          {reflection.title}
+                        </HighlightText>
+                      </h3>
+
+                      <p className="mb-0 mt-3 text-sm font-light leading-[1.7] text-[#5d5856]">
+                        {reflection.body}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </CaseSection>
+            </div>
           </div>
 
           <ReturnToWorkSection />

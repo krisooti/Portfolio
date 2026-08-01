@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { CategoryTag } from "../CategoryTag";
 import { HighlightText } from "../HighlightText";
 import { SiteNav } from "../SiteNav";
 import ProfileCarousel from "./ProfileCarousel";
@@ -32,11 +31,9 @@ const postcards = [
 ];
 
 function AboutSection({
-  tag,
   title,
   children,
 }: {
-  tag: string;
   title: string;
   children: ReactNode;
 }) {
@@ -56,13 +53,11 @@ function AboutSection({
         max-[560px]:pt-11
       "
     >
-      <CategoryTag>{tag}</CategoryTag>
-
       <h2
         className="
           mb-5
           mt-0
-          max-w-[720px]
+          max-w-[1040px]
           font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
           text-[26px]
           font-light
@@ -103,11 +98,8 @@ export default function AboutPage() {
         <ProfileCarousel />
 
         {/* About Me */}
-        <AboutSection
-          tag="ABOUT ME"
-          title="Designing with curiosity and empathy."
-        >
-          <div className="grid max-w-[70ch] gap-[18px]">
+        <AboutSection title="Designing with curiosity and empathy.">
+          <div className="grid max-w-[840px] gap-[18px]">
             <p
               className="
                 m-0
@@ -160,7 +152,7 @@ export default function AboutPage() {
             className="
               mb-3
               mt-0
-              max-w-[720px]
+          max-w-[1040px]
               font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
               text-[26px]
               font-light
@@ -177,7 +169,7 @@ export default function AboutPage() {
             className="
               mb-7
               mt-0
-              max-w-[48ch]
+              max-w-[840px]
               text-[14px]
               font-light
               leading-[1.6]
@@ -189,10 +181,7 @@ export default function AboutPage() {
 
           <div className="postcard-grid">
             {postcards.map((postcard) => (
-              <figure
-                className="postcard-card"
-                key={postcard.title}
-              >
+              <figure className="postcard-card" key={postcard.title}>
                 {postcard.image ? (
                   <img
                     className="postcard-image"
