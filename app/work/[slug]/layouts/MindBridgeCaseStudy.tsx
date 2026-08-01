@@ -108,37 +108,13 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Problem"
             title={project.problem ?? project.challenge}
           >
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.65fr)_minmax(280px,0.35fr)]">
-              <div className="grid gap-6">
-                <div>
-                  <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                    Background
-                  </p>
-                  <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
-                    {project.challenge}
-                  </p>
-                </div>
-                <div>
-                  <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                    How Might We
-                  </p>
-                  <p className="m-0 max-w-[1120px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
-                    {project.question}
-                  </p>
-                </div>
-              </div>
-              <ol className="m-0 grid list-none gap-5 border-y border-[#e6dfdb] py-6 p-0">
-                {content.painPoints.map((point, index) => (
-                  <li className="grid gap-2" key={point}>
-                    <span className="font-serif text-lg font-medium text-[#8a8380]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <p className="m-0 text-sm font-light leading-[1.6] text-[#5d5856]">
-                      {point}
-                    </p>
-                  </li>
-                ))}
-              </ol>
+            <div>
+              <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+                How Might We
+              </p>
+              <p className="m-0 max-w-[1120px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
+                {project.question}
+              </p>
             </div>
           </CaseSection>
 
