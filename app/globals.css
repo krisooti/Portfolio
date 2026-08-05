@@ -1350,17 +1350,17 @@ a {
   margin: 0 0 8px;
 }
 
-.mindbridge-case-content .case-section > div,
-.mindbridge-case-content .case-hero > div,
-.mindbridge-case-content .case-summary,
-.mindbridge-case-content .case-section h2,
-.mindbridge-case-content .case-section p {
+.centered-case-content .case-section > div,
+.centered-case-content .case-hero > div,
+.centered-case-content .case-summary,
+.centered-case-content .case-section h2,
+.centered-case-content .case-section p {
   width: 100%;
   max-width: none;
 }
 
-.mindbridge-case-content .case-section header,
-.mindbridge-case-content .case-section [data-gsap-body] {
+.centered-case-content .case-section header,
+.centered-case-content .case-section [data-gsap-body] {
   width: 100%;
   margin-inline: auto;
 }

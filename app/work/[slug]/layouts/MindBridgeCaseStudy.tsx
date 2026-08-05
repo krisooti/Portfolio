@@ -74,7 +74,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
   return (
     <CaseStudyShell sections={mindBridgeSections}>
-      <article className="mindbridge-case-content mx-auto w-full max-w-[1040px] px-6 pt-[120px] md:px-10">
+      <article className="centered-case-content mindbridge-case-content mx-auto w-full max-w-[900px] px-6 pt-[120px] md:px-8">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
           <ProjectCaseIntro project={project} content={content} />

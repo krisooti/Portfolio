@@ -292,7 +292,7 @@ export function LeafyCaseStudy({
 }: ProjectCaseStudyProps) {
   return (
     <CaseStudyShell sections={leafyCaseSections}>
-      <article className="mx-auto w-full max-w-[960px] px-6 pt-[120px] md:px-8">
+      <article className="centered-case-content mx-auto w-full max-w-[900px] px-6 pt-[120px] md:px-8">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
 

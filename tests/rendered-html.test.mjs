@@ -128,6 +128,7 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /Sponsor<\/dt><dd[^>]*>Tmind AI<\/dd>/);
   assert.match(html, /case-sidebar/);
   assert.match(html, /mindbridge-case-content/);
+  assert.match(html, /centered-case-content/);
   assert.match(html, /tmind\.png/);
   assert.match(html, /mindbridge-research-board\.png/);
   assert.match(html, /User Interviews/);
