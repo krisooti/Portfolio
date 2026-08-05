@@ -112,17 +112,15 @@ test("server-renders the playground page", async () => {
   assert.match(html, /\[<!-- -->04<!-- -->\]/);
   assert.match(html, /\[<!-- -->05<!-- -->\]/);
   assert.match(html, /\[<!-- -->06<!-- -->\]/);
-  assert.match(html, /\[<!-- -->07<!-- -->\]/);
   assert.match(html, /Fourth of July fireworks under the Brooklyn Bridge/);
   assert.match(html, /First time in NY, DUMBO!/);
   assert.match(html, /’26 UW alum/);
   assert.match(html, /Another NY moment… my favorite bagel at Apollo Bagels/);
   assert.match(html, /A spring day with Hodoo/);
   assert.match(html, /Fresh flowers/);
-  assert.match(html, /Cherry blossom season/);
   assert.match(html, /playground-dog\.jpg/);
   assert.match(html, /playground-flowers\.jpg/);
-  assert.match(html, /playground-cherry-blossoms\.jpg/);
+  assert.doesNotMatch(html, /playground-cherry-blossoms\.jpg|Cherry blossom season/);
 });
 
 test("server-renders the MindBridge case study", async () => {

@@ -1017,7 +1017,7 @@ a {
 
 .playground-board {
   position: relative;
-  min-height: clamp(960px, 96vw, 1120px);
+  min-height: clamp(780px, 78vw, 940px);
   overflow: hidden;
 }
 
@@ -2042,7 +2042,7 @@ a {
   }
 
   .playground-board {
-    min-height: 1080px;
+    min-height: 880px;
   }
 
   .playground-photo {

@@ -67,15 +67,6 @@ const photos: PlaygroundPhoto[] = [
     hoverRotate: 2,
     width: 166,
   },
-  {
-    image: "/images/playground-cherry-blossoms.jpg",
-    alt: "Cherry blossom trees blooming on a rainy campus day",
-    caption: "Cherry blossom season",
-    x: "57%",
-    y: "82%",
-    hoverRotate: -2,
-    width: 206,
-  },
 ];
 
 export default function PlaygroundBoard() {
