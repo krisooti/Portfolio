@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HighlightText } from "./HighlightText";
 import { type Project, projects } from "./projects";
-import { SeattleStatus } from "./SeattleStatus";
 import { SiteNav } from "./SiteNav";
 
 export const metadata: Metadata = {
@@ -20,14 +19,19 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="project-card group relative grid h-full grid-cols-1 content-start gap-[18px] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[560px]:w-[min(100%,520px)]"
+      className="project-card group relative grid h-full w-full grid-cols-1 content-start gap-[18px] bg-transparent transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none"
       aria-label={`Open ${project.title} case study`}
       data-gsap-card
     >
       <div
-        className={`project-image relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
+        className={`project-image relative aspect-[4/3] w-full overflow-hidden bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
       >
-        {project.cardImage ? (
+        {project.slug === "tmind-ai" ? (
+          <div className="tmind-thumbnail">
+            <div className="tmind-gradient" aria-hidden="true" />
+            <h3 className="tmind-title">Tmind AI</h3>
+          </div>
+        ) : project.cardImage ? (
           <img
             className="block h-full w-full object-contain object-center transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
             src={project.cardImage.src}
@@ -59,60 +63,47 @@ export default function Home() {
       <SiteNav home />
 
       <section
-        className="mx-auto grid min-h-screen w-[min(100%,1440px)] grid-cols-1 items-start gap-[clamp(54px,7vw,92px)] px-[clamp(24px,5vw,72px)] pb-[104px] pt-[124px] max-[980px]:gap-[clamp(40px,6vw,64px)] max-[980px]:pt-[116px] max-[560px]:gap-[48px] max-[560px]:px-[18px] max-[560px]:pb-[76px] max-[560px]:pt-[126px]"
+        className="mx-auto w-full max-w-[1400px] px-8 pb-[88px] pt-[140px] max-[560px]:px-[22px] max-[560px]:pb-[72px] max-[560px]:pt-[124px]"
+        aria-labelledby="hero-title"
+        data-home-hero
+      >
+        <div className="grid grid-cols-12 items-start gap-[clamp(80px,7vw,120px)] max-[980px]:gap-16 max-[820px]:grid-cols-2 max-[560px]:grid-cols-1 max-[560px]:gap-8">
+          <h1
+            id="hero-title"
+            className="col-span-5 mb-0 mt-0 font-serif text-[32px] font-medium leading-[1.05] tracking-[-0.03em] text-[#171717] max-[820px]:col-span-1 max-[560px]:col-span-1"
+            data-home-hero-title
+          >
+            <span className="block">Researcher,</span>
+            <span className="block">Product Designer,</span>
+            <span className="block">&amp; Frontend Developer.</span>
+          </h1>
+
+          <p
+            className="col-start-7 col-end-10 m-0 max-w-[300px] text-left text-[14px] font-light leading-[1.5] text-[#5d5856] max-[820px]:col-span-1 max-[820px]:col-start-auto max-[560px]:col-span-1"
+            data-home-about-copy
+          >
+            I design thoughtful AI experiences by combining research, design,
+            and code to create intuitive products that put people first.
+          </p>
+          <p
+            className="col-start-10 col-end-13 m-0 text-left font-mono text-[11px] font-light uppercase leading-[1.55] tracking-[0.08em] text-[#6f6a67] max-[820px]:col-start-2 max-[820px]:col-end-3 max-[820px]:mt-12 max-[560px]:col-span-1 max-[560px]:col-start-auto max-[560px]:mt-4"
+            data-home-about-meta
+          >
+            ⋆˚✿˖° Recent graduate in Human Centered Design and Engineering
+            <br />
+            at the University of Washington
+          </p>
+        </div>
+      </section>
+
+      <section
+        className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-start gap-[clamp(54px,7vw,92px)] px-8 pb-[104px] pt-0 max-[980px]:gap-[clamp(40px,6vw,64px)] max-[560px]:gap-[48px] max-[560px]:px-[22px] max-[560px]:pb-[76px]"
         id="work"
-        aria-labelledby="intro-title"
+        aria-label="Featured projects"
         data-gsap-section
       >
-        <aside className="h-fit pt-0.5 max-[560px]:pt-0" data-gsap-header>
-          <div className="min-w-0 text-left">
-            <h1
-              id="intro-title"
-              className="m-0 max-w-[840px] text-lg font-normal leading-[1.5] tracking-[-0.02em] text-[#6f6f6f]"
-            >
-              <HighlightText className="intro-emphasis" persistent>
-                Kristi
-              </HighlightText>{" "}
-              is a{" "}
-              <HighlightText className="intro-emphasis" persistent>
-                Product Designer
-              </HighlightText>{" "}
-              passionate about designing{" "}
-              <HighlightText className="intro-emphasis">
-                human-centered AI experiences.
-              </HighlightText>
-              {" "}
-              <HighlightText className="intro-emphasis">
-                She combines user research
-              </HighlightText>
-              ,{" "}
-              <HighlightText className="intro-emphasis">
-                interaction design
-              </HighlightText>
-              , and <HighlightText className="intro-emphasis">AI</HighlightText>{" "}
-              to create{" "}
-              <HighlightText className="intro-emphasis">
-                intuitive products
-              </HighlightText>{" "}
-              that help people make{" "}
-              <HighlightText className="intro-emphasis">
-                confident decisions
-              </HighlightText>
-              .
-            </h1>
-            <p className="intro-status inline-flex max-w-[840px] items-center gap-2 text-xs font-light leading-[1.6] text-[#8a8583] max-[560px]:items-start">
-              <span
-                className="size-1.5 flex-none bg-[#63a66f] shadow-[0_0_0_3px_rgba(99,166,111,0.12)]"
-                aria-hidden="true"
-              />
-              Recent graduate from the University of Washington · B.S. in Human
-              Centered Design &amp; Engineering
-            </p>
-          </div>
-        </aside>
         <div
-          className="grid min-w-0 grid-cols-2 items-stretch gap-8 max-[760px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-7"
-          aria-label="Featured projects"
+          className="grid min-w-0 grid-cols-2 items-stretch gap-[clamp(22px,2.4vw,36px)] max-[760px]:grid-cols-1 max-[560px]:gap-7"
           data-gsap-body
         >
           {featuredProjects.map((project) => (
@@ -121,10 +112,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="flex items-center justify-center gap-[18px] border-t border-[var(--line)] px-[clamp(20px,5vw,64px)] py-7 text-xs font-light text-[#6b6664] max-[560px]:flex-col max-[560px]:gap-2 max-[560px]:text-center">
-        <p className="m-0">I&apos;m currently in Seattle.</p>
-        <SeattleStatus />
-      </footer>
     </main>
   );
 }

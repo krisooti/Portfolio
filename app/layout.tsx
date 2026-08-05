@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AsciiFooter } from "./AsciiFooter";
 import { PortfolioMotion } from "./PortfolioMotion";
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         <PortfolioMotion />
         {children}
+        <AsciiFooter />
       </body>
     </html>
   );
