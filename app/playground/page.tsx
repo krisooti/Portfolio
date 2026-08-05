@@ -67,7 +67,7 @@ export default function PlaygroundPage() {
                 max-[560px]:text-[23px]
               "
             >
-              <HighlightText>Memorable Moments (2026)</HighlightText>
+              <HighlightText>Archive (2026)</HighlightText>
             </h1>
 
           </div>
