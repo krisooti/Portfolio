@@ -22,6 +22,7 @@ function ProjectCard({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="project-card group relative grid h-full grid-cols-1 content-start gap-[18px] rounded-[18px] bg-[var(--surface-neutral)] p-[clamp(18px,2vw,28px)] shadow-[0_4px_18px_rgba(190,190,190,0.035)] transition-[background-color,box-shadow,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-[var(--surface-neutral-hover)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:-translate-y-1 focus-visible:bg-[var(--surface-neutral-hover)] focus-visible:shadow-[0_10px_28px_rgba(0,0,0,0.06)] focus-visible:outline-none max-[560px]:w-[min(100%,520px)]"
       aria-label={`Open ${project.title} case study`}
+      data-gsap-card
     >
       <div
         className={`project-image relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
@@ -61,8 +62,9 @@ export default function Home() {
         className="mx-auto grid min-h-screen w-[min(100%,1440px)] grid-cols-1 items-start gap-[clamp(54px,7vw,92px)] px-[clamp(24px,5vw,72px)] pb-[104px] pt-[124px] max-[980px]:gap-[clamp(40px,6vw,64px)] max-[980px]:pt-[116px] max-[560px]:gap-[48px] max-[560px]:px-[18px] max-[560px]:pb-[76px] max-[560px]:pt-[126px]"
         id="work"
         aria-labelledby="intro-title"
+        data-gsap-section
       >
-        <aside className="h-fit pt-0.5 max-[560px]:pt-0">
+        <aside className="h-fit pt-0.5 max-[560px]:pt-0" data-gsap-header>
           <div className="min-w-0 text-left">
             <h1
               id="intro-title"
@@ -77,11 +79,11 @@ export default function Home() {
               </HighlightText>{" "}
               passionate about designing{" "}
               <HighlightText className="intro-emphasis">
-                human-centered AI experiences 
+                human-centered AI experiences.
               </HighlightText>
-              . She combines{" "}
+              {" "}
               <HighlightText className="intro-emphasis">
-                user research
+                She combines user research
               </HighlightText>
               ,{" "}
               <HighlightText className="intro-emphasis">
@@ -111,6 +113,7 @@ export default function Home() {
         <div
           className="grid min-w-0 grid-cols-2 items-stretch gap-8 max-[760px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-7"
           aria-label="Featured projects"
+          data-gsap-body
         >
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />

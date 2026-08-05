@@ -56,7 +56,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           {persona.type}
         </p>
 
-        <h3 className="mb-0 mt-3 font-serif text-2xl font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+        <h3 className="mb-0 mt-3 font-serif text-[26px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
           <HighlightText>{persona.title}</HighlightText>
         </h3>
 
@@ -101,7 +101,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           <ul className="mt-3 grid list-none gap-2 p-0">
             {activeContent.items.map((item) => (
               <li
-                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[13px] font-light leading-[1.55] text-[#5d5856]"
+                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[16px] font-light leading-[1.55] text-[#5d5856]"
                 key={item}
               >
                 <span className="mt-[0.58em] h-1 w-1 rounded-full bg-[#4f7f64]" />

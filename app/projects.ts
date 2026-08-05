@@ -19,7 +19,7 @@ export type Project = {
   role?: string;
   team?: string;
   sponsor?: string;
-  problem?: string;
+  context?: string;
   question?: string;
   researchMethods?: string[];
   keyInsights?: string[];
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     details: ["10 weeks", "3 designers", "Sponsor: Tmind AI"],
     tags: ["UX Research", "Product Design", "AI", "Usability Testing"],
     problem:
-      "Therapists-in-training often rely on referrals and fragmented directories to find supervisors, making the process time-consuming and difficult to evaluate.",
+      "Tmind AI is an AI-powered psychotherapy training platform that supports therapists-in-training through simulated role-play, personalized feedback, and professional development tools.",
     question:
       "How might we help users confidently find the right supervisor while building trust in AI recommendations?",
     researchMethods: [

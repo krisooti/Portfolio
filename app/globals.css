@@ -48,10 +48,6 @@ a {
   text-decoration: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 ::selection {
   background: var(--pink);
   color: #111111;

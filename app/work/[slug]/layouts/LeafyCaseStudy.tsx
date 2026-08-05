@@ -12,7 +12,7 @@ import { LeafyPersonaCard, type LeafyPersona } from "./LeafyPersonaCard";
 
 const leafyCaseSections = [
   { id: "overview", label: "Project Overview", number: "01" },
-  { id: "challenge", label: "Challenge", number: "02" },
+  { id: "context", label: "Context", number: "02" },
   { id: "research", label: "Research", number: "03" },
   { id: "initial-assumption", label: "Initial Assumption", number: "04" },
   { id: "user-definition", label: "User Definition", number: "05" },
@@ -198,7 +198,7 @@ function PlantPalDesignSolution() {
       label="*AI Integration"
       title="Meet your personalized PlantPal, a friendly companion for everyday plant care."
     >
-      <p className="m-0 max-w-[920px] text-[12px] font-light leading-[1.7] text-[#5d5856]">
+      <p className="m-0 w-full text-[12px] font-light leading-[1.7] text-[#5d5856]">
         PlantPal uses expressive characters and glanceable widgets to help users
         understand plant conditions, celebrate healthy growth, and take the
         right action without interpreting technical data.
@@ -212,7 +212,7 @@ function PlantPalDesignSolution() {
               AI Plant Companion
             </p>
 
-            <h3 className="mb-0 mt-3 font-serif text-[clamp(24px,3vw,34px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
+            <h3 className="mb-0 mt-3 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
               Plant health, made more approachable.
             </h3>
           </div>
@@ -249,7 +249,7 @@ function PlantPalDesignSolution() {
                     {item.title}
                   </span>
 
-                  <span className="mt-2 block text-[13px] font-light leading-[1.55] text-[#6a6461]">
+                  <span className="mt-2 block text-[16px] font-light leading-[1.55] text-[#6a6461]">
                     {item.caption}
                   </span>
                 </figcaption>
@@ -260,12 +260,12 @@ function PlantPalDesignSolution() {
 
         {/* Interactive widget introduction */}
         <div>
-          <div className="max-w-[920px]">
-            <h3 className="mb-0 mt-3 font-serif text-[clamp(24px,3vw,34px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
+          <div className="w-full">
+            <h3 className="mb-0 mt-3 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
               Plant care at a glance.
             </h3>
 
-            <p className="mb-0 mt-4 text-[14px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="mb-0 mt-4 text-[16px] font-light leading-[1.7] text-[#5d5856]">
               Each widget translates a plant condition into a clear status and
               recommended next step.
             </p>
@@ -292,7 +292,7 @@ export function LeafyCaseStudy({
 }: ProjectCaseStudyProps) {
   return (
     <CaseStudyShell sections={leafyCaseSections}>
-      <article className="mx-auto w-full max-w-[1320px] px-[clamp(20px,5vw,72px)] pt-[120px]">
+      <article className="mx-auto w-full max-w-[960px] px-6 pt-[120px] md:px-8">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
 
@@ -300,9 +300,11 @@ export function LeafyCaseStudy({
 
           <div>
             <CaseSection
-              id="challenge"
-              label="Challenge"
+              id="context"
+              label="Context"
               title="Plant owners know they need to care for their plants. The challenge is knowing when."
+              titleAs="body"
+              titleClassName="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]"
             >
               <div>
                 <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
@@ -319,7 +321,7 @@ export function LeafyCaseStudy({
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
-                      <p className="mb-0 mt-8 w-full text-[13px] font-light leading-[1.7] text-[#5d5856]">
+                      <p className="mb-0 mt-8 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
                         {point}
                       </p>
                     </article>
@@ -332,7 +334,7 @@ export function LeafyCaseStudy({
                   Design Question
                 </p>
 
-                <p className="mb-0 mt-4 max-w-[1120px] font-serif text-[clamp(22px,2.5vw,30px)] font-medium leading-[1.28] tracking-[-0.025em] text-[#171717]">
+                <p className="mb-0 mt-4 w-full font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.28] tracking-[-0.025em] text-[#171717]">
                   How might we help plant owners understand what their plant needs and take the right action at the right time?
                 </p>
               </div>
@@ -343,7 +345,7 @@ export function LeafyCaseStudy({
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
                 {content.researchCopy}
               </p>
 
@@ -365,7 +367,7 @@ export function LeafyCaseStudy({
                     </div>
 
                     <div>
-                      <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                      <h4 className="m-0 font-serif text-[26px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Indoor Plant Market Growth
                       </h4>
 
@@ -452,7 +454,7 @@ export function LeafyCaseStudy({
                         $20.68B to $30.25B
                       </p>
 
-                      <p className="mb-0 mt-4 max-w-[920px] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      <p className="mb-0 mt-4 w-full text-[16px] font-light leading-[1.55] text-[#5d5856]">
                         <span className="text-[#b7c9bd]">→</span> More people
                         are bringing plants into their homes.
                       </p>
@@ -467,7 +469,7 @@ export function LeafyCaseStudy({
                     </div>
 
                     <div>
-                      <h4 className="m-0 font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                      <h4 className="m-0 font-serif text-[26px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
                         Plant Care Challenges
                       </h4>
                     </div>
@@ -529,7 +531,7 @@ export function LeafyCaseStudy({
                         plant.
                       </p>
 
-                      <p className="mb-0 mt-4 max-w-[920px] text-[15px] font-light leading-[1.55] text-[#5d5856]">
+                      <p className="mb-0 mt-4 w-full text-[16px] font-light leading-[1.55] text-[#5d5856]">
                         <span className="text-[#b7c9bd]">→</span> Plant care
                         feels stressful when users do not know what to do next.
                       </p>
@@ -573,7 +575,7 @@ export function LeafyCaseStudy({
                           className="grid grid-cols-[28px_1fr] items-start gap-3 text-[12px] font-light leading-[1.7] text-[#5d5856]"
                           key={item}
                         >
-                          <span className="font-serif text-[15px] text-[#8a8380]">
+                          <span className="font-serif text-[16px] text-[#8a8380]">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
@@ -599,7 +601,7 @@ export function LeafyCaseStudy({
                       Initial Hypothesis
                     </p>
 
-                    <p className="mb-0 mt-4 font-serif text-[clamp(22px,3vw,30px)] font-medium leading-[1.3] tracking-[-0.02em] text-[#171717]">
+                    <p className="mb-0 mt-4 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.3] tracking-[-0.02em] text-[#171717]">
                       “The core problem is that users struggle to keep up with
                       their plant care schedule.”
                     </p>
@@ -675,7 +677,7 @@ export function LeafyCaseStudy({
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
                 {content.solutionCopy}
               </p>
 
@@ -694,8 +696,8 @@ export function LeafyCaseStudy({
                       videoBackground="#F6F6F6"
                     />
 
-                    <div className="max-w-[920px]">
-                      <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
+                    <div className="w-full">
+                      <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                         <HighlightText>{demo.title}</HighlightText>
                       </h3>
 
@@ -705,7 +707,7 @@ export function LeafyCaseStudy({
                             Challenge
                           </dt>
 
-                          <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                             {demo.challenge}
                           </dd>
                         </div>
@@ -715,7 +717,7 @@ export function LeafyCaseStudy({
                             Design Decision
                           </dt>
 
-                          <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                             {demo.decision}
                           </dd>
                         </div>
@@ -725,7 +727,7 @@ export function LeafyCaseStudy({
                             Outcome
                           </dt>
 
-                          <dd className="m-0 mt-1 text-sm font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                             {demo.outcome}
                           </dd>
                         </div>
@@ -734,7 +736,7 @@ export function LeafyCaseStudy({
                       <ul className="mt-5 grid list-none gap-2 p-0">
                         {demo.highlights.map((highlight) => (
                           <li
-                            className="border-t border-[#e6dfdb] pt-2 text-sm font-light leading-[1.6] text-[#5d5856]"
+                            className="border-t border-[#e6dfdb] pt-2 text-[16px] font-light leading-[1.6] text-[#5d5856]"
                             key={highlight}
                           >
                             {highlight}
@@ -753,7 +755,7 @@ export function LeafyCaseStudy({
                 label="Results + Reflection"
                 title="The final direction made plant care feel calmer and easier to act on."
               >
-                <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
                   {content.resultsCopy}
                 </p>
 
@@ -763,13 +765,13 @@ export function LeafyCaseStudy({
                       className="border-t border-[#e6dfdb] pt-5"
                       key={reflection.title}
                     >
-                      <h3 className="m-0 font-serif text-lg font-medium text-[#171717]">
+                      <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                         <HighlightText>
                           {reflection.title}
                         </HighlightText>
                       </h3>
 
-                      <p className="mb-0 mt-3 text-sm font-light leading-[1.7] text-[#5d5856]">
+                      <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#5d5856]">
                         {reflection.body}
                       </p>
                     </article>

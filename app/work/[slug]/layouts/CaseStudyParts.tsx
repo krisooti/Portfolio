@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+
 import { HighlightText } from "../../../HighlightText";
 import { SiteNav } from "../../../SiteNav";
 import { CaseStudyNav } from "../CaseStudyNav";
@@ -15,39 +16,70 @@ export type ProjectCaseStudyProps = {
   content: CaseStudyContent;
 };
 
+const CENTERED_CONTENT_CLASS =
+  "mx-auto w-full max-w-[960px] text-left";
+
+const EDITORIAL_TEXT_CLASS =
+  CENTERED_CONTENT_CLASS;
+
 export function CaseSection({
   category,
   id,
   label,
   title,
+  titleAs = "heading",
+  titleClassName,
   children,
 }: {
   id: string;
   category?: string;
   label?: string;
   title: string;
+  titleAs?: "heading" | "body";
+  titleClassName?: string;
   children: ReactNode;
 }) {
   const sectionLabel = category ?? label;
 
   return (
     <section
-      className="case-section scroll-mt-[120px] border-t border-[#e6dfdb] py-14 md:py-20"
       id={id}
+      className="case-section scroll-mt-[120px] py-[60px]"
+      data-gsap-section
     >
-      <header className="mb-10 max-w-[1120px]">
-        {sectionLabel ? (
-          <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-            {sectionLabel}
-          </p>
-        ) : null}
+      <div className={CENTERED_CONTENT_CLASS}>
+        <header className="mb-8 w-full" data-gsap-header>
+          {sectionLabel ? (
+            <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+              {sectionLabel}
+            </p>
+          ) : null}
 
-        <h2 className="m-0 font-serif text-[clamp(28px,4vw,44px)] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
-          {title}
-        </h2>
-      </header>
+          {titleAs === "body" ? (
+            <p
+              className={
+                titleClassName ??
+                "m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]"
+              }
+            >
+              {title}
+            </p>
+          ) : (
+            <h2
+              className={
+                titleClassName ??
+                "m-0 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.02em] text-[#171717]"
+              }
+            >
+              {title}
+            </h2>
+          )}
+        </header>
 
-      <div className="w-full">{children}</div>
+        <div className="w-full text-left" data-gsap-body>
+          {children}
+        </div>
+      </div>
     </section>
   );
 }
@@ -62,7 +94,7 @@ export function CaseVisual({
   image?: CaseVisualImage;
 }) {
   return (
-    <figure className="my-12 w-full">
+    <figure className="my-12 w-full" data-gsap-image>
       {image ? (
         <img
           className="block h-auto w-full object-contain"
@@ -71,13 +103,13 @@ export function CaseVisual({
         />
       ) : (
         <div className="flex min-h-[360px] items-center justify-center border border-dashed border-[#d8d2ce] bg-[#faf8f6] px-8 text-center">
-          <div className="max-w-[520px]">
+          <div className="w-full">
             <p className="m-0 font-serif text-2xl text-[#24201e]">
               {label}
             </p>
 
             {note ? (
-              <p className="mt-3 text-[12px] font-light leading-[1.8] text-[#716b67]">
+              <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#716b67]">
                 {note}
               </p>
             ) : null}
@@ -85,7 +117,7 @@ export function CaseVisual({
         </div>
       )}
 
-      <figcaption className="mt-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+      <figcaption className="mt-3 w-full text-left text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
         {label}
       </figcaption>
     </figure>
@@ -100,20 +132,21 @@ export function CaseInsightPanel({
   title: string;
 }) {
   return (
-    <aside className="mt-10 max-w-[1120px] border-t border-[#e6dfdb] pt-6">
-      <h3 className="m-0 font-serif text-xl font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
+    <aside className="mt-10 w-full border-t border-[#e6dfdb] pt-6">
+      <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
         <HighlightText>{title}</HighlightText>
       </h3>
 
-      <ol className="mt-5 grid gap-4 p-0 md:grid-cols-3">
+      <ol className="mt-5 grid list-none gap-4 p-0 md:grid-cols-3">
         {items.map((item, index) => (
           <li
-            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-sm font-light leading-[1.65] text-[#5d5856]"
             key={item}
+            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-left text-[16px] font-light leading-[1.65] text-[#5d5856]"
           >
             <span className="font-serif text-base font-medium text-[#aaa29e]">
               {String(index + 1).padStart(2, "0")}
             </span>
+
             <span>{item}</span>
           </li>
         ))}
@@ -132,15 +165,15 @@ export function CaseSolutionFeature({
   title: string;
 }) {
   return (
-    <article>
+    <article className="w-full">
       <CaseVisual image={image} label={title} />
 
-      <div className="max-w-[920px]">
-        <h3 className="m-0 font-serif text-xl font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
+      <div className={EDITORIAL_TEXT_CLASS}>
+        <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
           <HighlightText>{title}</HighlightText>
         </h3>
 
-        <p className="mb-0 mt-3 text-[15px] font-light leading-[1.7] text-[#5d5856]">
+        <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#5d5856]">
           {rationale}
         </p>
       </div>
@@ -163,9 +196,11 @@ export function CaseVideo({
   src: string;
   videoBackground?: string;
 }) {
-  const videoType = src.endsWith(".mp4")
+  const normalizedSrc = src.toLowerCase();
+
+  const videoType = normalizedSrc.endsWith(".mp4")
     ? "video/mp4"
-    : src.endsWith(".mov")
+    : normalizedSrc.endsWith(".mov")
       ? "video/quicktime"
       : undefined;
 
@@ -203,7 +238,7 @@ export function CaseVideo({
           style={{ backgroundColor: videoBackground }}
         >
           <ViewportVideo
-            className="overflow-hidden rounded-2xl bg-[#F6F6F6]"
+            className="overflow-hidden rounded-2xl bg-[#f6f6f6]"
             poster={poster}
             src={src}
             videoType={videoType}
@@ -211,7 +246,7 @@ export function CaseVideo({
         </div>
       )}
 
-      <figcaption className="mt-3 flex flex-wrap items-center gap-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+      <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3 text-left text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
         <span>{caption}</span>
 
         <a
@@ -249,12 +284,14 @@ export function CaseStudyShell({
 
 export function BackToWorkLink() {
   return (
-    <Link
-      href="/#work"
-      className="mb-14 inline-flex w-max border-b border-current text-[12px] font-light text-[#6b6664]"
-    >
-      <HighlightText>Back to work</HighlightText>
-    </Link>
+    <div className={EDITORIAL_TEXT_CLASS}>
+      <Link
+        href="/#work"
+        className="mb-14 inline-flex w-max border-b border-current text-[12px] font-light text-[#6b6664]"
+      >
+        <HighlightText>Back to work</HighlightText>
+      </Link>
+    </div>
   );
 }
 
@@ -263,6 +300,7 @@ export function ProjectCaseIntro({
   content,
 }: ProjectCaseStudyProps) {
   const projectTags = project.tags;
+
   const overview =
     project.slug === "Leafy" ? (
       <>
@@ -306,50 +344,56 @@ export function ProjectCaseIntro({
         ];
 
   return (
-    <header className="pb-20" id="overview">
-      {projectTags.length > 0 ? (
-        <div className="mb-5 flex flex-wrap gap-2">
-          {projectTags.map((tag) => (
-            <span
-              className="border border-[#d8d3d0] px-3 py-1 text-[11px] font-light uppercase tracking-[0.08em] text-[#74706e]"
-              key={tag}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      ) : null}
+    <header className="pb-20 text-left" id="overview">
+      <div className={EDITORIAL_TEXT_CLASS}>
+        {projectTags.length > 0 ? (
+          <div className="mb-5 flex flex-wrap gap-2">
+            {projectTags.map((tag) => (
+              <span
+                key={tag}
+                className="border border-[#d8d3d0] px-3 py-1 text-[11px] font-light uppercase tracking-[0.08em] text-[#74706e]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-        <h1 className="m-0 font-serif text-[30px] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
-          {project.title}
-        </h1>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+          <h1 className="m-0 font-serif text-[30px] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
+            {project.title}
+          </h1>
+        </div>
+
+        <p className="mb-0 mt-8 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+          {project.summary}
+        </p>
+
+        <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          {projectMeta.map(([category, value]) => (
+            <div key={category}>
+              <dt className="mb-2 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                {category}
+              </dt>
+
+              <dd className="m-0 text-[12px] font-normal leading-[1.6] text-[#272321]">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
 
-      <p className="mt-8 max-w-[920px] text-[14px] font-light leading-[1.8] text-[#5d5856]">
-        {project.summary}
-      </p>
+      <div className={CENTERED_CONTENT_CLASS}>
+        <CaseVisual
+          image={project.cardImage}
+          label={`${project.title} product mockup`}
+        />
+      </div>
 
-      <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
-        {projectMeta.map(([category, value]) => (
-          <div key={category}>
-            <dt className="mb-2 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-              {category}
-            </dt>
-
-            <dd className="m-0 text-[12px] font-normal leading-[1.6] text-[#272321]">
-              {value}
-            </dd>
-          </div>
-        ))}
-      </dl>
-
-      <CaseVisual
-        image={project.cardImage}
-        label={`${project.title} product mockup`}
-      />
-
-      <div className="mt-12 flex max-w-[1120px] flex-col gap-6 md:flex-row md:items-start">
+      <div
+        className={`${EDITORIAL_TEXT_CLASS} mt-12 flex flex-col gap-6`}
+      >
         {content.overviewLogo ? (
           <img
             className="h-auto w-[88px] shrink-0 object-contain"
@@ -358,12 +402,12 @@ export function ProjectCaseIntro({
           />
         ) : null}
 
-        <div>
-          <h2 className="m-0 font-serif text-[20px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+        <div className="min-w-0">
+          <h2 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
             Project Overview
           </h2>
 
-          <p className="mb-0 mt-4 max-w-[920px] text-[14px] font-light leading-[1.8] text-[#5d5856]">
+          <p className="mb-0 mt-4 text-[16px] font-light leading-[1.7] text-[#5d5856]">
             {overview}
           </p>
         </div>
@@ -374,12 +418,14 @@ export function ProjectCaseIntro({
 
 export function ReturnToWorkSection() {
   return (
-    <section className="py-14 md:py-18">
-      <p className="eyebrow">Next</p>
+    <section className="py-14 md:py-20">
+      <div className={EDITORIAL_TEXT_CLASS}>
+        <p className="eyebrow">Next</p>
 
-      <Link href="/#work">
-        <HighlightText>Return to selected work</HighlightText>
-      </Link>
+        <Link href="/#work">
+          <HighlightText>Return to selected work</HighlightText>
+        </Link>
+      </div>
     </section>
   );
 }
@@ -389,16 +435,18 @@ export function ProjectNotFound() {
     <main className="min-h-screen bg-[var(--background)]">
       <SiteNav />
 
-      <section className="px-[clamp(20px,5vw,64px)]">
-        <p className="eyebrow">Case study</p>
+      <section className="px-[clamp(20px,5vw,64px)] py-20">
+        <div className={EDITORIAL_TEXT_CLASS}>
+          <p className="eyebrow">Case study</p>
 
-        <h1>
-          <HighlightText>Project not found.</HighlightText>
-        </h1>
+          <h1>
+            <HighlightText>Project not found.</HighlightText>
+          </h1>
 
-        <Link href="/#work" className="text-link">
-          <HighlightText>Back to work</HighlightText>
-        </Link>
+          <Link href="/#work" className="text-link">
+            <HighlightText>Back to work</HighlightText>
+          </Link>
+        </div>
       </section>
     </main>
   );

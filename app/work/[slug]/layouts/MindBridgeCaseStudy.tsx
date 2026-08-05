@@ -12,58 +12,12 @@ import {
 
 const mindBridgeSections = [
   { id: "overview", label: "Overview", number: "01" },
-  { id: "problem", label: "Problem", number: "02" },
+  { id: "context", label: "Context", number: "02" },
   { id: "research", label: "Research", number: "03" },
   { id: "design-decisions", label: "Decisions", number: "04" },
   { id: "final-solution", label: "Solution", number: "05" },
   { id: "design-system", label: "System", number: "06" },
   { id: "results-learnings", label: "Learnings", number: "07" },
-];
-
-const researchMethods = [
-  "User Interviews",
-  "Affinity Mapping",
-  "Thematic Analysis",
-  "Usability Testing",
-];
-
-const insights = [
-  {
-    category: "Current Experience",
-    headline: "Finding #1",
-    body: "The supervision matching process feels informal, opaque, and heavily dependent on referrals or existing networks.",
-    userGroup: "Trainees",
-  },
-  {
-    category: "Decision Factors",
-    headline: "Finding #2",
-    body: "When evaluating supervisors, trainees prioritize learning goals, growth areas, clinical modality, and supervisor experience over convenience.",
-    userGroup: "Trainees",
-  },
-  {
-    category: "AI Trust",
-    headline: "Finding #3",
-    body: "Both trainees and supervisors welcomed AI assistance, but emphasized that AI should support—not replace—human judgment and final decision making.",
-    userGroup: "Trainees + Supervisors",
-  },
-];
-
-const designDecisions = [
-  {
-    insight: "Users did not trust compatibility percentages.",
-    decision: "Removed percentage scores.",
-    outcome: "Introduced a clear “Best Match” explanation that describes why a supervisor is recommended.",
-  },
-  {
-    insight: "Users wanted to stay in control of AI suggestions.",
-    decision: "Added flexible filters and browse-first exploration.",
-    outcome: "Users can adjust criteria, compare options, and decide when to reach out.",
-  },
-  {
-    insight: "Users needed confidence before contacting a supervisor.",
-    decision: "Made request supervision feel structured and low-pressure.",
-    outcome: "The messaging flow helps users take action with enough context and clarity.",
-  },
 ];
 
 const videoFeatures = [
@@ -98,23 +52,39 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
   return (
     <CaseStudyShell sections={mindBridgeSections}>
-      <article className="mx-auto w-full max-w-[1320px] px-[clamp(20px,5vw,72px)] pt-[120px]">
+      <article className="mx-auto w-full max-w-[960px] px-6 md:px-8 pt-[120px]">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
           <ProjectCaseIntro project={project} content={content} />
 
           <CaseSection
-            id="problem"
-            label="Problem"
-            title={project.problem ?? project.challenge}
+            id="context"
+            label="Context"
+            title="The Problem"
           >
-            <div>
-              <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                How Might We
+            <div className="w-full">
+              <p className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+                No centralized system to find the right supervisor.
               </p>
-              <p className="m-0 max-w-[1120px] border-l-2 border-[var(--pink)] pl-5 text-[15px] font-light leading-[1.7] text-[#3f3a38]">
-                {project.question}
+
+              <p className="mb-0 mt-5 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                Therapists-in-training rely on{" "}
+                <span className="relative inline-block text-[#3f3a38] before:absolute before:inset-x-[-0.08em] before:bottom-[0.08em] before:-z-10 before:h-[0.72em] before:origin-left before:skew-x-[-8deg] before:bg-[#d8ecff]">
+                  referrals and fragmented directories
+                </span>
+                , making the supervision search process time-consuming, opaque,
+                and difficult to navigate. This often leads to uncertainty when
+                evaluating supervisor fit.
               </p>
+
+              <div className="mt-10 border-l-2 border-[var(--pink)] pl-5">
+                <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+                  How Might We
+                </p>
+                <p className="m-0 font-serif text-[20px] font-medium leading-[1.45] tracking-[-0.01em] text-[#171717]">
+                  “{project.question}”
+                </p>
+              </div>
             </div>
           </CaseSection>
 
@@ -123,32 +93,21 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Research"
             title="Research clarified what users needed before trusting AI."
           >
-            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               Research became the foundation for deciding how AI should explain, support, and stay secondary to human judgment.
             </p>
 
-            <ul className="mt-10 flex list-none flex-wrap gap-x-6 gap-y-3 border-y border-[#e6dfdb] py-5 p-0">
-              {researchMethods.map((method) => (
-                <li
-                  className="text-[12px] font-light uppercase tracking-[0.08em] text-[#5d5856]"
-                  key={method}
-                >
-                  {method}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-14 max-w-[920px]">
+            <div className="mt-16 w-full">
               <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                 User Interviews
               </p>
-              <p className="m-0 text-[15px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
                 We conducted six 30-minute interviews with three clinical supervisors and three therapists-in-training. We synthesized the findings through affinity mapping and thematic analysis to understand what users need before trusting AI-generated recommendations.
               </p>
             </div>
 
             <div className="mt-16">
-              <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+              <p className="mb-2 mt-0 w-full text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                 Research Synthesis
               </p>
               <CaseVisual
@@ -157,55 +116,6 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
               />
             </div>
 
-            <div className="mt-16">
-              <div className="max-w-[920px]">
-                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
-                  Research Findings
-                </p>
-
-                <h3 className="mb-0 mt-3 font-serif text-[clamp(28px,4vw,40px)] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
-                  <HighlightText>Research Insights</HighlightText>
-                </h3>
-
-                <p className="mb-0 mt-4 text-[15px] font-light leading-[1.7] text-[#5d5856]">
-                  Through interviews with therapists-in-training and licensed
-                  supervisors, three key themes consistently emerged.
-                </p>
-              </div>
-
-              <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {insights.map((insight, index) => (
-                  <article
-                    className="group flex min-h-[330px] flex-col rounded-[20px] border border-[#e6dfdb] bg-[#f7f5f3] p-7 transition-all duration-[250ms] ease-out hover:-translate-y-1 hover:border-[#cbc4c0] hover:bg-[#faf8f6] hover:shadow-[0_16px_38px_rgba(17,17,17,0.07)]"
-                    key={insight.category}
-                  >
-                    <div className="flex items-start justify-between gap-5">
-                      <span className="font-serif text-[30px] font-medium leading-none tracking-[-0.04em] text-[#c7c0bc] transition-colors duration-[250ms] group-hover:text-[#8a8380]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <span className="text-right text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
-                        {insight.category}
-                      </span>
-                    </div>
-
-                    <h4 className="mb-0 mt-12 font-serif text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-[#171717]">
-                      <HighlightText>{insight.headline}</HighlightText>
-                    </h4>
-
-                    <p className="mb-0 mt-5 text-[14px] font-light leading-[1.7] text-[#5d5856]">
-                      {insight.body}
-                    </p>
-
-                    <div className="mt-auto pt-8">
-                      <span className="inline-flex rounded-full border border-[#d8d3d0] bg-[#fffdfc] px-3 py-1 text-[11px] font-light uppercase tracking-[0.08em] text-[#6b6664]">
-                        {insight.userGroup}
-                      </span>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
           </CaseSection>
 
           <CaseSection
@@ -213,54 +123,18 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Design Decisions"
             title="Research insights became focused product decisions."
           >
-            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               Instead of documenting every screen iteration, I focused the case study around the decisions that changed the product experience.
             </p>
-            <div className="mt-10 border-y border-[#e6dfdb]">
-              {designDecisions.map((decision) => (
-                <article
-                  className="grid gap-5 border-b border-[#e6dfdb] py-7 last:border-b-0 lg:grid-cols-[minmax(0,1fr)_32px_minmax(0,1fr)_32px_minmax(0,1fr)] lg:items-start"
-                  key={decision.insight}
-                >
-                  <div className="min-w-0">
-                    <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                      Research Insight
-                    </p>
-                    <p className="m-0 text-sm font-light leading-[1.65] text-[#5d5856]">
-                      {decision.insight}
-                    </p>
-                  </div>
-                  <span
-                    className="hidden text-center font-serif text-lg text-[#aaa29e] lg:block"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                  <div className="min-w-0">
-                    <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                      Design Decision
-                    </p>
-                    <p className="m-0 text-sm font-light leading-[1.65] text-[#5d5856]">
-                      {decision.decision}
-                    </p>
-                  </div>
-                  <span
-                    className="hidden text-center font-serif text-lg text-[#aaa29e] lg:block"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                  <div className="min-w-0">
-                    <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                      Outcome
-                    </p>
-                    <p className="m-0 text-sm font-light leading-[1.65] text-[#5d5856]">
-                      {decision.outcome}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
+
+            <figure className="my-12 w-full">
+              <img
+                className="block h-auto w-full object-contain"
+                src="/images/mindbridge-information-architecture.png"
+                alt="MindBridge information architecture showing dashboard, onboarding, supervisors, compare, messages, and requests"
+              />
+            </figure>
+
           </CaseSection>
 
           <CaseSection
@@ -268,28 +142,29 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Final Solution"
             title="The demos show the core matching experience in motion."
           >
-            <p className="m-0 max-w-[1120px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               The final solution centers on helping users refine supervisor recommendations and take action with clarity.
             </p>
-            <div className="mt-10 grid gap-16">
+            <div className="mt-12 grid gap-20">
               {videoFeatures.map((feature, index) => {
                 const video = prototypeVideos[index];
 
                 return (
                   <article className="grid gap-7" key={feature.title}>
-                    <div className="max-w-[920px]">
-                      <h3 className="m-0 font-serif text-xl font-medium text-[#171717]">
+                    <div className="w-full">
+                      <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                         <HighlightText>{feature.title}</HighlightText>
                       </h3>
                     </div>
                     {video ? (
                       <CaseVideo
+                        className=""
                         caption={video.caption}
                         poster={video.poster}
                         src={video.src}
                       />
                     ) : null}
-                    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)]">
+                    <div className="grid w-full gap-8 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)]">
                       <div className="grid gap-5">
                         {[
                           ["Challenge", feature.challenge],
@@ -300,13 +175,13 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                             <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                               {label}
                             </p>
-                            <p className="m-0 text-sm font-light leading-[1.65] text-[#5d5856]">
+                            <p className="m-0 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                               {value}
                             </p>
                           </div>
                         ))}
                       </div>
-                      <ul className="m-0 list-disc space-y-2 pl-5 text-sm font-light leading-[1.65] text-[#5d5856]">
+                      <ul className="m-0 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                         {feature.highlights.map((highlight) => (
                           <li key={highlight}>{highlight}</li>
                         ))}
@@ -323,27 +198,17 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Design System"
             title="A restrained visual system built for clarity and trust."
           >
-            <p className="m-0 max-w-[920px] text-[15px] font-light leading-[1.7] text-[#5d5856]">
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               The interface uses a clean and accessible visual language focused on clarity, consistency, and trust. A restrained color palette and consistent typography help users focus on important clinical information while supporting AI transparency.
             </p>
-            <figure className="my-10 w-full">
+            <figure className="my-12 w-full">
               <img
-                src="/images/Typography.png"
-                alt="MindBridge typography design system"
+                src="/images/mindbridge-design-system.png"
+                alt="MindBridge design system showing typography, components, and color palette"
                 className="block h-auto w-full object-contain"
               />
-              <figcaption className="mt-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
-                Typography system
-              </figcaption>
-            </figure>
-            <figure className="my-10 w-full">
-              <img
-                src="/images/color.png"
-                alt="MindBridge color palette design system"
-                className="block h-auto w-full object-contain"
-              />
-              <figcaption className="mt-3 text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
-                Color palette
+              <figcaption className="mt-3 w-full text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+                Design system: typography, components, and color palette
               </figcaption>
             </figure>
           </CaseSection>
@@ -353,12 +218,12 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             label="Results + Learnings"
             title="The final direction made AI recommendations feel more transparent."
           >
-            <div className="grid gap-10 md:grid-cols-2">
+            <div className="grid w-full gap-12 md:grid-cols-2">
               <div>
-                <h3 className="m-0 font-serif text-lg font-medium text-[#171717]">
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                   <HighlightText>Results</HighlightText>
                 </h3>
-                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-sm font-light leading-[1.65] text-[#5d5856]">
+                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                   <li>Improved transparency</li>
                   <li>Increased user confidence</li>
                   <li>Reduced uncertainty</li>
@@ -366,10 +231,10 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                 </ul>
               </div>
               <div>
-                <h3 className="m-0 font-serif text-lg font-medium text-[#171717]">
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                   <HighlightText>Learnings</HighlightText>
                 </h3>
-                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-sm font-light leading-[1.65] text-[#5d5856]">
+                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                   <li>AI should support human decision making.</li>
                   <li>Research should drive product decisions.</li>
                   <li>Iteration creates better outcomes than first ideas.</li>

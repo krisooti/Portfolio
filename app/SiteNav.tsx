@@ -43,6 +43,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
     <header
       className="fixed left-0 top-0 z-50 grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center border-b border-black/[0.05] bg-[rgba(255,253,252,0.82)] px-[clamp(24px,10vw,160px)] py-[18px] backdrop-blur-[18px] max-[560px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-3 max-[560px]:px-[18px] max-[560px]:py-4"
       aria-label="Primary navigation"
+      data-gsap-nav
     >
       <Link
         href="/"

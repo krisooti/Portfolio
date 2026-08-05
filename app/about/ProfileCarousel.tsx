@@ -159,6 +159,7 @@ export default function ProfileCarousel() {
       aria-labelledby="about-title"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      data-gsap-section
     >
       <div
         className="
@@ -174,6 +175,7 @@ export default function ProfileCarousel() {
           max-[560px]:gap-y-[34px]
         "
         aria-live="polite"
+        data-gsap-body
       >
         {/* Number navigation */}
         <nav

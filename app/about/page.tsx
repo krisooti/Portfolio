@@ -52,6 +52,7 @@ function AboutSection({
         max-[560px]:mt-[72px]
         max-[560px]:pt-11
       "
+      data-gsap-section
     >
       <h2
         className="
@@ -66,11 +67,12 @@ function AboutSection({
           text-[#171717]
           max-[560px]:text-[23px]
         "
+        data-gsap-header
       >
         <HighlightText>{title}</HighlightText>
       </h2>
 
-      {children}
+      <div data-gsap-body>{children}</div>
     </section>
   );
 }
@@ -147,6 +149,7 @@ export default function AboutPage() {
             max-[560px]:mt-16
             max-[560px]:pt-10
           "
+          data-gsap-section
         >
           <h2
             className="
@@ -161,46 +164,49 @@ export default function AboutPage() {
               text-[#171717]
               max-[560px]:text-[23px]
             "
+            data-gsap-header
           >
             <HighlightText>Postcards</HighlightText>
           </h2>
 
-          <p
-            className="
-              mb-7
-              mt-0
-              max-w-[840px]
-              text-[14px]
-              font-light
-              leading-[1.6]
-              text-[#6b6664]
-            "
-          >
-            Small moments outside of design.
-          </p>
+          <div data-gsap-body>
+            <p
+              className="
+                mb-7
+                mt-0
+                max-w-[840px]
+                text-[14px]
+                font-light
+                leading-[1.6]
+                text-[#6b6664]
+              "
+            >
+              Small moments outside of design.
+            </p>
 
-          <div className="postcard-grid">
-            {postcards.map((postcard) => (
-              <figure className="postcard-card" key={postcard.title}>
-                {postcard.image ? (
-                  <img
-                    className="postcard-image"
-                    src={postcard.image}
-                    alt={postcard.alt}
-                  />
-                ) : (
-                  <div
-                    className="postcard-placeholder"
-                    aria-label={postcard.alt}
-                  />
-                )}
+            <div className="postcard-grid">
+              {postcards.map((postcard) => (
+                <figure className="postcard-card" key={postcard.title}>
+                  {postcard.image ? (
+                    <img
+                      className="postcard-image"
+                      src={postcard.image}
+                      alt={postcard.alt}
+                    />
+                  ) : (
+                    <div
+                      className="postcard-placeholder"
+                      aria-label={postcard.alt}
+                    />
+                  )}
 
-                <figcaption>
-                  <span>{postcard.title}</span>
-                  <p>{postcard.caption}</p>
-                </figcaption>
-              </figure>
-            ))}
+                  <figcaption>
+                    <span>{postcard.title}</span>
+                    <p>{postcard.caption}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
       </article>
