@@ -94,6 +94,7 @@ test("server-renders the redesigned about page", async () => {
   assert.match(html, /Resume ↗/);
   assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
   assert.match(html, /Kristi in Seattle/);
+  assert.doesNotMatch(html, /My café adventures|Scent notes|My dogs|cafe day|tiny rituals|home team/);
   assert.doesNotMatch(html, /Postcards/);
   assert.doesNotMatch(html, /meet my dog, Hodoo|Hodoo, Kristi&#x27;s dog|\/videos\/hodoo\.mov/);
   assert.doesNotMatch(html, /Music I Design To|Music player|HONNE/);

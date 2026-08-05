@@ -48,27 +48,6 @@ const profileSlides: ProfileSlide[] = [
       alt: "Kristi in Seattle",
     },
   },
-  {
-    headline: "My café adventures",
-    body:
-      "I love exploring cafés and trying different coffees around the city.",
-    imageLabel: "Café photo",
-    caption: "cafe day",
-  },
-  {
-    headline: "Scent notes",
-    body:
-      "I collect perfumes and enjoy discovering scents that feel personal and memorable.",
-    imageLabel: "Perfume collection photo",
-    caption: "tiny rituals",
-  },
-  {
-    headline: "My dogs",
-    body:
-      "Outside of design, I spend a lot of time with my dogs and the people I love.",
-    imageLabel: "Photo with my dogs",
-    caption: "home team",
-  },
 ];
 
 export default function ProfileCarousel() {
