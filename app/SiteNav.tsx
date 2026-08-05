@@ -6,9 +6,6 @@ import { HighlightText } from "./HighlightText";
 import { getGSAP, prefersReducedMotion } from "../lib/gsap";
 
 const EMAIL = "krisooti08@gmail.com";
-const RESUME_URL =
-  "https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing";
-
 export function SiteNav({ home = false }: { home?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -108,25 +105,16 @@ export function SiteNav({ home = false }: { home?: boolean }) {
       </Link>
       <nav className="flex items-center justify-self-center gap-[clamp(18px,3vw,34px)] max-[560px]:gap-4">
         <Link
-          href={home ? "#work" : "/#work"}
-          className="text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
-        >
-          <HighlightText>Work</HighlightText>
-        </Link>
-        <Link
           href="/about"
           className="text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
         >
           <HighlightText>About</HighlightText>
         </Link>
         <Link
-          href={RESUME_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
-          aria-label="Open Kristi's resume in a new tab"
+          href="/playground"
+          className="text-[13px] font-light leading-none text-[#5b5755] transition-colors duration-200 ease-out hover:text-[#111111] max-[560px]:text-xs"
         >
-          <HighlightText>Resume ↗</HighlightText>
+          <HighlightText>Playground</HighlightText>
         </Link>
         <div
           className={`contact-menu hover-popup-trigger${isOpen ? " is-open" : ""}`}

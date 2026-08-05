@@ -46,10 +46,11 @@ test("server-renders the portfolio homepage", async () => {
   assert.match(html, />Copy</);
   assert.doesNotMatch(html, /Selected product, mobile, and service design work/);
   assert.doesNotMatch(html, /hello@example\.com/);
-  assert.match(html, /Work/);
+  assert.doesNotMatch(html, /<span class="marker-highlight">Work<\/span>/);
   assert.match(html, /About/);
-  assert.match(html, /Resume ↗/);
-  assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
+  assert.match(html, /Playground/);
+  assert.doesNotMatch(html, /Resume ↗/);
+  assert.doesNotMatch(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
   assert.match(html, /Contact/);
   assert.doesNotMatch(html, /Feel free to contact me/);
   assert.doesNotMatch(html, /I shape quiet digital products/);
@@ -88,11 +89,35 @@ test("server-renders the redesigned about page", async () => {
   assert.match(html, /Hi there! I&#x27;m Kristi/);
   assert.match(html, /Human-Centered Design &amp; Engineering/);
   assert.match(html, /This is me :\)/);
+  assert.match(html, /Playground/);
   assert.match(html, /Resume ↗/);
   assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
   assert.match(html, /Kristi in Seattle/);
+  assert.doesNotMatch(html, /Postcards/);
   assert.doesNotMatch(html, /meet my dog, Hodoo|Hodoo, Kristi&#x27;s dog|\/videos\/hodoo\.mov/);
   assert.doesNotMatch(html, /Music I Design To|Music player|HONNE/);
+});
+
+test("server-renders the playground page", async () => {
+  const response = await render("/playground");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Playground - Kristi Kim<\/title>/i);
+  assert.match(html, /Postcards/);
+  assert.match(html, /Small visual references/);
+  assert.match(html, /\[<!-- -->01<!-- -->\]/);
+  assert.match(html, /\[<!-- -->02<!-- -->\]/);
+  assert.match(html, /\[<!-- -->03<!-- -->\]/);
+  assert.match(html, /\[<!-- -->04<!-- -->\]/);
+  assert.match(html, /\[<!-- -->05<!-- -->\]/);
+  assert.match(html, /\[<!-- -->06<!-- -->\]/);
+  assert.match(html, /Fourth of July fireworks under the Brooklyn Bridge/);
+  assert.match(html, /First time in NY, DUMBO!/);
+  assert.match(html, /’26 UW alum/);
+  assert.match(html, /Another NY moment… my favorite bagel at Apollo Bagels/);
+  assert.match(html, /Say hi to Hodoo! \(Walnut\)/);
+  assert.match(html, /Add sixth description here/);
 });
 
 test("server-renders the MindBridge case study", async () => {
@@ -101,8 +126,8 @@ test("server-renders the MindBridge case study", async () => {
 
   const html = await response.text();
   assert.match(html, /AI-Powered Supervisor Matching for Therapists-in-Training/);
-  assert.match(html, /Resume ↗/);
-  assert.match(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
+  assert.doesNotMatch(html, /Resume ↗/);
+  assert.doesNotMatch(html, /136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/);
   assert.match(html, /Tmind AI/);
   assert.match(html, /Sponsor<\/dt><dd[^>]*>Tmind AI<\/dd>/);
   assert.match(html, /case-sidebar/);

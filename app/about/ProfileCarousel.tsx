@@ -8,9 +8,12 @@ import {
   type ReactNode,
   type TouchEvent,
 } from "react";
+import Link from "next/link";
 import { HighlightText } from "../HighlightText";
 
 const TRANSITION_DURATION_MS = 680;
+const RESUME_URL =
+  "https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing";
 
 type ProfileSlide = {
   headline: string;
@@ -341,6 +344,36 @@ export default function ProfileCarousel() {
           >
             {activeSlide.body}
           </p>
+
+          <Link
+            href={RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              mt-2
+              inline-flex
+              w-fit
+              items-center
+              border
+              border-[#ddd8d5]
+              px-4
+              py-2
+              text-[12px]
+              font-light
+              leading-none
+              text-[#4f4a48]
+              transition-colors
+              duration-200
+              ease-out
+              hover:border-[#c9c2be]
+              hover:text-[#171717]
+              focus-visible:border-[#c9c2be]
+              focus-visible:outline-none
+            "
+            aria-label="Open Kristi's resume in a new tab"
+          >
+            <HighlightText>Resume ↗</HighlightText>
+          </Link>
         </div>
       </div>
     </section>

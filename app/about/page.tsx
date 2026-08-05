@@ -11,25 +11,6 @@ export const metadata: Metadata = {
     "A personal introduction to Kristi Kim and her design background.",
 };
 
-const postcards = [
-  {
-    title: "Seattle, 2026",
-    caption: "A small moment worth keeping.",
-    image: "/images/kristi-about.jpg",
-    alt: "Kristi in Seattle",
-  },
-  {
-    title: "Cafe Notes",
-    caption: "Quiet corners and coffee ideas.",
-    alt: "Cafe postcard placeholder",
-  },
-  {
-    title: "Scent Archive",
-    caption: "Tiny details, memorable feelings.",
-    alt: "Perfume postcard placeholder",
-  },
-];
-
 function AboutSection({
   title,
   children,
@@ -132,83 +113,6 @@ export default function AboutPage() {
             </p>
           </div>
         </AboutSection>
-
-        {/* Postcards */}
-        <section
-          className="
-            about-story-section
-            postcards-section
-            mx-auto
-            mt-[clamp(72px,9vw,88px)]
-            grid
-            w-[min(100%,960px)]
-            gap-0
-            border-t
-            border-[var(--line)]
-            pt-[clamp(44px,6vw,64px)]
-            max-[560px]:mt-16
-            max-[560px]:pt-10
-          "
-          data-gsap-section
-        >
-          <h2
-            className="
-              mb-3
-              mt-0
-          max-w-[1040px]
-              font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
-              text-[26px]
-              font-light
-              leading-[1.2]
-              tracking-normal
-              text-[#171717]
-              max-[560px]:text-[23px]
-            "
-            data-gsap-header
-          >
-            <HighlightText>Postcards</HighlightText>
-          </h2>
-
-          <div data-gsap-body>
-            <p
-              className="
-                mb-7
-                mt-0
-                max-w-[840px]
-                text-[14px]
-                font-light
-                leading-[1.6]
-                text-[#6b6664]
-              "
-            >
-              Small moments outside of design.
-            </p>
-
-            <div className="postcard-grid">
-              {postcards.map((postcard) => (
-                <figure className="postcard-card" key={postcard.title}>
-                  {postcard.image ? (
-                    <img
-                      className="postcard-image"
-                      src={postcard.image}
-                      alt={postcard.alt}
-                    />
-                  ) : (
-                    <div
-                      className="postcard-placeholder"
-                      aria-label={postcard.alt}
-                    />
-                  )}
-
-                  <figcaption>
-                    <span>{postcard.title}</span>
-                    <p>{postcard.caption}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
       </article>
     </main>
   );
