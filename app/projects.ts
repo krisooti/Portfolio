@@ -97,7 +97,7 @@ export const projects: Project[] = [
     year: "2026",
     imageClass: "visual-northline",
     cardImage: {
-      src: "/images/haven-device-mockup.png",
+      src: "/images/haven-group-4.png",
       alt: "Haven desktop and tablet designer matching mockups",
     },
     intro:

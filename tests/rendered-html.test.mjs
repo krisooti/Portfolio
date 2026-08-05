@@ -66,9 +66,10 @@ test("server-renders the portfolio homepage", async () => {
   assert.doesNotMatch(html, /Stay tuned/);
   assert.match(html, /tmind-thumbnail/);
   assert.match(html, /tmind-gradient/);
-  assert.match(html, /haven-device-mockup\.png/);
+  assert.match(html, /haven-group-4\.png/);
   assert.match(html, /Haven desktop and tablet designer matching mockups/);
   assert.match(html, /Leafy/);
+  assert.ok(html.indexOf("Leafy") < html.indexOf("Haven"));
   assert.doesNotMatch(html, /<span class="category-tag">UX Research<\/span>/);
   assert.doesNotMatch(html, /<span class="category-tag">Product Design<\/span>/);
   assert.doesNotMatch(html, /<span class="category-tag">Product Strategy<\/span>/);

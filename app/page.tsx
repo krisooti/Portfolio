@@ -10,7 +10,10 @@ export const metadata: Metadata = {
     "A simple, minimal UX portfolio with centered project cards and a clean modern aesthetic.",
 };
 
-const featuredProjects = projects.slice(0, 3);
+const featuredProjectOrder = ["tmind-ai", "Leafy", "Haven"];
+const featuredProjects = featuredProjectOrder
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project): project is Project => Boolean(project));
 
 function ProjectCard({ project }: { project: Project }) {
   const displayTitle =
