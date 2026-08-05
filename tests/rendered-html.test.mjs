@@ -106,18 +106,11 @@ test("server-renders the playground page", async () => {
   const html = await response.text();
   assert.match(html, /<title>Playground - Kristi Kim<\/title>/i);
   assert.match(html, /Archive \(2026\)/);
-  assert.match(html, /\[<!-- -->01<!-- -->\]/);
-  assert.match(html, /\[<!-- -->02<!-- -->\]/);
-  assert.match(html, /\[<!-- -->03<!-- -->\]/);
-  assert.match(html, /\[<!-- -->04<!-- -->\]/);
-  assert.match(html, /\[<!-- -->05<!-- -->\]/);
-  assert.match(html, /\[<!-- -->06<!-- -->\]/);
-  assert.match(html, /Fourth of July fireworks under the Brooklyn Bridge/);
-  assert.match(html, /First time in NY, DUMBO!/);
-  assert.match(html, /’26 UW alum/);
-  assert.match(html, /Another NY moment… my favorite bagel at Apollo Bagels/);
-  assert.match(html, /A spring day with Hodoo/);
-  assert.match(html, /Fresh flowers/);
+  assert.doesNotMatch(html, /<figcaption>|\[<!-- -->0[1-6]<!-- -->\]/);
+  assert.doesNotMatch(
+    html,
+    /Fourth of July fireworks|First time in NY|UW alum|Apollo Bagels|A spring day with Hodoo|Fresh flowers/,
+  );
   assert.match(html, /playground-dog\.jpg/);
   assert.match(html, /playground-flowers\.jpg/);
   assert.doesNotMatch(html, /playground-cherry-blossoms\.jpg|Cherry blossom season/);

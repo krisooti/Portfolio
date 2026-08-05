@@ -1058,24 +1058,6 @@ a {
   pointer-events: none;
 }
 
-.playground-photo figcaption {
-  margin: 0;
-  color: #7a7a7a;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  opacity: 0.5;
-  max-width: var(--photo-width);
-  transition: opacity 250ms ease;
-}
-
-.playground-photo:hover figcaption {
-  opacity: 1;
-}
-
 .toolkit-doodle {
   display: none;
 }
@@ -2184,7 +2166,6 @@ a {
   .dogs-heading span,
   .playground-photo,
   .playground-photo img,
-  .playground-photo figcaption,
   .mini-card,
   .insight-card,
   .project-roadmap-step,
