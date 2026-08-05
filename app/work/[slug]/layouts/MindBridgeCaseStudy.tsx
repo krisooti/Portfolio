@@ -14,10 +14,32 @@ const mindBridgeSections = [
   { id: "overview", label: "Overview", number: "01" },
   { id: "context", label: "Context", number: "02" },
   { id: "research", label: "Research", number: "03" },
-  { id: "design-decisions", label: "Decisions", number: "04" },
-  { id: "final-solution", label: "Solution", number: "05" },
-  { id: "design-system", label: "System", number: "06" },
-  { id: "results-learnings", label: "Learnings", number: "07" },
+  { id: "design-opportunities", label: "Opportunities", number: "04" },
+  { id: "design-decisions", label: "Decisions", number: "05" },
+  { id: "final-solution", label: "Solution", number: "06" },
+  { id: "design-system", label: "System", number: "07" },
+  { id: "results-learnings", label: "Learnings", number: "08" },
+];
+
+const designOpportunities = [
+  {
+    icon: "≋",
+    title: "Transparent Matching",
+    description:
+      "Explain why each supervisor is recommended using clear rationale, relevant experience, and preference alignment.",
+  },
+  {
+    icon: "↔",
+    title: "User Control",
+    description:
+      "Let trainees browse, compare, save, and make the final decision instead of relying on fully automated matching.",
+  },
+  {
+    icon: "◎",
+    title: "Meaningful Fit",
+    description:
+      "Prioritize learning goals, supervision style, modality, clinical interests, and experience over surface-level convenience.",
+  },
 ];
 
 const videoFeatures = [
@@ -59,7 +81,6 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
           <CaseSection
             id="context"
-            label="Context"
             title="The Problem"
           >
             <div className="w-full">
@@ -90,12 +111,9 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
           <CaseSection
             id="research"
-            label="Research"
             title="Research clarified what users needed before trusting AI."
           >
-            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
-              Research became the foundation for deciding how AI should explain, support, and stay secondary to human judgment.
-            </p>
+
 
             <div className="mt-16 w-full">
               <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
@@ -116,6 +134,39 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
               />
             </div>
 
+          </CaseSection>
+
+          <CaseSection id="design-opportunities" title="Design Opportunities">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {designOpportunities.map((opportunity) => (
+                <article
+                  className="flex min-h-[280px] flex-col justify-between rounded-[22px] border border-transparent bg-[#f1f3f6] px-6 py-7 transition-[transform,background-color,border-color] duration-[250ms] ease-out hover:-translate-y-1 hover:border-[#d8dadd] hover:bg-[#eceef1] max-[560px]:min-h-[230px] max-[560px]:px-5 max-[560px]:py-6"
+                  key={opportunity.title}
+                >
+                  <span
+                    className="font-mono text-[26px] font-normal leading-none text-[#4d4a49]"
+                    aria-hidden="true"
+                  >
+                    {opportunity.icon}
+                  </span>
+                  <div>
+                    <h3 className="m-0 font-serif text-[22px] font-medium leading-[1.2] text-[#171717]">
+                      {opportunity.title}
+                    </h3>
+                    <p className="mb-0 mt-3 text-[14px] font-normal leading-[1.6] text-[#66615f]">
+                      {opportunity.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="mb-0 mt-10 max-w-[960px] text-[18px] font-normal leading-[1.7] text-[#2f2b29]">
+              Based on the research findings, we identified three design
+              opportunities: make AI recommendations easier to understand,
+              preserve trainee control throughout the matching process, and
+              prioritize the factors that define meaningful supervisor fit.
+            </p>
           </CaseSection>
 
           <CaseSection
