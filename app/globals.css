@@ -1350,6 +1350,21 @@ a {
   margin: 0 0 8px;
 }
 
+.mindbridge-case-content .case-section > div,
+.mindbridge-case-content .case-hero > div,
+.mindbridge-case-content .case-summary,
+.mindbridge-case-content .case-section h2,
+.mindbridge-case-content .case-section p {
+  width: 100%;
+  max-width: none;
+}
+
+.mindbridge-case-content .case-section header,
+.mindbridge-case-content .case-section [data-gsap-body] {
+  width: 100%;
+  margin-inline: auto;
+}
+
 .case-section-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);

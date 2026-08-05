@@ -74,7 +74,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
   return (
     <CaseStudyShell sections={mindBridgeSections}>
-      <article className="mx-auto w-full max-w-[960px] px-6 md:px-8 pt-[120px]">
+      <article className="mindbridge-case-content mx-auto w-full max-w-[1040px] px-6 pt-[120px] md:px-10">
         <div className="min-w-0 pb-36 max-[560px]:pb-44">
           <BackToWorkLink />
           <ProjectCaseIntro project={project} content={content} />
@@ -140,7 +140,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {designOpportunities.map((opportunity) => (
                 <article
-                  className="flex min-h-[280px] flex-col justify-between rounded-[22px] border border-transparent bg-[#f1f3f6] px-6 py-7 transition-[transform,background-color,border-color] duration-[250ms] ease-out hover:-translate-y-1 hover:border-[#d8dadd] hover:bg-[#eceef1] max-[560px]:min-h-[230px] max-[560px]:px-5 max-[560px]:py-6"
+                  className="flex min-h-[280px] flex-col justify-between rounded-[1px] border border-transparent bg-[#f1f3f6] px-6 py-7 transition-[transform,background-color,border-color] duration-[250ms] ease-out hover:-translate-y-1 hover:border-[#d8dadd] hover:bg-[#eceef1] max-[560px]:min-h-[230px] max-[560px]:px-5 max-[560px]:py-6"
                   key={opportunity.title}
                 >
                   <span
@@ -150,7 +150,7 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                     {opportunity.icon}
                   </span>
                   <div>
-                    <h3 className="m-0 font-serif text-[22px] font-medium leading-[1.2] text-[#171717]">
+                    <h3 className="m-0 font-semibold text-[16px] font-bold leading-[1.2] text-[#656565]">
                       {opportunity.title}
                     </h3>
                     <p className="mb-0 mt-3 text-[14px] font-normal leading-[1.6] text-[#66615f]">
@@ -161,7 +161,8 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
               ))}
             </div>
 
-            <p className="mb-0 mt-10 max-w-[960px] text-[18px] font-normal leading-[1.7] text-[#2f2b29]">
+            <p className="mb- mt-10 max-w-[960px] text-[18px] font-normal leading-[1.7] text-[#2f2b29]">
+              <br></br>
               Based on the research findings, we identified three design
               opportunities: make AI recommendations easier to understand,
               preserve trainee control throughout the matching process, and
@@ -171,11 +172,12 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
 
           <CaseSection
             id="design-decisions"
-            label="Design Decisions"
-            title="Research insights became focused product decisions."
+            title="Translating Research into Structure"
           >
             <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
-              Instead of documenting every screen iteration, I focused the case study around the decisions that changed the product experience.
+              We transformed research findings into a structured product experience by organizing features
+              around users' mental models. Rather than presenting a large directory, the architecture guides 
+              trainees through onboarding, personalized matching, profile comparison, and scheduling in a clear, progressive flow.
             </p>
 
             <figure className="my-12 w-full">
