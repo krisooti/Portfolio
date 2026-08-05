@@ -104,8 +104,7 @@ test("server-renders the playground page", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Playground - Kristi Kim<\/title>/i);
-  assert.match(html, /Postcards/);
-  assert.match(html, /Small visual references/);
+  assert.match(html, /Memorable Moments \(2026\)/);
   assert.match(html, /\[<!-- -->01<!-- -->\]/);
   assert.match(html, /\[<!-- -->02<!-- -->\]/);
   assert.match(html, /\[<!-- -->03<!-- -->\]/);
