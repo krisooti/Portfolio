@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { HighlightText } from "../../../HighlightText";
-import { CASE_TYPOGRAPHY } from "./CaseStudyParts";
 
 type PersonaTab = {
   title: string;
@@ -53,11 +52,11 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
       </svg>
 
       <div className="relative z-10">
-        <p className={CASE_TYPOGRAPHY.eyebrow}>
+        <p className="m-0 text-[14px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
           {persona.type}
         </p>
 
-        <h3 className={CASE_TYPOGRAPHY.cardTitle}>
+        <h3 className="mb-0 mt-3 font-serif text-[26px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
           <HighlightText>{persona.title}</HighlightText>
         </h3>
 
@@ -102,7 +101,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           <ul className="mt-3 grid list-none gap-2 p-0">
             {activeContent.items.map((item) => (
               <li
-                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[16px] font-normal leading-[1.75] text-[#5d5856]"
+                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[16px] font-light leading-[1.55] text-[#5d5856]"
                 key={item}
               >
                 <span className="mt-[0.58em] h-1 w-1 rounded-full bg-[#4f7f64]" />

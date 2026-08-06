@@ -94,8 +94,8 @@ export default function AboutPage() {
             >
               My interest in design began from wanting to understand
               people—their behaviors, frustrations, and everyday experiences.
-              Through UX, I discovered that the best products aren&apos;t just
-              functional—they make people feel understood.
+              Through UX, I discovered that the best product aren&apos;t just
+              made pretty —they make people feel understood.
             </p>
 
             <p

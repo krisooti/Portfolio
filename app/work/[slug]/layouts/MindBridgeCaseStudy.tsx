@@ -3,7 +3,6 @@ import {
   BackToWorkLink,
   CaseSection,
   CaseStudyShell,
-  CASE_TYPOGRAPHY,
   CaseVideo,
   CaseVisual,
   ProjectCaseIntro,
@@ -119,11 +118,11 @@ export function MindBridgeCaseStudy({
           {/* Context */}
           <CaseSection id="context" title="The Problem">
             <div className="w-full">
-              <p className={CASE_TYPOGRAPHY.subsectionHeading}>
+              <p className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
                 No centralized system to find the right supervisor.
               </p>
 
-              <p className={CASE_TYPOGRAPHY.bodySpaced}>
+              <p className="mb-0 mt-5 text-[16px] font-light leading-[1.7] text-[#5d5856]">
                 Therapists-in-training rely on{" "}
                 <span className="relative inline-block text-[#3f3a38] before:absolute before:inset-x-[-0.08em] before:bottom-[0.08em] before:-z-10 before:h-[0.72em] before:origin-left before:skew-x-[-8deg] before:bg-[#d8ecff]">
                   referrals and fragmented directories
@@ -134,11 +133,11 @@ export function MindBridgeCaseStudy({
               </p>
 
               <div className="mt-10 border-l-2 border-[var(--pink)] pl-5">
-                <p className={CASE_TYPOGRAPHY.eyebrow}>
+                <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                   How Might We
                 </p>
 
-                <p className={CASE_TYPOGRAPHY.subsectionHeading}>
+                <p className="m-0 font-serif text-[20px] font-medium leading-[1.45] tracking-[-0.01em] text-[#171717]">
                   “{project.question}”
                 </p>
               </div>
@@ -152,14 +151,16 @@ export function MindBridgeCaseStudy({
 >
   <div className="max-w-[920px]">
 
-    <p className={CASE_TYPOGRAPHY.body}>
+    <p className="text-[16px] font-light leading-[1.8] text-[#5d5856]">
       Tmind AI is a Seattle-based mental healthcare startup building AI-powered
       tools that support therapists throughout their professional journey. One
       of its core initiatives focuses on helping therapists-in-training find
       clinical supervisors through a more personalized and transparent matching
       experience.
     </p>
-    <p className={CASE_TYPOGRAPHY.bodySpaced}>
+    <br></br>
+
+    <p className="mt-6 text-[16px] font-light leading-[1.8] text-[#5d5856]">
       In collaboration with Tmind AI, our team spent six months designing an
       AI-assisted matching platform that helps trainees define their
       preferences, discover compatible supervisors, understand why each match
@@ -173,11 +174,11 @@ export function MindBridgeCaseStudy({
           Users
         </p>
 
-        <h3 className={CASE_TYPOGRAPHY.cardTitleSpaced}>
+        <h3 className="mt-5 text-[18px] font-semibold text-[#4f4b49]">
           Therapists-in-Training
         </h3>
 
-        <p className={CASE_TYPOGRAPHY.cardDescription}>
+        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
           Graduate students and associate therapists seeking clinical supervision.
         </p>
       </article>
@@ -187,11 +188,11 @@ export function MindBridgeCaseStudy({
           Problem
         </p>
 
-        <h3 className={CASE_TYPOGRAPHY.cardTitleSpaced}>
+        <h3 className="mt-5 text-[18px] font-semibold text-[#4f4b49]">
           No Centralized Directory
         </h3>
 
-        <p className={CASE_TYPOGRAPHY.cardDescription}>
+        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
           Finding the right supervisor relies heavily on referrals and fragmented resources.
         </p>
       </article>
@@ -201,11 +202,11 @@ export function MindBridgeCaseStudy({
           Solution
         </p>
 
-        <h3 className={CASE_TYPOGRAPHY.cardTitleSpaced}>
+        <h3 className="mt-5 text-[18px] font-semibold text-[#4f4b49]">
           AI Matching Platform
         </h3>
 
-        <p className={CASE_TYPOGRAPHY.cardDescription}>
+        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
           Personalized recommendations with transparent explanations and user control.
         </p>
       </article>
@@ -220,20 +221,21 @@ export function MindBridgeCaseStudy({
           >
            <div className="w-full">
 
-  <p className={CASE_TYPOGRAPHY.eyebrow}>
+  <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
     Research Method
   </p>
 
-  <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+  <h3 className="m-0 font-serif text-[22px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
     Understaing user needs through interviews and and surveys.
   </h3>
- <p className={CASE_TYPOGRAPHY.bodySpaced}>
+  <br></br>
+ <p className="mt-5 max-w-[860px] text-[16px] font-light leading-[1.75] text-[#5d5856]">
   To understand how therapists-in-training and supervisors approach the
   supervision matching process, we combined qualitative interviews with
   quantitative survey data.
 </p>
 
-<ul className={CASE_TYPOGRAPHY.list}>
+<ul className="mt-6 space-y-3 text-[15px] font-light leading-[1.75] text-[#5d5856]">
   <li className="flex gap-3">
     <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8a8380]" />
     <span>
@@ -271,11 +273,11 @@ export function MindBridgeCaseStudy({
             <div className="mt-14">
               <div className="mb-7 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className={CASE_TYPOGRAPHY.eyebrow}>
+                  <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#9a928e]">
                     Key Findings
                   </p>
 
-                  <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+                  <h3 className="mb-0 mt-3 max-w-[720px] font-serif text-[22px] font-small leading-[1.2] tracking-[-0.02em] text-[#171717]">
                     Three Key Insights from User Interviews and Survey Data.
                   </h3>
                 </div>
@@ -326,11 +328,11 @@ export function MindBridgeCaseStudy({
                         {finding.category}
                       </p>
 
-                      <h4 className={CASE_TYPOGRAPHY.cardTitleCompact}>
+                      <h4 className="mb-0 mt-3 text-[17px] font-bold leading-[1.3] text-[#656565]">
                         {finding.title}
                       </h4>
 
-                      <p className={CASE_TYPOGRAPHY.cardDescription}>
+                      <p className="mb-0 mt-3 max-w-[640px] text-[14px] font-normal leading-[1.65] text-[#66615f]">
                         {finding.description}
                       </p>
                     </div>
@@ -339,7 +341,8 @@ export function MindBridgeCaseStudy({
                   </article>
                 ))}
               </div>
-              <p className="mb-0 mt-10 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                <br></br>
+              <p className="mb-0 mt-10 max-w-[900px] text-[17px] font-normal leading-[1.75] text-[#2f2b29]">
                 The findings showed that users were not simply looking for more
                 supervisor options. They needed a transparent and guided process
                 that reflected their preferences and learning goals while
@@ -347,20 +350,20 @@ export function MindBridgeCaseStudy({
               </p>
             </div>
           </CaseSection>
-
+         
          {/* Design Ideation */}
         <div className="mt-20">
-          <p className={CASE_TYPOGRAPHY.eyebrow}>
+          <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
             Design Ideation
           </p>
 
-          <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+          <h3 className="m-0 font-serif text-[20px] font-medium leading-[1.3] tracking-[-0.02em] text-[#171717]">
             <HighlightText>
               Exploring concepts from key research findings.
             </HighlightText>
           </h3>
 
-          <p className={CASE_TYPOGRAPHY.bodySpaced}>
+          <p className="mt-5 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]">
             Guided by the research findings, we explored multiple concepts for how AI
             could support the supervision matching journey. We rapidly sketched
             different approaches for onboarding, preference collection,
@@ -414,11 +417,11 @@ export function MindBridgeCaseStudy({
                   </span>
 
                   <div>
-                    <h3 className={CASE_TYPOGRAPHY.cardTitle}>
+                    <h3 className="m-0 text-[16px] font-bold leading-[1.2] text-[#656565]">
                       {opportunity.title}
                     </h3>
 
-                    <p className={CASE_TYPOGRAPHY.cardDescription}>
+                    <p className="mb-0 mt-3 text-[14px] font-normal leading-[1.6] text-[#66615f]">
                       {opportunity.description}
                     </p>
                   </div>
@@ -426,7 +429,7 @@ export function MindBridgeCaseStudy({
               ))}
             </div>
 
-            <p className="mb-0 mt-10 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+            <p className="mb-0 mt-10 max-w-[960px] text-[18px] font-normal leading-[1.7] text-[#2f2b29]">
               Based on the research findings, we identified three design
               opportunities: make AI recommendations easier to understand,
               preserve trainee control throughout the matching process, and
@@ -439,7 +442,7 @@ export function MindBridgeCaseStudy({
             id="design-decisions"
             title="Translating Research into Structure"
           >
-            <p className={CASE_TYPOGRAPHY.body}>
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               We transformed research findings into a structured product
               experience by organizing features around users&apos; mental
               models. Rather than presenting a large directory, the architecture
@@ -463,7 +466,7 @@ export function MindBridgeCaseStudy({
             label="Final Solution"
             title="The demos show the core matching experience in motion."
           >
-            <p className={CASE_TYPOGRAPHY.body}>
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               The final solution centers on helping users refine supervisor
               recommendations and take action with clarity.
             </p>
@@ -475,7 +478,7 @@ export function MindBridgeCaseStudy({
                 return (
                   <article className="grid gap-7" key={feature.title}>
                     <div className="w-full">
-                      <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+                      <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                         <HighlightText>{feature.title}</HighlightText>
                       </h3>
                     </div>
@@ -496,18 +499,18 @@ export function MindBridgeCaseStudy({
                           ["Outcome", feature.outcome],
                         ].map(([label, value]) => (
                           <div key={label}>
-                            <p className={CASE_TYPOGRAPHY.eyebrow}>
+                            <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
                               {label}
                             </p>
 
-                            <p className={CASE_TYPOGRAPHY.body}>
+                            <p className="m-0 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                               {value}
                             </p>
                           </div>
                         ))}
                       </div>
 
-                      <ul className="m-0 list-disc space-y-3 pl-5 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                      <ul className="m-0 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                         {feature.highlights.map((highlight) => (
                           <li key={highlight}>{highlight}</li>
                         ))}
@@ -525,7 +528,7 @@ export function MindBridgeCaseStudy({
             label="Design System"
             title="A restrained visual system built for clarity and trust."
           >
-            <p className={CASE_TYPOGRAPHY.body}>
+            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
               The interface uses a clean and accessible visual language focused
               on clarity, consistency, and trust. A restrained color palette and
               consistent typography help users focus on important clinical
@@ -553,11 +556,11 @@ export function MindBridgeCaseStudy({
           >
             <div className="grid w-full gap-12 md:grid-cols-2">
               <div>
-                <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                   <HighlightText>Results</HighlightText>
                 </h3>
 
-                <ul className="mb-0 mt-6 list-disc space-y-3 pl-5 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                   <li>Improved transparency</li>
                   <li>Increased user confidence</li>
                   <li>Reduced uncertainty</li>
@@ -566,11 +569,11 @@ export function MindBridgeCaseStudy({
               </div>
 
               <div>
-                <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                   <HighlightText>Learnings</HighlightText>
                 </h3>
 
-                <ul className="mb-0 mt-6 list-disc space-y-3 pl-5 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-light leading-[1.65] text-[#5d5856]">
                   <li>AI should support human decision making.</li>
                   <li>Research should drive product decisions.</li>
                   <li>Iteration creates better outcomes than first ideas.</li>

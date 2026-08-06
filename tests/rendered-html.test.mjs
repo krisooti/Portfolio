@@ -133,9 +133,11 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /tmind\.png/);
   assert.match(html, /mindbridge-research-board\.png/);
   assert.match(html, /User Interviews/);
-  assert.match(html, /The matching process lacks structure/);
   assert.match(html, /Users want to define their preferences before receiving AI matches/);
-  assert.match(html, /AI should support human judgment/);
+  assert.match(html, /Users value meaningful fit over convenience/);
+  assert.match(html, /AI should support, not replace, decision-making/);
+  assert.match(html, /Trainees \+ Supervisors/);
+  assert.match(html, /Research Synthesis/);
   assert.match(html, /Design Opportunities/);
   assert.match(html, /Transparent Matching/);
   assert.match(html, /User Control/);
@@ -157,7 +159,7 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /Design system: typography, components, and color palette/);
   assert.doesNotMatch(html, /Filter Chips/);
   assert.match(html, /How might we help users confidently find the right supervisor/);
-  assert.match(html, /6 semi-structured interviews/);
+  assert.match(html, /six 30-minute interviews/);
   assert.match(html, /AI should support human decision making/);
 });
 
