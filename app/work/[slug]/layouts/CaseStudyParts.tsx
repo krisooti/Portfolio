@@ -22,6 +22,27 @@ const CENTERED_CONTENT_CLASS =
 const EDITORIAL_TEXT_CLASS =
   CENTERED_CONTENT_CLASS;
 
+export const CASE_TYPOGRAPHY = {
+  eyebrow:
+    "mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]",
+  subsectionHeading:
+    "m-0 font-serif text-[20px] font-semibold leading-[1.3] tracking-[-0.02em] text-[#171717]",
+  body:
+    "m-0 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]",
+  bodySpaced:
+    "mt-6 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]",
+  list:
+    "mt-6 space-y-3 text-[16px] font-normal leading-[1.75] text-[#5d5856]",
+  cardTitle:
+    "m-0 text-[16px] font-semibold leading-[1.35] text-[#171717]",
+  cardTitleSpaced:
+    "mb-0 mt-5 text-[16px] font-semibold leading-[1.35] text-[#171717]",
+  cardTitleCompact:
+    "mb-0 mt-3 text-[16px] font-semibold leading-[1.35] text-[#171717]",
+  cardDescription:
+    "mb-0 mt-3 text-[16px] font-normal leading-[1.7] text-[#5d5856]",
+} as const;
+
 export function CaseSection({
   category,
   id,
@@ -50,7 +71,7 @@ export function CaseSection({
       <div className={CENTERED_CONTENT_CLASS}>
         <header className="mb-8 w-full" data-gsap-header>
           {sectionLabel ? (
-            <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+            <p className={CASE_TYPOGRAPHY.eyebrow}>
               {sectionLabel}
             </p>
           ) : null}
@@ -59,7 +80,7 @@ export function CaseSection({
             <p
               className={
                 titleClassName ??
-                "m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]"
+                CASE_TYPOGRAPHY.body
               }
             >
               {title}
@@ -109,7 +130,7 @@ export function CaseVisual({
             </p>
 
             {note ? (
-              <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#716b67]">
+              <p className={CASE_TYPOGRAPHY.cardDescription}>
                 {note}
               </p>
             ) : null}
@@ -141,7 +162,7 @@ export function CaseInsightPanel({
         {items.map((item, index) => (
           <li
             key={item}
-            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-left text-[16px] font-light leading-[1.65] text-[#5d5856]"
+            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-left text-[16px] font-normal leading-[1.75] text-[#5d5856]"
           >
             <span className="font-serif text-base font-medium text-[#aaa29e]">
               {String(index + 1).padStart(2, "0")}
@@ -173,7 +194,7 @@ export function CaseSolutionFeature({
           <HighlightText>{title}</HighlightText>
         </h3>
 
-        <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+        <p className={CASE_TYPOGRAPHY.cardDescription}>
           {rationale}
         </p>
       </div>
@@ -365,7 +386,7 @@ export function ProjectCaseIntro({
           </h1>
         </div>
 
-        <p className="mb-0 mt-8 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+        <p className="mb-0 mt-8 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]">
           {project.summary}
         </p>
 
@@ -407,7 +428,7 @@ export function ProjectCaseIntro({
             Project Overview
           </h2>
 
-          <p className="mb-0 mt-4 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+          <p className="mb-0 mt-4 max-w-[860px] text-[16px] font-normal leading-[1.75] text-[#5d5856]">
             {overview}
           </p>
         </div>

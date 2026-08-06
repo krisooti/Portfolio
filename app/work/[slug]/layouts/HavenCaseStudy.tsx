@@ -6,6 +6,7 @@ import {
   CaseSection,
   CaseSolutionFeature,
   CaseStudyShell,
+  CASE_TYPOGRAPHY,
   CaseVideo,
   CaseVisual,
   ProjectCaseIntro,
@@ -31,12 +32,12 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Context"
               title={project.problem ?? project.challenge}
               titleAs="body"
-              titleClassName="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]"
+              titleClassName={CASE_TYPOGRAPHY.body}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className={CASE_TYPOGRAPHY.body}>
                 {project.challenge}
               </p>
-              <p className="mt-5 w-full border-l-2 border-[var(--pink)] pl-5 text-[16px] font-light leading-[1.7] text-[#3f3a38]">
+              <p className="mt-6 max-w-[860px] border-l-2 border-[var(--pink)] pl-5 text-[16px] font-normal leading-[1.75] text-[#3f3a38]">
                 {project.question}
               </p>
               <CaseInsightPanel title="Pain points" items={content.painPoints} />
@@ -47,7 +48,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className={CASE_TYPOGRAPHY.body}>
                 {content.researchCopy}
               </p>
 
@@ -64,7 +65,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               title={content.designHeading}
             >
               <div className="w-full">
-                <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                <p className={CASE_TYPOGRAPHY.body}>
                   {content.designTakeaway}
                 </p>
               </div>
@@ -81,7 +82,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
 
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] text-[#171717]">
+                        <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
                           <HighlightText>{stage.title}</HighlightText>
                         </h3>
 
@@ -92,7 +93,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         ) : null}
                       </div>
 
-                      <p className="mb-0 mt-3 w-full text-[16px] font-light leading-[1.65] text-[#5d5856]">
+                      <p className={CASE_TYPOGRAPHY.cardDescription}>
                         {stage.body}
                       </p>
                     </div>
@@ -106,14 +107,14 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className={CASE_TYPOGRAPHY.body}>
                 {content.solutionCopy}
               </p>
 
               {prototypeVideos.length > 0 ? (
                 <div className="mt-10 grid gap-8">
                   <div className="w-full border-t border-[#e6dfdb] pt-7">
-                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+                    <p className={CASE_TYPOGRAPHY.eyebrow}>
                       Prototype demos
                     </p>
                   </div>
@@ -145,7 +146,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Results + Reflection"
               title="The final direction made the search feel more guided and less uncertain."
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className={CASE_TYPOGRAPHY.body}>
                 {content.resultsCopy}
               </p>
               <CaseVisual
@@ -159,10 +160,10 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                     className="border-t border-[#e6dfdb] pt-5"
                     key={reflection.title}
                   >
-                    <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] text-[#171717]">
+                    <h3 className={CASE_TYPOGRAPHY.subsectionHeading}>
                       <HighlightText>{reflection.title}</HighlightText>
                     </h3>
-                    <p className="mb-0 mt-3 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                    <p className={CASE_TYPOGRAPHY.cardDescription}>
                       {reflection.body}
                     </p>
                   </article>
