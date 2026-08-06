@@ -1,5 +1,4 @@
 import { HighlightText } from "../../../HighlightText";
-import { Clock3, Lightbulb, Target, Users } from "lucide-react";
 import {
   BackToWorkLink,
   CaseSection,
@@ -22,6 +21,30 @@ const mindBridgeSections = [
   { id: "results-learnings", label: "Learnings", number: "08" },
 ];
 
+const researchFindings = [
+  {
+    number: "01",
+    title: "Users want to define their preferences before receiving AI matches.",
+    description:
+      "Before receiving recommendations, trainees wanted AI to understand their learning goals, clinical interests, supervision style, and areas for professional growth.",
+    userGroup: "Trainees",
+  },
+  {
+    number: "02",
+    title: "Users value meaningful fit over convenience.",
+    description:
+      "Learning goals, clinical modality, supervisor experience, and supervision style were consistently prioritized over scheduling or location.",
+    userGroup: "Trainees",
+  },
+  {
+    number: "03",
+    title: "AI should support, not replace, decision-making.",
+    description:
+      "Both trainees and supervisors welcomed AI assistance, but wanted transparency and final control over the match.",
+    userGroup: "Trainees + Supervisors",
+  },
+];
+
 const designOpportunities = [
   {
     icon: "≋",
@@ -41,17 +64,6 @@ const designOpportunities = [
     description:
       "Prioritize learning goals, supervision style, modality, clinical interests, and experience over surface-level convenience.",
   },
-];
-
-const researchTopics = [
-  "AI Trust",
-  "Explainability",
-  "Human Control",
-  "Supervisor Fit",
-  "Learning Goals",
-  "Integration Concerns",
-  "Current Workflow",
-  "Decision Making",
 ];
 
 const videoFeatures = [
@@ -121,118 +133,84 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
             </div>
           </CaseSection>
 
-          <CaseSection
-            id="research"
-            title="Research clarified what users needed before trusting AI."
-          >
+        <CaseSection
+  id="research"
+  title="Research clarified what users needed before trusting AI."
+>
+  {/* Research method */}
+  <div className="w-full">
+    <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+      User Interviews
+    </p>
 
+    <p className="m-0 max-w-[820px] text-[16px] font-light leading-[1.75] text-[#5d5856]">
+      We conducted six 30-minute interviews with three clinical
+      supervisors and three therapists-in-training. We synthesized the
+      findings through affinity mapping and thematic analysis to understand
+      what users need before trusting AI-generated recommendations.
+    </p>
+  </div>
 
-            <div className="mt-16 w-full">
-              <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                User Interviews
-              </p>
-              <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
-                We conducted six 30-minute interviews with four therapists-in-training and two licensed supervisors. We synthesized the findings through affinity mapping and thematic analysis to understand what users need before trusting AI-generated recommendations.
-              </p>
-            </div>
+  {/* Research finding cards */}
+  <div className="mt-14">
+    <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#9a928e]">
+          Key Findings
+        </p>
 
-            <div className="mt-10 overflow-hidden rounded-[24px] border border-[#e4dfdb] bg-[#faf9f7] shadow-[0_14px_34px_rgba(42,35,31,0.045)]">
-              <div className="grid md:grid-cols-2 lg:grid-cols-4">
-                <article className="border-b border-[#e4dfdb] p-6 md:border-r md:p-7 lg:border-b-0">
-                  <div className="flex items-center gap-2.5 text-[#6f6966]">
-                    <Users aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
-                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
-                      Participants
-                    </p>
-                  </div>
-                  <p className="mb-5 mt-10 font-serif text-[46px] font-medium leading-none tracking-[-0.04em] text-[#171717]">
-                    6
-                  </p>
-                  <ul className="m-0 list-none space-y-2 p-0 text-[14px] font-normal leading-[1.55] text-[#625d5a]">
-                    <li>4 Therapists-in-Training</li>
-                    <li>2 Licensed Supervisors</li>
-                  </ul>
-                </article>
+        <h3 className="mb-0 mt-3 max-w-[700px] font-serif text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-[#171717]">
+          Insights from User Interviews
+        </h3>
+      </div>
+    </div>
 
-                <article className="border-b border-[#e4dfdb] p-6 md:p-7 lg:border-b-0 lg:border-r">
-                  <div className="flex items-center gap-2.5 text-[#6f6966]">
-                    <Clock3 aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
-                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
-                      Interview Format
-                    </p>
-                  </div>
-                  <p className="mb-5 mt-10 font-serif text-[40px] font-medium leading-none tracking-[-0.04em] text-[#171717]">
-                    30 min
-                  </p>
-                  <p className="m-0 text-[14px] font-normal leading-[1.6] text-[#625d5a]">
-                    Semi-structured interviews conducted remotely.
-                  </p>
-                </article>
+    <div className="border-b border-[#dcd7d3]">
+      {researchFindings.map((finding) => (
+        <article
+          className="grid grid-cols-[48px_minmax(0,1fr)_170px] gap-6 border-t border-[#dcd7d3] py-9 max-[700px]:grid-cols-[40px_minmax(0,1fr)] max-[700px]:gap-x-4 max-[700px]:gap-y-6 max-[560px]:py-7"
+          key={finding.number}
+        >
+          <p className="m-0 font-serif text-[17px] font-medium leading-none text-[#9b9490]">
+            {finding.number}
+          </p>
 
-                <article className="border-b border-[#e4dfdb] p-6 md:border-b-0 md:border-r md:p-7">
-                  <div className="flex items-center gap-2.5 text-[#6f6966]">
-                    <Target aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
-                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
-                      Research Goals
-                    </p>
-                  </div>
-                  <h3 className="mb-5 mt-10 font-serif text-[23px] font-medium leading-[1.2] text-[#171717]">
-                    What We Explored
-                  </h3>
-                  <ul className="m-0 space-y-2.5 pl-4 text-[14px] font-normal leading-[1.5] text-[#625d5a] marker:text-[#aaa29e]">
-                    <li>Trust in AI-generated recommendations</li>
-                    <li>Current supervision matching experience</li>
-                    <li>Concerns about integrating AI</li>
-                    <li>Decision-making when choosing supervisors</li>
-                  </ul>
-                </article>
+          <div>
+            <h4 className="m-0 max-w-[620px] font-serif text-[23px] font-medium leading-[1.3] tracking-[-0.01em] text-[#171717]">
+              {finding.title}
+            </h4>
+            <p className="mb-0 mt-4 max-w-[640px] text-[15px] font-normal leading-[1.7] text-[#625d5a]">
+              {finding.description}
+            </p>
+          </div>
 
-                <article className="p-6 md:p-7">
-                  <div className="flex items-center gap-2.5 text-[#6f6966]">
-                    <Lightbulb aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
-                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
-                      Research Outcome
-                    </p>
-                  </div>
-                  <h3 className="mb-5 mt-10 font-serif text-[23px] font-medium leading-[1.2] text-[#171717]">
-                    Purpose
-                  </h3>
-                  <p className="m-0 text-[14px] font-normal leading-[1.65] text-[#625d5a]">
-                    Identify opportunities to design a transparent, trustworthy,
-                    and human-centered AI matching experience while maintaining
-                    user control throughout the supervision process.
-                  </p>
-                </article>
-              </div>
-            </div>
+          <p className="m-0 self-center text-center text-[11px] font-normal uppercase tracking-[0.12em] text-[#8e8783] max-[700px]:col-start-2 max-[700px]:self-auto max-[700px]:text-left">
+            {finding.userGroup}
+          </p>
+        </article>
+      ))}
+    </div>
 
-            <div className="mt-10">
-              <h3 className="m-0 font-serif text-[24px] font-medium leading-[1.25] text-[#171717]">
-                Key Discussion Topics
-              </h3>
-              <ul className="mt-5 flex list-none flex-wrap gap-2.5 p-0">
-                {researchTopics.map((topic) => (
-                  <li
-                    className="rounded-full border border-[#ded9d5] bg-[#fffdfb] px-4 py-2 text-[13px] font-normal leading-none text-[#5f5956]"
-                    key={topic}
-                  >
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <p className="mb-0 mt-10 max-w-[900px] text-[17px] font-normal leading-[1.75] text-[#2f2b29]">
+      The findings showed that users were not simply looking for more
+      supervisor options. They needed a transparent and guided process that
+      reflected their learning goals while preserving their ability to
+      compare and choose.
+    </p>
+  </div>
 
-            <div className="mt-16">
-              <p className="mb-2 mt-0 w-full text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
-                Research Synthesis
-              </p>
-              <CaseVisual
-                image={content.researchImage}
-                label={content.researchCaption}
-              />
-            </div>
+  {/* Research synthesis visual */}
+  <div className="mt-16">
+    <p className="mb-2 mt-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+      Research Synthesis
+    </p>
 
-          </CaseSection>
+    <CaseVisual
+      image={content.researchImage}
+      label={content.researchCaption}
+    />
+  </div>
+</CaseSection>
 
           <CaseSection id="design-opportunities" title="Design Opportunities">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

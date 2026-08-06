@@ -133,13 +133,10 @@ test("server-renders the MindBridge case study", async () => {
   assert.match(html, /tmind\.png/);
   assert.match(html, /mindbridge-research-board\.png/);
   assert.match(html, /User Interviews/);
-  assert.match(html, /Participants/);
-  assert.match(html, /4 Therapists-in-Training/);
-  assert.match(html, /2 Licensed Supervisors/);
-  assert.match(html, /What We Explored/);
-  assert.match(html, /Key Discussion Topics/);
-  assert.match(html, /Explainability/);
-  assert.match(html, /Human Control/);
+  assert.match(html, /Users want to define their preferences before receiving AI matches/);
+  assert.match(html, /Users value meaningful fit over convenience/);
+  assert.match(html, /AI should support, not replace, decision-making/);
+  assert.match(html, /Trainees \+ Supervisors/);
   assert.match(html, /Research Synthesis/);
   assert.match(html, /Design Opportunities/);
   assert.match(html, /Transparent Matching/);
