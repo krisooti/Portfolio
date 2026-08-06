@@ -1,4 +1,5 @@
 import { HighlightText } from "../../../HighlightText";
+import { Clock3, Lightbulb, Target, Users } from "lucide-react";
 import {
   BackToWorkLink,
   CaseSection,
@@ -40,6 +41,17 @@ const designOpportunities = [
     description:
       "Prioritize learning goals, supervision style, modality, clinical interests, and experience over surface-level convenience.",
   },
+];
+
+const researchTopics = [
+  "AI Trust",
+  "Explainability",
+  "Human Control",
+  "Supervisor Fit",
+  "Learning Goals",
+  "Integration Concerns",
+  "Current Workflow",
+  "Decision Making",
 ];
 
 const videoFeatures = [
@@ -120,8 +132,94 @@ export function MindBridgeCaseStudy({ project, content }: ProjectCaseStudyProps)
                 User Interviews
               </p>
               <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
-                We conducted six 30-minute interviews with three clinical supervisors and three therapists-in-training. We synthesized the findings through affinity mapping and thematic analysis to understand what users need before trusting AI-generated recommendations.
+                We conducted six 30-minute interviews with four therapists-in-training and two licensed supervisors. We synthesized the findings through affinity mapping and thematic analysis to understand what users need before trusting AI-generated recommendations.
               </p>
+            </div>
+
+            <div className="mt-10 overflow-hidden rounded-[24px] border border-[#e4dfdb] bg-[#faf9f7] shadow-[0_14px_34px_rgba(42,35,31,0.045)]">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4">
+                <article className="border-b border-[#e4dfdb] p-6 md:border-r md:p-7 lg:border-b-0">
+                  <div className="flex items-center gap-2.5 text-[#6f6966]">
+                    <Users aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
+                      Participants
+                    </p>
+                  </div>
+                  <p className="mb-5 mt-10 font-serif text-[46px] font-medium leading-none tracking-[-0.04em] text-[#171717]">
+                    6
+                  </p>
+                  <ul className="m-0 list-none space-y-2 p-0 text-[14px] font-normal leading-[1.55] text-[#625d5a]">
+                    <li>4 Therapists-in-Training</li>
+                    <li>2 Licensed Supervisors</li>
+                  </ul>
+                </article>
+
+                <article className="border-b border-[#e4dfdb] p-6 md:p-7 lg:border-b-0 lg:border-r">
+                  <div className="flex items-center gap-2.5 text-[#6f6966]">
+                    <Clock3 aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
+                      Interview Format
+                    </p>
+                  </div>
+                  <p className="mb-5 mt-10 font-serif text-[40px] font-medium leading-none tracking-[-0.04em] text-[#171717]">
+                    30 min
+                  </p>
+                  <p className="m-0 text-[14px] font-normal leading-[1.6] text-[#625d5a]">
+                    Semi-structured interviews conducted remotely.
+                  </p>
+                </article>
+
+                <article className="border-b border-[#e4dfdb] p-6 md:border-b-0 md:border-r md:p-7">
+                  <div className="flex items-center gap-2.5 text-[#6f6966]">
+                    <Target aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
+                      Research Goals
+                    </p>
+                  </div>
+                  <h3 className="mb-5 mt-10 font-serif text-[23px] font-medium leading-[1.2] text-[#171717]">
+                    What We Explored
+                  </h3>
+                  <ul className="m-0 space-y-2.5 pl-4 text-[14px] font-normal leading-[1.5] text-[#625d5a] marker:text-[#aaa29e]">
+                    <li>Trust in AI-generated recommendations</li>
+                    <li>Current supervision matching experience</li>
+                    <li>Concerns about integrating AI</li>
+                    <li>Decision-making when choosing supervisors</li>
+                  </ul>
+                </article>
+
+                <article className="p-6 md:p-7">
+                  <div className="flex items-center gap-2.5 text-[#6f6966]">
+                    <Lightbulb aria-hidden="true" className="h-[19px] w-[19px]" strokeWidth={1.6} />
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em]">
+                      Research Outcome
+                    </p>
+                  </div>
+                  <h3 className="mb-5 mt-10 font-serif text-[23px] font-medium leading-[1.2] text-[#171717]">
+                    Purpose
+                  </h3>
+                  <p className="m-0 text-[14px] font-normal leading-[1.65] text-[#625d5a]">
+                    Identify opportunities to design a transparent, trustworthy,
+                    and human-centered AI matching experience while maintaining
+                    user control throughout the supervision process.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="m-0 font-serif text-[24px] font-medium leading-[1.25] text-[#171717]">
+                Key Discussion Topics
+              </h3>
+              <ul className="mt-5 flex list-none flex-wrap gap-2.5 p-0">
+                {researchTopics.map((topic) => (
+                  <li
+                    className="rounded-full border border-[#ded9d5] bg-[#fffdfb] px-4 py-2 text-[13px] font-normal leading-none text-[#5f5956]"
+                    key={topic}
+                  >
+                    {topic}
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="mt-16">
