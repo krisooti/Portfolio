@@ -120,7 +120,14 @@ const leafyDesignProcessCards = [
   },
 ];
 
-const leafyPlantPalMedia = [
+type LeafyPlantPalMediaItem = {
+  title: string;
+  src: string;
+  type: "image" | "video";
+  caption?: string;
+};
+
+const leafyPlantPalMedia: readonly LeafyPlantPalMediaItem[] = [
   {
     title: "AI generated peony",
     src: "/images/leafy-character-gif.gif",
@@ -131,7 +138,7 @@ const leafyPlantPalMedia = [
     src: "/videos/leafy-character-growing.mov",
     type: "video",
   },
-] as const;
+];
 
 const leafyPlantPalWidgetImage = {
   title: "PlantPal widget system",
@@ -244,14 +251,16 @@ function PlantPalDesignSolution() {
                   )}
                 </div>
 
-                <figcaption className="pt-4">
-                  <span className="block font-serif text-[18px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+                <figcaption>
+                  <span className="block text-[16px] font-semibold leading-[1.4] text-[#171717]">
                     {item.title}
                   </span>
 
-                  <span className="mt-2 block text-[16px] font-light leading-[1.55] text-[#6a6461]">
-                    {item.caption}
-                  </span>
+                  {item.caption ? (
+                    <span className="mt-2 block text-[16px] font-normal leading-[1.55] text-[#5d5856]">
+                      {item.caption}
+                    </span>
+                  ) : null}
                 </figcaption>
               </figure>
             ))}

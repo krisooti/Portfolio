@@ -34,7 +34,7 @@ export function CaseSection({
   id: string;
   category?: string;
   label?: string;
-  title: string;
+  title?: string;
   titleAs?: "heading" | "body";
   titleClassName?: string;
   children: ReactNode;

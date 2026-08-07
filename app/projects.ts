@@ -11,6 +11,7 @@ export type Project = {
   };
   intro: string;
   challenge: string;
+  problem?: string;
   approach: string;
   outcome: string;
   details: string[];

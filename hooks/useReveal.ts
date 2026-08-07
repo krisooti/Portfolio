@@ -26,12 +26,15 @@ export function useReveal() {
       const visualItems = section.querySelectorAll(
         "[data-gsap-image], figure img, figure video",
       );
+      const hasVisualItems = visualItems.length > 0;
 
       gsap.set(section, { autoAlpha: 0, y: 40 });
       const staggerItems = [header, ...bodyItems].filter(Boolean);
 
       gsap.set(staggerItems, { autoAlpha: 0, y: 18 });
-      gsap.set(visualItems, { autoAlpha: 0, y: 24, scale: 0.98 });
+      if (hasVisualItems) {
+        gsap.set(visualItems, { autoAlpha: 0, y: 24, scale: 0.98 });
+      }
 
       const timeline = gsap.timeline({
         scrollTrigger: {
@@ -58,8 +61,10 @@ export function useReveal() {
             stagger: 0.08,
           },
           "-=0.5",
-        )
-        .to(
+        );
+
+      if (hasVisualItems) {
+        timeline.to(
           visualItems,
           {
             autoAlpha: 1,
@@ -71,6 +76,7 @@ export function useReveal() {
           },
           "-=0.35",
         );
+      }
     });
   });
 }
