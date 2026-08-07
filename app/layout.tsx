@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   description:
     "A modern, minimal UX portfolio with selected case studies and an editorial design sensibility.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/kristi-logo.svg",
+    shortcut: "/kristi-logo.svg",
   },
 };
 
