@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { HighlightText } from "../HighlightText";
 import { SiteNav } from "../SiteNav";
 import ProfileCarousel from "./ProfileCarousel";
+import { ToolboxSection } from "./ToolboxSection";
 
 export const metadata: Metadata = {
   title: "About - Kristi Kim",
@@ -113,6 +114,9 @@ export default function AboutPage() {
             </p>
           </div>
         </AboutSection>
+
+        {/* Toolbox */}
+        <ToolboxSection />
       </article>
     </main>
   );

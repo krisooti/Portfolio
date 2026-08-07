@@ -10,7 +10,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLPreElement>(null);
+  const logoRef = useRef<HTMLSpanElement>(null);
   const resetTimer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -44,39 +44,20 @@ export function SiteNav({ home = false }: { home?: boolean }) {
     }
 
     const { gsap } = getGSAP();
-    const dots = logoRef.current.querySelectorAll("[data-logo-dot]");
-    const timeline = gsap.timeline();
-
-    timeline
+    gsap
+      .timeline()
       .to(logoRef.current, {
         y: -3,
+        rotation: -4,
         duration: 0.22,
         ease: "power2.out",
       })
-      .to(
-        dots,
-        {
-          rotation: (index) => (index === 0 ? -4 : 4),
-          duration: 0.22,
-          ease: "power2.out",
-          transformOrigin: "50% 50%",
-        },
-        "<",
-      )
       .to(logoRef.current, {
         y: 0,
+        rotation: 0,
         duration: 0.28,
         ease: "power2.out",
-      })
-      .to(
-        dots,
-        {
-          rotation: 0,
-          duration: 0.28,
-          ease: "power2.out",
-        },
-        "<",
-      );
+      });
   };
 
   return (
@@ -92,16 +73,15 @@ export function SiteNav({ home = false }: { home?: boolean }) {
         onFocus={animateLogo}
         onMouseEnter={animateLogo}
       >
-        <pre
-          className="m-0 whitespace-pre text-left font-mono text-[clamp(9px,0.9vw,13px)] font-light leading-[1.05] tracking-normal text-[#34302e]"
+        <span
+          className="inline-flex items-center gap-2 text-[13px] font-light leading-none tracking-normal text-[#34302e]"
           ref={logoRef}
         >
-          <span data-logo-dot>｡ﾟﾟ･｡･ﾟﾟ｡</span>
-          {"\n"}
-          <span>ﾟ。 Kristi Kim</span>
-          {"\n"}
-          <span data-logo-dot>　ﾟ･｡･ﾟ</span>
-        </pre>
+          <span aria-hidden="true" className="font-serif text-[24px] leading-none">
+            𓇼
+          </span>
+          <span>Kristi Kim</span>
+        </span>
       </Link>
       <nav className="flex items-center justify-self-center gap-[clamp(18px,3vw,34px)] max-[560px]:gap-4">
         <Link

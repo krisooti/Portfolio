@@ -30,11 +30,13 @@ function weatherIcon(code: number) {
 export function SeattleStatus() {
   const [state, setState] = useState<WeatherState>({
     status: "loading",
-    time: seattleTime(),
+    time: "—",
   });
 
   useEffect(() => {
     let active = true;
+
+    setState((current) => ({ ...current, time: seattleTime() }));
 
     const tick = window.setInterval(() => {
       setState((current) => ({ ...current, time: seattleTime() }));
