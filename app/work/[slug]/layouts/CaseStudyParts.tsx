@@ -365,7 +365,7 @@ export function ProjectCaseIntro({
           </h1>
         </div>
 
-        <p className="mb-0 mt-8 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+        <p className="mb-0 mt-8 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
           {project.summary}
         </p>
 
@@ -407,7 +407,7 @@ export function ProjectCaseIntro({
             Project Overview
           </h2>
 
-          <p className="mb-0 mt-4 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+          <p className="mb-0 mt-4 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
             {overview}
           </p>
         </div>
