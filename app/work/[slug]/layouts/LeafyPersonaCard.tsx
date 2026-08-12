@@ -60,7 +60,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           <HighlightText>{persona.title}</HighlightText>
         </h3>
 
-        <p className="mb-0 mt-2 text-[12px] font-light leading-[1.6] text-[#746f6c]">
+        <p className="mb-0 mt-2 text-[16px] font-light leading-[1.6] text-[#746f6c]">
           {persona.detail}
         </p>
 

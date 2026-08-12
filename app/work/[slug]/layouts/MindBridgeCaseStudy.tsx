@@ -190,7 +190,7 @@ export function MindBridgeCaseStudy({
           Therapists-in-Training
         </h3>
 
-        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
+        <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
           Graduate students and associate therapists seeking clinical supervision.
         </p>
       </article>
@@ -204,7 +204,7 @@ export function MindBridgeCaseStudy({
           No Centralized Directory
         </h3>
 
-        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
+        <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
           Finding the right supervisor relies heavily on referrals and fragmented resources.
         </p>
       </article>
@@ -218,7 +218,7 @@ export function MindBridgeCaseStudy({
           AI Matching Platform
         </h3>
 
-        <p className="mt-3 text-[14px] leading-[1.6] text-[#66615f]">
+        <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
           Personalized recommendations with transparent explanations and user control.
         </p>
       </article>
@@ -247,7 +247,7 @@ export function MindBridgeCaseStudy({
   quantitative survey data.
 </p>
 
-<ul className="mt-6 space-y-3 text-[15px] font-light leading-[1.75] text-[#5d5856]">
+<ul className="mt-6 space-y-3 text-[16px] font-light leading-[1.75] text-[#5d5856]">
   <li className="flex gap-3">
     <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8a8380]" />
     <span>
@@ -344,7 +344,7 @@ export function MindBridgeCaseStudy({
                         {finding.title}
                       </h4>
 
-                      <p className="mb-0 mt-3 max-w-[640px] text-[14px] font-normal leading-[1.65] text-[#66615f]">
+                      <p className="mb-0 mt-3 max-w-[640px] text-[16px] font-normal leading-[1.65] text-[#66615f]">
                         {finding.description}
                       </p>
                     </div>
@@ -354,7 +354,7 @@ export function MindBridgeCaseStudy({
                 ))}
               </div>
                 <br></br>
-              <p className="mb-0 mt-10 max-w-[900px] text-[17px] font-normal leading-[1.75] text-[#2f2b29]">
+              <p className="mb-0 mt-10 max-w-[900px] text-[16px] font-normal leading-[1.75] text-[#2f2b29]">
                 The findings showed that users were not simply looking for more
                 supervisor options. They needed a transparent and guided process
                 that reflected their preferences and learning goals while
@@ -430,7 +430,7 @@ export function MindBridgeCaseStudy({
           {opportunity.title}
         </h3>
 
-        <p className="mb-0 mt-3 text-[14px] font-normal leading-[1.6] text-[#66615f]">
+        <p className="mb-0 mt-3 text-[16px] font-normal leading-[1.6] text-[#66615f]">
           {opportunity.description}
         </p>
       </article>
@@ -517,7 +517,7 @@ export function MindBridgeCaseStudy({
                             {label}
                           </p>
 
-                          <p className="m-0 text-[15px] font-light leading-[1.7] text-[#5d5856]">
+                          <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
                             {value}
                           </p>
                         </div>

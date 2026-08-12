@@ -205,7 +205,7 @@ function PlantPalDesignSolution() {
       label="*AI Integration"
       title="Meet your personalized PlantPal, a friendly companion for everyday plant care."
     >
-      <p className="m-0 w-full text-[12px] font-light leading-[1.7] text-[#5d5856]">
+      <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
         PlantPal uses expressive characters and glanceable widgets to help users
         understand plant conditions, celebrate healthy growth, and take the
         right action without interpreting technical data.
@@ -581,7 +581,7 @@ export function LeafyCaseStudy({
                         "Growth tracking",
                       ].map((item, index) => (
                         <li
-                          className="grid grid-cols-[28px_1fr] items-start gap-3 text-[12px] font-light leading-[1.7] text-[#5d5856]"
+                          className="grid grid-cols-[28px_1fr] items-start gap-3 text-[16px] font-light leading-[1.7] text-[#5d5856]"
                           key={item}
                         >
                           <span className="font-serif text-[16px] text-[#8a8380]">
@@ -599,7 +599,7 @@ export function LeafyCaseStudy({
                       Key Observation
                     </p>
 
-                    <p className="mb-0 mt-4 text-[12px] font-light leading-[1.8] text-[#5d5856]">
+                    <p className="mb-0 mt-4 text-[16px] font-light leading-[1.8] text-[#5d5856]">
                       Existing apps tell users when to care, but not what to do
                       when a plant&apos;s condition changes.
                     </p>
@@ -666,7 +666,7 @@ export function LeafyCaseStudy({
                       <ul className="mt-4 grid list-none gap-2 p-0">
                         {stage.items.map((item) => (
                           <li
-                            className="text-[12px] font-light leading-[1.45] text-[#66605d]"
+                            className="text-[16px] font-light leading-[1.45] text-[#66605d]"
                             key={item}
                           >
                             {item}
