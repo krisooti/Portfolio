@@ -84,7 +84,7 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
             className={`w-fit text-[14px] leading-[1.15] tracking-[-0.01em] transition-[color,transform,opacity] duration-[250ms] ease-out hover:translate-x-0.5 hover:text-[#66615f] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)] motion-reduce:transition-none ${
               activeSection === section.id
                 ? "translate-x-0.5 font-normal text-[#171717] opacity-100"
-                : "font-light text-[#c9c7c5] opacity-80"
+                : "font-normal text-[#c9c7c5] opacity-80"
             }`}
             aria-current={activeSection === section.id ? "true" : undefined}
             onClick={(event) => handleNavClick(event, section.id)}

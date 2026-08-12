@@ -205,7 +205,7 @@ function PlantPalDesignSolution() {
       label="*AI Integration"
       title="Meet your personalized PlantPal, a friendly companion for everyday plant care."
     >
-      <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+      <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
         PlantPal uses expressive characters and glanceable widgets to help users
         understand plant conditions, celebrate healthy growth, and take the
         right action without interpreting technical data.
@@ -215,7 +215,7 @@ function PlantPalDesignSolution() {
         {/* PlantPal character introduction */}
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:items-start">
           <div>
-            <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#4f7f64]">
+            <p className="m-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#4f7f64]">
               AI Plant Companion
             </p>
 
@@ -269,18 +269,7 @@ function PlantPalDesignSolution() {
 
         {/* Interactive widget introduction */}
         <div>
-          <div className="w-full">
-            <h3 className="mb-0 mt-3 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
-              Plant care at a glance.
-            </h3>
-
-            <p className="mb-0 mt-4 text-[16px] font-light leading-[1.7] text-[#5d5856]">
-              Each widget translates a plant condition into a clear status and
-              recommended next step.
-            </p>
-          </div>
-
-          <div className="mt-8 flex justify-center">
+          <div className="mb-8 flex justify-center">
             <figure className="m-0 w-full">
               <img
                 alt="Leafy PlantPal widget system showing care, temperature, light, thirst, and watering states"
@@ -289,6 +278,18 @@ function PlantPalDesignSolution() {
               />
             </figure>
           </div>
+
+          <div className="w-full">
+            <h3 className="mb-0 mt-3 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.03em] text-[#171717]">
+              Plant care at a glance.
+            </h3>
+
+            <p className="mb-0 mt-4 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
+              Each widget translates a plant condition into a clear status and
+              recommended next step.
+            </p>
+          </div>
+
         </div>
       </div>
     </CaseSection>
@@ -313,10 +314,10 @@ export function LeafyCaseStudy({
               label="Context"
               title="Plant owners know they need to care for their plants. The challenge is knowing when."
               titleAs="body"
-              titleClassName="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]"
+              titleClassName="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]"
             >
               <div>
-                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                <p className="m-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
                   Key Pain Points
                 </p>
 
@@ -330,7 +331,7 @@ export function LeafyCaseStudy({
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
-                      <p className="mb-0 mt-8 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                      <p className="mb-0 mt-8 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                         {point}
                       </p>
                     </article>
@@ -339,7 +340,7 @@ export function LeafyCaseStudy({
               </div>
 
               <div className="mt-12 w-full border-t border-[#e6dfdb] pt-10">
-                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                <p className="m-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
                   Design Question
                 </p>
 
@@ -354,12 +355,12 @@ export function LeafyCaseStudy({
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                 {content.researchCopy}
               </p>
 
               <div className="mt-12">
-                <p className="m-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+                <p className="m-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
                   Research Insights
                 </p>
 
@@ -370,7 +371,7 @@ export function LeafyCaseStudy({
                 <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-2">
                   <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
+                      <span className="text-[11px] font-normal uppercase tracking-[0.12em] text-[#4f7f64]">
                         Market Growth
                       </span>
                     </div>
@@ -380,7 +381,7 @@ export function LeafyCaseStudy({
                         Indoor Plant Market Growth
                       </h4>
 
-                      <p className="mb-0 mt-3 text-[12px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
+                      <p className="mb-0 mt-3 text-[12px] font-normal uppercase tracking-[0.1em] text-[#8a8380]">
                         Projected growth from 2024 to 2032
                       </p>
                     </div>
@@ -463,7 +464,7 @@ export function LeafyCaseStudy({
                         $20.68B to $30.25B
                       </p>
 
-                      <p className="mb-0 mt-4 w-full text-[16px] font-light leading-[1.55] text-[#5d5856]">
+                      <p className="mb-0 mt-4 w-full text-[16px] font-normal leading-[1.55] text-[#5d5856]">
                         <span className="text-[#b7c9bd]">→</span> More people
                         are bringing plants into their homes.
                       </p>
@@ -472,7 +473,7 @@ export function LeafyCaseStudy({
 
                   <article className="grid min-h-[560px] grid-rows-[auto_auto_1fr_auto] gap-5 bg-white p-7 shadow-[0_18px_42px_rgba(17,17,17,0.045)]">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-[11px] font-light uppercase tracking-[0.12em] text-[#4f7f64]">
+                      <span className="text-[11px] font-normal uppercase tracking-[0.12em] text-[#4f7f64]">
                         70% Plant Loss
                       </span>
                     </div>
@@ -540,7 +541,7 @@ export function LeafyCaseStudy({
                         plant.
                       </p>
 
-                      <p className="mb-0 mt-4 w-full text-[16px] font-light leading-[1.55] text-[#5d5856]">
+                      <p className="mb-0 mt-4 w-full text-[16px] font-normal leading-[1.55] text-[#5d5856]">
                         <span className="text-[#b7c9bd]">→</span> Plant care
                         feels stressful when users do not know what to do next.
                       </p>
@@ -563,14 +564,14 @@ export function LeafyCaseStudy({
                     alt="Competitive analysis app icons for plant care products"
                   />
 
-                  <figcaption className="mt-3 text-[11px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+                  <figcaption className="mt-3 text-[11px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
                     Competitive app landscape
                   </figcaption>
                 </figure>
 
                 <div className="grid gap-10">
                   <div>
-                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                       Common Patterns
                     </p>
 
@@ -581,7 +582,7 @@ export function LeafyCaseStudy({
                         "Growth tracking",
                       ].map((item, index) => (
                         <li
-                          className="grid grid-cols-[28px_1fr] items-start gap-3 text-[16px] font-light leading-[1.7] text-[#5d5856]"
+                          className="grid grid-cols-[28px_1fr] items-start gap-3 text-[16px] font-normal leading-[1.7] text-[#5d5856]"
                           key={item}
                         >
                           <span className="font-serif text-[16px] text-[#8a8380]">
@@ -595,18 +596,18 @@ export function LeafyCaseStudy({
                   </div>
 
                   <div>
-                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                       Key Observation
                     </p>
 
-                    <p className="mb-0 mt-4 text-[16px] font-light leading-[1.8] text-[#5d5856]">
+                    <p className="mb-0 mt-4 text-[16px] font-normal leading-[1.8] text-[#5d5856]">
                       Existing apps tell users when to care, but not what to do
                       when a plant&apos;s condition changes.
                     </p>
                   </div>
 
                   <div>
-                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                       Initial Hypothesis
                     </p>
 
@@ -666,7 +667,7 @@ export function LeafyCaseStudy({
                       <ul className="mt-4 grid list-none gap-2 p-0">
                         {stage.items.map((item) => (
                           <li
-                            className="text-[16px] font-light leading-[1.45] text-[#66605d]"
+                            className="text-[16px] font-normal leading-[1.45] text-[#66605d]"
                             key={item}
                           >
                             {item}
@@ -686,7 +687,7 @@ export function LeafyCaseStudy({
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                 {content.solutionCopy}
               </p>
 
@@ -712,31 +713,31 @@ export function LeafyCaseStudy({
 
                       <dl className="mt-5 grid gap-4 rounded-2xl border border-[#e6dfdb] bg-[#fffdfb] p-6">
                         <div>
-                          <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                          <dt className="text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                             Challenge
                           </dt>
 
-                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-normal leading-[1.65] text-[#5d5856]">
                             {demo.challenge}
                           </dd>
                         </div>
 
                         <div>
-                          <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                          <dt className="text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                             Design Decision
                           </dt>
 
-                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-normal leading-[1.65] text-[#5d5856]">
                             {demo.decision}
                           </dd>
                         </div>
 
                         <div>
-                          <dt className="text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+                          <dt className="text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
                             Outcome
                           </dt>
 
-                          <dd className="m-0 mt-1 text-[16px] font-light leading-[1.65] text-[#5d5856]">
+                          <dd className="m-0 mt-1 text-[16px] font-normal leading-[1.65] text-[#5d5856]">
                             {demo.outcome}
                           </dd>
                         </div>
@@ -745,7 +746,7 @@ export function LeafyCaseStudy({
                       <ul className="mt-5 grid list-none gap-2 p-0">
                         {demo.highlights.map((highlight) => (
                           <li
-                            className="border-t border-[#e6dfdb] pt-2 text-[16px] font-light leading-[1.6] text-[#5d5856]"
+                            className="border-t border-[#e6dfdb] pt-2 text-[16px] font-normal leading-[1.6] text-[#5d5856]"
                             key={highlight}
                           >
                             {highlight}
@@ -764,7 +765,7 @@ export function LeafyCaseStudy({
                 label="Results + Reflection"
                 title="The final direction made plant care feel calmer and easier to act on."
               >
-                <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                   {content.resultsCopy}
                 </p>
 
@@ -780,7 +781,7 @@ export function LeafyCaseStudy({
                         </HighlightText>
                       </h3>
 
-                      <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                      <p className="mb-0 mt-3 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                         {reflection.body}
                       </p>
                     </article>

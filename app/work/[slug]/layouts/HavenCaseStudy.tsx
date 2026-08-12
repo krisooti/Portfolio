@@ -31,12 +31,12 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Context"
               title={project.problem ?? project.challenge}
               titleAs="body"
-              titleClassName="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]"
+              titleClassName="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]"
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                 {project.challenge}
               </p>
-              <p className="mt-5 w-full border-l-2 border-[var(--pink)] pl-5 text-[16px] font-light leading-[1.7] text-[#3f3a38]">
+              <p className="mt-5 w-full border-l-2 border-[var(--pink)] pl-5 text-[16px] font-normal leading-[1.7] text-[#3f3a38]">
                 {project.question}
               </p>
               <CaseInsightPanel title="Pain points" items={content.painPoints} />
@@ -47,15 +47,15 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Research"
               title={content.researchHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
-                {content.researchCopy}
-              </p>
-
               <CaseVisual
                 image={content.researchImage}
                 label={content.researchCaption}
                 note="Replace with research synthesis, interview notes, or competitive analysis."
               />
+
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
+                {content.researchCopy}
+              </p>
             </CaseSection>
 
             <CaseSection
@@ -64,7 +64,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               title={content.designHeading}
             >
               <div className="w-full">
-                <p className="m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                <p className="m-0 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                   {content.designTakeaway}
                 </p>
               </div>
@@ -86,13 +86,13 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                         </h3>
 
                         {stage.caption ? (
-                          <span className="text-[11px] font-light uppercase tracking-[0.08em] text-[#9a928e]">
+                          <span className="text-[11px] font-normal uppercase tracking-[0.08em] text-[#9a928e]">
                             {stage.caption}
                           </span>
                         ) : null}
                       </div>
 
-                      <p className="mb-0 mt-3 w-full text-[16px] font-light leading-[1.65] text-[#5d5856]">
+                      <p className="mb-0 mt-3 w-full text-[16px] font-normal leading-[1.65] text-[#5d5856]">
                         {stage.body}
                       </p>
                     </div>
@@ -106,14 +106,14 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Final Solution"
               title={content.solutionHeading}
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                 {content.solutionCopy}
               </p>
 
               {prototypeVideos.length > 0 ? (
                 <div className="mt-10 grid gap-8">
                   <div className="w-full border-t border-[#e6dfdb] pt-7">
-                    <p className="m-0 text-[11px] font-light uppercase tracking-[0.1em] text-[#9a928e]">
+                    <p className="m-0 text-[11px] font-normal uppercase tracking-[0.1em] text-[#9a928e]">
                       Prototype demos
                     </p>
                   </div>
@@ -145,14 +145,14 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
               label="Results + Reflection"
               title="The final direction made the search feel more guided and less uncertain."
             >
-              <p className="m-0 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
-                {content.resultsCopy}
-              </p>
               <CaseVisual
                 image={content.resultsVisual}
                 label={content.resultsVisualCaption}
                 note="Replace with the final prototype walkthrough or product overview."
               />
+              <p className="m-0 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
+                {content.resultsCopy}
+              </p>
               <div className="mt-8 grid gap-5">
                 {content.reflectionCards.map((reflection) => (
                   <article
@@ -162,7 +162,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
                     <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] text-[#171717]">
                       <HighlightText>{reflection.title}</HighlightText>
                     </h3>
-                    <p className="mb-0 mt-3 w-full text-[16px] font-light leading-[1.7] text-[#5d5856]">
+                    <p className="mb-0 mt-3 w-full text-[16px] font-normal leading-[1.7] text-[#5d5856]">
                       {reflection.body}
                     </p>
                   </article>

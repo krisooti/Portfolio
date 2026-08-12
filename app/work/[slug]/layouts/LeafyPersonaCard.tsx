@@ -52,7 +52,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
       </svg>
 
       <div className="relative z-10">
-        <p className="m-0 text-[14px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+        <p className="m-0 text-[14px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
           {persona.type}
         </p>
 
@@ -60,7 +60,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           <HighlightText>{persona.title}</HighlightText>
         </h3>
 
-        <p className="mb-0 mt-2 text-[16px] font-light leading-[1.6] text-[#746f6c]">
+        <p className="mb-0 mt-2 text-[16px] font-normal leading-[1.6] text-[#746f6c]">
           {persona.detail}
         </p>
 
@@ -70,7 +70,7 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
 
             return (
               <button
-                className={`rounded-full border px-4 py-2 text-[11px] font-light uppercase tracking-[0.08em] transition-all duration-200 ease-out ${
+                className={`rounded-full border px-4 py-2 text-[11px] font-normal uppercase tracking-[0.08em] transition-all duration-200 ease-out ${
                   isActive
                     ? "border-[#4f7f64] bg-[#edf5ef] text-[#365f49]"
                     : "border-[#e1dbd7] bg-[#fffdfb] text-[#746f6c] hover:border-[#8baa97] hover:text-[#4f7f64]"
@@ -94,14 +94,14 @@ export function LeafyPersonaCard({ persona }: { persona: LeafyPersona }) {
           key={activeContent.title}
           role="tabpanel"
         >
-          <p className="m-0 text-[11px] font-light uppercase tracking-[0.12em] text-[#8a8380]">
+          <p className="m-0 text-[11px] font-normal uppercase tracking-[0.12em] text-[#8a8380]">
             {activeContent.title}
           </p>
 
           <ul className="mt-3 grid list-none gap-2 p-0">
             {activeContent.items.map((item) => (
               <li
-                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[16px] font-light leading-[1.55] text-[#5d5856]"
+                className="grid grid-cols-[14px_minmax(0,1fr)] gap-2 text-[16px] font-normal leading-[1.55] text-[#5d5856]"
                 key={item}
               >
                 <span className="mt-[0.58em] h-1 w-1 rounded-full bg-[#4f7f64]" />

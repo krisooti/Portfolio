@@ -50,7 +50,7 @@ export function CaseSection({
       <div className={CENTERED_CONTENT_CLASS}>
         <header className="mb-8 w-full" data-gsap-header>
           {sectionLabel ? (
-            <p className="mb-3 mt-0 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+            <p className="mb-3 mt-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
               {sectionLabel}
             </p>
           ) : null}
@@ -59,7 +59,7 @@ export function CaseSection({
             <p
               className={
                 titleClassName ??
-                "m-0 text-[16px] font-light leading-[1.7] text-[#5d5856]"
+                "m-0 text-[16px] font-normal leading-[1.7] text-[#5d5856]"
               }
             >
               {title}
@@ -68,7 +68,7 @@ export function CaseSection({
             <h2
               className={
                 titleClassName ??
-                "m-0 font-serif text-[clamp(26px,3vw,32px)] font-medium leading-[1.18] tracking-[-0.02em] text-[#171717]"
+                "m-0 text-[clamp(24px,2.5vw,28px)] font-medium leading-[1.18] tracking-[-0.02em] text-[#171717]"
               }
             >
               {title}
@@ -109,7 +109,7 @@ export function CaseVisual({
             </p>
 
             {note ? (
-              <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#716b67]">
+              <p className="mb-0 mt-3 text-[16px] font-normal leading-[1.7] text-[#716b67]">
                 {note}
               </p>
             ) : null}
@@ -117,7 +117,7 @@ export function CaseVisual({
         </div>
       )}
 
-      <figcaption className="mt-3 w-full text-left text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+      <figcaption className="mt-3 w-full text-left text-[12px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
         {label}
       </figcaption>
     </figure>
@@ -141,7 +141,7 @@ export function CaseInsightPanel({
         {items.map((item, index) => (
           <li
             key={item}
-            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-left text-[16px] font-light leading-[1.65] text-[#5d5856]"
+            className="grid grid-cols-[36px_minmax(0,1fr)] gap-3 text-left text-[16px] font-normal leading-[1.65] text-[#5d5856]"
           >
             <span className="font-serif text-base font-medium text-[#aaa29e]">
               {String(index + 1).padStart(2, "0")}
@@ -173,7 +173,7 @@ export function CaseSolutionFeature({
           <HighlightText>{title}</HighlightText>
         </h3>
 
-        <p className="mb-0 mt-3 text-[16px] font-light leading-[1.7] text-[#5d5856]">
+        <p className="mb-0 mt-3 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
           {rationale}
         </p>
       </div>
@@ -215,7 +215,7 @@ export function CaseVideo({
               <span className="h-2.5 w-2.5 rounded-full bg-[#ddd8d5]" />
             </div>
 
-            <span className="text-[11px] font-light uppercase tracking-[0.1em] text-[#8a8380]">
+            <span className="text-[11px] font-normal uppercase tracking-[0.1em] text-[#8a8380]">
               Prototype Demo
             </span>
           </div>
@@ -246,7 +246,7 @@ export function CaseVideo({
         </div>
       )}
 
-      <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3 text-left text-[12px] font-light uppercase tracking-[0.08em] text-[#8a8380]">
+      <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3 text-left text-[12px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
         <span>{caption}</span>
 
         <a
@@ -287,7 +287,7 @@ export function BackToWorkLink() {
     <div className={EDITORIAL_TEXT_CLASS}>
       <Link
         href="/#work"
-        className="mb-14 inline-flex w-max border-b border-current text-[12px] font-light text-[#6b6664]"
+        className="mb-14 inline-flex w-max border-b border-current text-[12px] font-normal text-[#6b6664]"
       >
         <HighlightText>Back to work</HighlightText>
       </Link>
@@ -351,7 +351,7 @@ export function ProjectCaseIntro({
             {projectTags.map((tag) => (
               <span
                 key={tag}
-                className="border border-[#d8d3d0] px-3 py-1 text-[11px] font-light uppercase tracking-[0.08em] text-[#74706e]"
+                className="border border-[#d8d3d0] px-3 py-1 text-[11px] font-normal uppercase tracking-[0.08em] text-[#74706e]"
               >
                 {tag}
               </span>
@@ -372,7 +372,7 @@ export function ProjectCaseIntro({
         <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {projectMeta.map(([category, value]) => (
             <div key={category}>
-              <dt className="mb-2 text-[11px] font-light uppercase tracking-[0.14em] text-[#8a8380]">
+              <dt className="mb-2 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
                 {category}
               </dt>
 

@@ -1365,6 +1365,11 @@ a {
   margin-inline: auto;
 }
 
+.centered-case-content :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "Segoe UI", sans-serif !important;
+}
+
 .case-section-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);
