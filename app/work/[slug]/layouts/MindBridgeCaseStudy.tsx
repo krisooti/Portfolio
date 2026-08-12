@@ -444,29 +444,44 @@ export function MindBridgeCaseStudy({
     prioritize the factors that define meaningful supervisor fit.
   </p>
 </CaseSection>
+{/* Early Concept Exploration */}
+<CaseSection
+  id="design-decisions"
+  title="Early Concept Exploration"
+>
+  <div className="w-full space-y-4 text-[16px] font-light leading-[1.8] text-[#5d5856]">
+    <p className="m-0">
+      Our initial concept used AI to{" "}
+      <HighlightText>narrow supervisor options</HighlightText> based on user
+      preferences and create a curated shortlist.
+    </p>
 
-          {/* Information Architecture */}
-          <CaseSection
-            id="design-decisions"
-            title="Early Concept Exploration"
-          >
-            <p className="m-0 w-full text-[16px] font-light leading-[1.8] text-[#5d5856]">
-             With the design principles established, we translated them into an information 
-             architecture that reflects how trainees move through the matching process. The 
-             structure guides users from onboarding and preference setting to personalized 
-             recommendations, supervisor comparison, and scheduling—while keeping transparency 
-             and user control throughout the experience.
-            </p>
+    <p className="m-0">
+  Exploring this flow surfaced a key question:
+</p>
 
-            <figure className="my-12 w-full">
-              <img
-                className="block h-auto w-full object-contain"
-                src="/images/low.png"
-                alt="MindBridge information architecture showing dashboard, onboarding, supervisors, compare, messages, and requests"
-              />
-            </figure>
-          </CaseSection>
+<p className="m-0 text-[18px]">
+  <HighlightText>
+    How much should AI decide—and how much control should remain with the user?
+  </HighlightText>
+</p>
 
+    <p className="m-0">
+      This led us to shift toward{" "}
+      <HighlightText>AI-assisted discovery</HighlightText>, giving users more
+      control through transparent recommendations, flexible filters, and direct
+      profile exploration.
+    </p>
+  </div>
+
+  <figure className="my-12 w-full">
+    <img
+      className="block h-auto w-full object-contain"
+      src="/images/low.png"
+      alt="Early concept sketches exploring AI-assisted supervisor matching"
+    />
+  </figure>
+</CaseSection>
           
           {/* Final Solution */}
           <CaseSection
