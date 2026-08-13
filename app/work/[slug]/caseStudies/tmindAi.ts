@@ -124,7 +124,7 @@ export const tmindAiCaseStudy: CaseStudyContent = {
     },
   ],
   overview:
-    "Over six months, in collaboration with Tmind AI, our team designed an AI-powered supervisor matching system that streamlines the search process by providing personalized recommendations, increasing transparency, and helping therapists-in-training confidently find the right supervisor.",
+    "I worked as a lead UX designer and researcher on a three-person team. I contributed throughout the process, including user research, research synthesis, concept development, prototyping, usability testing, and final interface design. My primary focus was translating our research findings into the recommendation experience, particularly how we could make AI-generated matches more transparent and actionable.",
   overviewContribution: "",
   researchHeading: "Research clarified what users needed before trusting AI.",
   researchCopy:

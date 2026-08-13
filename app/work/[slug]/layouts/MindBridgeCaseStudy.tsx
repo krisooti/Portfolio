@@ -13,13 +13,14 @@ import {
 
 const mindBridgeSections = [
   { id: "overview", label: "Overview", number: "01" },
-  { id: "context", label: "Context", number: "02" },
-  { id: "research", label: "Research", number: "03" },
-  { id: "design-opportunities", label: "Opportunities", number: "04" },
-  { id: "design-decisions", label: "Decisions", number: "05" },
-  { id: "design-system", label: "System", number: "06" },
-  { id: "final-solution", label: "Solution", number: "07" },
-  { id: "results-learnings", label: "Learnings", number: "08" },
+  { id: "what-is-tmind", label: "Project Context", number: "02" },
+  { id: "context", label: "Challenge", number: "03" },
+  { id: "research", label: "Research", number: "04" },
+  { id: "design-opportunities", label: "Opportunities", number: "05" },
+  { id: "design-decisions", label: "Decisions", number: "06" },
+  { id: "design-system", label: "System", number: "07" },
+  { id: "final-solution", label: "Solution", number: "08" },
+  { id: "results-learnings", label: "Learnings", number: "09" },
 ];
 
 const TMIND_SECTION_TITLE_CLASS =
@@ -29,9 +30,9 @@ const researchFindings = [
   {
     icon: "01",
     category: "Current Experience",
-    title: "The matching process lacks structure.",
+    title: "Compatibility involved more than credentials.",
     description:
-      "Trainees described the current supervisor search as informal, opaque, and heavily dependent on referrals or existing professional networks.",
+      "Users were not only looking at a supervisor’s qualifications or years of experience. They also considered specialization, therapeutic approach, and weather the supervisor aligned with their individual learning goals.",
     userGroup: "Trainees",
   },
   {
@@ -100,18 +101,14 @@ const videoFeatures = [
   {
     title: "Request Supervision",
     challenge:
-      "After finding a strong match, users needed a calm way to start the conversation.",
+      "After identifying a potential match, users needed a clear and comfortable way to initiate contact.",
     decision:
-      "The request flow gives users a focused message space with supervisor context and a clear final action.",
+      "We designed a focused request flow that provides supervisor context, space for a personal message, and a clear confirmation of what happens next.",
     outcome:
       "The interaction reduces uncertainty and helps users move from evaluation to outreach.",
     usabilityTesting: (
       <>
-        A clear request and confirmation flow reduced uncertainty and gave users{" "}
-        <strong className="font-semibold text-[#171717]">
-          confidence about what happens next
-        </strong>
-        .
+        Participants found the request and confirmation flow easy to follow, suggesting that clear feedback can reduce uncertainty when moving from evaluation to outreach.
       </>
     ),
     highlights: [
@@ -138,55 +135,40 @@ export function MindBridgeCaseStudy({
 
           <ProjectCaseIntro project={project} content={content} />
 
-          {/* Context */}
+          {/* Project Context */}
           <CaseSection
-            id="context"
-            title="The Problem"
+            id="what-is-tmind"
+            category="Project Context"
+            title="What is Tmind AI?"
             titleClassName={TMIND_SECTION_TITLE_CLASS}
           >
             <div className="w-full">
-              <p className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
-                No centralized system to find the right supervisor.
-              </p>
-
               <p className="mb-0 mt-5 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
-                Therapists-in-training rely on{" "}
-                <span className="relative inline-block text-[#3f3a38] before:absolute before:inset-x-[-0.08em] before:bottom-[0.08em] before:-z-10 before:h-[0.72em] before:origin-left before:skew-x-[-8deg] before:bg-[#d8ecff]">
-                  referrals and fragmented directories
-                </span>
-                , making the supervision search process time-consuming, opaque,
-                and difficult to navigate. This often leads to uncertainty when
-                evaluating supervisor fit.
+                Tmind AI is a Seattle-based mental healthcare startup building AI-powered
+                tools that support therapists throughout their professional journey. One
+                of its core initiatives focuses on helping therapists-in-training find
+                clinical supervisors through a more personalized and transparent matching
+                experience.
               </p>
-
-              <div className="mt-10 border-l-2 border-[var(--pink)] pl-5">
-                <p className="mb-2 mt-0 text-[11px] font-normal uppercase tracking-[0.1em] text-[#9a928e]">
-                  How Might We
-                </p>
-
-                <p className="m-0 font-serif text-[20px] font-medium leading-[1.45] tracking-[-0.01em] text-[#171717]">
-                  “{project.question}”
-                </p>
-              </div>
             </div>
           </CaseSection>
 
         <CaseSection
-  id="what-is-tmind"
-  category="Project Context"
-  title="What is Tmind AI?"
+  id="context"
+  title="The Challenge"
   titleClassName={TMIND_SECTION_TITLE_CLASS}
 >
   <div className="max-w-[920px]">
 
     <p className="text-[16px] font-normal leading-[1.8] text-[#5d5856]">
-      Tmind AI is a Seattle-based mental healthcare startup building AI-powered
-      tools that support therapists throughout their professional journey. One
-      of its core initiatives focuses on helping therapists-in-training find
-      clinical supervisors through a more personalized and transparent matching
-      experience.
+      Therapists-in-training need qualified supervisors to complete their clinical hours.
+      However, many currently rely on{" "}
+      <span className="relative inline-block text-[#3f3a38] before:absolute before:inset-x-[-0.08em] before:bottom-[0.08em] before:-z-10 before:h-[0.72em] before:origin-left before:skew-x-[-8deg] before:bg-[#d8ecff]">
+        personal referrals, professional networks, and fragmented online directories
+      </span>
+      . This makes it difficult to determine which supervisors are available and, more
+      importantly, which ones would be a good fit for their individual learning needs.
     </p>
-    
 
     <div className="mt-12 grid gap-5 md:grid-cols-3">
 
@@ -232,6 +214,16 @@ export function MindBridgeCaseStudy({
         </p>
       </article>
 
+    </div>
+
+    <div className="mt-10 border-l-2 border-[var(--pink)] pl-5">
+      <p className="mb-2 mt-0 text-[11px] font-normal uppercase tracking-[0.1em] text-[#9a928e]">
+        How Might We
+      </p>
+
+      <p className="m-0 font-serif text-[20px] font-medium leading-[1.45] tracking-[-0.01em] text-[#171717]">
+        “{project.question}”
+      </p>
     </div>
 
   </div>
@@ -471,9 +463,8 @@ export function MindBridgeCaseStudy({
 
   <div className="grid w-full gap-[18px] text-[16px] font-normal leading-[1.8] text-[#5d5856]">
     <p className="m-0">
-      Our initial concept used AI to{" "}
-      <HighlightText>narrow supervisor options</HighlightText> based on user
-      preferences and create a curated shortlist.
+      One of our initial concepts positioned AI as the primary driver of the experience. Users would enter their preferences, receive a curated set of candidates, 
+      and swipe through supervisor cards to create a shortlist. 
     </p>
 
     <p className="m-0">
@@ -566,8 +557,7 @@ export function MindBridgeCaseStudy({
             label="Final Solution"
           >
             <p className="m-0 w-full text-[16px] font-normal leading-[1.8] text-[#5d5856]">
-              The final solution centers on helping users refine supervisor
-              recommendations and take action with clarity.
+              The final experience can be explained through three main parts.
             </p>
 
             <div className="mt-12 grid gap-24">
@@ -640,35 +630,36 @@ export function MindBridgeCaseStudy({
           <CaseSection
             id="results-learnings"
             label="Results + Learnings"
-            title="The final direction made AI recommendations feel more transparent."
+            title="What We Validated"
             titleClassName={TMIND_SECTION_TITLE_CLASS}
           >
-            <div className="grid w-full gap-12 md:grid-cols-2">
-              {/* Results */}
+            <div className="grid w-full gap-12">
               <div>
-                <h3 className="m-0 font-serif text-[20px] font-medium text-[#171717]">
-                  <HighlightText>Results</HighlightText>
-                </h3>
+                <p className="m-0 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                  Usability testing indicated that participants:
+                </p>
 
                 <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-normal leading-[1.65] text-[#5d5856]">
-                  <li>Improved transparency</li>
-                  <li>Increased user confidence</li>
-                  <li>Reduced uncertainty</li>
-                  <li>Supported user control</li>
+                  <li>Better understood why supervisors were recommended</li>
+                  <li>Valued the ability to refine AI-generated results</li>
+                  <li>Felt more confident about the next step</li>
+                  <li>Preferred maintaining control over the final decision</li>
                 </ul>
               </div>
 
-              {/* Learnings */}
               <div>
                 <h3 className="m-0 font-serif text-[20px] font-medium text-[#171717]">
-                  <HighlightText>Learnings</HighlightText>
+                  <HighlightText>Key Learnings</HighlightText>
                 </h3>
 
                 <ul className="mb-0 mt-5 list-disc space-y-2 pl-5 text-[16px] font-normal leading-[1.65] text-[#5d5856]">
-                  <li>AI should support human decision making.</li>
-                  <li>Research should drive product decisions.</li>
+                  <li>AI should support human judgment rather than replace it.</li>
                   <li>
-                    Iteration creates better outcomes than first ideas.
+                    Transparency requires explaining the recommendation—not simply showing a score.
+                  </li>
+                  <li>User control should remain available throughout the matching journey.</li>
+                  <li>
+                    Iterative testing can reveal gaps between the intended experience and users’ actual understanding.
                   </li>
                 </ul>
               </div>
