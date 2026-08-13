@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HighlightText } from "./HighlightText";
+import { LoopingTypedPhrase } from "./LoopingTypedPhrase";
 import { type Project, projects } from "./projects";
 import { SiteNav } from "./SiteNav";
 
@@ -17,7 +18,7 @@ const featuredProjects = featuredProjectOrder
 
 function ProjectCard({ project }: { project: Project }) {
   const displayTitle =
-    project.slug === "tmind-ai" ? "MindBridge" : project.title;
+    project.slug === "tmind-ai" ? "AI-Powered Supervisor Matching System, Tmind AI" : project.title;
 
   return (
     <Link
@@ -52,7 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="m-0 text-[11px] font-light uppercase leading-[1.3] tracking-normal text-[#8a8583]">
           {project.category}
         </p>
-        <h2 className="m-0 font-serif text-[clamp(22px,2.1vw,26px)] font-normal leading-[1.15] tracking-normal text-[#343434] max-[560px]:text-2xl">
+        <h2 className="m-0 font-sans text-[20px] font-medium leading-[1.15] tracking-normal text-[#343434]">
           <HighlightText>{displayTitle}</HighlightText>
         </h2>
       </div>
@@ -66,35 +67,34 @@ export default function Home() {
       <SiteNav home />
 
       <section
-        className="mx-auto w-full max-w-[1400px] px-8 pb-[88px] pt-[140px] max-[560px]:px-[22px] max-[560px]:pb-[72px] max-[560px]:pt-[124px]"
+        className="mx-auto min-h-[clamp(620px,86vh,900px)] w-full max-w-[1400px] px-8 pb-[clamp(64px,8vh,96px)] pt-[140px] max-[820px]:min-h-[clamp(540px,78vh,700px)] max-[560px]:min-h-0 max-[560px]:px-[22px] max-[560px]:pb-[72px] max-[560px]:pt-[124px]"
         aria-labelledby="hero-title"
         data-home-hero
       >
         <div className="grid grid-cols-12 items-start gap-[clamp(80px,7vw,120px)] max-[980px]:gap-16 max-[820px]:grid-cols-2 max-[560px]:grid-cols-1 max-[560px]:gap-8">
           <h1
+            aria-label="Kristi is an interdisciplinary product designer, thinker, and creator who sometimes codes"
             id="hero-title"
-            className="col-span-5 mb-0 mt-0 font-serif text-[32px] font-medium leading-[1.05] tracking-[-0.03em] text-[#171717] max-[820px]:col-span-1 max-[560px]:col-span-1"
+            className="col-span-5 mb-0 mt-0 font-serif text-[36px] font-medium leading-[1.05] tracking-[-0.03em] text-[#171717] max-[820px]:col-span-1 max-[560px]:col-span-1"
             data-home-hero-title
           >
-            <span className="block">Researcher,</span>
-            <span className="block">Product Designer,</span>
-            <span className="block">&amp; Frontend Developer.</span>
+            <span className="block">
+              Kristi is an interdisciplinary product designer, thinker, and{" "}
+              <span className="inline-block whitespace-nowrap">
+                creator who <LoopingTypedPhrase />
+              </span>
+            </span>
           </h1>
 
           <p
-            className="col-start-7 col-end-10 m-0 max-w-[300px] text-left text-[14px] font-light leading-[1.5] text-[#5d5856] max-[820px]:col-span-1 max-[820px]:col-start-auto max-[560px]:col-span-1"
-            data-home-about-copy
-          >
-            I design thoughtful AI experiences by combining research, design,
-            and code to create intuitive products that put people first.
-          </p>
-          <p
-            className="col-start-10 col-end-13 m-0 text-left font-mono text-[11px] font-light uppercase leading-[1.55] tracking-[0.08em] text-[#6f6a67] max-[820px]:col-start-2 max-[820px]:col-end-3 max-[820px]:mt-12 max-[560px]:col-span-1 max-[560px]:col-start-auto max-[560px]:mt-4"
+            className="col-start-7 col-end-13 mb-0 mt-8 w-full max-w-[560px] whitespace-nowrap text-left font-mono text-[14px] font-light uppercase leading-[1.55] tracking-[0.08em] text-[#6f6a67] max-[820px]:col-start-2 max-[820px]:col-end-3 max-[820px]:mt-12 max-[820px]:whitespace-normal max-[600px]:col-span-1 max-[560px]:col-start-auto max-[560px]:mt-4"
             data-home-about-meta
           >
-            ⋆˚✿˖° Recent graduate in Human Centered Design and Engineering
+            Born in South Korea
             <br />
-            at the University of Washington
+            Studied at the University of Washington
+            <br />
+            Currently based in Seattle, WA
           </p>
         </div>
       </section>

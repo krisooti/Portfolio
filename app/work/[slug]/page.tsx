@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   return {
     title: project ? `${project.title} - Kristi Kim` : "Case Study - Kristi Kim",
-    description: project?.summary,
+    description: project?.overview,
   };
 }
 

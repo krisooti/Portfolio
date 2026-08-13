@@ -50,7 +50,7 @@ a {
 
 ::selection {
   background: var(--pink);
-  color: #111111;
+  color: #595959;
 }
 
 .marker-highlight {
@@ -100,6 +100,26 @@ a {
   opacity: 0.6;
   transform: scaleX(0);
   animation: marker-swipe 4.4s ease-in-out infinite;
+}
+
+.home-bio-keyword {
+  color: #302c2a;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.home-bio-keyword::before {
+  opacity: 0.42;
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-bio-keyword:hover {
+    color: #171717;
+  }
+
+  .home-bio-keyword:hover::before {
+    opacity: 0.62;
+  }
 }
 
 @keyframes marker-hover-swipe {

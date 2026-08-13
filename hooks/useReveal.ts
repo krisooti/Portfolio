@@ -12,10 +12,53 @@ export function useReveal() {
 
     if (reduceMotion) {
       gsap.set(sections, { autoAlpha: 1, clearProps: "transform" });
+      const projectCards = document.querySelectorAll<HTMLElement>(
+        "[data-project-card]",
+      );
+      if (projectCards.length > 0) {
+        gsap.set(projectCards, {
+          autoAlpha: 1,
+          clearProps: "transform",
+        });
+      }
       return;
     }
 
     sections.forEach((section) => {
+      if (section.hasAttribute("data-projects-section")) {
+        const projectCards =
+          section.querySelectorAll<HTMLElement>("[data-project-card]");
+
+        if (projectCards.length === 0) {
+          return;
+        }
+
+        const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+        gsap.set(section, { autoAlpha: 1, y: 0 });
+        gsap.set(projectCards, {
+          autoAlpha: 0,
+          scale: 0.985,
+          y: isMobile ? 14 : 24,
+        });
+
+        gsap.to(projectCards, {
+          autoAlpha: 1,
+          duration: isMobile ? 0.7 : 0.8,
+          ease: "power2.out",
+          scale: 1,
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            once: true,
+          },
+          y: 0,
+        });
+
+        return;
+      }
+
       const header = section.querySelector("[data-gsap-header]");
       const body = section.querySelector("[data-gsap-body]");
       const bodyItems = body

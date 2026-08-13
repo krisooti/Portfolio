@@ -13,15 +13,27 @@ export function useHomeHeroAnimation() {
 
     const { gsap } = getGSAP();
     const title = hero.querySelector("[data-home-hero-title]");
-    const aboutCopy = hero.querySelector("[data-home-about-copy]");
     const aboutMeta = hero.querySelector("[data-home-about-meta]");
-    const introItems = [title, aboutCopy, aboutMeta].filter(Boolean);
+    const introItems = [title, aboutMeta].filter(Boolean);
+    const bio = hero.querySelector<HTMLElement>("[data-home-bio]");
+    const bioLines = bio?.querySelectorAll<HTMLElement>("[data-home-bio-line]");
+    const codeAside = bio?.querySelector<HTMLElement>("[data-home-bio-code]");
 
     if (prefersReducedMotion()) {
       gsap.set(introItems, {
         autoAlpha: 1,
         clearProps: "transform",
       });
+      if (bioLines && bioLines.length > 0) {
+        gsap.set(bioLines, {
+          autoAlpha: 1,
+          filter: "blur(0px)",
+          y: 0,
+        });
+      }
+      if (codeAside) {
+        gsap.set(codeAside, { autoAlpha: 1 });
+      }
       return;
     }
 
@@ -33,6 +45,56 @@ export function useHomeHeroAnimation() {
       duration: 0.7,
       stagger: 0.12,
       ease: "power3.out",
+      onComplete: () => {
+        window.dispatchEvent(new Event("home-hero-revealed"));
+      },
     });
+
+    if (!bio || !bioLines || bioLines.length === 0) {
+      return;
+    }
+
+    const context = gsap.context(() => {
+      gsap.set(bioLines, {
+        autoAlpha: 0,
+        filter: "blur(3px)",
+        y: 22,
+      });
+
+      if (codeAside) {
+        gsap.set(codeAside, { autoAlpha: 0 });
+      }
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: bio,
+          start: "top 88%",
+          once: true,
+        },
+      });
+
+      timeline.to(bioLines, {
+        autoAlpha: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        filter: "blur(0px)",
+        stagger: 0.1,
+        y: 0,
+      });
+
+      if (codeAside) {
+        timeline.to(
+          codeAside,
+          {
+            autoAlpha: 1,
+            duration: 0.45,
+            ease: "power2.out",
+          },
+          0.3,
+        );
+      }
+    }, hero);
+
+    return () => context.revert();
   });
 }

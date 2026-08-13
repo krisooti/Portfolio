@@ -365,10 +365,6 @@ export function ProjectCaseIntro({
           </h1>
         </div>
 
-        <p className="mb-0 mt-8 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
-          {project.summary}
-        </p>
-
         <dl className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {projectMeta.map(([category, value]) => (
             <div key={category}>
