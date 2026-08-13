@@ -38,10 +38,9 @@ const researchFindings = [
   {
     icon: "02",
     category: "Preference Setting",
-    title:
-      "Users want to define their preferences before receiving AI matches.",
+    title: "Discovering and comparing supervisors was difficult.",
     description:
-      "Before receiving recommendations, trainees want AI to understand their learning goals, areas for growth, clinical modalities, supervision style, and desired supervisor experience.",
+      "Even when suitable supervisors existed, users had difficulty finding and evaluating them.",
   },
   {
     icon: "03",
