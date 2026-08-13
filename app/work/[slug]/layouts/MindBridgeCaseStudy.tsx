@@ -508,10 +508,9 @@ export function MindBridgeCaseStudy({
             </figure>
 
             <p className="m-0 w-full text-[16px] font-normal leading-[1.8] text-[#5d5856]">
-              The interface uses a clean and accessible visual language focused
-              on clarity, consistency, and trust. A restrained color palette
-              and consistent typography help users focus on important clinical
-              information while supporting AI transparency.
+              Since Tmind AI already had an established color palette and typography, we focused on preserving its brand identity while organizing the UI elements needed for the matching experience into a consistent system.
+
+We created reusable components for recurring elements such as buttons, input fields, supervisor cards, filter tags, status labels, and Match Insight.
             </p>
           </CaseSection>
 
