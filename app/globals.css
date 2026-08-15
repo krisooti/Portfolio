@@ -2258,3 +2258,24 @@ a {
     animation: none;
   }
 }
+
+@keyframes toolbox-icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.toolbox-floating-icon {
+  animation: toolbox-icon-float 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolbox-floating-icon {
+    animation: none;
+  }
+}

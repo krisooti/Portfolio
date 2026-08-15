@@ -67,8 +67,20 @@ export default function ProfileCarousel() {
           >
             I&apos;m a recent graduate from the University of Washington with a degree
             in{" "}
-            <span className="font-medium text-[#2f2b29]">
+            <span
+              aria-describedby="hcde-description"
+              className="group relative inline-block cursor-help font-medium text-[#2f2b29] outline-none focus-visible:ring-2 focus-visible:ring-[#817b77] focus-visible:ring-offset-2"
+              tabIndex={0}
+            >
               Human-Centered Design &amp; Engineering
+              <span
+                className="pointer-events-none absolute bottom-[calc(100%+10px)] left-1/2 z-30 w-[min(280px,80vw)] -translate-x-1/2 translate-y-1 bg-[rgba(232,232,230,0.82)] px-4 py-3 text-center text-[12px] font-normal leading-[1.55] text-[#4f4a48] opacity-0 shadow-[0_10px_28px_rgba(23,23,23,0.07)] backdrop-blur-xl transition-[opacity,transform] duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+                id="hcde-description"
+                role="tooltip"
+              >
+                We learned to think about people and come up with designs that
+                resonate with them!
+              </span>
             </span>
             . I enjoy creating thoughtful digital experiences that are intuitive,
             accessible, and meaningful. I believe good design should make technology
