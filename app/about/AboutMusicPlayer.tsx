@@ -24,10 +24,10 @@ const tracks: Track[] = [
     url: "https://www.youtube.com/watch?v=_IT83Y_HcAw",
   },
   {
-    artist: "JENNIE",
-    title: "like JENNIE",
-    youtubeId: "JSFG-IE8n_c",
-    url: "https://www.youtube.com/watch?v=JSFG-IE8n_c",
+    artist: "Strawberry Guy",
+    title: "Mrs Magic",
+    youtubeId: "zf2k9_Nnm7w",
+    url: "https://www.youtube.com/watch?v=zf2k9_Nnm7w",
   },
 ];
 
@@ -35,7 +35,11 @@ const YOUTUBE_ENDED = 0;
 const YOUTUBE_PLAYING = 1;
 const YOUTUBE_PAUSED = 2;
 
-export function AboutMusicPlayer() {
+export function AboutMusicPlayer({
+  embedded = false,
+}: {
+  embedded?: boolean;
+}) {
   const playerRef = useRef<YouTubePlayer | null>(null);
   const trackIndexRef = useRef(0);
   const [trackIndex, setTrackIndex] = useState(0);
@@ -87,8 +91,8 @@ export function AboutMusicPlayer() {
       playerRef.current = new YT.Player(hostId, {
         host: "https://www.youtube.com",
         videoId: tracks[0].youtubeId,
-        width: 320,
-        height: 180,
+        width: 1,
+        height: 1,
         playerVars: {
           rel: 0,
           playsinline: 1,
@@ -157,7 +161,11 @@ export function AboutMusicPlayer() {
 
   return (
     <aside
-      className="about-lp-player mx-auto mt-[clamp(28px,4vw,40px)] flex w-fit max-w-[min(100%,520px)] items-center gap-6 max-[560px]:mt-6 max-[560px]:items-start"
+      className={`about-lp-player ${
+        embedded
+          ? "about-lp-player--embedded w-full max-w-none"
+          : "flex w-full min-w-0 items-center gap-3"
+      }`}
       data-gsap-skip
     >
       <div
@@ -173,62 +181,62 @@ export function AboutMusicPlayer() {
         </div>
       </div>
 
-      <div className="min-w-0">
-        <p className="mb-2 mt-0 text-[11px] font-normal uppercase tracking-[0.14em] text-[#8a8380]">
+      <div className="min-w-0 flex-1">
+        <p className="mb-0.5 mt-0 text-[10px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
           Now playing
         </p>
-        <p className="mb-1 mt-0 font-serif text-[22px] font-normal leading-[1.25] tracking-[-0.03em] text-[#3f3c3a]">
+        <p className="mb-0 mt-0 truncate font-serif text-[16px] font-normal leading-[1.2] tracking-[-0.03em] text-[#3f3c3a]">
           {track.title}
         </p>
-        <p className="mb-5 mt-0 text-[13px] font-light text-[#6b6664]">
+        <p className="mb-0 mt-0.5 truncate text-[12px] font-light text-[#6b6664]">
           {track.artist}
         </p>
-
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            className="about-lp__control"
-            disabled={!isReady}
-            onClick={play}
-            type="button"
-            aria-label="Play"
-          >
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M4.2 2.4v11.2L13.2 8 4.2 2.4Z" />
-            </svg>
-          </button>
-          <button
-            className="about-lp__control"
-            disabled={!isReady}
-            onClick={pause}
-            type="button"
-            aria-label="Pause"
-          >
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M3.6 2.5h3v11h-3v-11Zm5.8 0h3v11h-3v-11Z" />
-            </svg>
-          </button>
-          <button
-            className="about-lp__control"
-            disabled={!isReady}
-            onClick={next}
-            type="button"
-            aria-label="Next"
-          >
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M2.4 2.6v10.8L10.2 8 2.4 2.6Zm9.2 0h2v10.8h-2V2.6Z" />
-            </svg>
-          </button>
-        </div>
-
-        <a
-          className="mt-4 inline-block text-[11px] font-light uppercase tracking-[0.08em] text-[#8a8380] transition-colors duration-200 hover:text-[#3f3c3a]"
-          href={track.url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          YouTube
-        </a>
       </div>
+
+      <div className="flex flex-none items-center gap-1">
+        <button
+          className="about-lp__control"
+          disabled={!isReady}
+          onClick={play}
+          type="button"
+          aria-label="Play"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4.2 2.4v11.2L13.2 8 4.2 2.4Z" />
+          </svg>
+        </button>
+        <button
+          className="about-lp__control"
+          disabled={!isReady}
+          onClick={pause}
+          type="button"
+          aria-label="Pause"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3.6 2.5h3v11h-3v-11Zm5.8 0h3v11h-3v-11Z" />
+          </svg>
+        </button>
+        <button
+          className="about-lp__control"
+          disabled={!isReady}
+          onClick={next}
+          type="button"
+          aria-label="Next"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M2.4 2.6v10.8L10.2 8 2.4 2.6Zm9.2 0h2v10.8h-2V2.6Z" />
+          </svg>
+        </button>
+      </div>
+
+      <a
+        className="flex-none text-[10px] font-light uppercase tracking-[0.08em] text-[#8a8380] transition-colors duration-200 hover:text-[#3f3c3a]"
+        href={track.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        YouTube
+      </a>
 
       <div className="about-lp__youtube" aria-hidden="true">
         <div id="about-youtube-player" />

@@ -107,7 +107,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
           onMouseEnter={animateLogo}
         >
           <span
-            className="inline-flex items-center gap-2 text-[13px] font-light leading-none tracking-normal text-[#34302e]"
+            className="inline-flex items-center leading-none text-[#34302e]"
             ref={logoRef}
           >
             <span
@@ -116,7 +116,6 @@ export function SiteNav({ home = false }: { home?: boolean }) {
             >
               𓇼
             </span>
-            <span>Kristi Kim</span>
           </span>
         </Link>
 

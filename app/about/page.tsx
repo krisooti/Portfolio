@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 
 import { HighlightText } from "../HighlightText";
 import { SiteNav } from "../SiteNav";
-import { AboutMusicPlayer } from "./AboutMusicPlayer";
 import ProfileCarousel from "./ProfileCarousel";
 import { ToolboxSection } from "./ToolboxSection";
 
@@ -76,8 +75,6 @@ export default function AboutPage() {
         "
       >
         <ProfileCarousel />
-
-        <AboutMusicPlayer />
 
         <AboutSection title="Designing with curiosity and empathy.">
           <div className="grid max-w-[840px] gap-[18px]">

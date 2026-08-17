@@ -66,19 +66,35 @@ export function useReveal() {
         const header = section.querySelector("[data-gsap-header]");
         const body = section.querySelector("[data-gsap-body]");
         const bodyItems = body
-          ? Array.from(body.children).filter(
-              (child) => !child.hasAttribute("data-gsap-skip"),
-            )
+          ? Array.from(body.children).flatMap((child) => {
+              if (!(child instanceof HTMLElement)) {
+                return [];
+              }
+
+              if (child.hasAttribute("data-gsap-skip")) {
+                return [];
+              }
+
+              if (child.classList.contains("about-intro-copy")) {
+                return Array.from(child.children).filter(
+                  (item): item is HTMLElement => item instanceof HTMLElement,
+                );
+              }
+
+              return [child];
+            })
           : [];
-        const visualItems = section.querySelectorAll(
-          "[data-gsap-image], figure img, figure video",
-        );
+        const visualItems = Array.from(
+          section.querySelectorAll<HTMLElement>(
+            "[data-gsap-image], figure img, figure video",
+          ),
+        ).filter((item) => !item.closest("[data-gsap-skip]"));
         const hasVisualItems = visualItems.length > 0;
 
         gsap.set(section, { autoAlpha: 0, y: 40 });
         const staggerItems = [header, ...bodyItems].filter(Boolean);
 
-        gsap.set(staggerItems, { autoAlpha: 0, y: 18 });
+        gsap.set(staggerItems, { autoAlpha: 0, y: 22 });
         if (hasVisualItems) {
           gsap.set(visualItems, { autoAlpha: 0, y: 24, scale: 0.98 });
         }
@@ -103,11 +119,11 @@ export function useReveal() {
             {
               autoAlpha: 1,
               y: 0,
-              duration: 0.55,
-              ease: "power2.out",
-              stagger: 0.08,
+              duration: 0.85,
+              ease: "power3.out",
+              stagger: 0.14,
             },
-            "-=0.5",
+            "-=0.45",
           );
 
         if (hasVisualItems) {

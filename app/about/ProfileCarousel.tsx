@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HighlightText } from "../HighlightText";
+import { AboutMusicPlayer } from "./AboutMusicPlayer";
 
 const RESUME_URL = "/resume/Kristi_Kim_Resume.pdf";
 const EMAIL = "krisooti08@gmail.com";
@@ -29,7 +30,7 @@ const contactLinkClassName = `
 export default function ProfileCarousel() {
   return (
     <section
-      className="about-hero-redesign profile-photo-stack-section mx-auto min-h-[58vh] w-[min(100%,960px)]"
+      className="about-hero-redesign profile-photo-stack-section mx-auto w-[min(100%,960px)]"
       aria-labelledby="about-title"
       data-gsap-section
     >
@@ -38,15 +39,15 @@ export default function ProfileCarousel() {
           about-section-panel
           profile-photo-stack-layout
           grid
-          grid-cols-[minmax(260px,0.86fr)_minmax(0,1fr)]
-          items-center
-          gap-[clamp(30px,5vw,72px)]
+          grid-cols-[auto_minmax(0,1fr)]
+          items-start
+          gap-8
           max-[700px]:grid-cols-1
-          max-[700px]:gap-y-[34px]
+          max-[700px]:gap-y-8
         "
         data-gsap-body
       >
-        <div className="profile-photo-stack-area">
+        <div className="profile-photo-stack-area" data-gsap-skip>
           <figure className="profile-stack-photo profile-stack-photo-static">
             <img
               className="profile-photo-image"
@@ -56,7 +57,7 @@ export default function ProfileCarousel() {
           </figure>
         </div>
 
-        <div className="about-intro-copy grid gap-5">
+        <div className="about-intro-copy grid gap-6">
           <h1
             id="about-title"
             className="
@@ -106,7 +107,7 @@ export default function ProfileCarousel() {
             feel approachable while solving real problems.
           </p>
 
-          <div className="mt-2 flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
               href={RESUME_URL}
               target="_blank"
@@ -128,6 +129,8 @@ export default function ProfileCarousel() {
               <HighlightText>Email</HighlightText>
             </a>
           </div>
+
+          <AboutMusicPlayer />
         </div>
       </div>
     </section>

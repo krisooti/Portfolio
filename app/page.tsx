@@ -86,7 +86,6 @@ function ProjectCard({ project }: { project: Project }) {
         <h2 className="project-card__title">
           <HighlightText>{displayTitle}</HighlightText>
         </h2>
-        <p className="project-card__description">{project.overview}</p>
         <ul className="project-card__supporting">
           {project.tags.slice(0, 3).map((tag) => (
             <li key={tag}>{tag}</li>
