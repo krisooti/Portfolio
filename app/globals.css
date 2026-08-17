@@ -804,8 +804,8 @@ a {
 
 .profile-photo-stack-area {
   position: relative;
-  width: min(100%, 420px);
-  min-height: 444px;
+  width: min(100%, 380px);
+  min-height: 400px;
   margin: 0 auto;
   perspective: 900px;
 }
@@ -818,7 +818,7 @@ a {
   top: 0;
   left: 50%;
   display: grid;
-  width: min(100%, 292px);
+  width: min(100%, 264px);
   gap: 0;
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: 6px;
@@ -2474,12 +2474,12 @@ a {
   }
 
   .profile-photo-stack-area {
-    width: min(100%, 320px);
-    min-height: 406px;
+    width: min(100%, 300px);
+    min-height: 368px;
   }
 
   .profile-stack-photo {
-    width: min(100%, 260px);
+    width: min(100%, 236px);
   }
 
   .profile-photo-placeholder {

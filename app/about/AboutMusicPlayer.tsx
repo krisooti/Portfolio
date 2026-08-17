@@ -157,7 +157,7 @@ export function AboutMusicPlayer() {
 
   return (
     <aside
-      className="about-lp-player mx-auto mt-[clamp(28px,4vw,40px)] flex w-[min(100%,960px)] items-center gap-6 max-[560px]:mt-6 max-[560px]:items-start"
+      className="about-lp-player mx-auto mt-[clamp(28px,4vw,40px)] flex w-fit max-w-[min(100%,520px)] items-center gap-6 max-[560px]:mt-6 max-[560px]:items-start"
       data-gsap-skip
     >
       <div
