@@ -62,13 +62,16 @@ export function SiteNav({ home = false }: { home?: boolean }) {
 
   return (
     <header
-      className="fixed left-0 top-0 z-50 grid w-full grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center border-b border-black/[0.05] bg-[rgba(255,253,252,0.82)] px-[clamp(24px,10vw,160px)] py-[18px] backdrop-blur-[18px] max-[560px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-3 max-[560px]:px-[18px] max-[560px]:py-4"
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 max-[560px]:px-3 max-[560px]:pt-3"
       aria-label="Primary navigation"
-      data-gsap-nav
     >
+      <div
+        className="pointer-events-auto mx-auto grid w-full max-w-[1400px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center rounded-full border border-white/70 bg-[rgba(255,255,255,0.42)] px-6 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_28px_rgba(23,23,23,0.05)] backdrop-blur-[24px] max-[560px]:grid-cols-1 max-[560px]:justify-items-center max-[560px]:gap-3 max-[560px]:rounded-[22px] max-[560px]:px-4 max-[560px]:py-3"
+        data-gsap-nav
+      >
       <Link
         href="/"
-        className="inline-flex items-center justify-self-start text-[#171717] max-[560px]:justify-self-center"
+        className="group inline-flex items-center justify-self-start text-[#171717] max-[560px]:justify-self-center"
         aria-label="Kristi Kim homepage"
         onFocus={animateLogo}
         onMouseEnter={animateLogo}
@@ -77,7 +80,10 @@ export function SiteNav({ home = false }: { home?: boolean }) {
           className="inline-flex items-center gap-2 text-[13px] font-light leading-none tracking-normal text-[#34302e]"
           ref={logoRef}
         >
-          <span aria-hidden="true" className="font-serif text-[24px] leading-none">
+          <span
+            aria-hidden="true"
+            className="inline-block origin-center font-serif text-[24px] leading-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out group-hover:rotate-180 group-focus-visible:rotate-180"
+          >
             𓇼
           </span>
           <span>Kristi Kim</span>
@@ -123,6 +129,7 @@ export function SiteNav({ home = false }: { home?: boolean }) {
         </div>
       </nav>
       <span className="justify-self-end" aria-hidden="true" />
+      </div>
     </header>
   );
 }

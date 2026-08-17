@@ -16,19 +16,46 @@ const featuredProjects = featuredProjectOrder
   .map((slug) => projects.find((project) => project.slug === slug))
   .filter((project): project is Project => Boolean(project));
 
+function CollaborateCard() {
+  return (
+    <a
+      href="mailto:krisooti08@gmail.com"
+      className="project-card project-card--glass group relative grid h-full w-full grid-cols-1 content-start focus-visible:outline-none"
+      aria-label="This could be our project together"
+      data-gsap-card
+      data-project-card
+    >
+      <div className="project-image project-card__image relative aspect-[4/3] w-full overflow-hidden p-0">
+        <div
+          className="flex h-full w-full items-center justify-center bg-[rgba(255,255,255,0.35)]"
+          aria-hidden="true"
+        />
+      </div>
+      <div className="project-card__content">
+        <h2 className="project-card__title">
+          <HighlightText>this could be our project together...</HighlightText>
+        </h2>
+      </div>
+    </a>
+  );
+}
+
 function ProjectCard({ project }: { project: Project }) {
   const displayTitle =
-    project.slug === "tmind-ai" ? "AI-Powered Supervisor Matching System, Tmind AI" : project.title;
+    project.slug === "tmind-ai"
+      ? "AI-Powered Supervisor Matching System"
+      : project.title;
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="project-card group relative grid h-full w-full grid-cols-1 content-start gap-[18px] bg-transparent transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none"
+      className="project-card project-card--glass group relative grid h-full w-full grid-cols-1 content-start focus-visible:outline-none"
       aria-label={`Open ${project.title} case study`}
       data-gsap-card
+      data-project-card
     >
       <div
-        className={`project-image relative aspect-[4/3] w-full overflow-hidden bg-transparent p-0 transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${project.imageClass}`}
+        className={`project-image project-card__image relative aspect-[4/3] w-full overflow-hidden p-0 ${project.imageClass}`}
       >
         {project.slug === "tmind-ai" ? (
           <div className="tmind-thumbnail">
@@ -37,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         ) : project.cardImage ? (
           <img
-            className="block h-full w-full object-contain object-center transition-transform duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+            className="block h-full w-full object-cover object-center"
             src={project.cardImage.src}
             alt={project.cardImage.alt}
           />
@@ -49,13 +76,19 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-      <div className="grid content-center gap-[7px] p-0">
-        <p className="m-0 text-[11px] font-light uppercase leading-[1.3] tracking-normal text-[#8a8583]">
-          {project.category}
+      <div className="project-card__content">
+        <p className="project-card__category">
+          <HighlightText>{project.category}</HighlightText>
         </p>
-        <h2 className="m-0 font-sans text-[20px] font-medium leading-[1.15] tracking-normal text-[#343434]">
+        <h2 className="project-card__title">
           <HighlightText>{displayTitle}</HighlightText>
         </h2>
+        <p className="project-card__description">{project.overview}</p>
+        <ul className="project-card__supporting">
+          {project.tags.slice(0, 3).map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </div>
     </Link>
   );
@@ -63,31 +96,27 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-transparent">
       <SiteNav home />
 
       <section
-        className="mx-auto min-h-[clamp(620px,86vh,900px)] w-full max-w-[1400px] px-8 pb-[clamp(64px,8vh,96px)] pt-[140px] max-[820px]:min-h-[clamp(540px,78vh,700px)] max-[560px]:min-h-0 max-[560px]:px-[22px] max-[560px]:pb-[72px] max-[560px]:pt-[124px]"
+        className="mx-auto w-full max-w-[1400px] px-8 pt-[140px] pb-[72px] max-[560px]:px-[22px] max-[560px]:pb-[56px] max-[560px]:pt-[120px]"
         aria-labelledby="hero-title"
         data-home-hero
       >
-        <div className="grid grid-cols-12 items-start gap-[clamp(80px,7vw,120px)] max-[980px]:gap-16 max-[820px]:grid-cols-2 max-[560px]:grid-cols-1 max-[560px]:gap-8">
+        <div className="flex w-full flex-col items-start gap-8 text-left">
           <h1
-            aria-label="Kristi is an interdisciplinary product designer, thinker, and creator who sometimes codes"
+            aria-label="Kristi designs for people, obsesses over the details, and occasionally turns her ideas into code"
             id="hero-title"
-            className="col-span-5 mb-0 mt-0 font-serif text-[36px] font-medium leading-[1.05] tracking-[-0.03em] text-[#171717] max-[820px]:col-span-1 max-[560px]:col-span-1"
+            className="home-hero-title mb-0 mt-0 w-fit max-w-[860px]"
             data-home-hero-title
           >
-            <span className="block">
-              Kristi is an interdisciplinary product designer, thinker, and{" "}
-              <span className="inline-block whitespace-nowrap">
-                creator who <LoopingTypedPhrase />
-              </span>
-            </span>
+            Kristi designs for people, obsesses over the details, and occasionally{" "}
+            <LoopingTypedPhrase key="turns-her-ideas-into-code" />
           </h1>
 
           <p
-            className="col-start-7 col-end-13 mb-0 mt-8 w-full max-w-[560px] whitespace-nowrap text-left font-mono text-[14px] font-light uppercase leading-[1.55] tracking-[0.08em] text-[#6f6a67] max-[820px]:col-start-2 max-[820px]:col-end-3 max-[820px]:mt-12 max-[820px]:whitespace-normal max-[600px]:col-span-1 max-[560px]:col-start-auto max-[560px]:mt-4"
+            className="home-hero-meta mb-0 mt-0"
             data-home-about-meta
           >
             Born in South Korea
@@ -100,21 +129,22 @@ export default function Home() {
       </section>
 
       <section
-        className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-start gap-[clamp(54px,7vw,92px)] px-8 pb-[104px] pt-0 max-[980px]:gap-[clamp(40px,6vw,64px)] max-[560px]:gap-[48px] max-[560px]:px-[22px] max-[560px]:pb-[76px]"
+        className="mx-auto w-full max-w-[1400px] px-8 pb-[104px] pt-0 max-[560px]:px-[22px] max-[560px]:pb-[76px]"
         id="work"
         aria-label="Featured projects"
         data-gsap-section
+        data-projects-section
       >
         <div
-          className="grid min-w-0 grid-cols-2 items-stretch gap-[clamp(22px,2.4vw,36px)] max-[760px]:grid-cols-1 max-[560px]:gap-7"
+          className="grid min-w-0 grid-cols-2 items-stretch gap-8 max-[760px]:grid-cols-1 max-[560px]:gap-6"
           data-gsap-body
         >
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
+          <CollaborateCard />
         </div>
       </section>
-
     </main>
   );
 }

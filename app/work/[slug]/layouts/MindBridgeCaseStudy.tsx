@@ -13,18 +13,12 @@ import {
 
 const mindBridgeSections = [
   { id: "overview", label: "Overview", number: "01" },
-  { id: "what-is-tmind", label: "Project Context", number: "02" },
-  { id: "context", label: "Challenge", number: "03" },
-  { id: "research", label: "Research", number: "04" },
-  { id: "design-opportunities", label: "Opportunities", number: "05" },
-  { id: "design-decisions", label: "Decisions", number: "06" },
-  { id: "design-system", label: "System", number: "07" },
-  { id: "final-solution", label: "Solution", number: "08" },
-  { id: "results-learnings", label: "Learnings", number: "09" },
+  { id: "context", label: "Challenge", number: "02" },
+  { id: "research", label: "Research", number: "03" },
+  { id: "design-decisions", label: "Decisions", number: "04" },
+  { id: "design-system", label: "Design", number: "05" },
+  { id: "final-solution", label: "Solution", number: "06" },
 ];
-
-const TMIND_SECTION_TITLE_CLASS =
-  "m-0 !font-sans !font-medium !tracking-[-0.02em] text-[#171717]";
 
 const researchFindings = [
   {
@@ -139,7 +133,6 @@ export function MindBridgeCaseStudy({
             id="what-is-tmind"
             category="Project Context"
             title="What is Tmind AI?"
-            titleClassName={TMIND_SECTION_TITLE_CLASS}
           >
             <div className="w-full">
               <p className="mb-0 mt-5 text-[16px] font-normal leading-[1.7] text-[#5d5856]">
@@ -155,7 +148,6 @@ export function MindBridgeCaseStudy({
         <CaseSection
   id="context"
   title="The Challenge"
-  titleClassName={TMIND_SECTION_TITLE_CLASS}
 >
   <div className="max-w-[920px]">
 
@@ -409,7 +401,6 @@ export function MindBridgeCaseStudy({
 <CaseSection
   id="design-opportunities"
   title="Design Opportunities"
-  titleClassName={TMIND_SECTION_TITLE_CLASS}
 >
   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
     {designOpportunities.map((opportunity) => (
@@ -428,7 +419,7 @@ export function MindBridgeCaseStudy({
           max-[560px]:py-5
         "
       >
-        <h3 className="m-0 text-[16px] font-semibold leading-[1.3] text-[#656565]">
+        <h3 className="m-0 font-sans text-[16px] font-semibold leading-[1.3] text-[#656565]">
           {opportunity.title}
         </h3>
 
@@ -450,7 +441,6 @@ export function MindBridgeCaseStudy({
 <CaseSection
   id="design-decisions"
   title="Early Concept Exploration"
-  titleClassName={TMIND_SECTION_TITLE_CLASS}
 >
   <figure className="mb-12 w-full">
     <img
@@ -493,7 +483,6 @@ export function MindBridgeCaseStudy({
             id="design-system"
             label="Design System"
             title="A restrained visual system built for clarity and trust."
-            titleClassName={TMIND_SECTION_TITLE_CLASS}
           >
             <figure className="mb-12 w-full">
               <img
@@ -519,7 +508,6 @@ We created reusable components for recurring elements such as buttons, input fie
   id="match-insight"
   label="Main Feature"
   title="Making AI Recommendations Explainable"
-  titleClassName={TMIND_SECTION_TITLE_CLASS}
 >
   <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
     {/* Left: Image */}
@@ -565,7 +553,7 @@ We created reusable components for recurring elements such as buttons, input fie
                 return (
                   <article
                     key={feature.title}
-                    className="grid gap-8"
+                    className="grid gap-3"
                   >
                     {/* Feature Title */}
                     <h3
@@ -582,6 +570,7 @@ We created reusable components for recurring elements such as buttons, input fie
                     {video ? (
                       <CaseVideo
                         caption={video.caption}
+                        className="my-0"
                         poster={video.poster}
                         src={video.src}
                       />
@@ -629,7 +618,6 @@ We created reusable components for recurring elements such as buttons, input fie
             id="results-learnings"
             label="Results + Learnings"
             title="What We Validated"
-            titleClassName={TMIND_SECTION_TITLE_CLASS}
           >
             <div className="grid w-full gap-12">
               <div>

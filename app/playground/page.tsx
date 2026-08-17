@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 
 export default function PlaygroundPage() {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-transparent">
       <SiteNav />
 
       <article
         className="
           mx-auto
           w-[min(100%,1120px)]
-          bg-[#fffdfc]
+          bg-transparent
           px-[clamp(20px,5vw,64px)]
           pb-[120px]
           pt-[140px]
@@ -58,13 +58,12 @@ export default function PlaygroundPage() {
               className="
                 m-0
                 max-w-[1040px]
-                font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
-                text-[26px]
-                font-light
-                leading-[1.2]
-                tracking-normal
+                font-serif
+                text-[clamp(32px,4vw,42px)]
+                font-normal
+                leading-[1.12]
+                tracking-[-0.035em]
                 text-[#171717]
-                max-[560px]:text-[23px]
               "
             >
               <HighlightText>Archive (2026)</HighlightText>

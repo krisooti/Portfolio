@@ -23,16 +23,13 @@ function AboutSection({
     <section
       className="
         about-story-section
+        about-section-panel
         mx-auto
-        mt-[clamp(82px,11vw,132px)]
+        mt-[clamp(28px,4vw,40px)]
         grid
         w-[min(100%,960px)]
         gap-0
-        border-t
-        border-[var(--line)]
-        pt-[clamp(54px,7vw,78px)]
-        max-[560px]:mt-[72px]
-        max-[560px]:pt-11
+        max-[560px]:mt-6
       "
       data-gsap-section
     >
@@ -41,13 +38,12 @@ function AboutSection({
           mb-5
           mt-0
           max-w-[1040px]
-          font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
-          text-[26px]
-          font-light
+          font-serif
+          text-[28px]
+          font-normal
           leading-[1.2]
-          tracking-normal
-          text-[#171717]
-          max-[560px]:text-[23px]
+          tracking-[-0.03em]
+          text-[#3f3c3a]
         "
         data-gsap-header
       >
@@ -61,14 +57,14 @@ function AboutSection({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-transparent">
       <SiteNav />
 
       <article
         className="
           mx-auto
           w-[min(100%,1120px)]
-          bg-[#fffdfc]
+          bg-transparent
           px-[clamp(20px,5vw,64px)]
           pb-[120px]
           pt-[140px]
@@ -94,7 +90,11 @@ export default function AboutPage() {
               "
             >
               My interest in design began from wanting to understand
-              people—their behaviors, frustrations, and everyday experiences.
+              people—
+              <HighlightText className="marker-highlight--static">
+                their behaviors, frustrations, and everyday experiences
+              </HighlightText>
+              .
               Through UX, I discovered that the best product aren&apos;t just
               made pretty —they make people feel understood.
             </p>

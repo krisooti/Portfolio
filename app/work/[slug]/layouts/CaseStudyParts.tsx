@@ -22,6 +22,9 @@ const CENTERED_CONTENT_CLASS =
 const EDITORIAL_TEXT_CLASS =
   CENTERED_CONTENT_CLASS;
 
+const CASE_HEADING_CLASS =
+  "m-0 font-serif text-[28px] font-normal leading-[1.2] tracking-[-0.03em] text-[#3f3c3a]";
+
 export function CaseSection({
   category,
   id,
@@ -67,8 +70,7 @@ export function CaseSection({
           ) : (
             <h2
               className={
-                titleClassName ??
-                "m-0 text-[clamp(24px,2.5vw,28px)] font-medium leading-[1.18] tracking-[-0.02em] text-[#171717]"
+                titleClassName ?? CASE_HEADING_CLASS
               }
             >
               {title}
@@ -116,10 +118,6 @@ export function CaseVisual({
           </div>
         </div>
       )}
-
-      <figcaption className="mt-3 w-full text-left text-[12px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
-        {label}
-      </figcaption>
     </figure>
   );
 }
@@ -133,7 +131,7 @@ export function CaseInsightPanel({
 }) {
   return (
     <aside className="mt-10 w-full border-t border-[#e6dfdb] pt-6">
-      <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
+      <h3 className={CASE_HEADING_CLASS}>
         <HighlightText>{title}</HighlightText>
       </h3>
 
@@ -169,7 +167,7 @@ export function CaseSolutionFeature({
       <CaseVisual image={image} label={title} />
 
       <div className={EDITORIAL_TEXT_CLASS}>
-        <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.01em] text-[#171717]">
+        <h3 className={CASE_HEADING_CLASS}>
           <HighlightText>{title}</HighlightText>
         </h3>
 
@@ -205,7 +203,7 @@ export function CaseVideo({
       : undefined;
 
   return (
-    <figure className={`my-14 w-full ${className}`}>
+    <figure className={`w-full ${className || "my-14"}`}>
       {frame === "browser" ? (
         <div className="w-full overflow-hidden rounded-2xl border border-[#e6dfdb] bg-[#f7f4f1] shadow-[0_18px_44px_rgba(17,17,17,0.06)]">
           <div className="flex items-center justify-between border-b border-[#e6dfdb] bg-[#fffdfc] px-4 py-3">
@@ -274,7 +272,7 @@ export function CaseStudyShell({
   }>;
 }) {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-transparent">
       <SiteNav />
       <CaseStudyNav sections={sections} />
       {children}
@@ -351,7 +349,7 @@ export function ProjectCaseIntro({
             {projectTags.map((tag) => (
               <span
                 key={tag}
-                className="border border-[#d8d3d0] px-3 py-1 text-[11px] font-normal uppercase tracking-[0.08em] text-[#74706e]"
+                className="rounded-full border border-[#d8d3d0] px-3 py-1 text-[11px] font-normal uppercase tracking-[0.08em] text-[#74706e]"
               >
                 {tag}
               </span>
@@ -360,7 +358,7 @@ export function ProjectCaseIntro({
         ) : null}
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-          <h1 className="m-0 font-serif text-[30px] font-medium leading-[1.15] tracking-[-0.02em] text-[#171717]">
+          <h1 className={CASE_HEADING_CLASS}>
             {project.title}
           </h1>
         </div>
@@ -399,7 +397,7 @@ export function ProjectCaseIntro({
         ) : null}
 
         <div className="min-w-0">
-          <h2 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+          <h2 className={CASE_HEADING_CLASS}>
             Project Overview
           </h2>
 
@@ -428,7 +426,7 @@ export function ReturnToWorkSection() {
 
 export function ProjectNotFound() {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-transparent">
       <SiteNav />
 
       <section className="px-[clamp(20px,5vw,64px)] py-20">

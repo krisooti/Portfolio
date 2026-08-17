@@ -1,8 +1,30 @@
 import Link from "next/link";
 import { HighlightText } from "../HighlightText";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/136-JmSMxNNClZBRh74sGuPs39FnmjjCZ/view?usp=sharing";
+const RESUME_URL = "/resume/Kristi_Kim_Resume.pdf";
+const EMAIL = "krisooti08@gmail.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/kristiskim/";
+
+const contactLinkClassName = `
+  inline-flex
+  w-fit
+  items-center
+  border
+  border-[#ddd8d5]
+  px-4
+  py-2
+  text-[12px]
+  font-light
+  leading-none
+  text-[#4f4a48]
+  transition-colors
+  duration-200
+  ease-out
+  hover:border-[#c9c2be]
+  hover:text-[#171717]
+  focus-visible:border-[#c9c2be]
+  focus-visible:outline-none
+`;
 
 export default function ProfileCarousel() {
   return (
@@ -13,6 +35,7 @@ export default function ProfileCarousel() {
     >
       <div
         className="
+          about-section-panel
           profile-photo-stack-layout
           grid
           grid-cols-[minmax(260px,0.86fr)_minmax(0,1fr)]
@@ -30,9 +53,6 @@ export default function ProfileCarousel() {
               src="/images/kristi-about.jpg"
               alt="Kristi in Seattle"
             />
-            <figcaption className="profile-photo-caption">
-              This is me :)
-            </figcaption>
           </figure>
         </div>
 
@@ -42,14 +62,13 @@ export default function ProfileCarousel() {
             className="
               m-0
               max-w-full
-              font-['Bradley_Hand','Comic_Sans_MS','Segoe_Print',cursive]
+              font-serif
               text-[28px]
-              font-light
+              font-normal
               leading-[1.2]
-              tracking-normal
-              text-[#171717]
+              tracking-[-0.03em]
+              text-[#3f3c3a]
               max-[560px]:w-full
-              max-[560px]:text-[25px]
             "
           >
             <HighlightText>Hi there! I&apos;m Kristi</HighlightText>
@@ -87,35 +106,28 @@ export default function ProfileCarousel() {
             feel approachable while solving real problems.
           </p>
 
-          <Link
-            href={RESUME_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              mt-2
-              inline-flex
-              w-fit
-              items-center
-              border
-              border-[#ddd8d5]
-              px-4
-              py-2
-              text-[12px]
-              font-light
-              leading-none
-              text-[#4f4a48]
-              transition-colors
-              duration-200
-              ease-out
-              hover:border-[#c9c2be]
-              hover:text-[#171717]
-              focus-visible:border-[#c9c2be]
-              focus-visible:outline-none
-            "
-            aria-label="Open Kristi's resume in a new tab"
-          >
-            <HighlightText>Resume ↗</HighlightText>
-          </Link>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <Link
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contactLinkClassName}
+              aria-label="Open Kristi's resume in a new tab"
+            >
+              <HighlightText>Resume ↗</HighlightText>
+            </Link>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contactLinkClassName}
+            >
+              <HighlightText>LinkedIn ↗</HighlightText>
+            </a>
+            <a href={`mailto:${EMAIL}`} className={contactLinkClassName}>
+              <HighlightText>Email</HighlightText>
+            </a>
+          </div>
         </div>
       </div>
     </section>

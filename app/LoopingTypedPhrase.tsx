@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const PHRASE = "sometimes codes";
+const PHRASE = "turns her ideas into code.";
 const TYPE_DELAY = 80;
 const DELETE_DELAY = 42;
-const COMPLETE_PAUSE = 2000;
+const COMPLETE_PAUSE = 3000;
 const EMPTY_PAUSE = 600;
 
 export function LoopingTypedPhrase() {
@@ -86,7 +86,7 @@ export function LoopingTypedPhrase() {
   return (
     <span
       aria-hidden="true"
-      className="relative inline-block align-baseline font-mono text-[0.93em] font-medium tracking-[-0.025em] text-[#595959]"
+      className="home-hero-typed relative inline-block align-baseline whitespace-nowrap font-serif italic tracking-[-0.03em] text-[#4f4a48]"
     >
       <span className="invisible">{PHRASE}_</span>
       <span className="absolute inset-0 whitespace-nowrap">
