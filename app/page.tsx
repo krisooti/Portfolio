@@ -35,6 +35,9 @@ function CollaborateCard() {
         <h2 className="project-card__title">
           <HighlightText>this could be our project together...</HighlightText>
         </h2>
+        <p className="project-card__description">
+          let&apos;s build something together
+        </p>
       </div>
     </a>
   );

@@ -293,6 +293,131 @@ a {
   padding: clamp(24px, 4vw, 40px);
 }
 
+.about-lp-player {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 28px rgba(23, 23, 23, 0.05);
+  padding: 20px 24px;
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(140%);
+}
+
+.about-lp-player::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.08) 46%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.about-lp-player > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-lp {
+  flex: none;
+  width: 132px;
+  height: 132px;
+}
+
+.about-lp__disc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 18%, rgba(255, 255, 255, 0.08) 18.5%, transparent 19%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      #2a2726 0 1px,
+      #3a3634 2px,
+      #1f1c1b 3px
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 10px 28px rgba(23, 23, 23, 0.12);
+}
+
+.about-lp.is-playing .about-lp__disc {
+  animation: about-lp-spin 8s linear infinite;
+}
+
+.about-lp__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.about-lp__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd8d5;
+  background: transparent;
+  padding: 0;
+  color: #4f4a48;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.about-lp__control svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.about-lp__control:hover:not(:disabled),
+.about-lp__control:focus-visible:not(:disabled) {
+  border-color: #c9c2be;
+  color: #171717;
+  outline: none;
+}
+
+.about-lp__control:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.about-lp__youtube {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes about-lp-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .home-hero-title {
   color: #171717;
   font-family: var(--font-instrument-serif), "Iowan Old Style", Palatino, Georgia, serif;
@@ -467,7 +592,7 @@ a {
   font-family: var(--font-instrument-serif), "Iowan Old Style", Palatino, Georgia, serif;
   font-size: clamp(24px, 2.2vw, 30px);
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
@@ -2406,6 +2531,7 @@ a {
   .toolkit-doodle,
   .marker-highlight::before,
   .profile-stack-photo,
+  .about-lp__disc,
   .about-intro-copy h1,
   .about-intro-copy p,
   .dog-card,

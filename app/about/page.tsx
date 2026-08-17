@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { HighlightText } from "../HighlightText";
 import { SiteNav } from "../SiteNav";
 import ProfileCarousel from "./ProfileCarousel";
+import { AboutMusicPlayer } from "./AboutMusicPlayer";
 import { ToolboxSection } from "./ToolboxSection";
 
 export const metadata: Metadata = {
@@ -76,6 +77,8 @@ export default function AboutPage() {
       >
         {/* Profile Carousel */}
         <ProfileCarousel />
+
+        <AboutMusicPlayer />
 
         {/* About Me */}
         <AboutSection title="Designing with curiosity and empathy.">
