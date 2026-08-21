@@ -5,11 +5,13 @@ import { HighlightText } from "../../../HighlightText";
 import { SiteNav } from "../../../SiteNav";
 import { CaseStudyNav } from "../CaseStudyNav";
 import type { Project } from "../../../projects";
+import { projects } from "../../../projects";
 import type {
   CaseStudyContent,
   CaseVisualImage,
 } from "../caseStudies/types";
 import { ViewportVideo } from "./ViewportVideo";
+import { NextProjectRotate } from "./NextProjectRotate";
 
 export type ProjectCaseStudyProps = {
   project: Project;
@@ -410,15 +412,23 @@ export function ProjectCaseIntro({
   );
 }
 
-export function ReturnToWorkSection() {
+const nextProjectOrder = ["tmind-ai", "Leafy", "Haven"];
+
+export function ReturnToWorkSection({
+  currentSlug,
+}: {
+  currentSlug: string;
+}) {
+  const nextProjects = nextProjectOrder
+    .filter((slug) => slug !== currentSlug)
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is Project => Boolean(project));
+
   return (
     <section className="py-14 md:py-20">
       <div className={EDITORIAL_TEXT_CLASS}>
         <p className="eyebrow">Next</p>
-
-        <Link href="/#work">
-          <HighlightText>Return to selected work</HighlightText>
-        </Link>
+        <NextProjectRotate projects={nextProjects} />
       </div>
     </section>
   );

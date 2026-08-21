@@ -10,6 +10,8 @@ import {
   ReturnToWorkSection,
   type ProjectCaseStudyProps,
 } from "./CaseStudyParts";
+import { TmindEvalMetrics } from "./TmindEvalMetrics";
+import { TmindHmwQuote } from "./TmindHmwQuote";
 
 const mindBridgeSections = [
   { id: "overview", label: "Overview", number: "01" },
@@ -18,6 +20,7 @@ const mindBridgeSections = [
   { id: "design-decisions", label: "Decisions", number: "04" },
   { id: "design-system", label: "Design", number: "05" },
   { id: "final-solution", label: "Solution", number: "06" },
+  { id: "results-learnings", label: "Results", number: "07" },
 ];
 
 const researchFindings = [
@@ -64,6 +67,12 @@ const designOpportunities = [
     description:
       "Prioritize learning goals, supervision style, modality, clinical interests, and experience over surface-level convenience.",
   },
+];
+
+const postTaskQuestions = [
+  "I understand why these supervisors were recommended.",
+  "I felt in control of the matching process.",
+  "I would trust this system to help me identify potential supervisors.",
 ];
 
 const videoFeatures = [
@@ -207,15 +216,7 @@ export function MindBridgeCaseStudy({
 
     </div>
 
-    <div className="mt-10 border-l-2 border-[var(--pink)] pl-5">
-      <p className="mb-2 mt-0 text-[11px] font-normal uppercase tracking-[0.1em] text-[#9a928e]">
-        How Might We
-      </p>
-
-      <p className="m-0 font-serif text-[20px] font-medium leading-[1.45] tracking-[-0.01em] text-[#171717]">
-        “{project.question}”
-      </p>
-    </div>
+    <TmindHmwQuote question={project.question ?? ""} />
 
   </div>
 </CaseSection>
@@ -229,7 +230,7 @@ export function MindBridgeCaseStudy({
     Research Method
   </p>
 
-  <h3 className="m-0 font-serif text-[22px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
+  <h3 className="m-0 font-serif text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-[#171717]">
     Understaing user needs through <HighlightText>interviews</HighlightText> and and surveys.
   </h3>
   <br></br>
@@ -239,32 +240,43 @@ export function MindBridgeCaseStudy({
   quantitative survey data.
 </p>
 
-<ul className="mt-6 space-y-3 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
-  <li className="flex gap-3">
-    <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8a8380]" />
-    <span>
-      <strong className="font-medium text-[#171717]">6 semi-structured interviews</strong>
-      {" "}— 30-minute sessions with <strong>3 clinical supervisors</strong> and{" "}
-      <strong>3 therapists-in-training</strong>.
-    </span>
-  </li>
+<div className="mt-6 grid gap-5 md:grid-cols-3">
+  <article className="bg-[#f3f1ef] px-6 py-7">
+    <p className="text-[10px] uppercase tracking-[0.12em] text-[#8a8380]">
+      01
+    </p>
+    <h3 className="mt-5 text-[20px] font-bold text-[#4f4b49]">
+      6 Interviews
+    </h3>
+    <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
+      30-minute sessions with 3 clinical supervisors and 3 therapists-in-training.
+    </p>
+  </article>
 
-  <li className="flex gap-3">
-    <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8a8380]" />
-    <span>
-      <strong className="font-medium text-[#171717]">15 survey responses</strong>
-      {" "}to validate interview findings and identify recurring patterns.
-    </span>
-  </li>
+  <article className="bg-[#f3f1ef] px-6 py-7">
+    <p className="text-[10px] uppercase tracking-[0.12em] text-[#8a8380]">
+      02
+    </p>
+    <h3 className="mt-5 text-[20px] font-bold text-[#4f4b49]">
+      15 Surveys
+    </h3>
+    <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
+      Validated interview findings and identified recurring patterns.
+    </p>
+  </article>
 
-  <li className="flex gap-3">
-    <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8a8380]" />
-    <span>
-      Findings were synthesized using <strong className="font-medium text-[#171717]">affinity mapping</strong> and{" "}
-      <strong className="font-medium text-[#171717]">thematic analysis</strong>.
-    </span>
-  </li>
-</ul>
+  <article className="bg-[#f3f1ef] px-6 py-7">
+    <p className="text-[10px] uppercase tracking-[0.12em] text-[#8a8380]">
+      03
+    </p>
+    <h3 className="mt-5 text-[20px] font-bold text-[#4f4b49]">
+      Synthesis
+    </h3>
+    <p className="mt-3 text-[16px] leading-[1.6] text-[#66615f]">
+      Findings were mapped with affinity mapping and thematic analysis.
+    </p>
+  </article>
+</div>
 {/* Research synthesis */}
 <div className="mt-16">
   <CaseVisual
@@ -281,7 +293,7 @@ export function MindBridgeCaseStudy({
                     Key Findings
                   </p>
 
-                  <h3 className="mb-0 mt-3 max-w-[720px] font-serif text-[22px] font-small leading-[1.2] tracking-[-0.02em] text-[#171717]">
+                  <h3 className="mb-0 mt-3 max-w-[720px] font-serif text-[26px] font-small leading-[1.2] tracking-[-0.02em] text-[#171717]">
                     Three Key Insights from User Interviews and Survey Data.
                   </h3>
                 </div>
@@ -380,13 +392,7 @@ export function MindBridgeCaseStudy({
     </figcaption>
   </figure>
 
-  <h3 className="m-0 font-serif text-[20px] font-medium leading-[1.3] tracking-[-0.02em] text-[#171717]">
-    <HighlightText>
-      Exploring concepts from key research findings.
-    </HighlightText>
-  </h3>
-
-  <p className="mt-5 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+  <p className="mt-8 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
     Guided by the research findings, we explored multiple concepts for how AI
     could support the supervision matching journey. We rapidly sketched
     different approaches for onboarding, preference collection,
@@ -419,7 +425,7 @@ export function MindBridgeCaseStudy({
           max-[560px]:py-5
         "
       >
-        <h3 className="m-0 font-sans text-[16px] font-semibold leading-[1.3] text-[#656565]">
+        <h3 className="m-0 font-serif text-[20px] font-semibold leading-[1.3] text-[#656565]">
           {opportunity.title}
         </h3>
 
@@ -460,7 +466,7 @@ export function MindBridgeCaseStudy({
       Exploring this flow surfaced a key question:
     </p>
 
-    <p className="m-0 max-w-[860px] font-serif text-[22px] font-semibold leading-[1.5] tracking-[-0.02em] text-[#171717]">
+    <p className="m-0 max-w-[860px] font-serif !text-[16px] font-semibold leading-[1.5] tracking-[-0.02em] text-[#171717]">
       <span className="relative inline text-[#171717] [box-decoration-break:clone] [-webkit-box-decoration-break:clone] before:absolute before:inset-x-[-0.08em] before:bottom-[0.08em] before:-z-10 before:h-[0.72em] before:origin-left before:skew-x-[-8deg] before:bg-[#d8ecff]">
         How much should AI decide—and how much control should remain with the user?
       </span>
@@ -490,10 +496,6 @@ export function MindBridgeCaseStudy({
                 src="/images/mindbridge-design-system.png"
                 alt="MindBridge design system showing typography, components, and color palette"
               />
-
-              <figcaption className="mt-3 w-full text-[12px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
-                Design system: typography, components, and color palette
-              </figcaption>
             </figure>
 
             <p className="m-0 w-full text-[16px] font-normal leading-[1.8] text-[#5d5856]">
@@ -542,11 +544,7 @@ We created reusable components for recurring elements such as buttons, input fie
             id="final-solution"
             label="Final Solution"
           >
-            <p className="m-0 w-full text-[16px] font-normal leading-[1.8] text-[#5d5856]">
-              The final experience can be explained through three main parts.
-            </p>
-
-            <div className="mt-12 grid gap-24">
+            <div className="grid gap-24">
               {videoFeatures.map((feature, index) => {
                 const video = prototypeVideos[index];
 
@@ -557,11 +555,7 @@ We created reusable components for recurring elements such as buttons, input fie
                   >
                     {/* Feature Title */}
                     <h3
-                      className={`m-0 font-serif font-medium leading-[1.25] text-[#171717] ${
-                        feature.title === "Filtering Supervisors"
-                          ? "text-[20px]"
-                          : "text-[26px]"
-                      }`}
+                      className="m-0 font-serif text-[26px] font-medium leading-[1.25] text-[#171717]"
                     >
                       <HighlightText>{feature.title}</HighlightText>
                     </h3>
@@ -634,7 +628,46 @@ We created reusable components for recurring elements such as buttons, input fie
               </div>
 
               <div>
-                <h3 className="m-0 font-serif text-[20px] font-medium text-[#171717]">
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
+                  <HighlightText>Post-task questions</HighlightText>
+                </h3>
+                <p className="mb-0 mt-4 text-[16px] font-normal leading-[1.75] text-[#5d5856]">
+                  After viewing recommendations, participants rated standardized
+                  statements from{" "}
+                  <strong className="font-medium text-[#171717]">
+                    1 = Strongly Disagree
+                  </strong>{" "}
+                  to{" "}
+                  <strong className="font-medium text-[#171717]">
+                    5 = Strongly Agree
+                  </strong>
+                  . This made feedback comparable across sessions instead of
+                  relying only on open comments.
+                </p>
+                <ol className="mb-0 mt-5 list-none space-y-3 p-0">
+                  {postTaskQuestions.map((question, index) => (
+                    <li
+                      key={question}
+                      className="rounded-[12px] border border-[#e4e1de] bg-[#f3f1ef] px-5 py-3.5 text-[16px] font-semibold leading-[1.65] text-[#5d5856] [transform:none]"
+                    >
+                      <span className="mr-3 text-[11px] font-normal uppercase tracking-[0.1em] text-[#9a928e]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      “{question}”
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div>
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
+                  <HighlightText>What the numbers showed</HighlightText>
+                </h3>
+                <TmindEvalMetrics />
+              </div>
+
+              <div>
+                <h3 className="m-0 font-serif text-[26px] font-medium text-[#171717]">
                   <HighlightText>Key Learnings</HighlightText>
                 </h3>
 
@@ -652,7 +685,7 @@ We created reusable components for recurring elements such as buttons, input fie
             </div>
           </CaseSection>
 
-          <ReturnToWorkSection />
+          <ReturnToWorkSection currentSlug={project.slug} />
         </div>
       </article>
     </CaseStudyShell>

@@ -26,7 +26,7 @@ const visuals = {
 export const tmindAiCaseStudy: CaseStudyContent = {
   meta: {
     duration: "5 months",
-    role: "UX Researcher, Product Design, AI System",
+    role: "UX Researcher, Design Lead, PM",
     team: "3 Designers",
     sponsor: "Tmind AI",
   },

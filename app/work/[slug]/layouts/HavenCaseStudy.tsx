@@ -171,7 +171,7 @@ export function HavenCaseStudy({ project, content }: ProjectCaseStudyProps) {
             </CaseSection>
           </div>
 
-          <ReturnToWorkSection />
+          <ReturnToWorkSection currentSlug={project.slug} />
         </div>
       </article>
     </CaseStudyShell>

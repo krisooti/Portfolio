@@ -86,7 +86,7 @@ export function LoopingTypedPhrase() {
   return (
     <span
       aria-hidden="true"
-      className="home-hero-typed relative inline-block align-baseline whitespace-nowrap font-serif italic tracking-[-0.03em] text-[#4f4a48]"
+      className="home-hero-typed relative inline-block align-baseline whitespace-nowrap italic tracking-[-0.03em] text-inherit"
     >
       <span className="invisible">{PHRASE}_</span>
       <span className="absolute inset-0 whitespace-nowrap">

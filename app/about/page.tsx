@@ -62,6 +62,7 @@ export default function AboutPage() {
 
       <article
         className="
+          about-page
           mx-auto
           w-[min(100%,1120px)]
           bg-transparent

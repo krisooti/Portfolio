@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Sans, Instrument_Serif, Newsreader } from "next/font/google";
 import { AsciiFooter } from "./AsciiFooter";
+import { PageLoader } from "./PageLoader";
 import { PortfolioMotion } from "./PortfolioMotion";
 import "./globals.css";
 
@@ -14,11 +15,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
+const editorialSerif = Newsreader({
   variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
+const homeHeroSerif = Instrument_Serif({
+  variable: "--font-home-serif",
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+});
+
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -40,9 +54,10 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${editorialSerif.variable} ${homeHeroSerif.variable} ${instrumentSans.variable}`}
     >
       <body className="antialiased">
+        <PageLoader />
         <PortfolioMotion />
         {children}
         <AsciiFooter />

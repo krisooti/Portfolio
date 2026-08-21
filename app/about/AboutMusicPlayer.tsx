@@ -164,7 +164,7 @@ export function AboutMusicPlayer({
       className={`about-lp-player ${
         embedded
           ? "about-lp-player--embedded w-full max-w-none"
-          : "flex w-full min-w-0 items-center gap-3"
+          : "flex w-fit max-w-full items-center gap-3"
       }`}
       data-gsap-skip
     >
@@ -181,11 +181,11 @@ export function AboutMusicPlayer({
         </div>
       </div>
 
-      <div className="min-w-0 flex-1">
-        <p className="mb-0.5 mt-0 text-[10px] font-normal uppercase tracking-[0.08em] text-[#8a8380]">
-          Now playing
+      <div className="w-max min-w-0">
+        <p className="mb-0.5 mt-0 text-[10px] font-normal tracking-[0.04em] text-[#8a8380]">
+          I&apos;m currently listening to
         </p>
-        <p className="mb-0 mt-0 truncate font-serif text-[16px] font-normal leading-[1.2] tracking-[-0.03em] text-[#3f3c3a]">
+        <p className="mb-0 mt-0 whitespace-nowrap font-serif text-[16px] font-normal leading-[1.2] tracking-[-0.03em] text-[#3f3c3a]">
           {track.title}
         </p>
         <p className="mb-0 mt-0.5 truncate text-[12px] font-light text-[#6b6664]">
@@ -228,15 +228,6 @@ export function AboutMusicPlayer({
           </svg>
         </button>
       </div>
-
-      <a
-        className="flex-none text-[10px] font-light uppercase tracking-[0.08em] text-[#8a8380] transition-colors duration-200 hover:text-[#3f3c3a]"
-        href={track.url}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        YouTube
-      </a>
 
       <div className="about-lp__youtube" aria-hidden="true">
         <div id="about-youtube-player" />

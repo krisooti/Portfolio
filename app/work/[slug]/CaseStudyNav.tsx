@@ -12,7 +12,7 @@ type CaseStudyNavProps = {
 };
 
 export function CaseStudyNav({ sections }: CaseStudyNavProps) {
-  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? "");
+  const [activeSection, setActiveSection] = useState("");
 
   const handleNavClick = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -34,39 +34,24 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
     const sectionElements = sections
       .map((section) => document.getElementById(section.id))
       .filter((section): section is HTMLElement => Boolean(section));
-    const intersectingSections = new Map<string, number>();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            intersectingSections.set(entry.target.id, entry.boundingClientRect.top);
-          } else {
-            intersectingSections.delete(entry.target.id);
-          }
-        });
+    const updateActiveSection = () => {
+      const readingLine = window.innerHeight * 0.32;
+      const current = sectionElements.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= readingLine && rect.bottom > readingLine;
+      });
 
-        const readingLine = window.innerHeight * 0.4;
-        const closestSection = Array.from(intersectingSections.entries()).sort(
-          ([, firstTop], [, secondTop]) =>
-            Math.abs(firstTop - readingLine) - Math.abs(secondTop - readingLine),
-        )[0];
+      setActiveSection(current?.id ?? "");
+    };
 
-        if (closestSection) {
-          setActiveSection(closestSection[0]);
-        }
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: 0,
-      },
-    );
-
-    sectionElements.forEach((section) => observer.observe(section));
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      observer.disconnect();
-      intersectingSections.clear();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, [sections]);
 
@@ -76,22 +61,26 @@ export function CaseStudyNav({ sections }: CaseStudyNavProps) {
       aria-label="Case study sections"
       data-gsap-nav
     >
-      <nav className="case-sidebar-nav flex flex-col gap-6">
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={`#${section.id}`}
-            className={`w-fit text-[14px] leading-[1.15] tracking-[-0.01em] transition-[color,transform,opacity] duration-[250ms] ease-out hover:translate-x-0.5 hover:text-[#66615f] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)] motion-reduce:transition-none ${
-              activeSection === section.id
-                ? "translate-x-0.5 font-normal text-[#171717] opacity-100"
-                : "font-normal text-[#c9c7c5] opacity-80"
-            }`}
-            aria-current={activeSection === section.id ? "true" : undefined}
-            onClick={(event) => handleNavClick(event, section.id)}
-          >
-            {section.label}
-          </a>
-        ))}
+      <nav className="case-sidebar-nav">
+        {sections.map((section) => {
+          const isActive = activeSection === section.id;
+
+          return (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={`w-fit text-[13px] tracking-[-0.01em] transition-[color,transform] duration-[250ms] ease-out hover:translate-x-0.5 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)] motion-reduce:transition-none ${
+                isActive
+                  ? "is-active translate-x-0.5 text-[#171717]"
+                  : "text-[#d2cecb] hover:text-[#9a928e]"
+              }`}
+              aria-current={isActive ? "true" : undefined}
+              onClick={(event) => handleNavClick(event, section.id)}
+            >
+              {section.label}
+            </a>
+          );
+        })}
       </nav>
     </aside>
   );

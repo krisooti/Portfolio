@@ -35,7 +35,7 @@ export const projects: Project[] = [
       "MindBridge helps therapists-in-training discover supervisors aligned with their learning goals while maintaining transparency and user control throughout the matching process.",
     challenge:
       "Therapists-in-training often rely on referrals and fragmented directories to find supervisors, making the process time-consuming and difficult to evaluate.",
-    tags: ["UX Research", "Product Design", "AI", "Usability Testing"],
+    tags: ["UX Research", "Product Design", "AI"],
     problem:
       "Tmind AI is an AI-powered psychotherapy training platform that supports therapists-in-training through simulated role-play, personalized feedback, and professional development tools.",
     question:
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "Leafy is a mobile plant management experience that helps plant owners understand their plants' health and take the right action at the right time. The experience transforms plant care into clear, actionable guidance through personalized recommendations, environmental insights, and timely reminders. I led the UX research, information architecture, UX/UI design, and interactive prototyping from concept to final prototype.",
     challenge:
       "Plant owners know they need to care for their plants. The challenge is knowing when.",
-    tags: ["Mobile UX", "AI", "IoT", "Product Design"],
+    tags: ["Mobile UX", "AI", "UX Research", "Product Design"],
     duration: "6 Months",
     role: "UX Researcher, UX Designer",
     team: "Individual Project",

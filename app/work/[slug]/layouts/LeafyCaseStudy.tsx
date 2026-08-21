@@ -791,7 +791,7 @@ export function LeafyCaseStudy({
             </div>
           </div>
 
-          <ReturnToWorkSection />
+          <ReturnToWorkSection currentSlug={project.slug} />
         </div>
       </article>
     </CaseStudyShell>

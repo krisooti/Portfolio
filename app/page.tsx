@@ -123,7 +123,21 @@ export default function Home() {
           >
             Born in South Korea
             <br />
-            Studied at the University of Washington
+            Studied at the{" "}
+            <span
+              aria-describedby="uw-dawgs"
+              className="group relative inline-block cursor-help outline-none focus-visible:ring-2 focus-visible:ring-[#817b77] focus-visible:ring-offset-2"
+              tabIndex={0}
+            >
+              University of Washington
+              <span
+                className="pointer-events-none absolute bottom-[calc(100%+8px)] left-1/2 z-30 w-max -translate-x-1/2 translate-y-1 bg-[rgba(232,232,230,0.82)] px-2.5 py-1.5 text-center text-[11px] font-normal normal-case leading-none tracking-normal text-[#4f4a48] opacity-0 shadow-[0_8px_18px_rgba(23,23,23,0.07)] backdrop-blur-xl transition-[opacity,transform] duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+                id="uw-dawgs"
+                role="tooltip"
+              >
+                go dawgs!
+              </span>
+            </span>
             <br />
             Currently based in Seattle, WA
           </p>

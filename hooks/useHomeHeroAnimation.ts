@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 
+import { hasIntroPlayed, INTRO_DONE_EVENT } from "../app/PageLoader";
 import { getGSAP, prefersReducedMotion } from "../lib/gsap";
 
 export function useHomeHeroAnimation() {
@@ -39,19 +40,27 @@ export function useHomeHeroAnimation() {
 
     gsap.set(introItems, { autoAlpha: 0, y: 16 });
 
-    gsap.to(introItems, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: "power3.out",
-      onComplete: () => {
-        window.dispatchEvent(new Event("home-hero-revealed"));
-      },
-    });
+    const revealHero = () => {
+      gsap.to(introItems, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        onComplete: () => {
+          window.dispatchEvent(new Event("home-hero-revealed"));
+        },
+      });
+    };
+
+    if (hasIntroPlayed() || prefersReducedMotion()) {
+      revealHero();
+    } else {
+      window.addEventListener(INTRO_DONE_EVENT, revealHero, { once: true });
+    }
 
     if (!bio || !bioLines || bioLines.length === 0) {
-      return;
+      return () => window.removeEventListener(INTRO_DONE_EVENT, revealHero);
     }
 
     const context = gsap.context(() => {
@@ -95,6 +104,9 @@ export function useHomeHeroAnimation() {
       }
     }, hero);
 
-    return () => context.revert();
+    return () => {
+      window.removeEventListener(INTRO_DONE_EVENT, revealHero);
+      context.revert();
+    };
   });
 }

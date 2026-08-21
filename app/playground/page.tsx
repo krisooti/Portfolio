@@ -59,10 +59,10 @@ export default function PlaygroundPage() {
                 m-0
                 max-w-[1040px]
                 font-serif
-                text-[clamp(32px,4vw,42px)]
+                text-[18px]
                 font-normal
                 leading-[1.12]
-                tracking-[-0.035em]
+                tracking-[-0.03em]
                 text-[#171717]
               "
             >

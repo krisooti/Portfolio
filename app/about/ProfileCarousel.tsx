@@ -40,10 +40,11 @@ export default function ProfileCarousel() {
           profile-photo-stack-layout
           grid
           grid-cols-[auto_minmax(0,1fr)]
-          items-start
+          items-center
           gap-8
           max-[700px]:grid-cols-1
-          max-[700px]:gap-y-8
+          max-[700px]:justify-items-center
+          max-[700px]:gap-8
         "
         data-gsap-body
       >
@@ -57,7 +58,7 @@ export default function ProfileCarousel() {
           </figure>
         </div>
 
-        <div className="about-intro-copy grid gap-6">
+        <div className="about-intro-copy grid gap-5 max-[700px]:w-full max-[700px]:justify-items-start">
           <h1
             id="about-title"
             className="
