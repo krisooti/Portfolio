@@ -35,6 +35,28 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  html,
+  html * {
+    cursor: url("/cursors/dot.svg") 16 16, auto;
+  }
+
+  html a,
+  html button,
+  html [role="button"],
+  html label,
+  html summary,
+  html select {
+    cursor: url("/cursors/dot-hover.svg") 16 16, pointer;
+  }
+
+  html input,
+  html textarea,
+  html [contenteditable="true"] {
+    cursor: text;
+  }
+}
+
 body {
   margin: 0;
   background-color: var(--background);
@@ -54,6 +76,144 @@ body {
 
 body.page-loader-active {
   overflow: hidden;
+}
+
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 280px;
+  background: #1f1d1c;
+  color: #d8d2ce;
+  padding: 52px clamp(24px, 5vw, 64px) 36px;
+}
+
+.site-footer__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 196px;
+}
+
+.site-footer__meta {
+  padding-top: 4px;
+}
+
+.site-footer__name {
+  position: absolute;
+  left: clamp(16px, 3vw, 48px);
+  bottom: -0.2em;
+  z-index: 0;
+  margin: 0;
+  color: #2b2928;
+  font-family: var(--font-home-serif), "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: clamp(84px, 16vw, 220px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.82;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.site-footer__note {
+  position: relative;
+  z-index: 2;
+  align-self: flex-end;
+  width: min(248px, 72vw);
+  margin: 20px 8px 8px 0;
+  padding: 14px 10px 8px;
+  cursor: default;
+  transform: rotate(-10deg);
+  transform-origin: 70% 20%;
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-footer__note:hover,
+.site-footer__note:focus-visible {
+  z-index: 3;
+  transform: rotate(-4deg) translateY(-8px);
+}
+
+.site-footer__paper {
+  padding: 28px 22px 24px;
+  background:
+    repeating-linear-gradient(
+      transparent 0 26px,
+      rgba(239, 161, 182, 0.32) 26px 27px
+    ),
+    linear-gradient(180deg, #fffdfb 0%, #fff4ee 100%);
+  box-shadow:
+    8px 14px 28px rgba(0, 0, 0, 0.22),
+    6px 6px 0 rgba(245, 203, 214, 0.28);
+  clip-path: polygon(1.5% 4%, 97% 0%, 100% 93%, 96% 100%, 3% 98%, 0 10%);
+  transition: box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-footer__note:hover .site-footer__paper,
+.site-footer__note:focus-visible .site-footer__paper {
+  box-shadow:
+    10px 22px 36px rgba(0, 0, 0, 0.28),
+    8px 8px 0 rgba(239, 161, 182, 0.35);
+}
+
+.site-footer__tape {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  left: 50%;
+  height: 24px;
+  width: 86px;
+  border: 1px solid rgba(216, 132, 154, 0.28);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.55) 0 6px,
+      rgba(216, 132, 154, 0.22) 6px 11px
+    ),
+    rgba(245, 203, 214, 0.88);
+  box-shadow: 0 3px 8px rgba(17, 17, 17, 0.18);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.site-footer__note-text {
+  margin: 0;
+  color: #3f3c3a;
+  font-family: var(--font-home-serif), "Instrument Serif", Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    min-height: 320px;
+    padding-bottom: 28px;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 0;
+  }
+
+  .site-footer__note {
+    align-self: flex-end;
+    margin-top: 48px;
+    margin-right: 4px;
+  }
+
+  .site-footer__name {
+    font-size: clamp(64px, 22vw, 110px);
+  }
 }
 
 .page-loader {
@@ -428,6 +588,27 @@ a {
   gap: 32px;
 }
 
+.about-lp-player--corner {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  z-index: 3;
+}
+
+@media (min-width: 701px) {
+  .profile-photo-stack-layout .about-intro-copy {
+    padding-top: 84px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-lp-player--corner {
+    position: static;
+    justify-self: end;
+    order: -1;
+  }
+}
+
 .about-lp-player {
   position: relative;
   isolation: isolate;
@@ -789,9 +970,9 @@ a {
 .project-card__supporting li {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(23, 23, 23, 0.12);
+  border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.45);
+  background: #f3f1ef;
   color: #6f6967;
   font-family: var(--font-geist-mono), monospace;
   font-size: 11px;
@@ -2837,6 +3018,8 @@ a {
   .playground-photo,
   .playground-photo img,
   .playground-photo__caption,
+  .site-footer__note,
+  .site-footer__paper,
   .mini-card,
   .insight-card,
   .project-roadmap-step,

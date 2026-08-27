@@ -57,9 +57,8 @@ export const projects: Project[] = [
       "While inspiration platforms make discovering beautiful interiors easy, they fail to support the decision-making process.",
     tags: ["UX Research", "Product Strategy", "Wireframing", "High-Fidelity UI"],
     duration: "24 Hours",
-    role:
-      "UX Research, Product Strategy, User Flow, Wireframing, High-fidelity UI Design, Presentation",
-    team: "3 UX Designers",
+    role: "UX Research, UX Design Lead",
+    team: "2 UX Designers",
     sponsor: "Protothon 2026",
     problem:
       "Users know what they like visually, but struggle to understand which designer fits their style, what the work may cost, and whether they can trust a designer with their home.",

@@ -340,7 +340,7 @@ export function ProjectCaseIntro({
           ["Duration", content.meta.duration],
           ["Role", content.meta.role],
           ["Team", content.meta.team],
-          ["Sponsor", content.meta.sponsor],
+          ["Project", content.meta.sponsor],
         ];
 
   return (

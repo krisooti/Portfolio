@@ -18,9 +18,8 @@ const visuals = {
 export const havenCaseStudy: CaseStudyContent = {
   meta: {
     duration: "24 Hours",
-    role:
-      "UX Research, Product Strategy, User Flow, Prototyping, High-fidelity UI Design, Presentation",
-    team: "3 UX Designers",
+    role: "UX Research, UX Design Lead",
+    team: "2 UX Designers",
     sponsor: "Protothon 2026",
   },
 

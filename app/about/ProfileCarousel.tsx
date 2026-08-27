@@ -4,7 +4,7 @@ import { AboutMusicPlayer } from "./AboutMusicPlayer";
 
 const RESUME_URL = "/resume/Kristi_Kim_Resume.pdf";
 const EMAIL = "krisooti08@gmail.com";
-const LINKEDIN_URL = "https://www.linkedin.com/in/kristiskim/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/kristik08/";
 
 const contactLinkClassName = `
   inline-flex
@@ -38,6 +38,7 @@ export default function ProfileCarousel() {
         className="
           about-section-panel
           profile-photo-stack-layout
+          relative
           grid
           grid-cols-[auto_minmax(0,1fr)]
           items-center
@@ -130,9 +131,9 @@ export default function ProfileCarousel() {
               <HighlightText>Email</HighlightText>
             </a>
           </div>
-
-          <AboutMusicPlayer />
         </div>
+
+        <AboutMusicPlayer />
       </div>
     </section>
   );

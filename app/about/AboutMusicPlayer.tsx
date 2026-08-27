@@ -164,7 +164,7 @@ export function AboutMusicPlayer({
       className={`about-lp-player ${
         embedded
           ? "about-lp-player--embedded w-full max-w-none"
-          : "flex w-fit max-w-full items-center gap-3"
+          : "about-lp-player--corner flex w-fit max-w-full items-center gap-3"
       }`}
       data-gsap-skip
     >
